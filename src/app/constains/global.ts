@@ -1,0 +1,3 @@
+export const COLOR_TITLE_WHITE_FOOTER = '#FFFFFF';
+export const COLOR_PRIMARY_FOOTER = '#DBA83D';
+export const COLOR_GRAY_FOOTER = '#9FA6B2';

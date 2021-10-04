@@ -1,4 +1,5 @@
 import cityApi from 'api/cityApi';
+import Footer from 'app/components/Footer/Footer';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
@@ -34,6 +35,8 @@ export function HomePage() {
       <button onClick={handleClick}>Add</button>
       <h1>List user</h1>
       <ul>{renderUser}</ul>
+
+      <Footer />
     </>
   );
 }
