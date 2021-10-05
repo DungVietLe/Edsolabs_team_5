@@ -108,7 +108,7 @@ export const MenuMobile = styled.ul`
     flex-direction: column;
     li {
       width: 100%;
-      border-bottom: 1px solid #282c37;
+      border-bottom: 1px solid #171a23;
       font-style: normal;
       display: block;
       font-weight: 500;
@@ -116,12 +116,13 @@ export const MenuMobile = styled.ul`
       line-height: 20px;
       list-style: none;
       position: relative;
-      svg {
+      & > svg {
         transform: rotate(0deg);
         transition: transform 0.2s ease-in-out;
       }
       &.active {
-        svg {
+        background-color: #282c37;
+        & > svg {
           transform: rotate(270deg);
         }
       }
@@ -138,7 +139,7 @@ export const MenuMobile = styled.ul`
     }
     ul {
       li {
-        border-top: 1px solid #282c37;
+        border-top: 1px solid #171a23;
         border-bottom: none;
         padding-left: 20px;
       }

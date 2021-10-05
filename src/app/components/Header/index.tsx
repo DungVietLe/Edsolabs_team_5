@@ -138,7 +138,7 @@ const Header = props => {
               <span>Adam.Chaplin</span>
             </HeaderNav>
 
-            <li className={'active'}>
+            <li>
               <Link to="/">Pawn</Link>
             </li>
             <li>
@@ -155,7 +155,11 @@ const Header = props => {
               </Link>
               {statusMenuMobile.Myaccount ? (
                 <MenuMobile>
-                  <li className="parent">
+                  <li
+                    className={`parent ${
+                      statusMenuMobile.BorrowerProfile ? 'active' : ''
+                    }`}
+                  >
                     <Link
                       to="/"
                       onClick={() => openDownMenuMobile('BorrowerProfile')}
@@ -176,7 +180,11 @@ const Header = props => {
                     )}
                     <Arrow />
                   </li>
-                  <li className="parent">
+                  <li
+                    className={`parent ${
+                      statusMenuMobile.LenderProfile ? 'active' : ''
+                    }`}
+                  >
                     <Link
                       to="/"
                       onClick={() => openDownMenuMobile('LenderProfile')}
@@ -206,7 +214,9 @@ const Header = props => {
                   <li>
                     <Link to="/">Staking</Link>
                   </li>
-                  <li className="parent">
+                  <li
+                    className={`parent ${statusMenuMobile.NFT ? 'active' : ''}`}
+                  >
                     <Link to="/" onClick={() => openDownMenuMobile('NFT')}>
                       NFT
                     </Link>
