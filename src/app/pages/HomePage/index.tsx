@@ -1,5 +1,6 @@
 import cityApi from 'api/cityApi';
 import Footer from 'app/components/Footer/Footer';
+import Banner from 'app/components/Banner/Banner';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
@@ -37,6 +38,7 @@ export function HomePage() {
       <ul>{renderUser}</ul>
 
       <Footer />
+      <Banner />
     </>
   );
 }
