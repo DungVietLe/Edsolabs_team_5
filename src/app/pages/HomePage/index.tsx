@@ -1,4 +1,5 @@
 import cityApi from 'api/cityApi';
+import Header from 'app/components/Header';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
@@ -27,13 +28,14 @@ export function HomePage() {
   };
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>Home</title>
       </Helmet>
       <input type="text" onChange={handleValue} />
       <button onClick={handleClick}>Add</button>
       <h1>List user</h1>
-      <ul>{renderUser}</ul>
+      <ul>{renderUser}</ul> */}
+      <Header></Header>
     </>
   );
 }
