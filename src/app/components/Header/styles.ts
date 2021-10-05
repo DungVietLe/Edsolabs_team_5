@@ -7,11 +7,11 @@ export interface PropMenu {
 }
 
 export const Headers = styled.div`
+  position: fixed;
   padding: 20px 30px;
   min-height: 35px;
   max-height: 100px;
   background-color: #282c37;
-  position: relative;
   width: 100%;
   left: 0;
   top: 0;
@@ -157,27 +157,23 @@ export const MenuMobile = styled.ul`
 export const NavMobile = styled.div`
   z-index: 1;
   display: none;
-  position: absolute;
-  /* overflow: hidden; */
+  position: fixed;
+  overflow: scroll;
   width: 100vw;
-  min-height: calc(100vh - 100px);
-  /* min-height: 100vh; */
-  height: auto;
+  height: calc(100vh - 100px);
   left: 0;
   top: 100px;
   background-color: #171a23;
-  /* .wrapMenu {
-    -webkit-overflow-scrolling: touch;
-    width: 100%;
+  .wrapMenu {
+    /* width: 100%;
     height: auto;
-    position: fixed;
-    overflow: auto;
-  } */
+    overflow-y: scroll; */
+  }
   @media (max-width: 1200px) {
     display: ${(p: PropMenu) => (p.isToggle ? 'block' : 'none')};
   }
   @media (max-width: 768px) {
-    min-height: calc(100vh - 57px);
+    height: calc(100vh - 57px);
     top: 57px;
   }
 `;
