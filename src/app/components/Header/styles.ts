@@ -28,9 +28,15 @@ export const Logo = styled(Link)<{ to: any }>`
     max-width: 100%;
     max-height: 60px;
     min-width: 126px;
+    padding-right: 20px;
     @media (max-width: 768px) {
       max-height: 30px;
     }
+  }
+  width: 17%;
+  @media (max-width: 1200px) {
+    max-height: 60px;
+    max-width: 126px;
   }
 `;
 
