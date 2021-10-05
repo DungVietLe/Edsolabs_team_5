@@ -188,10 +188,12 @@ export const ListSocical = styled.div`
   display: flex;
 `;
 export const MyContainerCoppyright = styled.div`
-  width: 1180px;
+  max-width: 1180px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  padding: 0 16px;
   @media (max-width: 600px) {
     width: 100%;
     display: flex;

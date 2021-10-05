@@ -12,7 +12,7 @@ export const Headers = styled.div`
   min-height: 35px;
   max-height: 100px;
   background-color: #282c37;
-  width: 100%;
+  width: 100vw;
   left: 0;
   top: 0;
   @media (max-width: 768px) {
@@ -87,6 +87,9 @@ export const MenuDesktop = styled.ul`
   }
   @media (max-width: 1200px) {
     display: none;
+  }
+  @media (max-width: 1300px) {
+    gap: 20px;
   }
 `;
 
