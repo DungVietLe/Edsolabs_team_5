@@ -16,7 +16,7 @@ import { GlobalStyle } from 'styles/global-styles';
 import { Banner } from './pages/Banner/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
-
+import './App.css';
 export function App() {
   const { i18n } = useTranslation();
   return (
