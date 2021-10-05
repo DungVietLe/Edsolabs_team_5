@@ -166,9 +166,9 @@ export const NavMobile = styled.div`
   position: fixed;
   overflow: scroll;
   width: 100vw;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 75px);
   left: 0;
-  top: 100px;
+  top: 75px;
   background-color: #171a23;
   .wrapMenu {
     /* width: 100%;

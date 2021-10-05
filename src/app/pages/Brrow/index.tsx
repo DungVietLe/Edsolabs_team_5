@@ -1,10 +1,9 @@
-import { Grid, Box } from '@mui/material';
 import styled from 'styled-components';
 import { ReactComponent as Bank } from './icon/bank.svg';
-import { ReactComponent as Rate } from './icon/rate.svg';
-import { ReactComponent as Finance } from './icon/finance.svg';
 import { ReactComponent as Credit } from './icon/credit.svg';
-export function Banner() {
+import { ReactComponent as Finance } from './icon/finance.svg';
+import { ReactComponent as Rate } from './icon/rate.svg';
+export function Brrow() {
   const Grid = styled.section`
     background-color: #171a23;
     padding: 60px 20px;

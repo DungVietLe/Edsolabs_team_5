@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Flex, GropButtom, LinkButtom } from '../rootStyled';
+import CloseIcon from '@mui/icons-material/Close';
+import MenuIcon from '@mui/icons-material/Menu';
 import LOGO from 'assets/Image/Logo.png';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Flex, GropButtom, LinkButtom } from '../rootStyled';
 import {
   Arrow,
   HeaderNav,
@@ -13,9 +15,6 @@ import {
   NavMobile,
   Toggle,
 } from './styles';
-import { Link } from 'react-router-dom';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
 
 const Header = props => {
   const [isToggle, setIsToggle] = useState(false);
@@ -255,7 +254,5 @@ const Header = props => {
     </Headers>
   );
 };
-
-Header.propTypes = {};
 
 export default Header;
