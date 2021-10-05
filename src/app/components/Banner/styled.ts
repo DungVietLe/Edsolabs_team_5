@@ -60,6 +60,9 @@ export const MyButton = styled(Button)`
       #feca50 62.02%,
       #bd8727 101.47%
     );
+    &:hover {
+      border: none;
+    }
     border-radius: 172px;
     font-size: 20px;
     text-transform: capitalize;
