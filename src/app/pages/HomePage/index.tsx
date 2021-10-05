@@ -33,8 +33,8 @@ export function HomePage() {
       </Helmet>
       <input type="text" onChange={handleValue} />
       <button onClick={handleClick}>Add</button>
-      <h1>List user</h1>
-      <ul>{renderUser}</ul>
+      {/* <h1>List user</h1>
+      <ul>{renderUser}</ul> */}
 
       <Footer />
     </>
