@@ -1,6 +1,5 @@
 import React from 'react';
-import { Title, Pawn, Content, ViewBanner, MyButton } from './styled';
-import Button from '@mui/material/Button';
+import { Content, MyButton, Pawn, Title, ViewBanner } from './styled';
 interface Props {}
 
 const Banner = (props: Props) => {

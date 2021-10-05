@@ -4,7 +4,7 @@ import banner from '../../../images/ImageBanner/banner.png';
 export const Pawn = styled.div`
   background: #e5e5e5;
   width: 100%;
-  height: 1920px;
+  height: auto;
   background: #171a23;
   padding: 0 16px;
   @media (min-width: 200px) {
