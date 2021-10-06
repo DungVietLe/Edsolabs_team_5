@@ -1,3 +1,4 @@
+
  <svg
                   data-v-03b17e97=""
                   width="100"
@@ -5,8 +6,18 @@
                   viewBox="0 0 80 80"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-               
+               className="rate-auto"
                 >
+                   <style type="text/css">
+                   @media (max-width: 320px) {
+                   .rate-auto {
+                    width: 60px;
+                    height: 80px;
+                    float: right;
+                    padding-left:15px;
+                    }
+                   }
+                   </style>
                   <path
                     data-v-03b17e97=""
                     fillRule="evenodd"

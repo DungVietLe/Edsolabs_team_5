@@ -1,10 +1,10 @@
-import styled from 'styled-components';
 import { ReactComponent as Bank } from './icon/bank.svg';
-import { ReactComponent as Credit } from './icon/credit.svg';
-import { ReactComponent as Finance } from './icon/finance.svg';
 import { ReactComponent as Rate } from './icon/rate.svg';
+import { ReactComponent as Finance } from './icon/finance.svg';
+import { ReactComponent as Credit } from './icon/credit.svg';
+import styled from 'styled-components';
 export function Brrow() {
-  const Grid = styled.section`
+  const Grid = styled.div`
     background-color: #171a23;
     padding: 60px 20px;
   `;
@@ -16,18 +16,29 @@ export function Brrow() {
     text-align: center;
     font-family: 'Montserrat';
     font-weight: 600;
+
+    @media (max-width: 320px) {
+      font-size: 20px;
+      margin-bottom: 48px;
+      font-weight: 600;
+      line-height: 29px;
+    }
   `;
-  const BoxConTainer = styled.section`
+  const BoxConTainer = styled.div`
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     margin-right: auto;
     margin-left: auto;
+
+    @media (max-width: 480px) {
+      padding: 0;
+    }
   `;
-  const BoxRow = styled.section`
+  const BoxRow = styled.div`
     display: flex;
     flex-wrap: wrap;
   `;
-  const BoxCol = styled.section`
+  const BoxCol = styled.div`
     flex: 0 0 100%;
     max-width: 100%;
 
@@ -36,28 +47,56 @@ export function Brrow() {
       max-width: 25%;
     }
   `;
-  const BoxCenter = styled.section`
+  const BoxCenter = styled.div`
     text-align: center;
     color: #fff;
     margin-bottom: 40px;
+
+    @media (max-width: 480px) {
+      margin-bottom: 50px;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   `;
-  const BoxShort = styled.section``;
-  const BoxH3 = styled.section`
+  const BoxShort = styled.div`
+    @media (max-width: 320px) {
+      text-align: left;
+    }
+  `;
+  const BoxH3 = styled.h3`
+    padding-left: 10px;
     font-size: 20px;
     margin-bottom: 20px;
     margin-top: 40px;
     font-weight: 600;
     font-family: 'Montserrat';
+
+    @media (max-width: 320px) {
+      font-size: 16px;
+    }
+    @media (max-width: 480px) {
+      font-weight: 600;
+      line-height: 22px;
+      margin: 0 0 8px;
+    }
   `;
-  const BoxContent = styled.section`
-    padding: 0px 74px;
+  const BoxContent = styled.p`
+    padding: 0px 89px;
+    font-family: 'Montserrat';
+
+    @media (max-width: 480px) {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      padding: 0 !important;
+    }
   `;
+
   return (
     <>
       <Grid>
         <BoxConTainer>
           <BoxTitle>Why borrow with us?</BoxTitle>
-
           <BoxRow>
             <BoxCol>
               <BoxCenter>
