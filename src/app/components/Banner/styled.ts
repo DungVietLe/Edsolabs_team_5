@@ -1,12 +1,11 @@
 import { Button } from '@mui/material';
 import styled from 'styled-components/macro';
-import banner from '../../../images/ImageBanner/banner.png';
+import banner from '../../../images/imagebanner/banner.png';
 export const Pawn = styled.div`
-  background: #e5e5e5;
   width: 100%;
   height: auto;
   background: #171a23;
-  padding: 0 16px;
+  padding: 60px 16px 80px 16px;
   @media (min-width: 200px) {
     width: 100%;
   }
@@ -20,6 +19,10 @@ export const ViewBanner = styled.div`
   font-style: normal;
   padding: 48px 98px;
   margin: 0 auto;
+  @media (max-width: 1400px) {
+    padding: 12px;
+    max-width: 1185px;
+  }
   @media (max-width: 600px) {
     padding: 12px;
   }
