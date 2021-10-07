@@ -13,6 +13,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
 import './App.css';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
+import { Login } from './pages/Auth/Login/Login';
 import { HomePage } from './pages/HomePage';
 
 export function App() {
@@ -26,9 +27,9 @@ export function App() {
       >
         <meta name="description" content="A React Boilerplate application" />
       </Helmet>
-
       <Switch>
-        <Route exact path="/" component={HomePage}></Route>
+        <Route exact path="/pawn" component={HomePage}></Route>
+        <Route exact path="/login" component={Login}></Route>
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

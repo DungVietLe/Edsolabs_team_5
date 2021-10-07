@@ -18,12 +18,13 @@ font-family: 'Montserrat', sans-serif;
 
   p,
   label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
+   
     line-height: 1.5em;
   }
 
   input, select {
-    font-family: inherit;
-    font-size: inherit;
+    font-family: 'Montserrat';
+    font-size: 16px;
   }
+  
 `;
