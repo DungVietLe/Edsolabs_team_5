@@ -28,11 +28,9 @@ export function App() {
         <meta name="description" content="A React Boilerplate application" />
       </Helmet>
       <Switch>
-
         <Route exact path="/pawn" component={HomePage}></Route>
         <Route exact path="/login" component={Login}></Route>
         <Route component={NotFoundPage} />
-
       </Switch>
       <GlobalStyle />
     </BrowserRouter>

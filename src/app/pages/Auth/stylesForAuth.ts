@@ -46,6 +46,10 @@ export const ContainerAuth = styled.div`
     background-color: ${(p: MyContainer) =>
       p.checkTab === 1 ? '#171A23' : COLOR_BG_AUTH};
   }
+  @media (min-width: 1024px) {
+    margin-top: 75px;
+    padding: 19px 16px 28px 16px;
+  }
 `;
 export const Container = styled.div`
   max-width: 1290px;
@@ -80,6 +84,9 @@ export const NtfTitle = styled.div`
     width: 100%;
     font-size: 14px;
     line-height: 19.07px;
+  }
+  @media (min-width: 600px) {
+    width: 100%;
   } ;
 `;
 export const SubSpan = styled.span`
@@ -204,9 +211,7 @@ export const BoxLogin = styled.div`
   } ;
 `;
 export const MyImg = styled.img`
-  @media (max-width: 1024px) {
-    width: 100%;
-  }
+  width: 100%;
 `;
 export const MyGridLog1 = styled(Grid)`
   @media (max-width: 600px) {
