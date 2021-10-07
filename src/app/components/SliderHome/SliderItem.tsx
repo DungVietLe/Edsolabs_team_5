@@ -16,29 +16,57 @@ const Infor = styled.div`
     font-size: 20px;
     line-height: 24px;
     display: flex;
+    margin: 0px;
+    padding-top: 12px;
+    @media (min-width: 375px) and(max-width: 620px) {
+      max-width: 181px;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+      margin: 0;
+    }
+    @media (max-width: 375px) {
+      max-width: 181px;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+      margin-left: 13px;
+    }
   }
   .content {
     font-weight: normal;
     font-size: 16px;
-    line-height: 20px;
+    line-height: 19.5px;
+    margin: 0px;
+    padding-top: 8px;
+    @media (min-width: 375px) and (max-width: 1440px) {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 17px;
+      padding-top: 4px;
+      padding-bottom: 30px;
+    }
+    @media (max-width: 375px) {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 17px;
+      padding-top: 4px;
+      padding-bottom: 30px;
+      margin-left: 13px;
+    }
   }
-  img {
-  }
-  @media (max-width: 650px) {
-    max-width: 300px !important;
+
+  @media (max-width: 620px) {
+    max-width: 300px;
     margin: 0 auto;
-    img {
+    .img {
       max-width: 283px;
-    }
-    .Tag {
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 15px;
-    }
-    .Rate {
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 15px;
+      @media (max-width: 375px) {
+        max-width: 250px;
+        margin: 0 auto;
+      }
     }
   }
   @media (min-width: 1028px) and (max-width: 1080px) {
@@ -60,9 +88,28 @@ export const Tag = styled(Button)`
     position: absolute;
     top: 12px;
     left: 12px;
-  }
-  :hover {
-    border: none;
+    @media (min-width: 375px) and (max-width: 620px) {
+      width: 88px;
+      height: 22px;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px !important;
+      line-height: 15px;
+      padding: 0;
+    }
+    @media (max-width: 375px) {
+      width: 88px;
+      height: 22px;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px !important;
+      line-height: 15px;
+      padding: 0;
+      margin-left: 12px;
+    }
+    :hover {
+      border: none;
+    }
   }
 `;
 export const Rate = styled(Button)`
@@ -82,18 +129,45 @@ export const Rate = styled(Button)`
     position: absolute;
     top: 12px;
     right: 12px;
-    .Star {
-      padding-right: 6px;
-      padding-bottom: 3px;
+    padding: 0;
+    @media (max-width: 375px) {
+      width: 60px;
+      height: 22px;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 15px;
+
+      margin-right: 12px;
     }
-  }
-  :hover {
-    border: none;
+    @media (min-width: 375px) and (max-width: 620px) {
+      width: 60px;
+      height: 22px;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    .Star {
+      padding-bottom: 3px;
+      padding-right: 4px;
+      height: 16px;
+      width: 16px;
+      @media (max-width: 620px) {
+        padding-right: 3px;
+        height: 14px;
+        width: 14px;
+      }
+    }
+    :hover {
+      border: none;
+    }
   }
 `;
 export default function SliderItem(props: IProps) {
   const { image, title, content } = props;
-  console.log(props);
+  //console.log(props);
   return (
     <Infor>
       <div style={{ position: 'relative' }}>

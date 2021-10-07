@@ -70,11 +70,14 @@ export const MyButton = styled(Button)`
     font-size: 20px;
     text-transform: capitalize;
     color: #282c37;
+    width: 142px;
+    height: 48px;
     border: none;
     @media (max-width: 600px) {
       font-size: 14px;
       line-height: 17px;
-      width: 129px;
+      width: 121px;
+      height: 36px;
     }
   }
 `;
