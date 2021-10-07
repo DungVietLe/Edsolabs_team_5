@@ -112,7 +112,11 @@ const Header = props => {
               handleClickToggle();
             }}
           >
-            {isToggle ? <CloseIcon /> : <MenuIcon />}
+            {isToggle ? (
+              <CloseIcon style={{ cursor: 'pointer' }} />
+            ) : (
+              <MenuIcon style={{ cursor: 'pointer' }} />
+            )}
           </Toggle>
         </Flex>
       </Flex>
@@ -148,7 +152,9 @@ const Header = props => {
             <li
               className={`parent ${statusMenuMobile.Myaccount ? 'active' : ''}`}
             >
-              <Link to="/">My account</Link>
+              <Link to="#" onClick={() => openDownMenuMobile('Myaccount')}>
+                My account
+              </Link>
               {statusMenuMobile.Myaccount ? (
                 <MenuMobile>
                   <li
@@ -156,7 +162,12 @@ const Header = props => {
                       statusMenuMobile.BorrowerProfile ? 'active' : ''
                     }`}
                   >
-                    <Link to="/">Borrower Profile</Link>
+                    <Link
+                      to="#"
+                      onClick={() => openDownMenuMobile('BorrowerProfile')}
+                    >
+                      Borrower Profile
+                    </Link>
                     {statusMenuMobile.BorrowerProfile ? (
                       <MenuMobile>
                         <li>
@@ -169,16 +180,19 @@ const Header = props => {
                     ) : (
                       ''
                     )}
-                    <Arrow
-                      onClick={() => openDownMenuMobile('BorrowerProfile')}
-                    />
+                    <Arrow />
                   </li>
                   <li
                     className={`parent ${
                       statusMenuMobile.LenderProfile ? 'active' : ''
                     }`}
                   >
-                    <Link to="/">Lender Profile</Link>
+                    <Link
+                      to="#"
+                      onClick={() => openDownMenuMobile('LenderProfile')}
+                    >
+                      Lender Profile
+                    </Link>
                     {statusMenuMobile.LenderProfile ? (
                       <MenuMobile>
                         <li>
@@ -197,9 +211,7 @@ const Header = props => {
                     ) : (
                       ''
                     )}
-                    <Arrow
-                      onClick={() => openDownMenuMobile('LenderProfile')}
-                    />
+                    <Arrow />
                   </li>
                   <li>
                     <Link to="/">Staking</Link>
@@ -207,7 +219,9 @@ const Header = props => {
                   <li
                     className={`parent ${statusMenuMobile.NFT ? 'active' : ''}`}
                   >
-                    <Link to="/">NFT</Link>
+                    <Link to="#" onClick={() => openDownMenuMobile('NFT')}>
+                      NFT
+                    </Link>
                     {statusMenuMobile.NFT ? (
                       <MenuMobile>
                         <li>
@@ -220,13 +234,13 @@ const Header = props => {
                     ) : (
                       ''
                     )}
-                    <Arrow onClick={() => openDownMenuMobile('NFT')} />
+                    <Arrow />
                   </li>
                 </MenuMobile>
               ) : (
                 ''
               )}
-              <Arrow onClick={() => openDownMenuMobile('Myaccount')} />
+              <Arrow />
             </li>
             <li>
               <Link to="/">FAQ</Link>

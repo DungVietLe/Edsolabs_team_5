@@ -173,21 +173,17 @@ export const NavMobile = styled.div`
   left: 0;
   top: 75px;
   background-color: #171a23;
-  .wrapMenu {
-    /* width: 100%;
-    height: auto;
-    overflow-y: scroll; */
-  }
   @media (max-width: 1200px) {
     display: ${(p: PropMenu) => (p.isToggle ? 'block' : 'none')};
   }
   @media (max-width: 768px) {
-    height: calc(100vh - 57px);
+    height: calc(100vh - 40px);
     top: 57px;
   }
 `;
 
 export const HeaderNav = styled.div`
+  padding-top: 18px;
   width: 100%;
   display: none;
   text-align: center;
