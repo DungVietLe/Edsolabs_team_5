@@ -70,7 +70,7 @@ export const SubcontextAbouts = styled.span`
   color: ${COLOR_GRAY_FOOTER};
   font-size: 14px;
   margin-top: 0.6em;
-  width: 1028px;
+  max-width: 1028px;
   @media (max-width: 600px) {
     width: 100%;
   }
