@@ -35,7 +35,6 @@ export default function ListSilder() {
     },
   ];
   const settings = {
-    dots: true,
     infinite: false,
     speed: 500,
     slidesToShow: 3,
@@ -48,7 +47,6 @@ export default function ListSilder() {
           slidesToShow: 2,
           slidesToScroll: 2,
           infinite: true,
-          dots: true,
         },
       },
       {
@@ -57,7 +55,6 @@ export default function ListSilder() {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
         },
       },
       {

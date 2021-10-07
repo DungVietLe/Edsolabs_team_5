@@ -45,9 +45,9 @@ export const MenuDesktop = styled.ul`
   justify-content: flex-start;
   align-items: center;
   padding-inline-start: 0;
-  gap: 36px;
+  gap: 25px;
   li {
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -89,7 +89,7 @@ export const MenuDesktop = styled.ul`
     display: none;
   }
   @media (max-width: 1300px) {
-    gap: 15px;
+    gap: 7px;
   }
 `;
 

@@ -50,12 +50,14 @@ export const Content = styled.div`
   color: #ffffff;
   padding-bottom: 20px;
   @media (max-width: 600px) {
+    max-width: 143px;
     font-size: 12px;
-    line-height: 15px;
+    line-height: 16px;
   }
 `;
 export const MyButton = styled(Button)`
   &.banner {
+    font-family: 'Montserrat', sans-serif;
     background: linear-gradient(
       221.15deg,
       #bd8727 0%,
@@ -70,11 +72,14 @@ export const MyButton = styled(Button)`
     font-size: 20px;
     text-transform: capitalize;
     color: #282c37;
+    width: 142px;
+    height: 48px;
     border: none;
     @media (max-width: 600px) {
       font-size: 14px;
       line-height: 17px;
-      width: 129px;
+      width: 121px;
+      height: 36px;
     }
   }
 `;
