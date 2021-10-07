@@ -93,17 +93,17 @@ const Header = props => {
             </li>
           </MenuDesktop>
           <GropButtom>
-            <LinkButtom to="/" bg="dba83d">
-              Become a Pawnshop
+            <LinkButtom className="btn" bg="dba83d">
+              <Link to="/">Become a Pawnshop</Link>
             </LinkButtom>
-            <LinkButtom to="/" outlinebutton="dba83d">
-              Buy DFY
+            <LinkButtom className="btn" outlinebutton="dba83d">
+              <Link to="/">Buy DFY</Link>
             </LinkButtom>
-            <LinkButtom to="/" className="show-btn" outlinebutton="dba83d">
-              Connect
+            <LinkButtom className="show-btn btn" outlinebutton="dba83d">
+              <Link to="/">Connect</Link>
             </LinkButtom>
-            <LinkButtom to="/login" outlinebutton="dba83d">
-              Login
+            <LinkButtom className="btn" outlinebutton="dba83d">
+              <Link to="/login">Login</Link>
             </LinkButtom>
           </GropButtom>
 
@@ -148,9 +148,7 @@ const Header = props => {
             <li
               className={`parent ${statusMenuMobile.Myaccount ? 'active' : ''}`}
             >
-              <Link to="/" onClick={() => openDownMenuMobile('Myaccount')}>
-                My account
-              </Link>
+              <Link to="/">My account</Link>
               {statusMenuMobile.Myaccount ? (
                 <MenuMobile>
                   <li
@@ -158,12 +156,7 @@ const Header = props => {
                       statusMenuMobile.BorrowerProfile ? 'active' : ''
                     }`}
                   >
-                    <Link
-                      to="/"
-                      onClick={() => openDownMenuMobile('BorrowerProfile')}
-                    >
-                      Borrower Profile
-                    </Link>
+                    <Link to="/">Borrower Profile</Link>
                     {statusMenuMobile.BorrowerProfile ? (
                       <MenuMobile>
                         <li>
@@ -176,19 +169,16 @@ const Header = props => {
                     ) : (
                       ''
                     )}
-                    <Arrow />
+                    <Arrow
+                      onClick={() => openDownMenuMobile('BorrowerProfile')}
+                    />
                   </li>
                   <li
                     className={`parent ${
                       statusMenuMobile.LenderProfile ? 'active' : ''
                     }`}
                   >
-                    <Link
-                      to="/"
-                      onClick={() => openDownMenuMobile('LenderProfile')}
-                    >
-                      Lender Profile
-                    </Link>
+                    <Link to="/">Lender Profile</Link>
                     {statusMenuMobile.LenderProfile ? (
                       <MenuMobile>
                         <li>
@@ -207,7 +197,9 @@ const Header = props => {
                     ) : (
                       ''
                     )}
-                    <Arrow />
+                    <Arrow
+                      onClick={() => openDownMenuMobile('LenderProfile')}
+                    />
                   </li>
                   <li>
                     <Link to="/">Staking</Link>
@@ -215,9 +207,7 @@ const Header = props => {
                   <li
                     className={`parent ${statusMenuMobile.NFT ? 'active' : ''}`}
                   >
-                    <Link to="/" onClick={() => openDownMenuMobile('NFT')}>
-                      NFT
-                    </Link>
+                    <Link to="/">NFT</Link>
                     {statusMenuMobile.NFT ? (
                       <MenuMobile>
                         <li>
@@ -230,13 +220,13 @@ const Header = props => {
                     ) : (
                       ''
                     )}
-                    <Arrow />
+                    <Arrow onClick={() => openDownMenuMobile('NFT')} />
                   </li>
                 </MenuMobile>
               ) : (
                 ''
               )}
-              <Arrow />
+              <Arrow onClick={() => openDownMenuMobile('Myaccount')} />
             </li>
             <li>
               <Link to="/">FAQ</Link>
