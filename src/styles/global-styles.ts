@@ -42,9 +42,9 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.5em;
   }
 
-  input, select {
-    font-family: 'Montserrat';
-    font-size: 16px;
+  input, select,a, span, button {
+    font-family: 'Montserrat' !important;
+   
   }
   .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper{
     background-color:#2f3543!important;

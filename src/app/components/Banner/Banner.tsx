@@ -1,20 +1,24 @@
 import React from 'react';
-import { Content, MyButton, Pawn, Title, ViewBanner } from './styled';
+import { ButtomBase } from '../rootStyled';
+import { Content, Pawn, Title, ViewBanner } from './styled';
 interface Props {}
-
 const Banner = (props: Props) => {
+  console.log(window.resizeBy);
   return (
     <div>
       <Pawn>
         <ViewBanner>
           <Title>Become a Pawnshop</Title>
           <Content>
-            Open your own pawn shop and discover a new business opportunity with
-            an unmatched ROI. Be a part of the world's financial revolution.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </Content>
-          <MyButton className="banner" variant="outlined">
+          <ButtomBase
+            style={{ textTransform: 'capitalize' }}
+            className="btn banner"
+            bg="dba83d"
+          >
             Learn more
-          </MyButton>
+          </ButtomBase>
         </ViewBanner>
       </Pawn>
     </div>

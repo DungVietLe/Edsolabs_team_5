@@ -70,6 +70,7 @@ export const ButtomBase = styled(Button)`
     border: none;
     padding: 9px 20px;
     span {
+      font-family: 'Montserrat', sans-serif;
       ${(p: PropLinkButton) =>
         p.outlinebutton
           ? `color:#${p.outlinebutton};
@@ -107,6 +108,7 @@ export const ButtomBase = styled(Button)`
 `;
 export const LinkButtom = styled(ButtomBase)`
   a {
+    font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     ${(p: PropLinkButton) =>
       p.outlinebutton

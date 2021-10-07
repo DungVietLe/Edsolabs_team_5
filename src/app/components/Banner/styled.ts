@@ -50,12 +50,14 @@ export const Content = styled.div`
   color: #ffffff;
   padding-bottom: 20px;
   @media (max-width: 600px) {
+    max-width: 143px;
     font-size: 12px;
-    line-height: 15px;
+    line-height: 16px;
   }
 `;
 export const MyButton = styled(Button)`
   &.banner {
+    font-family: 'Montserrat', sans-serif;
     background: linear-gradient(
       221.15deg,
       #bd8727 0%,
