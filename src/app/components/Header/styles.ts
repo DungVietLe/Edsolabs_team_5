@@ -89,7 +89,7 @@ export const MenuDesktop = styled.ul`
     display: none;
   }
   @media (max-width: 1300px) {
-    gap: 20px;
+    gap: 15px;
   }
 `;
 

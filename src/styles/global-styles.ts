@@ -43,8 +43,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   input, select {
-    font-family: inherit;
-    font-size: inherit;
+    font-family: 'Montserrat';
+    font-size: 16px;
   }
   .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper{
     background-color:#2f3543!important;

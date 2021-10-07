@@ -63,7 +63,7 @@ const Header = props => {
   return (
     <Headers>
       <Flex justifyContent="space-between" alignItem="center">
-        <Logo to="/">
+        <Logo to="/pawn">
           <img src={LOGO} alt="Defi for you" />
         </Logo>
         <Flex
@@ -74,7 +74,7 @@ const Header = props => {
         >
           <MenuDesktop>
             <li className={'active'}>
-              <Link to="/">Pawn</Link>
+              <Link to="/pawn">Pawn</Link>
             </li>
             <li>
               <Link to="/">Borrow</Link>
@@ -103,7 +103,7 @@ const Header = props => {
               <Link to="/">Connect</Link>
             </LinkButtom>
             <LinkButtom className="btn" outlinebutton="dba83d">
-              <Link to="/">Login</Link>
+              <Link to="/login">Login</Link>
             </LinkButtom>
           </GropButtom>
 
@@ -117,7 +117,7 @@ const Header = props => {
         </Flex>
       </Flex>
       <NavMobile isToggle={isToggle}>
-        <div className="wrapMenu">
+        <div>
           <MenuMobile>
             <HeaderNav>
               <Info>
@@ -136,7 +136,6 @@ const Header = props => {
               </Info>
               <span>Adam.Chaplin</span>
             </HeaderNav>
-
             <li>
               <Link to="/">Pawn</Link>
             </li>
