@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material';
 import Footer from 'app/components/Footer/Footer';
 import Header from 'app/components/Header';
-import React, { useState } from 'react';
+import React from 'react';
 import LoginIMG from '../../../../images/Login/imgLogin.png';
 import {
   Container,
@@ -14,14 +14,10 @@ import {
 } from '../stylesForAuth';
 import Form from './Form';
 export const Login = props => {
-  const [checkTab, setCheckTab] = useState<number>();
-  const isTab = (tab: number) => {
-    setCheckTab(tab);
-  };
   return (
     <div>
       <Header />
-      <ContainerAuth checkTab={checkTab}>
+      <ContainerAuth>
         <Container>
           <TitleAuth>
             Exclusive on <span>DeFi For You!</span>
@@ -32,7 +28,7 @@ export const Login = props => {
           </NtfTitle>
           <Grid container spacing={1}>
             <MyGridLog1 item xs={12} md={6} od={2}>
-              <Form isTab={isTab} />
+              <Form />
             </MyGridLog1>
             <MyGridLog2 item xs={12} md={6} od={1}>
               <MyImg src={LoginIMG} alt="imgLogin" />

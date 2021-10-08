@@ -19,16 +19,12 @@ export default function Form(props) {
       setInName('');
       setUpName('active');
     }
-    const checkStatus = 1;
-    props.isTab(checkStatus);
   };
   const handleClickIn = e => {
     if (UpName === 'active') {
       setUpName('');
       setInName('active');
     }
-    const checkStatus = 2;
-    props.isTab(checkStatus);
   };
   return (
     <Box sx={{ width: '100%', typography: 'body1' }}>
@@ -45,7 +41,7 @@ export default function Form(props) {
             }}
           >
             <MyTab
-              value="1"
+              value={'1'}
               label="Sign Up"
               style={{
                 fontFamily: 'Montserrat',
@@ -57,7 +53,7 @@ export default function Form(props) {
             />
             <MyTab
               label="Log In"
-              value="2"
+              value={'2'}
               style={{
                 fontFamily: 'Montserrat',
                 textTransform: 'capitalize',
