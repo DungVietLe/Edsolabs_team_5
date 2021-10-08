@@ -70,7 +70,7 @@ export const ListSliderPC = styled.div`
   }
   .slick-arrow {
     top: 33% !important;
-    z-index: 9999;
+    //z-index: 9999;
     &::before {
       color: #dba83d;
       font-size: 60px;
