@@ -1,22 +1,19 @@
 <svg
                   data-v-03b17e97=""
-                  width="100"
-                  height="100"
+                  width="155"
+                  height="80"
                   viewBox="0 0 80 80"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                  className="bank-auto"
-                >
-                <style>
-                   @media (max-width: 320px) {
-                .bank-auto {
-                 width: 60px;
-                 height: 80px;
-                 float: left;
-                  padding-right:15px;
+                >    
+                  <style>
+                @media(max-width:480px){
+                  .bank-auto{
+                      width: 195px;
+                  }
                 }
-              }
-                </style>
+                </style>            
                   <path
                     data-v-03b17e97=""
                     d="M6.07373 23.314H18.4328C19.08 23.314 19.6047 22.7895 19.6047 22.1422C19.6047 21.4948 19.08 20.9703 18.4328 20.9703H6.07373C5.42654 20.9703 4.90186 21.4948 4.90186 22.1422C4.90186 22.7895 5.42639 23.314 6.07373 23.314Z"
