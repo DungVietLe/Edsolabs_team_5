@@ -42,6 +42,7 @@
     "i18next-scanner": "3.0.0",
     "inquirer": "7.3.3",
     "inquirer-directory": "2.2.0",
+    "install": "0.13.0",
     "jest-styled-components": "7.0.4",
     "lint-staged": "10.3.0",
     "node-plop": "0.26.2",

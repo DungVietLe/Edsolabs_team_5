@@ -45,7 +45,7 @@ export const MenuDesktop = styled.ul`
   justify-content: flex-start;
   align-items: center;
   padding-inline-start: 0;
-  gap: 36px;
+  gap: 25px;
   li {
     font-family: 'Montserrat';
     font-style: normal;
@@ -89,7 +89,7 @@ export const MenuDesktop = styled.ul`
     display: none;
   }
   @media (max-width: 1300px) {
-    gap: 15px;
+    gap: 7px;
   }
 `;
 
@@ -183,6 +183,7 @@ export const NavMobile = styled.div`
 `;
 
 export const HeaderNav = styled.div`
+  padding-top: 18px;
   width: 100%;
   display: none;
   text-align: center;
