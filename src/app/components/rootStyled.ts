@@ -49,6 +49,17 @@ export const GropButtom = styled.div`
   gap: 20px;
 `;
 export const ButtomBase = styled(Button)`
+  &.banner {
+    width: 142px !important;
+    height: 48px;
+    font-size: 16px !important;
+    @media (max-width: 600px) {
+      width: 121px !important;
+      height: 36px;
+      font-size: 14px !important;
+      padding: 0 !important;
+    }
+  }
   &.btn {
     background-color: #fff;
     border-radius: 172px;

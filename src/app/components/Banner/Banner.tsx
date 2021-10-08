@@ -3,7 +3,6 @@ import { ButtomBase } from '../rootStyled';
 import { Content, Pawn, Title, ViewBanner } from './styled';
 interface Props {}
 const Banner = (props: Props) => {
-  console.log(window.resizeBy);
   return (
     <div>
       <Pawn>
