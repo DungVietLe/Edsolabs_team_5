@@ -149,10 +149,15 @@ export const LinkButtom = styled(ButtomBase)`
 `;
 
 export const ButtomSmall = styled(ButtomBase)`
-  line-height: 19px;
-  padding: 7px 9.31px 8px 9.31px;
-  min-width: 64px;
-  font-size: 16px;
+  &.btn {
+    line-height: 19px;
+    padding: 7px 9.31px 8px 9.31px;
+    min-width: 64px;
+    font-size: 16px;
+    @media (max-width: 450px) {
+      padding: 6px 20px;
+    }
+  }
 `;
 
 export const ButtomMaxIcon = styled(ButtomBase)`
