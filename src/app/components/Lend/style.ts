@@ -1,7 +1,5 @@
 import { TextField } from '@mui/material';
 import styled from 'styled-components/macro';
-import Select from '@mui/material/Select';
-import Radio from '@mui/material/Radio';
 
 export const Wrapper = styled.div`
   padding: 25px 30px;
@@ -30,15 +28,20 @@ export const MyTextField = styled(TextField)`
     ${(p: PropTextField) =>
       p.error ? `border: 1px solid red;` : 'border: 1px solid #74767B;'}
     box-sizing: border-box;
+    max-height: 44px;
+    @media (max-width: 475px) {
+      max-height: 40px;
+    }
     input {
-      padding: 12px 20px;
+      display: inline-block;
+      padding: 10.5px 20px;
       border-radius: 22px;
       font-weight: 500;
       font-size: 16px;
       line-height: 20px;
       color: #fff;
       @media (max-width: 768px) {
-        padding: 11.5px 16px;
+        padding: 8.5px 15px;
       }
       &::hover {
         outline: none;
@@ -53,32 +56,13 @@ export const MyTextField = styled(TextField)`
     width: inherit;
   }
 `;
+
 export const Form = styled.form`
   width: 100%;
 `;
-export const MyRadio = styled(Radio)`
-  color: #000 !important;
-  &.Mui-checked {
-    color: #000 !important;
-  }
-`;
-
-export const ItemRadio = styled.div`
-  width: 150px;
-`;
-
-export const MySelect = styled(Select)`
-  ${(p: PropTextField) => {
-    return p.error ? `border: 1px solid red;` : 'border: 1px solid #74767B;';
-  }}
-  &.add_text {
-    ${(p: PropTextField) => {
-      return p.error ? `margin-top:-11px` : '';
-    }}
-  }
-`;
 
 export const FormCtrol = styled.div`
+  position: relative;
   width: 100%;
   min-height: 96px;
   &.left {
@@ -86,18 +70,19 @@ export const FormCtrol = styled.div`
     flex-grow: 1;
   }
   &.right {
-    width: 110px;
+    width: 130px;
     display: flex;
     align-items: center;
     @media (max-width: 600px) {
-      width: 94px;
+      min-width: 94px;
+      max-width: 94px;
+      padding-top: 26px !important;
     }
     & > div {
       transform: translateY(-2.5px);
-    }
-    div {
       width: 100%;
     }
+    z-index: 1;
   }
 
   .form__select {
@@ -140,8 +125,5 @@ export const FormCtrol = styled.div`
     font-size: 12px;
     min-height: 14px;
     min-width: 1px;
-  }
-  span {
-    color: #fff;
   }
 `;
