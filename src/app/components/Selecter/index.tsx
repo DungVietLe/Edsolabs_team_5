@@ -12,7 +12,6 @@ interface props {
 export function NewSelect(props: props) {
   const { data, styleSelect, value, onChange, mutiValue, error } = props;
   const border = error ? 'red' : '#74767B';
-
   const styles = {
     option: (provided, state) => ({
       ...provided,
@@ -127,7 +126,6 @@ export function NewSelect(props: props) {
 
   return styleSelect ? (
     <Select
-      key={1}
       isMulti
       value={mutiValue}
       onChange={onChange}
@@ -140,7 +138,6 @@ export function NewSelect(props: props) {
     />
   ) : (
     <Select
-      key={2}
       defaultValue={value}
       value={value}
       onChange={onChange}

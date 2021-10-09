@@ -1,14 +1,11 @@
-import { MenuItem } from '@material-ui/core';
 import { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { ButtomBase, ButtomMaxIcon, ButtomSmall, Flex } from '../rootStyled';
-import { SelectChangeEvent } from '@mui/material/Select';
 import SearchIcon from '@mui/icons-material/Search';
 import InfoIcon from '@mui/icons-material/Info';
 import IMAGE_NFT_DIAMOND from 'assets/Image/Diamond.png';
 import {
   Form,
-  MyFlex,
   FormCtrol,
   MyTextField,
   Tabheader,
@@ -105,22 +102,9 @@ const Borrow = function (props) {
       setValueLoan(e.target.value);
     };
 
-    const [currency, setCurrency] = useState('');
-    const [newCurrency, setNewCurrency] = useState('USDT');
-    const [time, setTime] = useState('Weeks');
-    const handleSelectCurrency = (event: SelectChangeEvent) => {
-      setCurrency(event.target.value as string);
-    };
-    const handleSelectTime = (event: SelectChangeEvent) => {
-      setTime(event.target.value as string);
-    };
-    const handleSelectNewCurrency = (event: SelectChangeEvent) => {
-      setNewCurrency(event.target.value as string);
-    };
-
     return (
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <MyFlex gap={10} alignItem="stretch">
+        <Flex gap={10} alignItem="stretch">
           <FormCtrol className="left">
             <label htmlFor="collateral">Collateral</label>
             <div style={{ position: 'relative' }}>
@@ -182,7 +166,7 @@ const Borrow = function (props) {
             />
             {errors.currency && <span className="error">Invalid amount</span>}
           </FormCtrol>
-        </MyFlex>
+        </Flex>
         <FormCtrol>
           <label htmlFor="collateral">Or</label>
           <ButtomBase className="btn" outlinebutton="dba83d" type="button">
@@ -190,7 +174,7 @@ const Borrow = function (props) {
           </ButtomBase>
         </FormCtrol>
 
-        <MyFlex justifyContent="space-between" gap={10} alignItem="stretch">
+        <Flex justifyContent="space-between" gap={10} alignItem="stretch">
           <FormCtrol className="left">
             <label htmlFor="collateral">Duration</label>
             <div style={{ position: 'relative' }}>
@@ -237,8 +221,8 @@ const Borrow = function (props) {
             />
             {errors.timer && <span className="error">Invalid amount</span>}
           </FormCtrol>
-        </MyFlex>
-        <MyFlex justifyContent="space-between" gap={10} alignItem="stretch">
+        </Flex>
+        <Flex justifyContent="space-between" gap={10} alignItem="stretch">
           <FormCtrol className="left">
             <label htmlFor="collateral">Loan amount</label>
             <div style={{ position: 'relative' }}>
@@ -292,7 +276,7 @@ const Borrow = function (props) {
               <span className="error">Invalid amount</span>
             )}
           </FormCtrol>
-        </MyFlex>
+        </Flex>
         <div className="form-control" style={{ marginTop: '60px' }}>
           <ButtomMaxIcon bg="dba83d" className="btn" type="submit">
             <SearchIcon /> Search

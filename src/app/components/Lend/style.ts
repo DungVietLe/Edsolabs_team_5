@@ -1,7 +1,5 @@
 import { TextField } from '@mui/material';
 import styled from 'styled-components/macro';
-import Select from '@mui/material/Select';
-import Radio from '@mui/material/Radio';
 
 export const Wrapper = styled.div`
   padding: 25px 30px;
@@ -61,27 +59,6 @@ export const MyTextField = styled(TextField)`
 
 export const Form = styled.form`
   width: 100%;
-`;
-
-export const MyRadio = styled(Radio)`
-  span {
-    color: #dba83d !important;
-  }
-`;
-
-export const ItemRadio = styled.div`
-  width: 150px;
-`;
-
-export const MySelect = styled(Select)`
-  ${(p: PropTextField) => {
-    return p.error ? `border: 1px solid red;` : 'border: 1px solid #74767B;';
-  }}
-  &.add_text {
-    ${(p: PropTextField) => {
-      return p.error ? `margin-top:-11px` : '';
-    }}
-  }
 `;
 
 export const FormCtrol = styled.div`

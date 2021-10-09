@@ -1,16 +1,7 @@
 import React, { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { ButtomMaxIcon, ButtomSmall, Flex } from '../rootStyled';
-import {
-  FormCtrol,
-  Form,
-  MyTextField,
-  Wrapper,
-  MyRadio,
-  ItemRadio,
-} from './style';
-import { SelectChangeEvent } from '@mui/material/Select';
-import { Theme, useTheme } from '@mui/material/styles';
+import { FormCtrol, Form, MyTextField, Wrapper } from './style';
 import SearchIcon from '@mui/icons-material/Search';
 import ICON_ITEM from 'assets/Image/BNB.png';
 import { NewSelect } from '../Selecter';
@@ -29,15 +20,6 @@ export const ImageIcon = (props: propsImg) => {
   );
 };
 
-function getStyles(name: string, muiCurrencyName: string[], theme: Theme) {
-  return {
-    fontWeight:
-      muiCurrencyName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
-
 const Lend = () => {
   const {
     handleSubmit,
@@ -50,9 +32,6 @@ const Lend = () => {
     setIsRadio(e.target.value);
   };
   const [valueMaxLoan, setValueMaxLoan] = useState('');
-  // const [currency, setCurrency] = React.useState(arrCurrency[0]);
-  // const [timer, setTimer] = React.useState('Weeks');
-  // const [mutiCurrency, setMutiCurrency] = useState(arrTimes[0]);
   const [valueDuration, setValueDuration] = useState('');
 
   const onSubmit = (data: object) => console.log(data);
@@ -60,12 +39,6 @@ const Lend = () => {
   const handleChangeMaxLoan = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValueMaxLoan(e.target.value);
   };
-  // const handleSelectTimer = (event: SelectChangeEvent) => {
-  //   setTimer(event.target.value as string);
-  // };
-  // const handleSelect = (event: SelectChangeEvent) => {
-  //   setCurrency(event.target.value as string);
-  // };
 
   const handleChangeDuration = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValueDuration(e.target.value as string);
@@ -111,23 +84,6 @@ const Lend = () => {
     { value: 'Weeks', label: 'Weeks' },
     { value: 'Months', label: 'Months' },
   ];
-
-  const theme = useTheme();
-
-  const [selectedValue, setSelectedValue] = useState('a');
-
-  const handleChangeRadioButton = (
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => {
-    setSelectedValue(event.target.value);
-  };
-  const controlProps = (item: string) => ({
-    checked: selectedValue === item,
-    onChange: handleChangeRadioButton,
-    value: item,
-    name: 'show',
-    inputProps: { 'aria-label': item },
-  });
 
   return (
     <Wrapper>
@@ -288,7 +244,7 @@ const Lend = () => {
             </RadioGroup>
           </Flex>
         </FormCtrol>
-        {isRadio == 'true' ? (
+        {isRadio === 'true' ? (
           <FormCtrol
             style={{
               justifyContent: 'flex-start',

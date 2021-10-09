@@ -1,7 +1,6 @@
 import { TextField } from '@mui/material';
 import styled from 'styled-components/macro';
 import { Flex } from '../rootStyled';
-import Select from '@mui/material/Select';
 
 export const Wrapper = styled.div`
   padding: 25px 30px;
@@ -110,17 +109,6 @@ export const Form = styled.form`
   width: 100%;
 `;
 
-export const MySelect = styled(Select)`
-  ${(p: PropTextField) => {
-    return p.error ? `border: 1px solid red;` : 'border: 1px solid #74767B;';
-  }}
-  &.add_text {
-    ${(p: PropTextField) => {
-      return p.error ? `margin-top:-11px` : '';
-    }}
-  }
-`;
-
 export const FlexColumn = styled(Flex)`
   flex-direction: column;
 `;
@@ -224,5 +212,3 @@ export const FormCtrol = styled.div`
     }
   }
 `;
-
-export const MyFlex = styled(Flex)``;
