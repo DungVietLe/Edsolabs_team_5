@@ -42,7 +42,7 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.5em;
   }
 
-  input, select,a, span, button {
+  input, select,a, span, button,p {
     font-family: 'Montserrat' !important;
    
   }
