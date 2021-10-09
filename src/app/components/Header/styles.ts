@@ -18,7 +18,7 @@ export const Headers = styled.div`
   @media (max-width: 768px) {
     padding: 12px 16px 14px 16px;
   }
-  z-index: 2;
+  z-index: 100000;
   border-bottom: 1px solid #4f4f4f;
 `;
 

@@ -1,33 +1,32 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { ButtomMaxIcon, ButtomSmall, Flex } from '../rootStyled';
 import {
   FormCtrol,
   Form,
   MyTextField,
   Wrapper,
-  MySelect,
   MyRadio,
   ItemRadio,
 } from './style';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import Box from '@mui/material/Box';
-import Chip from '@mui/material/Chip';
-import { MenuItem } from '@material-ui/core';
+import { SelectChangeEvent } from '@mui/material/Select';
 import { Theme, useTheme } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
-import { yellow } from '@mui/material/colors';
-import Radio from '@mui/material/Radio';
+import ICON_ITEM from 'assets/Image/BNB.png';
+import { NewSelect } from '../Selecter';
+import { FormControlLabel, Radio, RadioGroup } from '@mui/material';
+interface propsImg {
+  src?: any;
+}
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
+export const ImageIcon = (props: propsImg) => {
+  const { src } = props;
+  return (
+    <img
+      style={{ display: 'inline-block', width: '15px', height: '15px' }}
+      src={src}
+    />
+  );
 };
 
 function getStyles(name: string, muiCurrencyName: string[], theme: Theme) {
@@ -41,14 +40,19 @@ function getStyles(name: string, muiCurrencyName: string[], theme: Theme) {
 
 const Lend = () => {
   const {
-    register,
     handleSubmit,
+    register,
     formState: { errors },
+    control,
   } = useForm();
-
+  const [isRadio, setIsRadio] = useState('true');
+  const handleChangeIsRadio = e => {
+    setIsRadio(e.target.value);
+  };
   const [valueMaxLoan, setValueMaxLoan] = useState('');
-  const [currency, setCurrency] = React.useState('');
-  const [timer, setTimer] = React.useState('Weeks');
+  // const [currency, setCurrency] = React.useState(arrCurrency[0]);
+  // const [timer, setTimer] = React.useState('Weeks');
+  // const [mutiCurrency, setMutiCurrency] = useState(arrTimes[0]);
   const [valueDuration, setValueDuration] = useState('');
 
   const onSubmit = (data: object) => console.log(data);
@@ -56,69 +60,61 @@ const Lend = () => {
   const handleChangeMaxLoan = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValueMaxLoan(e.target.value);
   };
-  const handleSelectTimer = (event: SelectChangeEvent) => {
-    setTimer(event.target.value as string);
-  };
-  const handleSelect = (event: SelectChangeEvent) => {
-    setCurrency(event.target.value as string);
-  };
+  // const handleSelectTimer = (event: SelectChangeEvent) => {
+  //   setTimer(event.target.value as string);
+  // };
+  // const handleSelect = (event: SelectChangeEvent) => {
+  //   setCurrency(event.target.value as string);
+  // };
 
   const handleChangeDuration = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValueDuration(e.target.value);
+    setValueDuration(e.target.value as string);
   };
-
   const arrCurrency = [
-    { name: 'BNB' },
-    { name: 'ETC' },
-    { name: 'ZEC' },
-    { name: 'XRP' },
-    { name: 'LTC' },
-    { name: 'MKR' },
-    { name: 'BAT' },
-    { name: 'BTC' },
-    { name: 'ETH' },
-    { name: 'DEF' },
-    { name: 'USDT' },
-    { name: 'FIL' },
-    { name: 'IOTX' },
-    { name: 'PAX' },
-    { name: 'ONT' },
-    { name: 'SNX' },
-    { name: 'SXP' },
-    { name: 'BAND' },
-    { name: 'DOT' },
-    { name: 'BEF' },
-    { name: 'ELF' },
-    { name: 'TCT' },
-    { name: 'LINK' },
-    { name: 'ADA' },
-    { name: 'EOS' },
-    { name: 'BCH' },
-    { name: 'INJ' },
-    { name: 'UNI' },
-    { name: 'NEAR' },
-    { name: 'ATOM' },
-    { name: 'COMP' },
-    { name: 'YFI' },
-    { name: 'YFII' },
-    { name: 'XTZ' },
-    { name: 'WBNB' },
-    { name: 'DOGE' },
+    { value: 'BNB', label: [<ImageIcon src={ICON_ITEM} />, ' BNB'] },
+    { value: 'ETC', label: [<ImageIcon src={ICON_ITEM} />, ' ETC'] },
+    { value: 'ZEC', label: [<ImageIcon src={ICON_ITEM} />, ' ZEC'] },
+    { value: 'XRP', label: [<ImageIcon src={ICON_ITEM} />, ' XRP'] },
+    { value: 'LTC', label: [<ImageIcon src={ICON_ITEM} />, ' LTC'] },
+    { value: 'MKR', label: [<ImageIcon src={ICON_ITEM} />, ' MKR'] },
+    { value: 'MKR', label: [<ImageIcon src={ICON_ITEM} />, ' MKR'] },
+    { value: 'BTC', label: [<ImageIcon src={ICON_ITEM} />, ' BTC'] },
+    { value: 'ETH', label: [<ImageIcon src={ICON_ITEM} />, ' ETH'] },
+    { value: 'DEF', label: [<ImageIcon src={ICON_ITEM} />, ' DEF'] },
+    { value: 'USDT', label: [<ImageIcon src={ICON_ITEM} />, ' USDT'] },
+    { value: 'FIL', label: [<ImageIcon src={ICON_ITEM} />, ' FIL'] },
+    { value: 'IOTX', label: [<ImageIcon src={ICON_ITEM} />, ' IOTX'] },
+    { value: 'PAX', label: [<ImageIcon src={ICON_ITEM} />, ' PAX'] },
+    { value: 'ONT', label: [<ImageIcon src={ICON_ITEM} />, ' ONT'] },
+    { value: 'SNX', label: [<ImageIcon src={ICON_ITEM} />, ' SNX'] },
+    { value: 'SXP', label: [<ImageIcon src={ICON_ITEM} />, ' SXP'] },
+    { value: 'BAND', label: [<ImageIcon src={ICON_ITEM} />, ' BAND'] },
+    { value: 'DOT', label: [<ImageIcon src={ICON_ITEM} />, ' DOT'] },
+    { value: 'BEF', label: [<ImageIcon src={ICON_ITEM} />, ' BEF'] },
+    { value: 'ELF', label: [<ImageIcon src={ICON_ITEM} />, ' ELF'] },
+    { value: 'TCT', label: [<ImageIcon src={ICON_ITEM} />, ' TCT'] },
+    { value: 'LINK', label: [<ImageIcon src={ICON_ITEM} />, ' LINK'] },
+    { value: 'ADA', label: [<ImageIcon src={ICON_ITEM} />, ' ADA'] },
+    { value: 'EOS', label: [<ImageIcon src={ICON_ITEM} />, ' EOS'] },
+    { value: 'INJ', label: [<ImageIcon src={ICON_ITEM} />, ' INJ'] },
+    { value: 'UNI', label: [<ImageIcon src={ICON_ITEM} />, ' UNI'] },
+    { value: 'NEAR', label: [<ImageIcon src={ICON_ITEM} />, ' NEAR'] },
+    { value: 'ATOM', label: [<ImageIcon src={ICON_ITEM} />, ' ATOM'] },
+    { value: 'COMP', label: [<ImageIcon src={ICON_ITEM} />, ' COMP'] },
+    { value: 'YFI', label: [<ImageIcon src={ICON_ITEM} />, ' YFI'] },
+    { value: 'YFII', label: [<ImageIcon src={ICON_ITEM} />, ' YFII'] },
+    { value: 'XTZ', label: [<ImageIcon src={ICON_ITEM} />, ' XTZ'] },
+    { value: 'WBNB', label: [<ImageIcon src={ICON_ITEM} />, ' WBNB'] },
+    { value: 'DOGE', label: [<ImageIcon src={ICON_ITEM} />, ' DOGE'] },
+  ];
+  const arrTimes = [
+    { value: 'Weeks', label: 'Weeks' },
+    { value: 'Months', label: 'Months' },
   ];
 
   const theme = useTheme();
-  const [mutiCurrency, setMutiCurrency] = React.useState<string[]>([]);
 
-  const handleSelectMutiCurrency = (
-    event: SelectChangeEvent<typeof mutiCurrency>,
-  ) => {
-    const {
-      target: { value },
-    } = event;
-    setMutiCurrency(typeof value === 'string' ? value.split(',') : value);
-  };
-
-  const [selectedValue, setSelectedValue] = React.useState('a');
+  const [selectedValue, setSelectedValue] = useState('a');
 
   const handleChangeRadioButton = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -133,7 +129,6 @@ const Lend = () => {
     inputProps: { 'aria-label': item },
   });
 
-  const arrTimes = [{ name: 'Weeks' }, { name: 'Months' }];
   return (
     <Wrapper>
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -176,27 +171,26 @@ const Lend = () => {
               justifyContent: 'flex-start',
               flexDirection: 'column',
               paddingTop: '24px',
+              zIndex: 3,
             }}
             className="right"
           >
-            <MySelect
-              error={Boolean(errors.currency)}
-              className="form__select"
-              labelId="id-currency"
-              id="demo-simple-select"
-              placeholder="currency"
-              value={currency}
-              {...register('currency', {
+            <Controller
+              control={control}
+              name="currency"
+              rules={{
                 required: true,
-                onChange: handleSelect,
-              })}
-            >
-              {arrCurrency.map((item: any, index: number) => (
-                <MenuItem key={index} value={item.name}>
-                  {item.name}
-                </MenuItem>
-              ))}
-            </MySelect>
+              }}
+              render={({ field: { onChange, value, ref } }) => (
+                <NewSelect
+                  error={Boolean(errors.currency)}
+                  value={value}
+                  onChange={onChange}
+                  data={arrCurrency}
+                  styleSelect={false}
+                />
+              )}
+            />
             {errors.currency && <span className="error">Invalid amount</span>}
           </FormCtrol>
         </Flex>
@@ -225,97 +219,109 @@ const Lend = () => {
               justifyContent: 'flex-start',
               flexDirection: 'column',
               paddingTop: '24px',
+              zIndex: 2,
             }}
             className="right"
           >
-            <MySelect
-              error={Boolean(errors.timer)}
-              className="form__select"
-              labelId="mutiCurrency"
-              id="demo-simple-select"
-              placeholder="timer"
-              value={timer}
-              {...register('timer', {
+            <Controller
+              control={control}
+              name="timer"
+              rules={{
                 required: true,
-                onChange: handleSelectTimer,
-              })}
-            >
-              {arrTimes.map((item: any, index: number) => (
-                <MenuItem key={index} value={item.name}>
-                  {item.name}
-                </MenuItem>
-              ))}
-            </MySelect>
+              }}
+              render={({ field: { onChange, value, ref } }) => (
+                <NewSelect
+                  error={Boolean(errors.timer)}
+                  value={arrTimes[0]}
+                  onChange={onChange}
+                  data={arrTimes}
+                  styleSelect={false}
+                />
+              )}
+            />
             {errors.timer && <span className="error">Invalid amount</span>}
           </FormCtrol>
         </Flex>
         <FormCtrol style={{ minHeight: '60px' }}>
           <label htmlFor="show">Collateral</label>
           <Flex>
-            <ItemRadio>
-              <MyRadio
-                {...controlProps('show')}
-                sx={{
-                  color: '#4B8DF8',
-                  '&.Mui-checked': {
-                    color: '#4B8DF8',
-                  },
-                }}
+            <RadioGroup
+              aria-label="Collateral"
+              value={isRadio}
+              name="radio-buttons-group"
+              style={{ display: 'flex', gap: '30px', flexDirection: 'row' }}
+            >
+              <FormControlLabel
+                label="Crypto"
+                control={
+                  <Radio
+                    name="radio-buttons-group"
+                    onChange={handleChangeIsRadio}
+                    value="true"
+                    checked={isRadio === 'true'}
+                    sx={{
+                      color: '#fff',
+                      '&.Mui-checked': {
+                        color: '#DBA83D',
+                      },
+                    }}
+                  />
+                }
               />
-            </ItemRadio>
-            <ItemRadio>
-              <MyRadio
-                {...controlProps('off')}
-                sx={{
-                  color: 'green',
-                  '&.Mui-checked': {
-                    color: 'green',
-                  },
-                }}
+              <FormControlLabel
+                label="NFT"
+                control={
+                  <Radio
+                    name="radio-buttons-group"
+                    onChange={handleChangeIsRadio}
+                    value="false"
+                    checked={isRadio === 'false'}
+                    sx={{
+                      color: '#fff',
+                      '&.Mui-checked': {
+                        color: '#DBA83D',
+                      },
+                    }}
+                  />
+                }
               />
-            </ItemRadio>
+            </RadioGroup>
           </Flex>
         </FormCtrol>
-
-        <FormCtrol
-          style={{
-            justifyContent: 'flex-start',
-            flexDirection: 'column',
-            paddingTop: '24px',
-          }}
-        >
-          <Select
-            error={Boolean(errors.mutiCurrency)}
-            className="form__select--mutiselect form__select"
-            id="demo-multiple-name"
-            multiple
-            value={mutiCurrency}
-            {...register('mutiCurrency', {
-              required: true,
-              onChange: handleSelectMutiCurrency,
-            })}
-            renderValue={selected => (
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                {selected.map(value => (
-                  <Chip key={value} label={value} />
-                ))}
-              </Box>
-            )}
-            MenuProps={MenuProps}
+        {isRadio == 'true' ? (
+          <FormCtrol
+            style={{
+              justifyContent: 'flex-start',
+              flexDirection: 'column',
+              paddingTop: '24px',
+              zIndex: 1,
+            }}
           >
-            {arrCurrency.map(item => (
-              <MenuItem
-                key={item.name}
-                value={item.name}
-                style={getStyles(item.name, mutiCurrency, theme)}
-              >
-                {item.name}
-              </MenuItem>
-            ))}
-          </Select>
-          {errors.mutiCurrency && <span className="error">Invalid amount</span>}
-        </FormCtrol>
-        <div className="form-control">
+            <Controller
+              control={control}
+              name="mutiCurrency"
+              rules={{
+                required: true,
+              }}
+              render={({ field: { onChange, value, ref } }) => (
+                <NewSelect
+                  error={Boolean(errors.mutiCurrency)}
+                  // mutiValue={value}
+                  onChange={onChange}
+                  data={arrCurrency}
+                  styleSelect={true}
+                />
+              )}
+            />
+            {errors.mutiCurrency && (
+              <span className="error">Invalid amount</span>
+            )}
+          </FormCtrol>
+        ) : (
+          ''
+        )}
+
+        <div className="form-control" style={{ marginTop: '30px' }}>
           <ButtomMaxIcon bg="dba83d" className="btn" type="submit">
             <SearchIcon /> Search
           </ButtomMaxIcon>
