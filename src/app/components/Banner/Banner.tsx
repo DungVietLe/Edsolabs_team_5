@@ -8,7 +8,11 @@ const Banner = (props: Props) => {
       <Pawn>
         <ViewBanner>
           <Title>Become a Pawnshop</Title>
-          <Content>
+          <Content className="contentPc">
+            Open your own pawn shop and discover a new business opportunity with
+            an unmatched ROI. Be a part of the world's financial revolution.
+          </Content>
+          <Content className="contentMobi">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </Content>
           <ButtomBase

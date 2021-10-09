@@ -25,30 +25,18 @@ interface MyBox {
 interface MyGrid {
   od?: any;
 }
-interface MyContainer {
-  checkTab?: number;
-}
+
 export const ContainerAuth = styled.div`
-  margin-top: 100px;
   width: 100%;
   height: auto;
   background-color: ${COLOR_BG_AUTH};
-  padding: 19px 0px 64px 0px;
-  @media (max-width: 600px) {
-    margin-top: 57px;
-    padding: 19px 16px 28px 16px;
-    background-color: ${(p: MyContainer) =>
-      p.checkTab === 1 ? '#171A23' : COLOR_BG_AUTH};
+  padding: 119px 0px 64px 0px;
+
+  @media (max-width: 1024px) {
+    padding: 90px 16px 28px 16px;
   }
-  @media (min-width: 600px) and (max-width: 1024px) {
-    margin-top: 57px;
-    padding: 19px 16px 28px 16px;
-    background-color: ${(p: MyContainer) =>
-      p.checkTab === 1 ? '#171A23' : COLOR_BG_AUTH};
-  }
-  @media (min-width: 1024px) {
-    margin-top: 75px;
-    padding: 19px 16px 28px 16px;
+  @media (max-width: 991px) {
+    padding: 70px 16px 28px 16px;
   }
 `;
 export const Container = styled.div`
@@ -177,6 +165,7 @@ export const MyComponent = styled.div`
 export const MyButtonAuthLogin = styled(Button)`
   &.MuiButton-root {
     font-family: 'Montserrat';
+
     width: ${(p: MyButton) => (p.w === '174px' ? p.w : '117px')};
     height: 48px;
     border-radius: 1000px;

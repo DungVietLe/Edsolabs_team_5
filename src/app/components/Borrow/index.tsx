@@ -5,17 +5,17 @@ import SearchIcon from '@mui/icons-material/Search';
 import InfoIcon from '@mui/icons-material/Info';
 import IMAGE_NFT_DIAMOND from 'assets/Image/Diamond.png';
 import {
+  FlexColumn,
   Form,
   FormCtrol,
-  MyTextField,
-  Tabheader,
-  TabBorrow,
-  LabelTab,
-  TabContent,
-  Wrapper,
-  FlexColumn,
-  Item,
   Image,
+  Item,
+  LabelTab,
+  MyTextField,
+  TabBorrow,
+  TabContent,
+  Tabheader,
+  Wrapper,
 } from './styles';
 import ICON_ITEM from 'assets/Image/BNB.png';
 import { NewSelect } from '../Selecter';

@@ -1,22 +1,19 @@
  <svg
                   data-v-03b17e97=""
-                  width="100"
-                  height="100"
+                  width="170"
+                  height="80"
                   viewBox="0 0 80 80"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"    
                   className="credit-auto"         
-                >
-                 <style>
-                    @media (max-width: 320px) {
-                      .credit-auto {
-                        width: 60px;
-                        height: 80px;
-                        float: right;
-                        padding-left:15px;
-                         }
-                       }
-                 </style>
+                >      
+                <style>
+                @media(max-width:480px){
+                  .credit-auto{
+                      width: 210px;
+                  }
+                }
+                </style>    
                   <g data-v-03b17e97="" clipPath="url(#clip0)">
                     <path
                       data-v-03b17e97=""

@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import styled from 'styled-components/macro';
-import banner from '../../../images/ImageBanner/banner.png';
+import banner from '../../../images/imagebanner/banner.png';
 export const Pawn = styled.div`
   width: 100%;
   height: auto;
@@ -41,18 +41,38 @@ export const Title = styled.div`
   }
 `;
 export const Content = styled.div`
-  max-width: 450px;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
   display: flex;
   align-items: center;
   color: #ffffff;
   padding-bottom: 20px;
-  @media (max-width: 600px) {
+  @media (max-width: 599px) {
     max-width: 143px;
     font-size: 12px;
     line-height: 16px;
+    text-transform: capitalize;
+    &.contentPc {
+      display: none;
+    }
+  }
+
+  @media (min-width: 600px) and (max-width: 767px) {
+    max-width: 300px;
+    font-size: 20px;
+    line-height: 24px;
+
+    &.contentMobi {
+      display: none !important;
+    }
+  }
+  @media (min-width: 768px) {
+    max-width: 496px;
+    font-size: 20px;
+    line-height: 24px;
+
+    &.contentMobi {
+      display: none !important;
+    }
   }
 `;
 export const MyButton = styled(Button)`

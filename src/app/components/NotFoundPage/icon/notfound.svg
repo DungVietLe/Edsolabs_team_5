@@ -6,8 +6,18 @@
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
-              class=""
+              className="not-found"
             >
+            <style>
+               @media (max-width: 320px) {
+                      .not-found {                      
+                        max-width:100%;                  
+                         }
+                       }
+                        .not-found {                 
+                        max-width:100%;                  
+                         }
+            </style>
               <g data-v-739320dd="" opacity="0.8">
                 <path
                   data-v-739320dd=""
