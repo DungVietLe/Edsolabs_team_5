@@ -28,6 +28,7 @@ export const ImageIcon = (props: propsImg) => {
     <img
       style={{ display: 'inline-block', width: '15px', height: '15px' }}
       src={src}
+      alt="img coin"
     />
   );
 };

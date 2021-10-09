@@ -141,7 +141,7 @@ const Header = props => {
               <span>Adam.Chaplin</span>
             </HeaderNav>
             <li>
-              <Link to="/">Pawn</Link>
+              <Link to="/pawn">Pawn</Link>
             </li>
             <li>
               <Link to="/">Staking</Link>
