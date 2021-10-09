@@ -15,6 +15,7 @@ import './App.css';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { Login } from './pages/Auth/Login/Login';
 import { HomePage } from './pages/HomePage';
+import { ResultOfferCrypto } from './pages/ResultOfferCrypto/ResultOfferCrypto';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -29,6 +30,7 @@ export function App() {
       </Helmet>
       <Switch>
         <Route exact path="/pawn" component={HomePage}></Route>
+        <Route exact path="/pawn/offer" component={ResultOfferCrypto}></Route>
         <Route exact path="/login" component={Login}></Route>
         <Route component={NotFoundPage} />
       </Switch>

@@ -103,7 +103,7 @@ const Header = props => {
               <Link to="/">Connect</Link>
             </LinkButtom>
             <LinkButtom className="btn" outlinebutton="dba83d">
-              <Link to="/login">Login</Link>
+              <Link to="/login?tab=2">Login</Link>
             </LinkButtom>
           </GropButtom>
 

@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { IconButton, InputAdornment } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import {
@@ -20,7 +20,6 @@ interface IFormInputs {
   Email: string;
   Password: any;
   ConfirmPassword: any;
-  recaptcha: any;
 }
 const schema = yup
   .object({
@@ -35,24 +34,23 @@ const schema = yup
       .string()
       .oneOf([yup.ref('Password')], "Password's not match")
       .required('Required!'),
-    recaptcha: yup.string().required('Invalid capcha'),
   })
   .required();
 export const InputRegister = (props: Props) => {
-  const [valueCapcha, setValueCapcha] = useState(null);
   const form = useForm<IFormInputs>({
     defaultValues: {
       Name: '',
       Email: '',
       Password: '',
       ConfirmPassword: '',
-      recaptcha: '',
     },
     resolver: yupResolver(schema),
   });
   const {
+    register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = form;
 
   const hasNameError = errors.Name;
@@ -75,15 +73,8 @@ export const InputRegister = (props: Props) => {
     }));
   };
 
-  const onChange = value => {
-    setValueCapcha(value);
-  };
   const onSubmit = (data: any) => {
-    console.log(valueCapcha);
-
-    if (valueCapcha !== null) {
-      console.log(data);
-    }
+    console.log(data);
   };
 
   return (
@@ -207,11 +198,9 @@ export const InputRegister = (props: Props) => {
           By clicking on <span>Create Account</span>, you agree to DeFi For
           You’s Terms and Conditions of Use.
         </NtfTitle>
-        <MyCapcha
-          name="recaptcha"
-          sitekey="6Lf_BLIcAAAAADjns4IzWXSZElWq9-gqF7p9IzRC"
-          onChange={onChange}
-        />
+
+        {/* <MyCapcha sitekey="6Lf_BLIcAAAAADjns4IzWXSZElWq9-gqF7p9IzRC" /> */}
+
         <BoxLogin>
           <MyButtonAuthLogin type="submit" w="174px" wmb="170px" hmb="42px">
             Create Account
