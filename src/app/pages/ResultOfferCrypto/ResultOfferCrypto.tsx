@@ -3,7 +3,7 @@ import Header from 'app/components/Header';
 import { Flex } from 'app/components/rootStyled';
 import React from 'react';
 import { BoxLeft, Boxright, ContainerResult, WrapperResult } from './styles';
-
+import ListSugges from '../../../app/pages/ResultOfferCrypto/SearchSuggess/OptionPersonal/index';
 interface Props {}
 
 export const ResultOfferCrypto = (props: Props) => {
@@ -13,7 +13,9 @@ export const ResultOfferCrypto = (props: Props) => {
       <WrapperResult>
         <ContainerResult>
           <Flex gap={20} justifyContent="center">
-            <BoxLeft>HUY, LINH</BoxLeft>
+            <BoxLeft>
+              <ListSugges />
+            </BoxLeft>
             <Boxright>DŨNG</Boxright>
           </Flex>
         </ContainerResult>
