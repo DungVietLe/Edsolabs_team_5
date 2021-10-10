@@ -8,11 +8,7 @@ export const WrapperResult = styled.div`
 `;
 export const ContainerResult = styled.div`
   max-width: 1324px;
-
-
-
   height: auto;
-
   margin: 0 auto;
 `;
 export const BoxLeft = styled.div`
@@ -20,16 +16,9 @@ export const BoxLeft = styled.div`
 `;
 export const Boxright = styled.div`
   width: 293px;
-
   @media (max-width: 768px) {
     display: none;
-
-  height: auto;
-  background: #282c37;
-  border-radius: 20px;
-  @media (max-width: 768px) {
-    display: none;
-  } ;
+  }
 `;
 export const BoxrightMobile = styled.div`
   width: 293px;
@@ -58,6 +47,5 @@ export const MySwipeableDrawer = styled(SwipeableDrawer)`
     background-color: transparent;
     box-shadow: none;
     padding-top: 70px;
-
   }
 `;
