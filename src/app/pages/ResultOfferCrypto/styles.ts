@@ -21,7 +21,7 @@ export const Boxright = styled.div`
   }
 `;
 export const BoxrightMobile = styled.div`
-  width: 293px;
+  width: 280px;
   height: auto;
   background: #282c37;
   border-radius: 20px;
@@ -31,6 +31,9 @@ export const Filter = styled.div`
   display: none;
   @media (max-width: 768px) {
     display: block;
+    position: absolute;
+    top: 80px;
+    right: 20px;
   } ;
 `;
 export const Reset = styled.div`
