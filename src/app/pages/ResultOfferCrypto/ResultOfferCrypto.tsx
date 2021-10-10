@@ -1,21 +1,23 @@
-import { SearchPawnshops } from 'app/components/Filter/SearchPawnshops';
+import { CollateralAccepted } from 'app/components/Filter/CollateralAccepted';
+import { Duration } from 'app/components/Filter/Duration';
 import { InterestRange } from 'app/components/Filter/InterestRange';
+import { LoanToken } from 'app/components/Filter/LoanToken';
+import { LoanType } from 'app/components/Filter/LoanType';
+import { LoanValue } from 'app/components/Filter/LoanValue';
+import { SearchPawnshops } from 'app/components/Filter/SearchPawnshops';
 import Footer from 'app/components/Footer/Footer';
 import Header from 'app/components/Header';
 import { Flex } from 'app/components/rootStyled';
-import React from 'react';
+import React, { useState } from 'react';
+import FilterMobile from './FilterMobile';
 import {
   BoxLeft,
   Boxright,
   ContainerResult,
+  Filter,
   Reset,
   WrapperResult,
 } from './styles';
-import { LoanValue } from 'app/components/Filter/LoanValue';
-import { CollateralAccepted } from 'app/components/Filter/CollateralAccepted';
-import { LoanToken } from 'app/components/Filter/LoanToken';
-import { LoanType } from 'app/components/Filter/LoanType';
-import { Duration } from 'app/components/Filter/Duration';
 interface Props {}
 
 export const ResultOfferCrypto = (props: Props) => {
@@ -36,6 +38,9 @@ export const ResultOfferCrypto = (props: Props) => {
               <LoanType />
               <Duration />
             </Boxright>
+            <Filter>
+              <FilterMobile />
+            </Filter>
           </Flex>
         </ContainerResult>
       </WrapperResult>
