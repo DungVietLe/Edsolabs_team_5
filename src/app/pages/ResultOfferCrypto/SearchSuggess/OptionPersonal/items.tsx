@@ -20,15 +20,13 @@ const InforPersonal = styled.div`
 `;
 const Data = styled.div`
   width: 100%;
-  //padding-left: 20px;
-  margin: 20px auto 20px 20px;
+  padding: 20px;
   @media (max-width: 425px) {
     padding: 16px 14px 30px 14px;
     margin: 0;
   }
 `;
 const View = styled.div`
-  //padding-top: 20px;
   text-decoration-line: underline;
   font-style: normal;
   font-weight: 500;
@@ -63,7 +61,7 @@ const Rate = styled.div`
     }
   }
   .signed {
-    margin-left: auto;
+    margin-left: 12px;
     @media (max-width: 425px) {
       margin-left: 8px;
       margin-top: -1px;
@@ -93,6 +91,9 @@ const Percent = styled.div`
   padding-top: 10px;
   .warning {
     padding-left: 7.5px;
+    @media (max-width: 910px) {
+      margin-right: 5px;
+    }
   }
   @media (max-width: 425px) {
     font-size: 18px;
@@ -128,14 +129,38 @@ const Collateral = styled.div`
   padding-top: 16px;
   .renderIcon {
     display: flex;
+    @media (max-width: 1238px) {
+      margin-top: 80px;
+      margin-left: -165px;
+    }
     @media (max-width: 1024px) {
       margin-left: -165px;
       margin-top: 50px;
+    }
+    @media (max-width: 910px) {
+      margin-left: -165px;
+      margin-top: 75px;
     }
     @media (max-width: 460px) {
       margin-top: 50px;
       margin-left: -145px;
     }
+  }
+  .allIcon {
+    margin-top: 5px;
+    @media (min-width: 768px) and (max-width: 910px) {
+      margin-top: 30px;
+      margin-left: -145px;
+    }
+  }
+  @media (max-width: 1238px) {
+    margin-top: -35px;
+  }
+  @media (max-width: 991px) {
+    margin-top: -30px;
+  }
+  @media (max-width: 910px) {
+    margin-top: -55px;
   }
   @media (max-width: 460px) {
     padding: 0;
@@ -213,7 +238,7 @@ export default function Items(props: any) {
                 style={{ height: '30px', padding: '5px' }}
               />
             ))}
-            <p style={{ marginTop: '5px' }}>
+            <p className="allIcon">
               & {newarray.length} {''}more
             </p>
           </div>
