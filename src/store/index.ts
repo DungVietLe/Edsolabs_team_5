@@ -1,6 +1,7 @@
+import loginReducer from 'app/pages/Auth/loginSlice';
 import { combineReducers } from 'redux';
-import userReducer from './userReducer/userReducer';
+
 export const rootReducer = combineReducers({
-  user: userReducer,
+  login: loginReducer,
 });
 export type RootState = ReturnType<typeof rootReducer>;

@@ -3,8 +3,10 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { IconButton, InputAdornment } from '@mui/material';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import ForgotPassword from '../ForgotPassword/ForgotPassword';
+import { loginAction } from '../loginSlice';
 import {
   BoxLogin,
   Mybox,
@@ -14,14 +16,14 @@ import {
   MyTextField,
 } from '../stylesForAuth';
 interface IFormInputs {
-  Email: string;
-  Password: any;
+  email: string;
+  password: any;
 }
 
 const schema = yup
   .object({
-    Email: yup.string().email('Invalid Email').required('Invalid Email'),
-    Password: yup
+    email: yup.string().email('Invalid Email').required('Invalid Email'),
+    password: yup
       .string()
       .required('Invalid password')
       .min(8, 'Password length should be between 8 to 255 characters.')
@@ -30,13 +32,14 @@ const schema = yup
   .required();
 
 export default function Input() {
+  const dispatch = useDispatch();
   const [state, setState] = useState({
     showPassword: false,
   });
   const form = useForm<IFormInputs>({
     defaultValues: {
-      Email: '',
-      Password: '',
+      email: '',
+      password: '',
     },
     resolver: yupResolver(schema),
   });
@@ -45,21 +48,22 @@ export default function Input() {
     formState: { errors },
   } = form;
   const onSubmit = async data => {
-    console.log(data);
+    dispatch(loginAction.login(data));
   };
-  const hasError = errors.Email;
-  const hasErrorPass = errors.Password;
+  const hasError = errors.email;
+  const hasErrorPass = errors.password;
 
   //handle show password
   const handleClickShowPassword = () => {
     setState(state => ({ showPassword: !state.showPassword }));
   };
+
   return (
     <MyComponent>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Mybox>
           <Controller
-            name="Email"
+            name="email"
             control={form.control}
             render={({ field }) => (
               <>
@@ -77,7 +81,7 @@ export default function Input() {
             )}
           />
           <Controller
-            name="Password"
+            name="password"
             control={form.control}
             render={({ field }) => (
               <>
