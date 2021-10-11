@@ -22,6 +22,11 @@ export const Grid = styled.div`
     grid-template-columns: 233px 1fr;
     grid-template-rows: 53px auto auto;
   }
+  @media (max-width: 991px) {
+    grid-template-columns: 170px 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-rows: 53px auto auto auto;
+  }
   @media (max-width: 768px) {
     grid-column-gap: 12px;
     grid-template-columns: 170px 1fr;
@@ -49,13 +54,12 @@ export const Image = styled.div`
     grid-row: 1/3;
     grid-column: 1/2;
   }
-  @media (max-width: 768px) {
-    grid-row: 1/3;
-    grid-column: 1/2;
-  }
   img {
     max-width: 100%;
     height: 100%;
+    @media (max-width: 991px) {
+      height: auto;
+    }
     @media (max-width: 768px) {
       height: auto;
     }
@@ -65,6 +69,9 @@ export const Heading = styled.h3`
   display: block;
   grid-row: 1/2;
   grid-column: 2/3;
+  @media (max-width: 991px) {
+    height: auto;
+  }
   div {
     font-weight: 600;
     font-size: 24px;
@@ -106,6 +113,14 @@ export const Content = styled.div`
   row-gap: 16px;
   grid-row: 2/2;
   grid-column: 2/3;
+  @media (max-width: 991px) {
+    grid-row: 3/4;
+    grid-column: 1/3;
+  }
+  @media (max-width: 768px) {
+    grid-row: 2/2;
+    grid-column: 2/3;
+  }
 
   p {
     display: flex;
@@ -122,6 +137,13 @@ export const Content = styled.div`
     display: block;
     width: 114px;
     color: #a2a3a7;
+    @media (max-width: 991px) {
+      width: auto;
+      justify-content: flex-start;
+    }
+    @media (max-width: 768px) {
+      width: 114px;
+    }
     @media (max-width: 320px) {
       width: auto;
       justify-content: flex-start;

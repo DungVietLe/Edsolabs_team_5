@@ -205,8 +205,9 @@ export default function Items(props: any) {
         <Collateral>
           <div>{collateral}</div>
           <div className="renderIcon">
-            {array.map(e => (
+            {array.map((e, index) => (
               <img
+                key={index}
                 src={e.url}
                 alt=""
                 style={{ height: '30px', padding: '5px' }}
