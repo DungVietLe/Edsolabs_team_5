@@ -7,6 +7,7 @@ import * as React from 'react';
 import { Brrow } from '../Brrow';
 
 export function HomePage() {
+  console.log(window.innerWidth);
   return (
     <>
       <Header />

@@ -19,19 +19,7 @@ import {
 } from './styles';
 import ICON_ITEM from 'assets/Image/BNB.png';
 import { NewSelect } from '../Selecter';
-interface propsImg {
-  src?: any;
-}
-export const ImageIcon = (props: propsImg) => {
-  const { src } = props;
-  return (
-    <img
-      style={{ display: 'inline-block', width: '15px', height: '15px' }}
-      src={src}
-      alt="img coin"
-    />
-  );
-};
+import ImageIcon from '../ImageIcon';
 
 const Borrow = function (props) {
   const [value, setValue] = useState(1);

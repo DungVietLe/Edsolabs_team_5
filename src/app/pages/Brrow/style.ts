@@ -115,7 +115,7 @@ export const Heading = styled.h3`
   font-weight: 600;
   font-family: 'Montserrat';
 
-  media (max-width: 480px) {
+  @media (max-width: 480px) {
     margin-bottom: 0;
     margin-top: 0;
     font-weight: 600;
@@ -140,7 +140,5 @@ export const Paragraph = styled.p`
     font-size: 14px;
     line-height: 17px;
     padding: 0 !important;
-  }
- 
   }
 `;
