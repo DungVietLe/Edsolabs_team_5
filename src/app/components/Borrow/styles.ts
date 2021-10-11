@@ -74,6 +74,10 @@ export const MyTextField = styled(TextField)`
     border-radius: 22px;
     ${(p: PropTextField) =>
       p.error ? `border: 1px solid red;` : 'border: 1px solid #74767B;'}
+    &:hover {
+      ${(p: PropTextField) =>
+        p.error ? `border: 1px solid red;` : 'border: 1px solid #fff;'}
+    }
     box-sizing: border-box;
     max-height: 44px;
     @media (max-width: 475px) {

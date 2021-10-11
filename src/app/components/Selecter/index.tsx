@@ -17,19 +17,28 @@ export function NewSelect(props: props) {
       ...provided,
       fontWeight: state.isSelected ? 'bold' : 'normal',
       color: 'white',
-      backgroundColor: '#161614',
+      backgroundColor: '#2F3543',
       fontSize: state.selectProps.myFontSize,
       '&:hover': {
-        backgroundColor: '#050504',
+        backgroundColor: 'rgba(219,168,61,0.3)',
       },
+      display: 'flex',
+      alignItems: 'center',
+      gap: '5px',
     }),
     multiValue: (provided, state) => ({
       ...provided,
       fontSize: state.selectProps.myFontSize,
-      backgroundColor: 'transparent',
-      borderRadius: '10px',
-      padding: '0px 7px',
+      borderRadius: '16.5px',
+      padding: '2px 2px 2px 4px',
+      margin: '0px',
+      marginRight: '2px',
+      backgroundColor: 'rgba(255, 255, 255, 0.1)',
       color: '#fff !important',
+      '@media(max-width:600px)': {
+        marginTop: '0px',
+        padding: '2px 2px 2px 4px',
+      },
     }),
     singleValue: (provided, state) => ({
       ...provided,
@@ -40,6 +49,7 @@ export function NewSelect(props: props) {
       color: '#fff !important',
       '@media(max-width:600px)': {
         padding: '0px 3px',
+        fontSize: 14,
       },
     }),
     indicatorsContainer: provided => ({
@@ -52,11 +62,13 @@ export function NewSelect(props: props) {
       ...provided,
       backgroundColor: '#161614',
       borderRadius: '3px',
+      // overflow: 'hidden',
     }),
     menuList: provided => ({
       ...provided,
       maxHeight: '200px',
       position: 'absolute',
+      backgroundColor: '#2F3543',
       width: '100%',
       zIndex: 10,
     }),
@@ -68,6 +80,11 @@ export function NewSelect(props: props) {
     multiValueLabel: provided => ({
       ...provided,
       color: '#fff',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '5px',
+      backgroundColor: 'rgba(#FFF,0.1)',
+      borderRadius: '16.5px',
     }),
     singleValueLabel: provided => ({
       ...provided,
@@ -81,7 +98,7 @@ export function NewSelect(props: props) {
     input: provided => ({
       ...provided,
       fontSize: 14,
-      padding: '8.5px 0',
+      padding: '6.5px 0',
       '@media(max-width:600px)': {
         padding: '5px 0',
       },
@@ -113,7 +130,7 @@ export function NewSelect(props: props) {
       boxShadow: 'none',
       borderColor: border,
       borderWidth: '1px',
-      maxHeight: '44px',
+      // maxHeight: '44px',
       background: 'transparent',
       '&:hover': {
         borderColor: '#fff',
@@ -127,7 +144,6 @@ export function NewSelect(props: props) {
   return styleSelect ? (
     <Select
       isMulti
-      value={mutiValue}
       onChange={onChange}
       components={{
         IndicatorSeparator: () => null,
@@ -139,7 +155,6 @@ export function NewSelect(props: props) {
   ) : (
     <Select
       defaultValue={value}
-      value={value}
       onChange={onChange}
       components={{
         IndicatorSeparator: () => null,

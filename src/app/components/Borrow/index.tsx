@@ -4,6 +4,7 @@ import { ButtomBase, ButtomMaxIcon, ButtomSmall, Flex } from '../rootStyled';
 import SearchIcon from '@mui/icons-material/Search';
 import InfoIcon from '@mui/icons-material/Info';
 import IMAGE_NFT_DIAMOND from 'assets/Image/Diamond.png';
+import { listCoin } from '../Filter/DataCoin';
 import {
   FlexColumn,
   Form,
@@ -19,62 +20,18 @@ import {
 } from './styles';
 import ICON_ITEM from 'assets/Image/BNB.png';
 import { NewSelect } from '../Selecter';
-interface propsImg {
-  src?: any;
-}
-export const ImageIcon = (props: propsImg) => {
-  const { src } = props;
-  return (
-    <img
-      style={{ display: 'inline-block', width: '15px', height: '15px' }}
-      src={src}
-      alt="img coin"
-    />
-  );
-};
+import ImageIcon from '../ImageIcon';
 
 const Borrow = function (props) {
   const [value, setValue] = useState(1);
   const handleChange = (newValue: number) => {
     setValue(newValue);
   };
-  const arrCurrency = [
-    { value: 'BNB', label: [<ImageIcon src={ICON_ITEM} />, ' BNB'] },
-    { value: 'ETC', label: [<ImageIcon src={ICON_ITEM} />, ' ETC'] },
-    { value: 'ZEC', label: [<ImageIcon src={ICON_ITEM} />, ' ZEC'] },
-    { value: 'XRP', label: [<ImageIcon src={ICON_ITEM} />, ' XRP'] },
-    { value: 'LTC', label: [<ImageIcon src={ICON_ITEM} />, ' LTC'] },
-    { value: 'MKR', label: [<ImageIcon src={ICON_ITEM} />, ' MKR'] },
-    { value: 'MKR', label: [<ImageIcon src={ICON_ITEM} />, ' MKR'] },
-    { value: 'BTC', label: [<ImageIcon src={ICON_ITEM} />, ' BTC'] },
-    { value: 'ETH', label: [<ImageIcon src={ICON_ITEM} />, ' ETH'] },
-    { value: 'DEF', label: [<ImageIcon src={ICON_ITEM} />, ' DEF'] },
-    { value: 'USDT', label: [<ImageIcon src={ICON_ITEM} />, ' USDT'] },
-    { value: 'FIL', label: [<ImageIcon src={ICON_ITEM} />, ' FIL'] },
-    { value: 'IOTX', label: [<ImageIcon src={ICON_ITEM} />, ' IOTX'] },
-    { value: 'PAX', label: [<ImageIcon src={ICON_ITEM} />, ' PAX'] },
-    { value: 'ONT', label: [<ImageIcon src={ICON_ITEM} />, ' ONT'] },
-    { value: 'SNX', label: [<ImageIcon src={ICON_ITEM} />, ' SNX'] },
-    { value: 'SXP', label: [<ImageIcon src={ICON_ITEM} />, ' SXP'] },
-    { value: 'BAND', label: [<ImageIcon src={ICON_ITEM} />, ' BAND'] },
-    { value: 'DOT', label: [<ImageIcon src={ICON_ITEM} />, ' DOT'] },
-    { value: 'BEF', label: [<ImageIcon src={ICON_ITEM} />, ' BEF'] },
-    { value: 'ELF', label: [<ImageIcon src={ICON_ITEM} />, ' ELF'] },
-    { value: 'TCT', label: [<ImageIcon src={ICON_ITEM} />, ' TCT'] },
-    { value: 'LINK', label: [<ImageIcon src={ICON_ITEM} />, ' LINK'] },
-    { value: 'ADA', label: [<ImageIcon src={ICON_ITEM} />, ' ADA'] },
-    { value: 'EOS', label: [<ImageIcon src={ICON_ITEM} />, ' EOS'] },
-    { value: 'INJ', label: [<ImageIcon src={ICON_ITEM} />, ' INJ'] },
-    { value: 'UNI', label: [<ImageIcon src={ICON_ITEM} />, ' UNI'] },
-    { value: 'NEAR', label: [<ImageIcon src={ICON_ITEM} />, ' NEAR'] },
-    { value: 'ATOM', label: [<ImageIcon src={ICON_ITEM} />, ' ATOM'] },
-    { value: 'COMP', label: [<ImageIcon src={ICON_ITEM} />, ' COMP'] },
-    { value: 'YFI', label: [<ImageIcon src={ICON_ITEM} />, ' YFI'] },
-    { value: 'YFII', label: [<ImageIcon src={ICON_ITEM} />, ' YFII'] },
-    { value: 'XTZ', label: [<ImageIcon src={ICON_ITEM} />, ' XTZ'] },
-    { value: 'WBNB', label: [<ImageIcon src={ICON_ITEM} />, ' WBNB'] },
-    { value: 'DOGE', label: [<ImageIcon src={ICON_ITEM} />, ' DOGE'] },
-  ];
+  const arrCurrency = listCoin.map(item => ({
+    value: item.value,
+    label: [<ImageIcon src={item.url} />, item.value],
+  }));
+
   const arrTimes = [
     { value: 'Weeks', label: 'Weeks' },
     { value: 'Months', label: 'Months' },
@@ -110,6 +67,7 @@ const Borrow = function (props) {
             <label htmlFor="collateral">Collateral</label>
             <div style={{ position: 'relative' }}>
               <MyTextField
+                inputRef={input => input && input.focus()}
                 value={valueCollateral}
                 error={Boolean(errors.collateral)}
                 className="wrap--input"
