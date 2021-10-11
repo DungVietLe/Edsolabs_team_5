@@ -23,7 +23,7 @@ export function NotFoundPage() {
                 <LeftText>Oopps...!</LeftText>
                 <LeftContext>Page not found.</LeftContext>
                 <LeftBack>
-                  <LeftLink to="/">
+                  <LeftLink to="/pawn">
                     <LeftSpan>GO BACK</LeftSpan>
                   </LeftLink>
                 </LeftBack>
