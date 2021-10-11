@@ -16,13 +16,13 @@ import {
   MyTextField,
 } from '../stylesForAuth';
 interface IFormInputs {
-  email: string;
+  username: string;
   password: any;
 }
 
 const schema = yup
   .object({
-    email: yup.string().email('Invalid Email').required('Invalid Email'),
+    username: yup.string().email('Invalid Email').required('Invalid Email'),
     password: yup
       .string()
       .required('Invalid password')
@@ -38,7 +38,7 @@ export default function Input() {
   });
   const form = useForm<IFormInputs>({
     defaultValues: {
-      email: '',
+      username: '',
       password: '',
     },
     resolver: yupResolver(schema),
@@ -50,7 +50,7 @@ export default function Input() {
   const onSubmit = async data => {
     dispatch(loginAction.login(data));
   };
-  const hasError = errors.email;
+  const hasError = errors.username;
   const hasErrorPass = errors.password;
 
   //handle show password
@@ -63,7 +63,7 @@ export default function Input() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Mybox>
           <Controller
-            name="email"
+            name="username"
             control={form.control}
             render={({ field }) => (
               <>

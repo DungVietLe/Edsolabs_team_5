@@ -105,6 +105,9 @@ const Header = props => {
             <LinkButtom className="btn" outlinebutton="dba83d">
               <Link to="/login?tab=2">Login</Link>
             </LinkButtom>
+            <LinkButtom className="btn" outlinebutton="dba83d">
+              <Link to="#">Log out</Link>
+            </LinkButtom>
           </GropButtom>
 
           <Toggle

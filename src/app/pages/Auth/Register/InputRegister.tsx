@@ -199,7 +199,12 @@ export const InputRegister = (props: Props) => {
           You’s Terms and Conditions of Use.
         </NtfTitle>
 
-        {/* <MyCapcha sitekey="6Lf_BLIcAAAAADjns4IzWXSZElWq9-gqF7p9IzRC" /> */}
+        <MyCapcha
+          sitekey="6Lf_BLIcAAAAADjns4IzWXSZElWq9-gqF7p9IzRC"
+          onChange={value => {
+            console.log(value);
+          }}
+        />
 
         <BoxLogin>
           <MyButtonAuthLogin type="submit" w="174px" wmb="170px" hmb="42px">
