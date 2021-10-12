@@ -1,62 +1,105 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { IconButton, InputAdornment } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import {
+  CircularProgress,
+  IconButton,
+  InputAdornment,
+  Modal,
+  Typography,
+} from '@mui/material';
+import { Box } from '@mui/system';
+import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { useRecaptcha } from 'react-hook-recaptcha';
+import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
+import {
+  loginAction,
+  selectLoading,
+  selectRegisterError,
+  selectRegisterSuccess,
+} from '../loginSlice';
 import {
   BoxLogin,
   Mybox,
   MyButtonAuthLogin,
-  MyCapcha,
   MyComponent,
   MyLabel,
   MyTextField,
   NtfTitle,
 } from '../stylesForAuth';
-interface Props {}
+
 interface IFormInputs {
-  Name: string;
-  Email: string;
-  Password: any;
-  ConfirmPassword: any;
+  name: string;
+  email: string;
+  password: any;
+  confirmPassword: any;
 }
+
+const containerId = 'test-recaptcha';
+const sitekey = '6LcSG9EaAAAAABvbpHkdugGmjEWeYPp6NoPPDEvt';
 const schema = yup
   .object({
-    Name: yup.string().required('Invalid name'),
-    Email: yup.string().email('Invalid Email').required('Invalid Email'),
-    Password: yup
+    name: yup.string().required('Invalid name'),
+    email: yup.string().email('Invalid Email').required('Invalid Email'),
+    password: yup
       .string()
       .required('Invalid password')
       .min(8, 'Password length should be between 8 to 255 characters.')
       .max(255, 'Password length should be between 8 to 255 characters.'),
-    ConfirmPassword: yup
+    confirmPassword: yup
       .string()
-      .oneOf([yup.ref('Password')], "Password's not match")
+      .oneOf([yup.ref('password')], "Password's not match")
       .required('Required!'),
   })
   .required();
-export const InputRegister = (props: Props) => {
+const style = {
+  position: 'absolute' as 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 350,
+  bgcolor: '#282c38',
+
+  borderRadius: 8,
+
+  p: 4,
+};
+
+export const InputRegister = props => {
+  const dispatch = useDispatch();
+  const loading = useSelector(selectLoading);
+  const [captchaResponse, setCaptchaResponse] = useState(null);
+  const successCallback = response => {
+    setCaptchaResponse(response);
+  };
+  const expiredCallback = () => setCaptchaResponse(null);
+
+  useRecaptcha({
+    containerId,
+    successCallback,
+    expiredCallback,
+    size: 'normal',
+    sitekey,
+  });
   const form = useForm<IFormInputs>({
     defaultValues: {
-      Name: '',
-      Email: '',
-      Password: '',
-      ConfirmPassword: '',
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
     },
     resolver: yupResolver(schema),
   });
   const {
-    register,
     handleSubmit,
     formState: { errors },
-    setValue,
   } = form;
 
-  const hasNameError = errors.Name;
-  const hasEmailError = errors.Email;
-  const hasPasswordError = errors.Password;
-  const hasConfirmPasswordError = errors.ConfirmPassword;
+  const hasNameError = errors.name;
+  const hasEmailError = errors.email;
+  const hasPasswordError = errors.password;
+  const hasConfirmPasswordError = errors.confirmPassword;
 
   const [state, setState] = useState({
     showPassword: false,
@@ -74,15 +117,21 @@ export const InputRegister = (props: Props) => {
   };
 
   const onSubmit = (data: any) => {
-    console.log(data);
+    const newData = { ...data, recaptcha_response: captchaResponse };
+    dispatch(loginAction.register(newData));
   };
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const ntfError = useSelector(selectRegisterError);
 
+  const ntfSuccess = useSelector(selectRegisterSuccess);
   return (
     <MyComponent>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Mybox h="388px">
           <Controller
-            name="Name"
+            name="name"
             control={form.control}
             render={({ field }) => (
               <>
@@ -100,7 +149,7 @@ export const InputRegister = (props: Props) => {
             )}
           />
           <Controller
-            name="Email"
+            name="email"
             control={form.control}
             render={({ field }) => (
               <>
@@ -118,7 +167,7 @@ export const InputRegister = (props: Props) => {
             )}
           />
           <Controller
-            name="Password"
+            name="password"
             control={form.control}
             render={({ field }) => (
               <>
@@ -155,7 +204,7 @@ export const InputRegister = (props: Props) => {
             )}
           />
           <Controller
-            name="ConfirmPassword"
+            name="confirmPassword"
             control={form.control}
             render={({ field }) => (
               <>
@@ -199,17 +248,58 @@ export const InputRegister = (props: Props) => {
           You’s Terms and Conditions of Use.
         </NtfTitle>
 
-        <MyCapcha
-          sitekey="6Lf_BLIcAAAAADjns4IzWXSZElWq9-gqF7p9IzRC"
-          onChange={value => {
-            console.log(value);
-          }}
-        />
+        <div id={containerId} className="g-recaptcha" />
 
         <BoxLogin>
-          <MyButtonAuthLogin type="submit" w="174px" wmb="170px" hmb="42px">
-            Create Account
+          <MyButtonAuthLogin
+            disabled={!captchaResponse}
+            type="submit"
+            w="174px"
+            wmb="170px"
+            hmb="42px"
+            onClick={handleOpen}
+          >
+            {loading ? (
+              <CircularProgress size={20} color="secondary" />
+            ) : (
+              'Create Account'
+            )}
           </MyButtonAuthLogin>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Typography
+                id="modal-modal-title"
+                variant="h6"
+                component="h2"
+                sx={{
+                  fontFamily: 'Montserrat',
+                  color: '#fff',
+                  fontSize: 20,
+                  fontWeight: 600,
+                  textAlign: 'center',
+                }}
+              >
+                {ntfError}
+              </Typography>
+              <MyButtonAuthLogin
+                sx={{
+                  fontFamily: 'Montserrat',
+                  width: '100%',
+                  margin: '10px 0 0 50%',
+                  transform: 'translateX(-50%)',
+                }}
+                w="100px"
+                onClick={handleClose}
+              >
+                OK
+              </MyButtonAuthLogin>
+            </Box>
+          </Modal>
         </BoxLogin>
       </form>
     </MyComponent>

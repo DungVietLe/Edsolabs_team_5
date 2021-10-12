@@ -1,10 +1,12 @@
-import { useState } from 'react';
-import { useForm, Controller } from 'react-hook-form';
-import { ButtomBase, ButtomMaxIcon, ButtomSmall, Flex } from '../rootStyled';
-import SearchIcon from '@mui/icons-material/Search';
 import InfoIcon from '@mui/icons-material/Info';
+import SearchIcon from '@mui/icons-material/Search';
 import IMAGE_NFT_DIAMOND from 'assets/Image/Diamond.png';
+import { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import { listCoin } from '../Filter/DataCoin';
+import ImageIcon from '../ImageIcon';
+import { ButtomBase, ButtomMaxIcon, ButtomSmall, Flex } from '../rootStyled';
+import { NewSelect } from '../Selecter';
 import {
   FlexColumn,
   Form,
@@ -18,9 +20,6 @@ import {
   Tabheader,
   Wrapper,
 } from './styles';
-import ICON_ITEM from 'assets/Image/BNB.png';
-import { NewSelect } from '../Selecter';
-import ImageIcon from '../ImageIcon';
 
 const Borrow = function (props) {
   const [value, setValue] = useState(1);

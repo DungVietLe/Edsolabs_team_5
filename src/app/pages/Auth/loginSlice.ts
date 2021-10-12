@@ -1,30 +1,51 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { User } from 'models/user';
 
 export interface loginState {
+  loading: Boolean;
   isLoggin: Boolean;
-  currentUser?: User;
+  registerError: string | null;
+  registerSuccess: string | null;
 }
 
 const initialState: loginState = {
+  loading: false,
   isLoggin: false,
-  currentUser: undefined,
+  registerError: null,
+  registerSuccess: null,
 };
 
 const loginSlice = createSlice({
   name: 'login',
   initialState,
   reducers: {
-    login(state, action) {},
+    login(state, action) {
+      state.loading = true;
+    },
     loginSuccessSaga(state, action) {
+      state.loading = false;
       state.isLoggin = true;
-      console.log('redux nhận được', action.payload);
     },
     loginErrorSaga(state, action) {
-      console.log('lỗi');
+      state.loading = false;
+      state.isLoggin = false;
+      alert(action.payload);
     },
     logout(state) {
       state.isLoggin = false;
+      localStorage.removeItem('access_token');
+    },
+    register(state, action) {
+      state.loading = true;
+    },
+    registerSuccess(state, action) {
+      state.loading = false;
+      state.registerSuccess =
+        'Create Account Success ! Go to Email Active Account -___-';
+    },
+    registerError(state, action) {
+      state.loading = false;
+      state.registerError = 'This email address is already registered';
     },
   },
 });
@@ -32,8 +53,11 @@ const loginSlice = createSlice({
 export const loginAction = loginSlice.actions;
 
 //selectors
-export const selectIsLoggin = (state: any) => state.login.isLoggin;
-
-//reducer
+export const selectLoading = (state: any) => state.login.loading;
+export const selectIsLogin = (state: any) => state.login.isLoggin;
+export const selectRegisterSuccess = (state: any) =>
+  state.login.registerSuccess;
+export const selectRegisterError = (state: any) => state.login.registerError;
+export //reducer
 const loginReducer = loginSlice.reducer;
 export default loginReducer;

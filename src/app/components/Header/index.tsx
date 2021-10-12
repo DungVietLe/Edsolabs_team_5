@@ -1,9 +1,13 @@
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
+import { authApiInfo } from 'api/authApi';
+import { selectIsLogin } from 'app/pages/Auth/loginSlice';
 import LOGO from 'assets/Image/Logo.png';
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
 import { Flex, GropButtom, LinkButtom } from '../rootStyled';
+import LoginSuccess from './LoginSucces';
 import {
   Arrow,
   HeaderNav,
@@ -17,6 +21,22 @@ import {
 } from './styles';
 
 const Header = props => {
+  const [user, setUser] = useState<any>();
+  const isLoggin = useSelector(selectIsLogin);
+  const token = localStorage.getItem('access_token');
+  useEffect(() => {
+    if (localStorage.getItem('access_token')) {
+      authApiInfo.getUser(token).then((res: any) => setUser(res.data));
+    }
+  }, []);
+
+  const history = useHistory();
+  useEffect(() => {
+    if (isLoggin === true) {
+      history.push('/pawn');
+    }
+  }, [isLoggin]);
+
   const [isToggle, setIsToggle] = useState(false);
 
   const handleClickToggle = () => {
@@ -60,6 +80,7 @@ const Header = props => {
         break;
     }
   };
+
   return (
     <Headers>
       <Flex justifyContent="space-between" alignItem="center">
@@ -103,10 +124,11 @@ const Header = props => {
               <Link to="/">Connect</Link>
             </LinkButtom>
             <LinkButtom className="btn" outlinebutton="dba83d">
-              <Link to="/login?tab=2">Login</Link>
-            </LinkButtom>
-            <LinkButtom className="btn" outlinebutton="dba83d">
-              <Link to="#">Log out</Link>
+              {localStorage.getItem('access_token') ? (
+                <LoginSuccess name={user?.name} />
+              ) : (
+                <Link to="/login?tab=2">Login</Link>
+              )}
             </LinkButtom>
           </GropButtom>
 

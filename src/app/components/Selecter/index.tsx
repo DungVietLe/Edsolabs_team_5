@@ -10,7 +10,7 @@ interface props {
 }
 
 export function NewSelect(props: props) {
-  const { data, styleSelect, value, onChange, mutiValue, error } = props;
+  const { data, styleSelect, value, onChange, error } = props;
   const border = error ? 'red' : '#74767B';
   const styles = {
     option: (provided, state) => ({

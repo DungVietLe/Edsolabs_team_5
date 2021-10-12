@@ -1,7 +1,7 @@
-import React from 'react';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import StarIcon from '@mui/icons-material/Star';
 import Item_IMG from 'assets/Image/ImageItem.png';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   ButtonCuston,
   CollateralAccepted,
@@ -15,7 +15,6 @@ import {
   Item,
   MyLinkButton,
 } from './styles';
-import { Link } from 'react-router-dom';
 
 const IconCheck = () => {
   return (

@@ -12,18 +12,23 @@ import { listCoin } from './DataCoin';
 interface Props {}
 
 export const CollateralAccepted = (props: Props) => {
+  const handleCheckBoxChange = e => {
+    console.log(e.target.name);
+  };
   const renderListCoin = listCoin.map((item, index) => {
     return (
       <FormControlLabel
         key={index}
         control={
           <Checkbox
+            name={item.value}
             sx={{
               color: '#fff',
               '&.Mui-checked': {
                 color: '#DBA83D',
               },
             }}
+            onChange={handleCheckBoxChange}
           />
         }
         label={

@@ -1,12 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { IconButton, InputAdornment } from '@mui/material';
+import { CircularProgress, IconButton, InputAdornment } from '@mui/material';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import ForgotPassword from '../ForgotPassword/ForgotPassword';
-import { loginAction } from '../loginSlice';
+import { loginAction, selectLoading } from '../loginSlice';
 import {
   BoxLogin,
   Mybox,
@@ -33,6 +33,7 @@ const schema = yup
 
 export default function Input() {
   const dispatch = useDispatch();
+  const loading = useSelector(selectLoading);
   const [state, setState] = useState({
     showPassword: false,
   });
@@ -121,7 +122,11 @@ export default function Input() {
         <ForgotPassword />
         <BoxLogin>
           <MyButtonAuthLogin type="submit" hmb="42px">
-            Log in
+            {loading ? (
+              <CircularProgress size={20} color="secondary" />
+            ) : (
+              'Log in'
+            )}
           </MyButtonAuthLogin>
         </BoxLogin>
       </form>
