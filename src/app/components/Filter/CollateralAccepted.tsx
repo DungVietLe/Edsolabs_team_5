@@ -9,11 +9,11 @@ import Typography from '@mui/material/Typography';
 import React from 'react';
 import { ContainerInterest, SetSizeCoin } from './rootStylesFilter';
 import { listCoin } from './DataCoin';
-interface Props {}
+import { MyValue } from 'models/Myvalue';
 
-export const CollateralAccepted = (props: Props) => {
+export const CollateralAccepted = (props: MyValue) => {
   const handleCheckBoxChange = e => {
-    console.log(e.target.name);
+    props.data(e.target.name, 'Collateral accepted');
   };
   const renderListCoin = listCoin.map((item, index) => {
     return (
