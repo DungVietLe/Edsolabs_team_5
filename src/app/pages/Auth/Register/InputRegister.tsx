@@ -284,7 +284,7 @@ export const InputRegister = props => {
                   textAlign: 'center',
                 }}
               >
-                {ntfError}
+                {ntfError ? ntfError : ntfSuccess}
               </Typography>
               <MyButtonAuthLogin
                 sx={{
