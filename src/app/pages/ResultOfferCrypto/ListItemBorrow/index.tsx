@@ -8,17 +8,27 @@ import {
   WrapperListItem,
   Content,
 } from './styles';
-import ItemShowBorrow from 'app/components/ItemShowBorrow';
-import { Flex } from 'app/components/rootStyled';
+
+import { FlexColumn } from '../../ResultStyles';
+import { ItemShowBorrow } from 'app/components/ItemShow';
+
+// fakedata
+
+import { FakeListItemSearchBorrow } from 'api/fakeDataSerachListItem';
 
 const ListItemBorrow = () => {
+  const newFakeArr = [...FakeListItemSearchBorrow];
+
   const [isActiveSort, setIsActiveSort] = useState('');
 
   const handleClickActiveSort = (e: React.MouseEvent<HTMLButtonElement>) => {
     const name = e.currentTarget.name as string;
     setIsActiveSort(name);
   };
-  const arr = [1, 2, 3, 4, 5, 7, 8];
+  const ListItem = newFakeArr.map((item, index) => (
+    <ItemShowBorrow key={index} item={item} />
+  ));
+
   return (
     <WrapperListItem>
       <HeaderContent>
@@ -86,11 +96,7 @@ const ListItemBorrow = () => {
         </GropButtonSort>
       </HeaderContent>
       <Content>
-        <Flex gap={20} flexColumn={1920}>
-          {arr.map((item, index) => (
-            <ItemShowBorrow key={index} />
-          ))}
-        </Flex>
+        <FlexColumn>{ListItem}</FlexColumn>
       </Content>
     </WrapperListItem>
   );
