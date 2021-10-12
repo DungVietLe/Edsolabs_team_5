@@ -5,17 +5,20 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import FormGroup from '@mui/material/FormGroup';
 import Typography from '@mui/material/Typography';
+import { MyValue } from 'models/Myvalue';
 import React from 'react';
 import { ContainerInterest } from './rootStylesFilter';
-interface Props {}
 
-export const LoanType = (props: Props) => {
+export const LoanType = (props: MyValue) => {
   const [expanded, setExpanded] = React.useState<string | false>('on');
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
       setExpanded(newExpanded ? panel : false);
     };
+  const getLoanType = e => {
+    props.data(e.target.name, 'Loan type');
+  };
   return (
     <ContainerInterest>
       <Accordion onChange={handleChange('on')} expanded={expanded === 'on'}>
@@ -31,12 +34,14 @@ export const LoanType = (props: Props) => {
             <FormControlLabel
               control={
                 <Checkbox
+                  name="Auto"
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {
                       color: '#DBA83D',
                     },
                   }}
+                  onChange={getLoanType}
                 />
               }
               label="Auto"
@@ -44,12 +49,14 @@ export const LoanType = (props: Props) => {
             <FormControlLabel
               control={
                 <Checkbox
+                  name="Semi-auto"
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {
                       color: '#DBA83D',
                     },
                   }}
+                  onChange={getLoanType}
                 />
               }
               label="Semi-auto"
@@ -57,12 +64,14 @@ export const LoanType = (props: Props) => {
             <FormControlLabel
               control={
                 <Checkbox
+                  name="Negotiation"
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {
                       color: '#DBA83D',
                     },
                   }}
+                  onChange={getLoanType}
                 />
               }
               label="Negotiation"

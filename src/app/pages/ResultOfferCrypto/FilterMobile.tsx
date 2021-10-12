@@ -28,17 +28,19 @@ export default function FilterMobile() {
 
       setState({ ...state, [anchor]: open });
     };
-
+  const handleValueFilter = e => {
+    console.log(e);
+  };
   const list = (anchor: Anchor) => (
     <BoxrightMobile>
       <Reset>Reset filter</Reset>
       <SearchPawnshops />
       <InterestRange />
       <LoanValue />
-      <CollateralAccepted />
-      <LoanToken />
-      <LoanType />
-      <Duration />
+      <CollateralAccepted data={handleValueFilter} />
+      <LoanToken data={handleValueFilter} />
+      <LoanType data={handleValueFilter} />
+      <Duration data={handleValueFilter} />
     </BoxrightMobile>
   );
 

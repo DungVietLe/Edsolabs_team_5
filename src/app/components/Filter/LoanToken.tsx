@@ -9,21 +9,27 @@ import Typography from '@mui/material/Typography';
 import React from 'react';
 import { ContainerInterest, SetSizeCoin } from './rootStylesFilter';
 import { listLoan } from './DataCoin';
-interface Props {}
+import { MyValue } from 'models/Myvalue';
 
-export const LoanToken = (props: Props) => {
+export const LoanToken = (props: MyValue) => {
+  const valueLoanToken = e => {
+    props.data(e.target.name, 'Loan Token');
+  };
+
   const renderListCoin = listLoan.map((item, index) => {
     return (
       <FormControlLabel
         key={index}
         control={
           <Checkbox
+            name={item.value}
             sx={{
               color: '#fff',
               '&.Mui-checked': {
                 color: '#DBA83D',
               },
             }}
+            onChange={valueLoanToken}
           />
         }
         label={

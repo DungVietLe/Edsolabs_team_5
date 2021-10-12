@@ -5,17 +5,20 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import FormGroup from '@mui/material/FormGroup';
 import Typography from '@mui/material/Typography';
+import { MyValue } from 'models/Myvalue';
 import React from 'react';
 import { ContainerInterest } from './rootStylesFilter';
-interface Props {}
 
-export const Duration = (props: Props) => {
+export const Duration = (props: MyValue) => {
   const [expanded, setExpanded] = React.useState<string | false>('on');
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
       setExpanded(newExpanded ? panel : false);
     };
+  const getDuration = e => {
+    props.data(e.target.name, 'Duration');
+  };
   return (
     <ContainerInterest>
       <Accordion expanded={expanded === 'on'} onChange={handleChange('on')}>
@@ -31,12 +34,14 @@ export const Duration = (props: Props) => {
             <FormControlLabel
               control={
                 <Checkbox
+                  name="Week"
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {
                       color: '#DBA83D',
                     },
                   }}
+                  onChange={getDuration}
                 />
               }
               label="Week"
@@ -44,12 +49,14 @@ export const Duration = (props: Props) => {
             <FormControlLabel
               control={
                 <Checkbox
+                  name="Month"
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {
                       color: '#DBA83D',
                     },
                   }}
+                  onChange={getDuration}
                 />
               }
               label="Month"
