@@ -22,20 +22,12 @@ import {
 
 const Header = props => {
   const [user, setUser] = useState<any>();
-  const isLoggin = useSelector(selectIsLogin);
   const token = localStorage.getItem('access_token');
   useEffect(() => {
     if (localStorage.getItem('access_token')) {
       authApiInfo.getUser(token).then((res: any) => setUser(res.data));
     }
   }, [token]);
-
-  const history = useHistory();
-  useEffect(() => {
-    if (isLoggin === true) {
-      history.push('/pawn');
-    }
-  }, [isLoggin]);
 
   const [isToggle, setIsToggle] = useState(false);
 

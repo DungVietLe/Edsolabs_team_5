@@ -45,26 +45,26 @@ const schema = yup
     password: yup
       .string()
       .required('Invalid password')
+      .matches(
+        /(?=.*?[0-9])/,
+        'Password should contain at least one digit(0-9)',
+      )
       .min(8, 'Password length should be between 8 to 255 characters.')
-      .max(255, 'Password length should be between 8 to 255 characters.'),
+      .max(255, 'Password length should be between 8 to 255 characters.')
+      .matches(
+        /(?=.*?[A-Z])/,
+        'Password should contain at least one uppercase letter(A-Z).',
+      )
+      .matches(
+        /(?=.*?[#?!@$%^&*-])/,
+        'Password should contain at least one special character ( @, #, %, &, !, $, etc….).',
+      ),
     confirmPassword: yup
       .string()
       .oneOf([yup.ref('password')], "Password's not match")
       .required('Required!'),
   })
   .required();
-const style = {
-  position: 'absolute' as 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 350,
-  bgcolor: '#282c38',
-
-  borderRadius: 8,
-
-  p: 4,
-};
 
 export const InputRegister = props => {
   const dispatch = useDispatch();
@@ -120,10 +120,6 @@ export const InputRegister = props => {
     const newData = { ...data, recaptcha_response: captchaResponse };
     dispatch(loginAction.register(newData));
   };
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  const ntfError = useSelector(selectRegisterError);
 
   const ntfSuccess = useSelector(selectRegisterSuccess);
   return (
@@ -257,7 +253,6 @@ export const InputRegister = props => {
             w="174px"
             wmb="170px"
             hmb="42px"
-            onClick={handleOpen}
           >
             {loading ? (
               <CircularProgress size={20} color="secondary" />
@@ -265,41 +260,6 @@ export const InputRegister = props => {
               'Create Account'
             )}
           </MyButtonAuthLogin>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style}>
-              <Typography
-                id="modal-modal-title"
-                variant="h6"
-                component="h2"
-                sx={{
-                  fontFamily: 'Montserrat',
-                  color: '#fff',
-                  fontSize: 20,
-                  fontWeight: 600,
-                  textAlign: 'center',
-                }}
-              >
-                {ntfError ? ntfError : ntfSuccess}
-              </Typography>
-              <MyButtonAuthLogin
-                sx={{
-                  fontFamily: 'Montserrat',
-                  width: '100%',
-                  margin: '10px 0 0 50%',
-                  transform: 'translateX(-50%)',
-                }}
-                w="100px"
-                onClick={handleClose}
-              >
-                OK
-              </MyButtonAuthLogin>
-            </Box>
-          </Modal>
         </BoxLogin>
       </form>
     </MyComponent>

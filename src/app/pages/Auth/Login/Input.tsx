@@ -1,12 +1,13 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { CircularProgress, IconButton, InputAdornment } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 import * as yup from 'yup';
 import ForgotPassword from '../ForgotPassword/ForgotPassword';
-import { loginAction, selectLoading } from '../loginSlice';
+import { loginAction, selectIsLogin, selectLoading } from '../loginSlice';
 import {
   BoxLogin,
   Mybox,
@@ -58,7 +59,13 @@ export default function Input() {
   const handleClickShowPassword = () => {
     setState(state => ({ showPassword: !state.showPassword }));
   };
-
+  let isLoggin = useSelector(selectIsLogin);
+  const history = useHistory();
+  useEffect(() => {
+    if (isLoggin) {
+      history.push('/');
+    }
+  }, [isLoggin]);
   return (
     <MyComponent>
       <form onSubmit={handleSubmit(onSubmit)}>

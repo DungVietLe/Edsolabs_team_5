@@ -33,7 +33,7 @@ export default function LoginSuccess(props: MyUser) {
 
     setOpen(false);
     dispatch(loginAction.logout());
-    history.replace(window.location.pathname);
+    history.push('/pawn');
     alert('logout success');
   };
 
