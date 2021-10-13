@@ -16,7 +16,6 @@ import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { Login } from './pages/Auth/Login/Login';
 import { HomePage } from './pages/HomePage';
 import { ResultOfferCrypto } from './pages/ResultOfferCrypto/ResultOfferCrypto';
-
 export function App() {
   const { i18n } = useTranslation();
   return (
