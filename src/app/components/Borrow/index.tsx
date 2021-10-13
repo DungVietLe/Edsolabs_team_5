@@ -66,7 +66,6 @@ const Borrow = function (props) {
             <label htmlFor="collateral">Collateral</label>
             <div style={{ position: 'relative' }}>
               <MyTextField
-                inputRef={input => input && input.focus()}
                 value={valueCollateral}
                 error={Boolean(errors.collateral)}
                 className="wrap--input"
