@@ -8,6 +8,6 @@ export const searchApi = {
   },
   getDataLentNFT(param: any) {
     const url = '/account/collaterals/nfts/search';
-    return axiosSearch.get(url, param);
+    return axiosSearch.get(url, { params: param });
   },
 };

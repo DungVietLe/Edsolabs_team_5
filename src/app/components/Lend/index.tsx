@@ -6,6 +6,8 @@ import { listCoin } from '../Filter/DataCoin';
 import { ButtomMaxIcon, ButtomSmall, Flex } from '../rootStyled';
 import { NewSelect } from '../Selecter';
 import { Form, FormCtrol, MyTextField, Wrapper } from './style';
+import queryString from 'query-string';
+import { useHistory } from 'react-router';
 interface propsImg {
   src?: any;
 }
@@ -34,9 +36,21 @@ const Lend = () => {
   };
   const [valueMaxLoan, setValueMaxLoan] = useState('');
   const [valueDuration, setValueDuration] = useState('');
-
-  const onSubmit = (data: object) => console.log(data);
-
+  const history = useHistory();
+  const onSubmit = (data: any) => {
+    console.log(data);
+    const newObj = {
+      loanSymbols: data.currency.value,
+      durationTypes: Number(data.timer.value),
+      loanAmount: Number(data.maxloan),
+      size: 10,
+    };
+    history.push({
+      pathname: '/pawn/lender/nft-result',
+      search: queryString.stringify(newObj),
+    });
+    console.log(newObj);
+  };
   const handleChangeMaxLoan = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValueMaxLoan(e.target.value);
   };

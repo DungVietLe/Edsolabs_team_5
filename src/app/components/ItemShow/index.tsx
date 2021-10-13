@@ -187,11 +187,11 @@ export const ItemShowBorrow = (props: any) => {
 export const ItemShowLend = (props: any) => {
   const { item } = props;
   const src = listCoin.filter(e => {
-    if (e.value === item.expectedLoanSymbol) {
+    if (e.value === item?.expectedLoanSymbol) {
       return e;
     }
   });
-
+  console.log(item.expectedLoanSymbol);
   function formatMoney(n) {
     return (Math.round(n * 100) / 100).toLocaleString();
   }
@@ -241,7 +241,8 @@ export const ItemShowLend = (props: any) => {
               <span className="content-title">Evaluated price: </span>
               <span className="content-name">
                 <img
-                  src={src[0].url}
+                  //src={src[0].url}
+
                   alt="icon"
                   style={{ height: '24px', width: '24px', marginRight: '8px' }}
                 />
@@ -264,16 +265,16 @@ export const ItemShowLend = (props: any) => {
             <ButtonCuston color={'orange'}>
               <IconDiamond />
               <span>
-                {item.nftAssetTypeId === 1
-                  ? `Jewelry`
-                  : item.type === 2
+                {item.nftAssetTypeId === 0
+                  ? `Artwork`
+                  : item.nftAssetTypeId === 1
+                  ? 'Jewelry'
+                  : item.nftAssetTypeId === 2
                   ? 'Watch'
-                  : item.type === 3
+                  : item.nftAssetTypeId === 3
                   ? 'Car'
-                  : item.type === 4
+                  : item.nftAssetTypeId === 4
                   ? 'House'
-                  : item.type === 5
-                  ? 'Artwork'
                   : ''}
               </span>
             </ButtonCuston>
