@@ -78,8 +78,8 @@ export const ResultOfferCrypto = (props: Props) => {
       }
     }
   };
-  const [status, setStatus] = useState(false);
   console.log(listData);
+  const [status, setStatus] = useState(false);
   const handleShowFilter = () => {
     setStatus(!status);
   };
@@ -89,7 +89,7 @@ export const ResultOfferCrypto = (props: Props) => {
       <Header />
       <WrapperResult>
         <ContainerResult>
-          <Flex gap={20} justifyContent="center">
+          <Flex gap={20} justifyContent="center" alignItem="flex-start">
             <BoxLeft>
               <div style={{ textAlign: 'right', cursor: 'pointer' }}>
                 <img src={filter} alt="acoin" onClick={handleShowFilter} />
