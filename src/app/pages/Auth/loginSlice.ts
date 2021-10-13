@@ -39,12 +39,11 @@ const loginSlice = createSlice({
     },
     registerSuccess(state, action) {
       state.loading = false;
-      state.registerSuccess =
-        'Create Account Success ! Go to Email Active Account -___-';
+      alert('Create Account Success ! Go to Email Active Account -___-');
     },
     registerError(state, action) {
       state.loading = false;
-      state.registerError = 'This email address is already registered';
+      alert('This email address is already registered');
     },
   },
 });

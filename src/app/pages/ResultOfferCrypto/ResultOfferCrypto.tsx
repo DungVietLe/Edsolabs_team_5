@@ -12,12 +12,14 @@ import { Flex } from 'app/components/rootStyled';
 import React, { useEffect, useState } from 'react';
 import ListSugges from '../../../app/pages/ResultOfferCrypto/SearchSuggess/OptionPersonal/index';
 import filter from './filter.png';
-import { BoxFlex, Close, Modal } from './styles';
 import ListItemBorrow from './ListItemBorrow';
 import {
+  BoxFlex,
   BoxLeft,
   Boxright,
+  Close,
   ContainerResult,
+  Modal,
   Reset,
   WrapperResult,
 } from './styles';

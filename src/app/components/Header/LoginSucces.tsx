@@ -38,7 +38,7 @@ export default function LoginSuccess(props: MyUser) {
   const handleLogout = (event: Event | React.SyntheticEvent) => {
     handleClose(event);
     dispatch(loginAction.logout());
-    history.replace(window.location.pathname);
+    history.push('/pawn');
     alert('logout success');
   };
 

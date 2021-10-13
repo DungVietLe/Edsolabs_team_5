@@ -2,12 +2,19 @@ import * as React from 'react';
 import { Link, Route } from 'react-router-dom';
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
-
+import queryString from 'query-string';
+import { useHistory } from 'react-router';
 interface props {
   length?: number;
 }
 
 const Paginations = (props: props) => {
+  const history = useHistory();
+  const param = queryString.parse(history.location.search);
+  if ('page' in param) {
+    console.log('alo');
+  } else {
+  }
   const { length } = props;
   return (
     <Route>
@@ -46,7 +53,7 @@ const Paginations = (props: props) => {
                   },
                 }}
                 component={Link}
-                to={`${window.location.pathname}${
+                to={`${window.location.pathname}${history.location.search}${
                   item.page === 1 ? '' : `?page=${item.page - 1}`
                 }`}
                 {...item}
