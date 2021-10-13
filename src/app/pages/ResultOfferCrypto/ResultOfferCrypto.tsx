@@ -92,6 +92,7 @@ export const ResultOfferCrypto = (props: Props) => {
   //gọi data api render list item
   const [listApiData, setListApiData] = useState<any>([]);
   const param = queryString.parse(history.location.search);
+  const newUrl = window.location.search;
   useEffect(() => {
     searchApi
       .getDataSearchHome(param)
@@ -101,8 +102,26 @@ export const ResultOfferCrypto = (props: Props) => {
       .catch(error => {
         console.log(error);
       });
-  }, []);
+  }, [newUrl]);
+  console.log(listData);
 
+  useEffect(() => {
+    const paramxxxx = new URL(window.location.href);
+    const search_param = paramxxxx.searchParams;
+    const comman = decodeURIComponent('%2c');
+    search_param.set(
+      'collateralSymbols',
+      listData.collateralAccepted.join(comman),
+    );
+    search_param.set('loanSymbols', listData.loanToken.join(comman));
+    search_param.set('loanTypes', listData.LoanType.join(comman));
+    search_param.set('durationTypes', listData.duration.join(comman));
+    param.search = search_param.toString();
+    const new_url = param.search.toString();
+    history.push({ pathname: '', search: new_url });
+  }, [listData]);
+
+  // history.push({ pathname: '', search: new_url });
   return (
     <div>
       <Header />
@@ -115,7 +134,10 @@ export const ResultOfferCrypto = (props: Props) => {
               </div>
               <ListSugges />
               <ListItemBorrow listApiData={listApiData}></ListItemBorrow>
-              <Paginations length={listApiData.total_pages} />
+              <Paginations
+                length={listApiData.total_pages}
+                page={listApiData.page}
+              />
             </BoxLeft>
             <Boxright check={status}>
               <BoxFlex>

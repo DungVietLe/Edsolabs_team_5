@@ -34,7 +34,7 @@ export const Duration = (props: MyValue) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  name="Week"
+                  name="0"
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {
@@ -49,7 +49,7 @@ export const Duration = (props: MyValue) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  name="Month"
+                  name="1"
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {

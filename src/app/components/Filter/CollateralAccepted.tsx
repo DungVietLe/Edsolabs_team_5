@@ -6,12 +6,12 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import Typography from '@mui/material/Typography';
-import React, { useEffect, useState } from 'react';
-import { ContainerInterest, SetSizeCoin } from './rootStylesFilter';
-import { listCoin } from './DataCoin';
 import { MyValue } from 'models/Myvalue';
-import { useHistory } from 'react-router';
 import queryString from 'query-string';
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router';
+import { listCoin } from './DataCoin';
+import { ContainerInterest, SetSizeCoin } from './rootStylesFilter';
 export const CollateralAccepted = (props: MyValue) => {
   const history = useHistory();
 

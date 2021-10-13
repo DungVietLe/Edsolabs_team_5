@@ -1,27 +1,29 @@
-import * as React from 'react';
-import { Link, Route } from 'react-router-dom';
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
-import queryString from 'query-string';
+import * as React from 'react';
+import { Route } from 'react-router-dom';
 import { useHistory } from 'react-router';
 interface props {
   length?: number;
+  page?: any;
 }
 
 const Paginations = (props: props) => {
+  const { length, page } = props;
   const history = useHistory();
-  const param = queryString.parse(history.location.search);
-  if ('page' in param) {
-    console.log('alo');
-  } else {
-  }
-  const { length } = props;
+  const handlePagination = (e: string) => {
+    const param = new URL(window.location.href);
+    const search_param = param.searchParams;
+    search_param.set('page', `${Number(e) - 1}`);
+    param.search = search_param.toString();
+    const new_url = param.search.toString();
+
+    history.push({ pathname: '', search: new_url });
+  };
+
   return (
     <Route>
       {({ location }) => {
-        const query = new URLSearchParams(location.search);
-        const page = parseInt(query.get('page') || '1', 10);
-
         return (
           <Pagination
             sx={{
@@ -29,36 +31,35 @@ const Paginations = (props: props) => {
                 justifyContent: 'center',
               },
             }}
-            page={page}
+            page={page + 1}
             count={length}
             variant="outlined"
             shape="rounded"
             siblingCount={0}
-            renderItem={item => (
-              <PaginationItem
-                sx={{
-                  color: '#ffffff',
-                  border: '1px solid #fff',
-                  '&.MuiPaginationItem-ellipsis': {
-                    border: '1px solid transparent',
-                    marginTop: '-10px',
-                    display: 'inline-block',
-                  },
-                  '&.Mui-selected': {
-                    backgroundColor: '#DBA83D',
-                    border: '1px solid transparent',
-                    '&:hover': {
-                      backgroundColor: '#DBA83D',
+            renderItem={(item: any) => {
+              return (
+                <PaginationItem
+                  sx={{
+                    color: '#ffffff',
+                    border: '1px solid #fff',
+                    '&.MuiPaginationItem-ellipsis': {
+                      border: '1px solid transparent',
+                      marginTop: '-10px',
+                      display: 'inline-block',
                     },
-                  },
-                }}
-                component={Link}
-                to={`${window.location.pathname}${history.location.search}${
-                  item.page === 1 ? '' : `?page=${item.page - 1}`
-                }`}
-                {...item}
-              ></PaginationItem>
-            )}
+                    '&.Mui-selected': {
+                      backgroundColor: '#DBA83D',
+                      border: '1px solid transparent',
+                      '&:hover': {
+                        backgroundColor: '#DBA83D',
+                      },
+                    },
+                  }}
+                  {...item}
+                  onClick={() => handlePagination(item.page)}
+                ></PaginationItem>
+              );
+            }}
           />
         );
       }}

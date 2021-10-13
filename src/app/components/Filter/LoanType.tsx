@@ -34,7 +34,7 @@ export const LoanType = (props: MyValue) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  name="Auto"
+                  name="0"
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {
@@ -49,7 +49,7 @@ export const LoanType = (props: MyValue) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  name="Semi-auto"
+                  name="1"
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {
@@ -64,7 +64,7 @@ export const LoanType = (props: MyValue) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  name="Negotiation"
+                  name="2"
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {
