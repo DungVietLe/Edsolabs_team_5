@@ -9,7 +9,7 @@ import Footer from 'app/components/Footer/Footer';
 import Header from 'app/components/Header';
 import Paginations from 'app/components/Pagination';
 import { Flex } from 'app/components/rootStyled';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ListSugges from '../../../app/pages/ResultOfferCrypto/SearchSuggess/OptionPersonal/index';
 import filter from './filter.png';
 import { BoxFlex, Close, Modal } from './styles';
@@ -21,9 +21,13 @@ import {
   Reset,
   WrapperResult,
 } from './styles';
+import { useHistory } from 'react-router';
+import { searchApi } from 'api/searchApiHome';
+import queryString from 'query-string';
 interface Props {}
 
 export const ResultOfferCrypto = (props: Props) => {
+  const history = useHistory();
   const [listData, setListData] = useState<any>({
     collateralAccepted: [],
     loanToken: [],
@@ -78,11 +82,24 @@ export const ResultOfferCrypto = (props: Props) => {
       }
     }
   };
-  console.log(listData);
+
   const [status, setStatus] = useState(false);
   const handleShowFilter = () => {
     setStatus(!status);
   };
+  //gọi data api render list item
+  const [listApiData, setListApiData] = useState<any>([]);
+  const param = queryString.parse(history.location.search);
+  useEffect(() => {
+    searchApi
+      .getDataSearchHome(param)
+      .then((res: any) => {
+        setListApiData(res.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div>
@@ -95,8 +112,8 @@ export const ResultOfferCrypto = (props: Props) => {
                 <img src={filter} alt="acoin" onClick={handleShowFilter} />
               </div>
               <ListSugges />
-              <ListItemBorrow></ListItemBorrow>
-              <Paginations length={12} />
+              <ListItemBorrow listApiData={listApiData}></ListItemBorrow>
+              <Paginations length={listApiData.total_pages} />
             </BoxLeft>
             <Boxright check={status}>
               <BoxFlex>
@@ -109,7 +126,7 @@ export const ResultOfferCrypto = (props: Props) => {
               <SearchPawnshops />
               <InterestRange />
               <LoanValue />
-              <CollateralAccepted data={handleValueFilter} />
+              <CollateralAccepted data={handleValueFilter} value={listData} />
               <LoanToken data={handleValueFilter} />
               <LoanType data={handleValueFilter} />
               <Duration data={handleValueFilter} />

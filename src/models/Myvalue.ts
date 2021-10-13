@@ -1,3 +1,4 @@
 export interface MyValue {
-  data: any;
+  data?: any;
+  value?: any;
 }
