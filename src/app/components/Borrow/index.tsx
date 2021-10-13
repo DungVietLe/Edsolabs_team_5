@@ -3,7 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import IMAGE_NFT_DIAMOND from 'assets/Image/Diamond.png';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { listCoin } from '../Filter/DataCoin';
+import { listCoin, listLoan } from '../Filter/DataCoin';
 import ImageIcon from '../ImageIcon';
 import { ButtomBase, ButtomMaxIcon, ButtomSmall, Flex } from '../rootStyled';
 import { NewSelect } from '../Selecter';
@@ -26,14 +26,19 @@ const Borrow = function (props) {
   const handleChange = (newValue: number) => {
     setValue(newValue);
   };
-  const arrCurrency = listCoin.map(item => ({
+  const arrCurrency = listCoin.map((item, key) => ({
     value: item.value,
-    label: [<ImageIcon src={item.url} />, item.value],
+    label: [<ImageIcon key={key} src={item.url} />, item.value],
+  }));
+
+  const arrLoan = listLoan.map((item, key) => ({
+    value: item.value,
+    label: [<ImageIcon key={key} src={item.url} />, item.value],
   }));
 
   const arrTimes = [
-    { value: 'Weeks', label: 'Weeks' },
-    { value: 'Months', label: 'Months' },
+    { value: '0', label: 'Weeks' },
+    { value: '1', label: 'Months' },
   ];
 
   const Cryptocurrency = function (props) {
@@ -113,6 +118,7 @@ const Borrow = function (props) {
               }}
               render={({ field: { onChange, value, ref } }) => (
                 <NewSelect
+                  key={123}
                   error={Boolean(errors.currency)}
                   value={value}
                   onChange={onChange}
@@ -168,6 +174,7 @@ const Borrow = function (props) {
               }}
               render={({ field: { onChange, value, ref } }) => (
                 <NewSelect
+                  key={345}
                   error={Boolean(errors.timer)}
                   value={arrTimes[0]}
                   onChange={onChange}
@@ -221,10 +228,11 @@ const Borrow = function (props) {
               }}
               render={({ field: { onChange, value, ref } }) => (
                 <NewSelect
+                  key={4567}
                   error={Boolean(errors.newCurrency)}
-                  value={arrCurrency[0]}
+                  value={arrLoan[0]}
                   onChange={onChange}
-                  data={arrCurrency}
+                  data={arrLoan}
                   styleSelect={false}
                 />
               )}
@@ -235,7 +243,12 @@ const Borrow = function (props) {
           </FormCtrol>
         </Flex>
         <div className="form-control" style={{ marginTop: '60px' }}>
-          <ButtomMaxIcon bg="dba83d" className="btn" type="submit">
+          <ButtomMaxIcon
+            bg="dba83d"
+            style={{ fontSize: '20px' }}
+            className="btn"
+            type="submit"
+          >
             <SearchIcon /> Search
           </ButtomMaxIcon>
         </div>

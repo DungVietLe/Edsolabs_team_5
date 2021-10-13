@@ -6,7 +6,7 @@ import LOGO from 'assets/Image/Logo.png';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import { Flex, GropButtom, LinkButtom } from '../rootStyled';
+import { ButtomBase, Flex, GropButtom, LinkButtom } from '../rootStyled';
 import LoginSuccess from './LoginSucces';
 import {
   Arrow,
@@ -83,7 +83,11 @@ const Header = props => {
 
   return (
     <Headers>
-      <Flex justifyContent="space-between" alignItem="center">
+      <Flex
+        style={{ height: '100%' }}
+        justifyContent="space-between"
+        alignItem="center"
+      >
         <Logo to="/pawn">
           <img src={LOGO} alt="Defi for you" />
         </Logo>
@@ -123,15 +127,22 @@ const Header = props => {
             <LinkButtom className="show-btn btn" outlinebutton="dba83d">
               <Link to="/">Connect</Link>
             </LinkButtom>
-            <LinkButtom className="btn" outlinebutton="dba83d">
-              {localStorage.getItem('access_token') ? (
-                <LoginSuccess name={user?.name} />
-              ) : (
+            {localStorage.getItem('access_token') ? (
+              <div
+                style={{
+                  display: 'inline-block',
+                  position: 'relative',
+                  zIndex: 3,
+                }}
+              >
+                <LoginSuccess screen="desktop" name={user?.name} />
+              </div>
+            ) : (
+              <LinkButtom className="btn" outlinebutton="dba83d">
                 <Link to="/login?tab=2">Login</Link>
-              )}
-            </LinkButtom>
+              </LinkButtom>
+            )}
           </GropButtom>
-
           <Toggle
             onClick={() => {
               handleClickToggle();
@@ -149,21 +160,33 @@ const Header = props => {
         <div>
           <MenuMobile>
             <HeaderNav>
-              <Info>
-                <svg
-                  width="60"
-                  height="60"
-                  viewBox="0 0 60 60"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+              {localStorage.getItem('access_token') ? (
+                <Info className="mobile">
+                  <svg
+                    width="60"
+                    height="60"
+                    viewBox="0 0 60 60"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M30 0C13.5 0 0 13.5 0 30C0 46.5 13.5 60 30 60C46.5 60 60 46.5 60 30C60 13.5 46.5 0 30 0ZM30 9C35.1 9 39 12.9 39 18C39 23.1 35.1 27 30 27C24.9 27 21 23.1 21 18C21 12.9 24.9 9 30 9ZM30 51.6C22.5 51.6 15.9 47.7001 12 42C12 36 24 32.7 30 32.7C36 32.7 48 36 48 42C44.1 47.7 37.5 51.6 30 51.6Z"
+                      fill="white"
+                    />
+                  </svg>
+                  <span>{user?.name}</span>
+                </Info>
+              ) : (
+                <ButtomBase
+                  style={{ padding: '5px 10px' }}
+                  className="btn"
+                  outlinebutton="dba83d"
                 >
-                  <path
-                    d="M30 0C13.5 0 0 13.5 0 30C0 46.5 13.5 60 30 60C46.5 60 60 46.5 60 30C60 13.5 46.5 0 30 0ZM30 9C35.1 9 39 12.9 39 18C39 23.1 35.1 27 30 27C24.9 27 21 23.1 21 18C21 12.9 24.9 9 30 9ZM30 51.6C22.5 51.6 15.9 47.7001 12 42C12 36 24 32.7 30 32.7C36 32.7 48 36 48 42C44.1 47.7 37.5 51.6 30 51.6Z"
-                    fill="white"
-                  />
-                </svg>
-              </Info>
-              <span>Adam.Chaplin</span>
+                  <Link style={{ padding: '0' }} to="/login?tab=2">
+                    Login
+                  </Link>
+                </ButtomBase>
+              )}
             </HeaderNav>
             <li>
               <Link to="/pawn">Pawn</Link>

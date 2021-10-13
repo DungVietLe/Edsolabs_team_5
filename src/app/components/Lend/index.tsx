@@ -44,9 +44,9 @@ const Lend = () => {
   const handleChangeDuration = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValueDuration(e.target.value as string);
   };
-  const arrCurrency = listCoin.map(item => ({
+  const arrCurrency = listCoin.map((item, key) => ({
     value: item.value,
-    label: [<ImageIcon src={item.url} />, item.value],
+    label: [<ImageIcon key={key} src={item.url} />, item.value],
   }));
   const arrTimes = [
     { value: 'Weeks', label: 'Weeks' },

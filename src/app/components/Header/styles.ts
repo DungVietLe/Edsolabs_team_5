@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { Button } from '@material-ui/core';
 
 export interface PropMenu {
   isToggle?: boolean;
@@ -162,6 +163,14 @@ export const MenuMobile = styled.ul`
     }
   }
 `;
+export const NewButton = styled(Button)`
+  &.MuiButton-text {
+    padding: 0;
+  }
+  &.MuiButton-root {
+    min-width: 40px;
+  }
+`;
 
 export const NavMobile = styled.div`
   z-index: 1;
@@ -169,16 +178,17 @@ export const NavMobile = styled.div`
   position: fixed;
   overflow: scroll;
   width: 100vw;
-  height: calc(100vh - 75px);
+  height: calc(100vh - 60px);
   left: 0;
-  top: 75px;
+  top: 80px;
   background-color: #171a23;
   @media (max-width: 1200px) {
     display: ${(p: PropMenu) => (p.isToggle ? 'block' : 'none')};
   }
   @media (max-width: 768px) {
     height: calc(100vh - 40px);
-    top: 57px;
+    left: 0;
+    top: 56px;
   }
 `;
 
@@ -204,10 +214,40 @@ export const HeaderNav = styled.div`
 `;
 
 export const Info = styled.div`
-  display: none;
-  margin-bottom: 15px;
+  &.desktop {
+    display: inline-flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    svg {
+      width: 40px;
+      height: 40px;
+      @media (max-width: 768px) {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    span {
+      display: inline-block;
+      text-transform: none;
+      color: #fff;
+    }
+  }
+  &.mobile {
+    display: none;
+  }
   @media (max-width: 1200px) {
-    display: block;
+    &.desktop {
+      span {
+        display: none;
+      }
+    }
+    &.mobile {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
   }
 `;
 

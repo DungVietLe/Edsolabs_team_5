@@ -10,8 +10,10 @@ import Stack from '@mui/material/Stack';
 import { useDispatch } from 'react-redux';
 import { loginAction } from 'app/pages/Auth/loginSlice';
 import { useHistory } from 'react-router';
+import { Info, NewButton } from './styles';
 interface MyUser {
   name: string;
+  screen?: string;
 }
 export default function LoginSuccess(props: MyUser) {
   const dispatch = useDispatch();
@@ -30,8 +32,11 @@ export default function LoginSuccess(props: MyUser) {
     ) {
       return;
     }
-
     setOpen(false);
+  };
+
+  const handleLogout = (event: Event | React.SyntheticEvent) => {
+    handleClose(event);
     dispatch(loginAction.logout());
     history.replace(window.location.pathname);
     alert('logout success');
@@ -57,9 +62,15 @@ export default function LoginSuccess(props: MyUser) {
   }, [open]);
 
   return (
-    <Stack direction="row" spacing={2}>
+    <Stack
+      sx={{
+        zIndex: '2',
+      }}
+      direction="row"
+      spacing={2}
+    >
       <div>
-        <Button
+        <NewButton
           ref={anchorRef}
           id="composition-button"
           aria-controls={open ? 'composition-menu' : undefined}
@@ -67,8 +78,30 @@ export default function LoginSuccess(props: MyUser) {
           aria-haspopup="true"
           onClick={handleToggle}
         >
-          {props.name}
-        </Button>
+          <Info
+            className={
+              props.screen === 'desktop'
+                ? 'desktop'
+                : props.screen === 'mobile'
+                ? 'mobile'
+                : ''
+            }
+          >
+            <svg
+              width="60"
+              height="60"
+              viewBox="0 0 60 60"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M30 0C13.5 0 0 13.5 0 30C0 46.5 13.5 60 30 60C46.5 60 60 46.5 60 30C60 13.5 46.5 0 30 0ZM30 9C35.1 9 39 12.9 39 18C39 23.1 35.1 27 30 27C24.9 27 21 23.1 21 18C21 12.9 24.9 9 30 9ZM30 51.6C22.5 51.6 15.9 47.7001 12 42C12 36 24 32.7 30 32.7C36 32.7 48 36 48 42C44.1 47.7 37.5 51.6 30 51.6Z"
+                fill="white"
+              />
+            </svg>
+            <span>{props.name}</span>
+          </Info>
+        </NewButton>
         <Popper
           open={open}
           anchorEl={anchorRef.current}
@@ -88,13 +121,21 @@ export default function LoginSuccess(props: MyUser) {
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList
+                    sx={{
+                      color: '#fff',
+                      backgroundColor: 'rgb(62, 65, 75)',
+                      borderColor: 'rgb(62, 65, 75)',
+                      '.MuiMenuItem-root': {
+                        fontFamily: 'Montserrat !important',
+                      },
+                    }}
                     autoFocusItem={open}
                     id="composition-menu"
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
                     <MenuItem onClick={handleClose}>Change Password</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={handleLogout}>Logout</MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
