@@ -88,9 +88,9 @@ export const Image = styled.div`
     max-width: 100%;
     border-radius: 20px;
     height: 100%;
-    min-height: 140px;
-    @media (max-width: 768px) {
-      height: auto;
+    min-height: 233px;
+    @media (max-width: 991px) {
+      min-height: 170px;
     }
     @media (max-width: 768px) {
       min-height: 100px;
@@ -126,14 +126,15 @@ export const ImageLend = styled.div`
     max-width: 100%;
     border-radius: 20px;
     height: 100%;
-    min-height: 140px;
+    min-height: 233px;
     @media (max-width: 991px) {
       max-width: 215px;
       height: 215px;
     }
     @media (max-width: 768px) {
-      height: auto;
+      height: 170px;
       max-width: 100%;
+      min-height: 170px;
     }
     @media (max-width: 480px) {
       max-width: 215px;

@@ -16,7 +16,7 @@ const Banner = (props: Props) => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </Content>
           <ButtomBase
-            style={{ textTransform: 'capitalize' }}
+            style={{ textTransform: 'none' }}
             className="btn banner"
             bg="dba83d"
           >

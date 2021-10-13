@@ -6,15 +6,23 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import Typography from '@mui/material/Typography';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ContainerInterest, SetSizeCoin } from './rootStylesFilter';
 import { listCoin } from './DataCoin';
 import { MyValue } from 'models/Myvalue';
-
+import { useHistory } from 'react-router';
+import queryString from 'query-string';
 export const CollateralAccepted = (props: MyValue) => {
+  const history = useHistory();
+
   const handleCheckBoxChange = e => {
     props.data(e.target.name, 'Collateral accepted');
   };
+
+  const a = queryString.parse(history.location.search);
+  useEffect(() => {
+    props.data(a.collateralSymbols, 'Collateral accepted');
+  }, [history.location.search]);
   const renderListCoin = listCoin.map((item, index) => {
     return (
       <FormControlLabel
@@ -22,6 +30,7 @@ export const CollateralAccepted = (props: MyValue) => {
         control={
           <Checkbox
             name={item.value}
+            checked={props.value.collateralAccepted.includes(item.value)}
             sx={{
               color: '#fff',
               '&.Mui-checked': {

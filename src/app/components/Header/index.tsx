@@ -28,7 +28,7 @@ const Header = props => {
     if (localStorage.getItem('access_token')) {
       authApiInfo.getUser(token).then((res: any) => setUser(res.data));
     }
-  }, []);
+  }, [token]);
 
   const history = useHistory();
   useEffect(() => {

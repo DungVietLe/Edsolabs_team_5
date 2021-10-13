@@ -4,6 +4,7 @@ import IMAGE_NFT_DIAMOND from 'assets/Image/Diamond.png';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { listCoin, listLoan } from '../Filter/DataCoin';
+import { useHistory } from 'react-router';
 import ImageIcon from '../ImageIcon';
 import { ButtomBase, ButtomMaxIcon, ButtomSmall, Flex } from '../rootStyled';
 import { NewSelect } from '../Selecter';
@@ -20,7 +21,7 @@ import {
   Tabheader,
   Wrapper,
 } from './styles';
-
+import queryString from 'query-string';
 const Borrow = function (props) {
   const [value, setValue] = useState(1);
   const handleChange = (newValue: number) => {
@@ -42,14 +43,30 @@ const Borrow = function (props) {
   ];
 
   const Cryptocurrency = function (props) {
+    const history = useHistory();
     const {
       handleSubmit,
       register,
       formState: { errors },
       control,
     } = useForm();
-
-    const onSubmit = (data: object) => console.log(data);
+    const onSubmit = (data: any) => {
+      console.log(data);
+      const newObj = {
+        collateralAmount: Number(data.collateral),
+        collateralSymbols: data.currency.value,
+        durationQty: Number(data.duration),
+        durationTypes: Number(data.timer.value),
+        loanAmount: Number(data.loan),
+        loanSymbols: data.newCurrency.value,
+        status: 3,
+        size: 10,
+      };
+      history.push({
+        pathname: '/pawn/offer',
+        search: queryString.stringify(newObj),
+      });
+    };
 
     const [valueCollateral, setValueCollateral] = useState('');
     const handleChangeCollateral = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import styled from 'styled-components/macro';
-import banner from '../../../images/ImageBanner/banner.png';
+import banner from '../../../images/imagebanner/banner.png';
 export const Pawn = styled.div`
   width: 100%;
   height: auto;

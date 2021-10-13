@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { User } from 'models/user';
 
 export interface loginState {
   loading: Boolean;

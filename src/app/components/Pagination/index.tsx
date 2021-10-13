@@ -47,7 +47,7 @@ const Paginations = (props: props) => {
                 }}
                 component={Link}
                 to={`${window.location.pathname}${
-                  item.page === 1 ? '' : `?page=${item.page}`
+                  item.page === 1 ? '' : `?page=${item.page - 1}`
                 }`}
                 {...item}
               ></PaginationItem>

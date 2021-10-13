@@ -1,23 +1,18 @@
-import React, { useState } from 'react';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import { ItemShowBorrow } from 'app/components/ItemShow';
+import React, { useState } from 'react';
+import { FlexColumn } from '../../ResultStyles';
 import {
   ButtonSort,
+  Content,
   GropButtonSort,
   HeaderContent,
   WrapperListItem,
-  Content,
 } from './styles';
 
-import { FlexColumn } from '../../ResultStyles';
-import { ItemShowBorrow } from 'app/components/ItemShow';
-
-// fakedata
-
-import { FakeListItemSearchBorrow } from 'api/fakeDataSerachListItem';
-
-const ListItemBorrow = () => {
-  const newFakeArr = [...FakeListItemSearchBorrow];
+const ListItemBorrow = (props: any) => {
+  const data = props.listApiData.content;
 
   const [isActiveSort, setIsActiveSort] = useState('');
 
@@ -25,7 +20,7 @@ const ListItemBorrow = () => {
     const name = e.currentTarget.name as string;
     setIsActiveSort(name);
   };
-  const ListItem = newFakeArr.map((item, index) => (
+  const ListItem = data?.map((item, index) => (
     <ItemShowBorrow key={index} item={item} />
   ));
 

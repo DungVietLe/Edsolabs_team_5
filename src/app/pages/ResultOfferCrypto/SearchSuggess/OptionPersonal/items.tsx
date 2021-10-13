@@ -5,8 +5,6 @@ import tick from '../../../../../images/imagetick/tick.png';
 import warning from '../../../../../images/imagetick/warning.png';
 import tag from '../../../../../images/imagetag/tag.png';
 import { iconCoin } from './iconsCoins';
-/*import { iconCoin } from './iconsCoins';
-import listIcons from './listIcons';*/
 
 const InforPersonal = styled.div`
   background: #282c37;
@@ -170,25 +168,32 @@ const Collateral = styled.div`
     line-height: 17px;
   }
 `;
-const Request = styled.div`
-  max-width: 155px;
-  background: linear-gradient(
-    221.15deg,
-    #bd8727 0%,
-    #ffd574 49.02%,
-    #feca50 62.02%,
-    #bd8727 101.47%
-  );
-  border-radius: 1000px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  color: #282c37;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 14px 24px;
-  margin: 0 auto 28px auto;
+const Request = styled(Button)`
+  &.request {
+    width: 155px;
+    height: 48px;
+    background: linear-gradient(
+      221.15deg,
+      #bd8727 0%,
+      #ffd574 49.02%,
+      #feca50 62.02%,
+      #bd8727 101.47%
+    );
+    color: #282c37;
+    text-transform: none;
+    border-radius: 1000px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #282c37;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 14px 2px;
+    margin: 8px auto 24px auto;
+  }
 `;
 
 export default function Items(props: any) {
@@ -244,7 +249,7 @@ export default function Items(props: any) {
           </div>
         </Collateral>
       </Data>
-      <Request>{request}</Request>
+      <Request className="request">{request}</Request>
     </InforPersonal>
   );
 }
