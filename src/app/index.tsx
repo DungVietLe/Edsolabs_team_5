@@ -17,7 +17,6 @@ import { Login } from './pages/Auth/Login/Login';
 import { HomePage } from './pages/HomePage';
 import ResultLend from './pages/ResultLend';
 import { ResultOfferCrypto } from './pages/ResultOfferCrypto/ResultOfferCrypto';
-
 export function App() {
   const { i18n } = useTranslation();
   return (
