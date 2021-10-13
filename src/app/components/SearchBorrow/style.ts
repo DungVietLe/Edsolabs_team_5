@@ -5,12 +5,9 @@ export const WrapperSearch = styled.div`
   width: 100%;
   background-color: #232732;
   padding-top: calc(100px + 1.25rem);
-  @media (max-width: 1200px) {
-    padding-top: calc(70px + 1.25rem);
-  }
   @media (max-width: 768px) {
-    margin-top: 57px;
-    padding: 1rem;
+    margin-top: 20px;
+    padding-top: calc(70px + 1.25rem);
   }
 `;
 

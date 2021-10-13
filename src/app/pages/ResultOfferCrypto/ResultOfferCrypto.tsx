@@ -1,4 +1,3 @@
-import { searchApi } from 'api/searchApiHome';
 import { CollateralAccepted } from 'app/components/Filter/CollateralAccepted';
 import { Duration } from 'app/components/Filter/Duration';
 import { InterestRange } from 'app/components/Filter/InterestRange';
@@ -10,9 +9,7 @@ import Footer from 'app/components/Footer/Footer';
 import Header from 'app/components/Header';
 import Paginations from 'app/components/Pagination';
 import { Flex } from 'app/components/rootStyled';
-import queryString from 'query-string';
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
 import ListSugges from '../../../app/pages/ResultOfferCrypto/SearchSuggess/OptionPersonal/index';
 import filter from './filter.png';
 import ListItemBorrow from './ListItemBorrow';
@@ -26,6 +23,9 @@ import {
   Reset,
   WrapperResult,
 } from './styles';
+import { useHistory } from 'react-router';
+import { searchApi } from 'api/searchApiHome';
+import queryString from 'query-string';
 interface Props {}
 
 export const ResultOfferCrypto = (props: Props) => {

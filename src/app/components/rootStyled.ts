@@ -47,6 +47,9 @@ export const GropButtom = styled.div`
   justify-content: flex-end;
   align-items: center;
   gap: 20px;
+  @media (max-width: 480px) {
+    gap: 5px;
+  }
 `;
 export const ButtomBase = styled(Button)`
   &.banner {
@@ -65,6 +68,7 @@ export const ButtomBase = styled(Button)`
     border-radius: 172px;
     display: inline-flex;
     gap: 20px;
+    text-transform: none;
     color: #282c37;
     width: auto;
     align-items: center;
