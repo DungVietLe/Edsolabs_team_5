@@ -1,13 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import {
-  CircularProgress,
-  IconButton,
-  InputAdornment,
-  Modal,
-  Typography,
-} from '@mui/material';
-import { Box } from '@mui/system';
+import { CircularProgress, IconButton, InputAdornment } from '@mui/material';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useRecaptcha } from 'react-hook-recaptcha';
@@ -16,7 +9,6 @@ import * as yup from 'yup';
 import {
   loginAction,
   selectLoading,
-  selectRegisterError,
   selectRegisterSuccess,
 } from '../loginSlice';
 import {

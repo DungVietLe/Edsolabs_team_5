@@ -1,11 +1,9 @@
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
 import { authApiInfo } from 'api/authApi';
-import { selectIsLogin } from 'app/pages/Auth/loginSlice';
 import LOGO from 'assets/Image/Logo.png';
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Flex, GropButtom, LinkButtom } from '../rootStyled';
 import LoginSuccess from './LoginSucces';
 import {
