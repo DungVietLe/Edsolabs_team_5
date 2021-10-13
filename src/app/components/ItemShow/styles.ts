@@ -1,11 +1,25 @@
 import styled from 'styled-components/macro';
 import { LinkButtom } from '../rootStyled';
+import IMG_TICKER from 'assets/Image/ticker-hard.png';
 
 export const Item = styled.div`
   width: 100%;
   padding: 20px;
   background: #282c37;
   border-radius: 20px;
+  &.lender_hard--nft {
+    position: relative;
+    &::before {
+      content: '';
+      background-image: url(${IMG_TICKER});
+      position: absolute;
+      padding: 10px 12px 9px 8px;
+      width: 81px;
+      height: 31px;
+      left: -8px;
+      top: 20px;
+    }
+  }
 `;
 
 export const Grid = styled.div`
@@ -26,16 +40,32 @@ export const Grid = styled.div`
     grid-template-columns: 170px 1fr;
     grid-template-rows: auto auto auto;
     grid-template-rows: 53px auto auto auto;
+    &.grid-lend {
+      grid-column-gap: 0;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto;
+    }
   }
   @media (max-width: 768px) {
     grid-column-gap: 12px;
     grid-template-columns: 170px 1fr;
     grid-template-rows: 53px auto auto auto;
+    &.grid-lend {
+      grid-column-gap: 12px;
+      grid-template-columns: 170px auto;
+      grid-template-rows: 53px auto auto auto;
+    }
   }
   @media (max-width: 480px) {
     grid-column-gap: 12px;
+    grid-row-gap: 20px;
     grid-template-columns: 140px 1fr;
     grid-template-rows: 53px auto auto auto;
+    &.grid-lend {
+      grid-column-gap: 0;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto;
+    }
   }
   @media (max-width: 320px) {
     grid-column-gap: 12px;
@@ -46,9 +76,9 @@ export const Grid = styled.div`
 
 export const Image = styled.div`
   display: block;
-
+  border-radius: 20px;
   object-fit: cover;
-  grid-row: 1/3;
+  grid-row: 1/2;
   grid-column: 1/2;
   @media (max-width: 1100px) {
     grid-row: 1/3;
@@ -56,21 +86,83 @@ export const Image = styled.div`
   }
   img {
     max-width: 100%;
+    border-radius: 20px;
     height: 100%;
-    @media (max-width: 991px) {
-      height: auto;
-    }
+    min-height: 140px;
     @media (max-width: 768px) {
       height: auto;
     }
+    @media (max-width: 768px) {
+      min-height: 100px;
+    }
   }
 `;
+
+export const ImageLend = styled.div`
+  display: block;
+  border-radius: 20px;
+  object-fit: cover;
+  grid-row: 1/3;
+  grid-column: 1/2;
+  @media (max-width: 1100px) {
+    grid-row: 1/3;
+    grid-column: 1/2;
+  }
+  @media (max-width: 991px) {
+    grid-row: 1/2;
+    grid-column: 1/2;
+  }
+  @media (max-width: 768px) {
+    grid-row: 1/3;
+    grid-column: 1/2;
+  }
+  @media (max-width: 480px) {
+    grid-row: 1/2;
+    grid-column: 1/2;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border-radius: 20px;
+    height: 100%;
+    min-height: 140px;
+    @media (max-width: 991px) {
+      max-width: 215px;
+      height: 215px;
+    }
+    @media (max-width: 768px) {
+      height: auto;
+      max-width: 100%;
+    }
+    @media (max-width: 480px) {
+      max-width: 215px;
+      height: 215px;
+    }
+  }
+`;
+
 export const Heading = styled.h3`
   display: block;
   grid-row: 1/2;
   grid-column: 2/3;
   @media (max-width: 991px) {
-    height: auto;
+    &.heading-lend {
+      grid-row: 2/3;
+      grid-column: 1/2;
+    }
+  }
+  @media (max-width: 768px) {
+    &.heading-lend {
+      grid-row: 1/2;
+      grid-column: 2/3;
+    }
+  }
+  @media (max-width: 480px) {
+    &.heading-lend {
+      grid-row: 2/3;
+      grid-column: 1/2;
+    }
   }
   div {
     font-weight: 600;
@@ -135,7 +227,7 @@ export const Content = styled.div`
   .content-title {
     margin-right: 10px;
     display: block;
-    width: 114px;
+    width: 130px;
     color: #a2a3a7;
     @media (max-width: 991px) {
       width: auto;
@@ -153,6 +245,17 @@ export const Content = styled.div`
     display: block;
     color: #ffffff;
   }
+  a.content-link {
+    color: #2596ff;
+    display: inline-block;
+    max-width: 300px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    @media (max-width: 1400px) {
+      max-width: 150px;
+    }
+  }
   @media (max-width: 600px) {
     grid-row: 3/4;
     grid-column: 1/3;
@@ -161,7 +264,8 @@ export const Content = styled.div`
 `;
 
 export const FooterItem = styled.div`
-  display: block;
+  display: flex;
+  flex-direction: column;
   position: relative;
   text-align: right;
   grid-column: 3/3;
@@ -222,7 +326,7 @@ export const InterestRate = styled.div`
   @media (max-width: 1100px) {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
   }
   @media (max-width: 480px) {
     flex-direction: column;
@@ -256,9 +360,11 @@ interface propBtnCuston {
 
 export const FlexColunm = styled.div`
   display: flex;
+  flex-grow: 1;
   gap: 11px;
   flex-direction: column;
   align-items: flex-end;
+  justify-content: space-between;
   @media (max-width: 480px) {
     align-items: flex-start;
   }
@@ -269,24 +375,25 @@ export const ButtonCuston = styled.button`
   background-color: transparent;
   border: 1px solid transparent;
   display: inline-flex;
+  gap: 8px;
   justify-content: center;
   align-items: center;
   min-width: 100px;
   border-radius: 13.5px;
   min-height: 26px;
   ${(p: propBtnCuston) =>
-    p.color === 'xanh'
-      ? 'color: #2596ff;border-color:#2596ff'
-      : p.color === 'red'
-      ? 'color: #fe951a;border-color:#fe951a'
+    p.color === 'blue'
+      ? 'color: #2596ff;border-color:#2596ff;background-color: rgba(37, 150, 255, 0.2);'
       : p.color === 'orange'
-      ? 'color: #ff4848;border-color:#ff4848'
+      ? 'color: #fe951a;border-color:#fe951a;background-color: rgba(255, 177, 85, 0.2);'
+      : p.color === 'red'
+      ? 'color: #ff4848;border-color:#ff4848;background-color: rgba(255, 72, 72, 0.2);'
       : ''};
 `;
 
 export const MyLinkButton = styled(LinkButtom)`
   &.btn {
-    padding: 14px 24px;
+    padding: 14.5px 24px;
     @media (max-width: 768px) {
       display: inline-flex;
       height: auto;

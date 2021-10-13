@@ -46,7 +46,9 @@ const Paginations = (props: props) => {
                   },
                 }}
                 component={Link}
-                to={`/pawn/offer${item.page === 1 ? '' : `?page=${item.page}`}`}
+                to={`${window.location.pathname}${
+                  item.page === 1 ? '' : `?page=${item.page}`
+                }`}
                 {...item}
               ></PaginationItem>
             )}

@@ -15,6 +15,7 @@ import './App.css';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { Login } from './pages/Auth/Login/Login';
 import { HomePage } from './pages/HomePage';
+import ResultLend from './pages/ResultLend';
 import { ResultOfferCrypto } from './pages/ResultOfferCrypto/ResultOfferCrypto';
 
 export function App() {
@@ -31,6 +32,7 @@ export function App() {
       <Switch>
         <Route exact path="/pawn" component={HomePage}></Route>
         <Route exact path="/pawn/offer" component={ResultOfferCrypto}></Route>
+        <Route exact path="/pawn/lender" component={ResultLend}></Route>
         <Route exact path="/login" component={Login}></Route>
         <Route component={NotFoundPage} />
       </Switch>
