@@ -10,6 +10,7 @@ interface props {
 
 const Paginations = (props: props) => {
   const { length, page } = props;
+  console.log(page);
   const history = useHistory();
   const handlePagination = (e: string) => {
     const param = new URL(window.location.href);
@@ -31,7 +32,7 @@ const Paginations = (props: props) => {
                 justifyContent: 'center',
               },
             }}
-            page={page + 1}
+            page={Number(Math.floor(page) + 1)}
             count={length}
             variant="outlined"
             shape="rounded"
