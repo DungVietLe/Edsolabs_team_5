@@ -112,9 +112,20 @@ export const MyTextField = styled(TextField)`
   & div.MuiOutlinedInput-root {
     border-radius: 22px;
     margin: 6px 0 6px 0;
-    border: ${(p: MyError) => (p.error ? '' : '1px solid #74767b')};
+    border: ${(p: MyError) =>
+      p.error ? ' 1px solid red' : '1px solid #74767b'};
+    padding-right: 0;
     &:hover {
-      border: ${(p: MyError) => (p.error ? '' : '1px solid #fff')};
+      border: ${(p: MyError) => (p.error ? '1px solid red' : '1px solid #fff')};
+    }
+    &:focus-within {
+      border: ${(p: MyError) =>
+        p.error ? '1px solid red' : '1px solid rgb(248, 176, 23)'};
+      box-shadow: ${(p: MyError) =>
+        p.error ? 'none' : '0px 0px 0px 1px rgb(248, 176, 23)'};
+      svg.MuiSvgIcon-root {
+        color: ${(p: MyError) => (p.error ? '#ff5252' : 'rgb(248, 176, 23)')};
+      }
     }
   }
 
@@ -128,7 +139,7 @@ export const MyTextField = styled(TextField)`
   }
   & fieldset.MuiOutlinedInput-notchedOutline {
     height: 51px;
-    border: ${(p: MyError) => (p.error ? '' : 'none')};
+    border: ${(p: MyError) => (p.error ? 'none' : 'none')};
   }
   & div.MuiInputAdornment-root {
     position: absolute;
