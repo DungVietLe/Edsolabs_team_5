@@ -20,34 +20,6 @@ export default function ListSugges() {
     title: 'Want an instant loan? ',
     content: 'Submit your collateral to get a loan in seconds',
   };
-  /*
-  const listPersonal = [
-    {
-      id: 1,
-      name: 'QQ ‘s Pawnshop',
-      percent: '10 - 12% interest rate',
-      collateral: 'Collateral accepted: ',
-      request: 'Request loan',
-    },
-    {
-      id: 2,
-      name: 'QQ ‘s Pawnshop',
-      percent: '10 - 12% interest rate',
-      collateral: 'Collateral accepted: ',
-      request: 'Request loan',
-    },
-  ];
-  const renderPersonal = listPersonal.map(item => {
-    return (
-      <Items
-        key={item.id}
-        name={item.name}
-        percent={item.percent}
-        collateral={item.collateral}
-        request={item.request}
-      />
-    );
-  });*/
   //call API Borrow
   const history = useHistory();
   const [listApiData, setListApiData] = useState<any>([]);
@@ -62,7 +34,8 @@ export default function ListSugges() {
         console.log(error);
       });
   }, []);
-  //console.log(listApiData);
+
+  console.log(listApiData);
 
   return (
     <ViewOption>
@@ -76,7 +49,7 @@ export default function ListSugges() {
       </ViewAllLending>
 
       <Flex gap={20} justifyContent="center" flexColumn={768}>
-        {listApiData.content?.map((item, index) => (
+        {listApiData?.content?.slice(0, 2).map((item, index) => (
           <Items key={index} pages="borrow" item={item} />
         ))}
       </Flex>

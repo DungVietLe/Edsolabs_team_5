@@ -11,7 +11,7 @@ export const searchApi = {
     return axiosSearch.get(url, { params: param });
   },
   getPersonalLending(param: any) {
-    const url = ' /pawn-shop/search-p2p-lenders';
+    const url = '/pawn-shop/search-p2p-lenders';
     return axiosSearch.get(url, { params: param });
   },
 };
