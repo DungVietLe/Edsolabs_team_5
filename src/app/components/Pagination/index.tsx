@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 import { useHistory } from 'react-router';
 interface props {
   length?: number;
-  page?: any;
+  page?: number;
 }
 
 const Paginations = (props: props) => {
@@ -21,6 +21,13 @@ const Paginations = (props: props) => {
 
     history.push({ pathname: '', search: new_url });
   };
+  // const newPage = Number(page) + 1;
+  type integer = number;
+  const setInt = (number: integer) => {
+    return number;
+  };
+
+  const newPage = setInt((page ? page : 0) + 1);
 
   return (
     <Route>
@@ -32,7 +39,7 @@ const Paginations = (props: props) => {
                 justifyContent: 'center',
               },
             }}
-            page={Number(Math.floor(page) + 1)}
+            page={newPage}
             count={length}
             variant="outlined"
             shape="rounded"

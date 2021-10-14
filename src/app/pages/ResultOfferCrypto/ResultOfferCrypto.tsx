@@ -61,17 +61,20 @@ export const ResultOfferCrypto = (props: Props) => {
         <ContainerResult>
           <Flex gap={20} justifyContent="center" alignItem="flex-start">
             <BoxLeft>
-              <div style={{ textAlign: 'right', cursor: 'pointer' }}>
+              <div
+                className="filter_result"
+                style={{ textAlign: 'right', cursor: 'pointer' }}
+              >
                 <img src={filter} alt="acoin" onClick={handleShowFilter} />
               </div>
               <ListSugges />
               <ListItemBorrow listApiData={listApiData}></ListItemBorrow>
               <Paginations
                 length={listApiData.total_pages}
-                page={listApiData.page}
+                page={Number(listApiData.page)}
               />
             </BoxLeft>
-            <Boxright check={status}>
+            <Boxright check={status} className={status ? 'active' : 'none'}>
               <BoxFlex>
                 <Reset onClick={handleReserFilter}>Reset filter</Reset>
                 <Close

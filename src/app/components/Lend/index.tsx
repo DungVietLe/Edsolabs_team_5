@@ -42,7 +42,7 @@ const Lend = () => {
     const newObj = {
       loanSymbols: data.currency.value,
       durationTypes: Number(data.timer.value),
-      loanAmount: Number(data.maxloan),
+      loanAmount: Number(data.maxLoan),
       size: 10,
     };
     console.log(newObj);
@@ -65,8 +65,8 @@ const Lend = () => {
     label: [<ImageIcon key={key} src={item.url} />, item.value],
   }));
   const arrTimes = [
-    { value: 'Weeks', label: 'Weeks' },
-    { value: 'Months', label: 'Months' },
+    { value: '0', label: 'Weeks' },
+    { value: '1', label: 'Months' },
   ];
   const arrLoan = listLoan.map((item, key) => ({
     value: item.value,

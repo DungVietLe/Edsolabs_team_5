@@ -4,7 +4,8 @@ interface Mycheck {
   check: Boolean;
 }
 export const WrapperResult = styled.div`
-  width: 100%;
+  overflow: hidden;
+  width: 100vw;
   padding: 119px 1.25rem 1.25rem 1.25rem;
   background-color: #171a23;
   min-height: 100vh;
@@ -19,6 +20,12 @@ export const ContainerResult = styled.div`
 export const BoxLeft = styled.div`
   flex-grow: 1;
   margin-bottom: 64px;
+  .filter_result {
+    display: none;
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
 `;
 export const Boxright = styled.div`
   width: 293px;
@@ -28,6 +35,22 @@ export const Boxright = styled.div`
     display: ${(props: Mycheck) => (props.check ? 'block' : 'none')};
     position: absolute;
     right: 0;
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.2;
+
+    &.none {
+      display: block;
+      right: 20%;
+      visibility: hidden;
+      opacity: 0;
+      /* width: 0px; */
+    }
+    &.active {
+      display: block;
+      visibility: visible;
+      opacity: 1;
+      right: 0;
+    }
   }
   z-index: 99;
 `;
@@ -56,6 +79,7 @@ export const Reset = styled.div`
   cursor: pointer;
   padding: 12px 0 4px 16px;
 `;
+
 export const MySwipeableDrawer = styled(SwipeableDrawer)`
   & > div.MuiPaper-root {
     background-color: transparent;
@@ -64,6 +88,10 @@ export const MySwipeableDrawer = styled(SwipeableDrawer)`
   }
 `;
 export const Close = styled.img`
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
   width: 30px;
   height: 30px;
   margin-right: 8px;
