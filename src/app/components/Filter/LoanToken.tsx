@@ -41,6 +41,10 @@ export const LoanToken = (props: MyValue) => {
 
     history.push({ pathname: '', search: new_url });
   }, [loanToken]);
+
+  useEffect(() => {
+    setLoanToken({ data: [] });
+  }, [props.checker]);
   const renderListCoin = listLoan.map((item, index) => {
     return (
       <FormControlLabel
@@ -48,10 +52,7 @@ export const LoanToken = (props: MyValue) => {
         control={
           <Checkbox
             name={item.value}
-            checked={
-              loanToken.data.includes(item.value) ||
-              url.loanSymbols?.includes(item.value)
-            }
+            checked={url.loanSymbols?.includes(item.value) || false}
             sx={{
               color: '#fff',
               '&.Mui-checked': {

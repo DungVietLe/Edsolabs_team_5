@@ -29,11 +29,12 @@ export const CollateralAccepted = (props: MyValue) => {
       });
     }
   };
-
+  console.log(colateral);
   useEffect(() => {
     const param = new URL(window.location.href);
     const search_param = param.searchParams;
     param.search = search_param.toString();
+
     if (colateral.data.length > 0) {
       search_param.set('collateralSymbols', colateral.data.join(','));
     }
@@ -42,7 +43,10 @@ export const CollateralAccepted = (props: MyValue) => {
 
     history.push({ pathname: '', search: new_url });
   }, [colateral]);
-
+  // reset
+  useEffect(() => {
+    setColateral({ data: [] });
+  }, [props.checker]);
   const renderListCoin = listCoin.map((item, index) => {
     return (
       <FormControlLabel
@@ -50,10 +54,7 @@ export const CollateralAccepted = (props: MyValue) => {
         control={
           <Checkbox
             name={item.value}
-            checked={
-              colateral.data.includes(item.value) ||
-              url.collateralSymbols?.includes(item.value)
-            }
+            checked={url.collateralSymbols?.includes(item.value) || false}
             sx={{
               color: '#fff',
               '&.Mui-checked': {

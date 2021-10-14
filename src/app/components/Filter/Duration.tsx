@@ -45,6 +45,9 @@ export const Duration = (props: MyValue) => {
 
     history.push({ pathname: '', search: new_url });
   }, [duration]);
+  useEffect(() => {
+    setDuration({ data: [] });
+  }, [props.checker]);
   return (
     <ContainerInterest>
       <Accordion expanded={expanded === 'on'} onChange={handleChange('on')}>
@@ -61,10 +64,7 @@ export const Duration = (props: MyValue) => {
               control={
                 <Checkbox
                   name="0"
-                  checked={
-                    duration.data.includes('0') ||
-                    url.durationTypes?.includes('0')
-                  }
+                  checked={url.durationTypes?.includes('0') || false}
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {
@@ -80,10 +80,7 @@ export const Duration = (props: MyValue) => {
               control={
                 <Checkbox
                   name="1"
-                  checked={
-                    duration.data.includes('1') ||
-                    url.durationTypes?.includes('1')
-                  }
+                  checked={url.durationTypes?.includes('1') || false}
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {

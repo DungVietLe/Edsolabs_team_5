@@ -211,8 +211,8 @@ export function SearchResult() {
               <InterestRange />
               <LoanValue />
               <CollateralAccepted />
-              <LoanToken data={handleValueFilter} />
-              <LoanType data={handleValueFilter} />
+              <LoanToken />
+              <LoanType />
             </BoxrightMobile>
           </Flex>
         </ContainerResult>

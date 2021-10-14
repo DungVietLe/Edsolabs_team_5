@@ -9,13 +9,14 @@ import { MyValue } from 'models/Myvalue';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { ContainerInterest } from './rootStylesFilter';
-
+import queryString from 'query-string';
 export const LoanType = (props: MyValue) => {
   const [expanded, setExpanded] = React.useState<string | false>('on');
   const [LoanType, setLoanType] = useState<any>({
     data: [],
   });
   const history = useHistory();
+  const url = queryString.parse(history.location.search);
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
       setExpanded(newExpanded ? panel : false);
@@ -42,6 +43,10 @@ export const LoanType = (props: MyValue) => {
 
     history.push({ pathname: '', search: new_url });
   }, [LoanType]);
+
+  useEffect(() => {
+    setLoanType({ data: [] });
+  }, [props.checker]);
   return (
     <ContainerInterest>
       <Accordion onChange={handleChange('on')} expanded={expanded === 'on'}>
@@ -58,6 +63,7 @@ export const LoanType = (props: MyValue) => {
               control={
                 <Checkbox
                   name="0"
+                  checked={url.loanTypes?.includes('0') || false}
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {
@@ -73,6 +79,7 @@ export const LoanType = (props: MyValue) => {
               control={
                 <Checkbox
                   name="1"
+                  checked={url.loanTypes?.includes('1') || false}
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {
@@ -88,6 +95,7 @@ export const LoanType = (props: MyValue) => {
               control={
                 <Checkbox
                   name="2"
+                  checked={url.loanTypes?.includes('2') || false}
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {
