@@ -79,7 +79,6 @@ const IconDiamond = () => {
 export const ItemShowBorrow = (props: any) => {
   const { item } = props;
   const countCoin = [...item.acceptableAssetsAsCollateral];
-  console.log('2');
   function formatMoney(n) {
     return (Math.round(n * 100) / 100).toLocaleString();
   }
@@ -188,10 +187,9 @@ export const ItemShowLend = (props: any) => {
   const { item } = props;
   const src = listLoan.filter(e => {
     if (e.value === item?.nftEvaluatedSymbol) {
-      return e.url;
+      return e;
     }
   });
-  console.log(src);
   function formatMoney(n) {
     return (Math.round(n * 100) / 100).toLocaleString();
   }

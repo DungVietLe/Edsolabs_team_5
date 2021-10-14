@@ -12,6 +12,9 @@ interface props {
 export function NewSelect(props: props) {
   const { data, styleSelect, value, onChange, error } = props;
   const border = error ? 'red' : '#74767B';
+  const hover = error ? 'red' : '#fff';
+  const focusError = error ? 'red' : 'rgb(248, 176, 23)';
+  const focusBox = error ? 'none' : 'rgb(248, 176, 23)';
   const styles = {
     option: (provided, state) => ({
       ...provided,
@@ -130,13 +133,14 @@ export function NewSelect(props: props) {
       boxShadow: 'none',
       borderColor: border,
       borderWidth: '1px',
-      // maxHeight: '44px',
+      transition: 'border 0.2s ease-in-out',
       background: 'transparent',
       '&:hover': {
-        borderColor: '#fff',
+        borderColor: hover,
       },
-      '&:focus': {
-        borderColor: '#fff',
+      '&:focus-within': {
+        borderColor: focusError,
+        boxShadow: `0px 0px 0px 1px ${focusBox}`,
       },
     }),
   };
