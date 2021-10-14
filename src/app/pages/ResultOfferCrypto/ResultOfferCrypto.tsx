@@ -103,25 +103,6 @@ export const ResultOfferCrypto = (props: Props) => {
         console.log(error);
       });
   }, [newUrl]);
-  console.log(listData);
-
-  useEffect(() => {
-    const paramxxxx = new URL(window.location.href);
-    const search_param = paramxxxx.searchParams;
-    const comman = decodeURIComponent('%2c');
-    search_param.set(
-      'collateralSymbols',
-      listData.collateralAccepted.join(comman),
-    );
-    search_param.set('loanSymbols', listData.loanToken.join(comman));
-    search_param.set('loanTypes', listData.LoanType.join(comman));
-    search_param.set('durationTypes', listData.duration.join(comman));
-    param.search = search_param.toString();
-    const new_url = param.search.toString();
-    history.push({ pathname: '', search: new_url });
-  }, [listData]);
-
-  // history.push({ pathname: '', search: new_url });
   return (
     <div>
       <Header />
@@ -150,7 +131,11 @@ export const ResultOfferCrypto = (props: Props) => {
               <SearchPawnshops />
               <InterestRange />
               <LoanValue />
-              <CollateralAccepted data={handleValueFilter} value={listData} />
+              <CollateralAccepted
+                data={handleValueFilter}
+                value={listData}
+                collateralAccepted={listData.collateralAccepted}
+              />
               <LoanToken data={handleValueFilter} />
               <LoanType data={handleValueFilter} />
               <Duration data={handleValueFilter} />

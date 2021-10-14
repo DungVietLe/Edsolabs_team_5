@@ -23,6 +23,15 @@ export const CollateralAccepted = (props: MyValue) => {
   useEffect(() => {
     props.data(a.collateralSymbols, 'Collateral accepted');
   }, [history.location.search]);
+
+  useEffect(() => {
+    const paramxxxx = new URL(window.location.href);
+    const search_param = paramxxxx.searchParams;
+    search_param.set('collateralSymbols', props.collateralAccepted.join(','));
+    paramxxxx.search = search_param.toString();
+    const new_url = paramxxxx.search.toString();
+    console.log(new_url);
+  }, [props.collateralAccepted]);
   const renderListCoin = listCoin.map((item, index) => {
     return (
       <FormControlLabel
