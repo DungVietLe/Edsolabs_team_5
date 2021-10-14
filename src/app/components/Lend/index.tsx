@@ -72,7 +72,6 @@ const Lend = () => {
     value: item.value,
     label: [<ImageIcon key={key} src={item.url} />, item.value],
   }));
-
   return (
     <Wrapper>
       <Form onSubmit={handleSubmit(onSubmit)}>

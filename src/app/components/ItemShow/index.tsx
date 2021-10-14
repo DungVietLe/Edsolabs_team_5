@@ -185,6 +185,7 @@ export const ItemShowBorrow = (props: any) => {
 
 export const ItemShowLend = (props: any) => {
   const { item } = props;
+
   const src = listLoan.filter(e => {
     if (e.value === item?.nftEvaluatedSymbol) {
       return e;

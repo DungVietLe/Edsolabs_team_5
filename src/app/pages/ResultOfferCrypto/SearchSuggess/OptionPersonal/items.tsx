@@ -5,6 +5,7 @@ import tick from '../../../../../images/imagetick/tick.png';
 import warning from '../../../../../images/imagetick/warning.png';
 import tag from '../../../../../images/imagetag/tag.png';
 import { iconCoin } from './iconsCoins';
+import { Item } from 'app/components/ItemShow/styles';
 
 const InforPersonal = styled.div`
   background: #282c37;
@@ -197,25 +198,25 @@ const Request = styled(Button)`
 `;
 
 export default function Items(props: any) {
-  const { name, percent, collateral, request } = props;
-  const newarray = [...iconCoin];
-  const array = newarray.slice(0, 5);
+  const { item } = props;
+  const newarray = [...item.acceptableAssetsAsCollateral];
+  const array = newarray.slice(0, 4);
 
   return (
     <InforPersonal>
       <Data>
         <View>
-          {name}
+          {item.associatedAddress}
           <img src={tick} alt="tick" className="tick" />
         </View>
         <Rate>
           <img src={staryellow} alt="star" className="starYellow" />
-          1000
+          {item.reputation}
           <p className="separation">|</p>
-          <p className="signed">100 signed contracts</p>
+          <p className="signed">{item.completedContracts}signed contracts</p>
         </Rate>
         <Percent>
-          {percent}
+          {item.minInterestRate} - {item.maxInterestRate}%
           <img src={warning} alt="warning" className="warning" />
         </Percent>
 
@@ -233,7 +234,7 @@ export default function Items(props: any) {
         </Tag>
 
         <Collateral>
-          <div>{collateral}</div>
+          <div>Collateral accepted: </div>
           <div className="renderIcon">
             {array.map((e, index) => (
               <img
@@ -249,7 +250,7 @@ export default function Items(props: any) {
           </div>
         </Collateral>
       </Data>
-      <Request className="request">{request}</Request>
+      <Request className="request">Request loan</Request>
     </InforPersonal>
   );
 }
