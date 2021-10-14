@@ -45,6 +45,8 @@ const Lend = () => {
       loanAmount: Number(data.maxloan),
       size: 10,
     };
+    console.log(newObj);
+
     history.push({
       pathname: '/pawn/lender/nft-result',
       search: queryString.stringify(newObj),

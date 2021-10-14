@@ -22,6 +22,7 @@ const ResultLend = () => {
   const history = useHistory();
   const [listApiData, setListApiData] = useState<any>([]);
   const param = queryString.parse(history.location.search);
+  const newUrl = window.location.search;
   useEffect(() => {
     searchApi
       .getDataLentNFT(param)
@@ -31,8 +32,7 @@ const ResultLend = () => {
       .catch(error => {
         console.log(error);
       });
-  }, []);
-  //console.log(listApiData);
+  }, [newUrl]);
   return (
     <div>
       <Header />
@@ -40,14 +40,20 @@ const ResultLend = () => {
         <ContainerResult>
           <Flex gap={20} justifyContent="center" alignItem="flex-start">
             <BoxLeft>
-              <Paragrap>3 collateral offers match your search</Paragrap>
+              <Paragrap>
+                {listApiData?.content?.length} collateral offers match your
+                search
+              </Paragrap>
               <FlexColumn style={{ marginBottom: '50px' }}>
                 {listApiData.content?.map((item, index) => (
                   <ItemShowLend key={index} pages="lend" item={item} />
                 ))}
               </FlexColumn>
 
-              <Paginations length={15} />
+              <Paginations
+                page={listApiData?.page}
+                length={listApiData?.total_pages}
+              />
             </BoxLeft>
             <Boxright></Boxright>
           </Flex>

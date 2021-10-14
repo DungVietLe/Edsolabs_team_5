@@ -72,11 +72,22 @@ export const MyTextField = styled(TextField)`
   &.wrap--input {
     width: 100%;
     border-radius: 22px;
+    transition: border 0.3s ease-in-out;
     ${(p: PropTextField) =>
       p.error ? `border: 1px solid red;` : 'border: 1px solid #74767B;'}
     &:hover {
       ${(p: PropTextField) =>
         p.error ? `border: 1px solid red;` : 'border: 1px solid #fff;'}
+    }
+    &:focus-within {
+      ${(p: PropTextField) =>
+        p.error
+          ? `border: 1px solid red;`
+          : 'border: 1px solid rgb(248, 176, 23);'}
+      ${(p: PropTextField) =>
+        p.error
+          ? `box-shadow: none;`
+          : 'box-shadow: 0px 0px 0px 1px rgb(248, 176, 23);'}
     }
     box-sizing: border-box;
     max-height: 44px;

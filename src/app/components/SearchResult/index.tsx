@@ -5,12 +5,11 @@ import {
   Reset,
   WrapperResult,
 } from 'app/pages/ResultStyles';
+import * as React from 'react';
 import { useState } from 'react';
 import elipse from '../../../images/imagesearch/Ellipse 45.png';
 import currency from '../../../images/imagesearch/Ellipse 46.png';
 import bank from '../../../images/imagesearch/Frame.png';
-import next from '../../../images/imagesearch/Rectangle 154.png';
-import front from '../../../images/imagesearch/Rectangle 155.png';
 import star from '../../../images/imagesearch/Star 1.png';
 import { Close } from '../../pages/ResultOfferCrypto/styles';
 import { InterestRange } from '../Filter/InterestRange';
@@ -22,42 +21,42 @@ import Footer from '../Footer/Footer';
 import Header from '../Header';
 import { CollateralAccepted } from '../ItemShow/styles';
 import { Flex } from '../rootStyled';
+import Paginations from 'app/components/Pagination';
 import {
-  Arrow,
-  Bank,
-  BankBefore,
-  BankLeft,
-  BankRight,
-  BankUnder,
-  BankYellow,
-  Borrower,
-  BorrowerFlex,
-  BorrowerLink,
-  Collateral,
-  Collaterale,
-  CollateraleImg,
-  CollateraleText,
+  Banner,
   Container,
-  Contracts,
-  ContractsNghin,
-  ContractsStar,
-  ContractsTram,
-  CurrencyImg,
-  CurrencyIn,
-  CurrencyText,
-  Duration,
-  DurationIn,
-  Loancurrency,
-  Page,
-  Pagination,
   Paragraph,
-  Quantity,
-  SendOffcer,
-  SendOffcerButton,
   Table,
-  TableContent,
-  Thang,
-  WrapperSearchResult,
+  Tr,
+  THeaderT,
+  THeaderBorrow,
+  THeaderColla,
+  THeaderCurrency,
+  THeaderDuration,
+  THeaderButton,
+  Trow,
+  Td,
+  Tdborrow,
+  TdBanner,
+  DivLender,
+  DivTitle,
+  DivHero,
+  DivMini,
+  SpanMini,
+  DivImg,
+  Address,
+  A,
+  LenderInfo,
+  LenderMount,
+  LenderArr,
+  LenderConstract,
+  Img,
+  TdCol,
+  Token,
+  Text,
+  TextMonth,
+  Button,
+  TdButton,
 } from './style';
 export function SearchResult() {
   const [listData, setListData] = useState<any>({
@@ -66,6 +65,7 @@ export function SearchResult() {
     LoanType: [],
     duration: [],
   });
+
   const handleValueFilter = (data: any, tags: any) => {
     if (tags === 'Collateral accepted') {
       if (listData.collateralAccepted.includes(data as never)) {
@@ -121,11 +121,84 @@ export function SearchResult() {
   return (
     <>
       <Header />
-
       <WrapperResult>
         <ContainerResult>
           <Flex gap={20} justifyContent="center" alignItem="flex-start">
-            <BoxLeft>Viết code trong này </BoxLeft>
+            <BoxLeft>
+              <Container>
+                <Paragraph>10 collateral offers match your search</Paragraph>
+                <Table>
+                  <Tr>
+                    <THeaderT> # </THeaderT>
+                    <THeaderBorrow>Borrower</THeaderBorrow>
+                    <THeaderColla>Collateral</THeaderColla>
+                    <THeaderCurrency>Loan currency</THeaderCurrency>
+                    <THeaderDuration>Duration</THeaderDuration>
+                    <THeaderButton></THeaderButton>
+                  </Tr>
+                  <Trow>
+                    <Td>1</Td>
+                    <Tdborrow>
+                      <Address>
+                        <A to="/">0xaa5...a410e</A>
+                      </Address>
+                      <LenderInfo>
+                        <Img>
+                          <img src={star} alt="star" />
+                        </Img>
+                        <LenderMount>1000</LenderMount>
+                        <LenderArr>|</LenderArr>
+                        <LenderConstract>100</LenderConstract>
+                      </LenderInfo>
+                    </Tdborrow>
+                    <TdCol>
+                      <Token>
+                        <img src={elipse} alt="elipse" width="24" height="24" />
+                        <Text>10TH</Text>
+                      </Token>
+                    </TdCol>
+                    <TdCol>
+                      <Token>
+                        <img
+                          src={currency}
+                          alt="currency"
+                          width="24"
+                          height="24"
+                        />
+
+                        <Text>DFY</Text>
+                      </Token>
+                    </TdCol>
+                    <TdCol>
+                      <Token>
+                        <TextMonth>12 months</TextMonth>
+                      </Token>
+                    </TdCol>
+                    <TdButton>
+                      <Button>Send Offer</Button>
+                    </TdButton>
+                  </Trow>
+                  <Banner>
+                    <TdBanner>
+                      <DivLender>
+                        <DivTitle>
+                          <DivHero>Become your own bank</DivHero>
+                          <DivMini>
+                            Sign up for pawnshop to get great benefits from{' '}
+                            <SpanMini>DeFi For You.</SpanMini>
+                          </DivMini>
+                        </DivTitle>
+                        <DivImg>
+                          <img src={bank} alt="BankIcon" />
+                        </DivImg>
+                      </DivLender>
+                    </TdBanner>
+                  </Banner>
+                </Table>
+              </Container>
+              <Paginations length={5} />
+            </BoxLeft>
+
             <BoxrightMobile>
               <BoxFlex>
                 <Reset>Reset filter</Reset>
@@ -140,337 +213,10 @@ export function SearchResult() {
               <CollateralAccepted />
               <LoanToken data={handleValueFilter} />
               <LoanType data={handleValueFilter} />
-              <Duration />
             </BoxrightMobile>
           </Flex>
         </ContainerResult>
       </WrapperResult>
-
-      <WrapperSearchResult>
-        <Container>
-          <Paragraph>10 collateral offers match your search</Paragraph>
-          <Table>
-            <Thang>#</Thang>
-            <Borrower>Borrower</Borrower>
-            <Collateral>Collateral</Collateral>
-            <Loancurrency>Loan currency</Loancurrency>
-            <Duration>Duration</Duration>
-          </Table>
-          <TableContent>
-            <Quantity>1</Quantity>
-            <BorrowerFlex>
-              <BorrowerLink>0xaa5...a410e</BorrowerLink>
-              <Contracts>
-                <ContractsStar>
-                  <img src={star} alt="star" />
-                </ContractsStar>
-                <ContractsNghin>1000</ContractsNghin>
-                <ContractsTram>|&nbsp;&nbsp; 100 contracts</ContractsTram>
-              </Contracts>
-              <Collaterale>
-                <CollateraleImg>
-                  <img src={elipse} alt="Collateral" />
-                </CollateraleImg>
-                <CollateraleText>10 ETH</CollateraleText>
-              </Collaterale>
-              <CurrencyIn>
-                <CurrencyImg>
-                  <img src={currency} alt="Collateral" />
-                </CurrencyImg>
-                <CurrencyText>DFY</CurrencyText>
-              </CurrencyIn>
-              <DurationIn>12 months</DurationIn>
-              <SendOffcer>
-                <SendOffcerButton>Send Offer</SendOffcerButton>
-              </SendOffcer>
-            </BorrowerFlex>
-          </TableContent>
-          <TableContent>
-            <Quantity>1</Quantity>
-            <BorrowerFlex>
-              <BorrowerLink>0xaa5...a410e</BorrowerLink>
-              <Contracts>
-                <ContractsStar>
-                  <img src={star} alt="star" />
-                </ContractsStar>
-                <ContractsNghin>1000</ContractsNghin>
-                <ContractsTram>|&nbsp;&nbsp; 100 contracts</ContractsTram>
-              </Contracts>
-              <Collaterale>
-                <CollateraleImg>
-                  <img src={elipse} alt="Collateral" />
-                </CollateraleImg>
-                <CollateraleText>10 ETH</CollateraleText>
-              </Collaterale>
-              <CurrencyIn>
-                <CurrencyImg>
-                  <img src={currency} alt="Collateral" />
-                </CurrencyImg>
-                <CurrencyText>DFY</CurrencyText>
-              </CurrencyIn>
-              <DurationIn>12 months</DurationIn>
-              <SendOffcer>
-                <SendOffcerButton>Send Offer</SendOffcerButton>
-              </SendOffcer>
-            </BorrowerFlex>
-          </TableContent>
-          <TableContent>
-            <Quantity>1</Quantity>
-            <BorrowerFlex>
-              <BorrowerLink>0xaa5...a410e</BorrowerLink>
-              <Contracts>
-                <ContractsStar>
-                  <img src={star} alt="star" />
-                </ContractsStar>
-                <ContractsNghin>1000</ContractsNghin>
-                <ContractsTram>|&nbsp;&nbsp; 100 contracts</ContractsTram>
-              </Contracts>
-              <Collaterale>
-                <CollateraleImg>
-                  <img src={elipse} alt="Collateral" />
-                </CollateraleImg>
-                <CollateraleText>10 ETH</CollateraleText>
-              </Collaterale>
-              <CurrencyIn>
-                <CurrencyImg>
-                  <img src={currency} alt="Collateral" />
-                </CurrencyImg>
-                <CurrencyText>DFY</CurrencyText>
-              </CurrencyIn>
-              <DurationIn>12 months</DurationIn>
-              <SendOffcer>
-                <SendOffcerButton>Send Offer</SendOffcerButton>
-              </SendOffcer>
-            </BorrowerFlex>
-          </TableContent>
-          <TableContent>
-            <Quantity>1</Quantity>
-            <BorrowerFlex>
-              <BorrowerLink>0xaa5...a410e</BorrowerLink>
-              <Contracts>
-                <ContractsStar>
-                  <img src={star} alt="star" />
-                </ContractsStar>
-                <ContractsNghin>1000</ContractsNghin>
-                <ContractsTram>|&nbsp;&nbsp; 100 contracts</ContractsTram>
-              </Contracts>
-              <Collaterale>
-                <CollateraleImg>
-                  <img src={elipse} alt="Collateral" />
-                </CollateraleImg>
-                <CollateraleText>10 ETH</CollateraleText>
-              </Collaterale>
-              <CurrencyIn>
-                <CurrencyImg>
-                  <img src={currency} alt="Collateral" />
-                </CurrencyImg>
-                <CurrencyText>DFY</CurrencyText>
-              </CurrencyIn>
-              <DurationIn>12 months</DurationIn>
-              <SendOffcer>
-                <SendOffcerButton>Send Offer</SendOffcerButton>
-              </SendOffcer>
-            </BorrowerFlex>
-          </TableContent>
-          <TableContent>
-            <Quantity>1</Quantity>
-            <BorrowerFlex>
-              <BorrowerLink>0xaa5...a410e</BorrowerLink>
-              <Contracts>
-                <ContractsStar>
-                  <img src={star} alt="star" />
-                </ContractsStar>
-                <ContractsNghin>1000</ContractsNghin>
-                <ContractsTram>|&nbsp;&nbsp; 100 contracts</ContractsTram>
-              </Contracts>
-              <Collaterale>
-                <CollateraleImg>
-                  <img src={elipse} alt="Collateral" />
-                </CollateraleImg>
-                <CollateraleText>10 ETH</CollateraleText>
-              </Collaterale>
-              <CurrencyIn>
-                <CurrencyImg>
-                  <img src={currency} alt="Collateral" />
-                </CurrencyImg>
-                <CurrencyText>DFY</CurrencyText>
-              </CurrencyIn>
-              <DurationIn>12 months</DurationIn>
-              <SendOffcer>
-                <SendOffcerButton>Send Offer</SendOffcerButton>
-              </SendOffcer>
-            </BorrowerFlex>
-          </TableContent>
-          <Bank>
-            <BankLeft>
-              <BankBefore>Become your own bank</BankBefore>
-              <BankUnder>
-                Sign up for pawnshop to get great benefits from{' '}
-                <BankYellow>DeFi For You.</BankYellow>
-              </BankUnder>
-            </BankLeft>
-            <BankRight>
-              <img src={bank} alt="bank" />
-            </BankRight>
-          </Bank>
-          <TableContent>
-            <Quantity>1</Quantity>
-            <BorrowerFlex>
-              <BorrowerLink>0xaa5...a410e</BorrowerLink>
-              <Contracts>
-                <ContractsStar>
-                  <img src={star} alt="star" />
-                </ContractsStar>
-                <ContractsNghin>1000</ContractsNghin>
-                <ContractsTram>|&nbsp;&nbsp; 100 contracts</ContractsTram>
-              </Contracts>
-              <Collaterale>
-                <CollateraleImg>
-                  <img src={elipse} alt="Collateral" />
-                </CollateraleImg>
-                <CollateraleText>10 ETH</CollateraleText>
-              </Collaterale>
-              <CurrencyIn>
-                <CurrencyImg>
-                  <img src={currency} alt="Collateral" />
-                </CurrencyImg>
-                <CurrencyText>DFY</CurrencyText>
-              </CurrencyIn>
-              <DurationIn>12 months</DurationIn>
-              <SendOffcer>
-                <SendOffcerButton>Send Offer</SendOffcerButton>
-              </SendOffcer>
-            </BorrowerFlex>
-          </TableContent>
-          <TableContent>
-            <Quantity>1</Quantity>
-            <BorrowerFlex>
-              <BorrowerLink>0xaa5...a410e</BorrowerLink>
-              <Contracts>
-                <ContractsStar>
-                  <img src={star} alt="star" />
-                </ContractsStar>
-                <ContractsNghin>1000</ContractsNghin>
-                <ContractsTram>|&nbsp;&nbsp; 100 contracts</ContractsTram>
-              </Contracts>
-              <Collaterale>
-                <CollateraleImg>
-                  <img src={elipse} alt="Collateral" />
-                </CollateraleImg>
-                <CollateraleText>10 ETH</CollateraleText>
-              </Collaterale>
-              <CurrencyIn>
-                <CurrencyImg>
-                  <img src={currency} alt="Collateral" />
-                </CurrencyImg>
-                <CurrencyText>DFY</CurrencyText>
-              </CurrencyIn>
-              <DurationIn>12 months</DurationIn>
-              <SendOffcer>
-                <SendOffcerButton>Send Offer</SendOffcerButton>
-              </SendOffcer>
-            </BorrowerFlex>
-          </TableContent>
-          <TableContent>
-            <Quantity>1</Quantity>
-            <BorrowerFlex>
-              <BorrowerLink>0xaa5...a410e</BorrowerLink>
-              <Contracts>
-                <ContractsStar>
-                  <img src={star} alt="star" />
-                </ContractsStar>
-                <ContractsNghin>1000</ContractsNghin>
-                <ContractsTram>|&nbsp;&nbsp; 100 contracts</ContractsTram>
-              </Contracts>
-              <Collaterale>
-                <CollateraleImg>
-                  <img src={elipse} alt="Collateral" />
-                </CollateraleImg>
-                <CollateraleText>10 ETH</CollateraleText>
-              </Collaterale>
-              <CurrencyIn>
-                <CurrencyImg>
-                  <img src={currency} alt="Collateral" />
-                </CurrencyImg>
-                <CurrencyText>DFY</CurrencyText>
-              </CurrencyIn>
-              <DurationIn>12 months</DurationIn>
-              <SendOffcer>
-                <SendOffcerButton>Send Offer</SendOffcerButton>
-              </SendOffcer>
-            </BorrowerFlex>
-          </TableContent>
-          <TableContent>
-            <Quantity>1</Quantity>
-            <BorrowerFlex>
-              <BorrowerLink>0xaa5...a410e</BorrowerLink>
-              <Contracts>
-                <ContractsStar>
-                  <img src={star} alt="star" />
-                </ContractsStar>
-                <ContractsNghin>1000</ContractsNghin>
-                <ContractsTram>|&nbsp;&nbsp; 100 contracts</ContractsTram>
-              </Contracts>
-              <Collaterale>
-                <CollateraleImg>
-                  <img src={elipse} alt="Collateral" />
-                </CollateraleImg>
-                <CollateraleText>10 ETH</CollateraleText>
-              </Collaterale>
-              <CurrencyIn>
-                <CurrencyImg>
-                  <img src={currency} alt="Collateral" />
-                </CurrencyImg>
-                <CurrencyText>DFY</CurrencyText>
-              </CurrencyIn>
-              <DurationIn>12 months</DurationIn>
-              <SendOffcer>
-                <SendOffcerButton>Send Offer</SendOffcerButton>
-              </SendOffcer>
-            </BorrowerFlex>
-          </TableContent>
-          <TableContent>
-            <Quantity>1</Quantity>
-            <BorrowerFlex>
-              <BorrowerLink>0xaa5...a410e</BorrowerLink>
-              <Contracts>
-                <ContractsStar>
-                  <img src={star} alt="star" />
-                </ContractsStar>
-                <ContractsNghin>1000</ContractsNghin>
-                <ContractsTram>|&nbsp;&nbsp; 100 contracts</ContractsTram>
-              </Contracts>
-              <Collaterale>
-                <CollateraleImg>
-                  <img src={elipse} alt="Collateral" />
-                </CollateraleImg>
-                <CollateraleText>10 ETH</CollateraleText>
-              </Collaterale>
-              <CurrencyIn>
-                <CurrencyImg>
-                  <img src={currency} alt="Collateral" />
-                </CurrencyImg>
-                <CurrencyText>DFY</CurrencyText>
-              </CurrencyIn>
-              <DurationIn>12 months</DurationIn>
-              <SendOffcer>
-                <SendOffcerButton>Send Offer</SendOffcerButton>
-              </SendOffcer>
-            </BorrowerFlex>
-          </TableContent>
-          <Pagination>
-            <Arrow>
-              <img src={front} alt="Front" />
-            </Arrow>
-            <Page>1</Page>
-            <Page>2</Page>
-            <Page>3</Page>
-            <Arrow>
-              <img src={next} alt="Next" />
-            </Arrow>
-          </Pagination>
-        </Container>
-      </WrapperSearchResult>
       <Footer />
     </>
   );

@@ -6,16 +6,41 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import Typography from '@mui/material/Typography';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ContainerInterest, SetSizeCoin } from './rootStylesFilter';
 import { listLoan } from './DataCoin';
 import { MyValue } from 'models/Myvalue';
-
+import { useHistory } from 'react-router';
+import queryString from 'query-string';
 export const LoanToken = (props: MyValue) => {
+  const [loanToken, setLoanToken] = useState<any>({
+    data: [],
+  });
+  const history = useHistory();
+  const url = queryString.parse(history.location.search);
   const valueLoanToken = e => {
-    props.data(e.target.name, 'Loan Token');
+    if (loanToken.data.includes(e.target.name)) {
+      const newList = loanToken.data.filter(item => item !== e.target.name);
+      setLoanToken({ ...loanToken, data: newList });
+    } else {
+      setLoanToken({
+        ...loanToken,
+        data: [...loanToken.data, e.target.name],
+      });
+    }
   };
+  useEffect(() => {
+    const param = new URL(window.location.href);
+    const search_param = param.searchParams;
+    param.search = search_param.toString();
+    if (loanToken.data.length > 0) {
+      search_param.set('loanSymbols', loanToken.data.join(','));
+    }
 
+    const new_url = param.search.toString();
+
+    history.push({ pathname: '', search: new_url });
+  }, [loanToken]);
   const renderListCoin = listLoan.map((item, index) => {
     return (
       <FormControlLabel
@@ -23,6 +48,10 @@ export const LoanToken = (props: MyValue) => {
         control={
           <Checkbox
             name={item.value}
+            checked={
+              loanToken.data.includes(item.value) ||
+              url.loanSymbols?.includes(item.value)
+            }
             sx={{
               color: '#fff',
               '&.Mui-checked': {

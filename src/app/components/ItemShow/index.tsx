@@ -1,7 +1,7 @@
 import React from 'react';
 import StarIcon from '@mui/icons-material/Star';
 import { Link } from 'react-router-dom';
-import { listCoin } from '../Filter/DataCoin';
+import { listCoin, listLoan } from '../Filter/DataCoin';
 import {
   ButtonCuston,
   CollateralAccepted,
@@ -79,7 +79,6 @@ const IconDiamond = () => {
 export const ItemShowBorrow = (props: any) => {
   const { item } = props;
   const countCoin = [...item.acceptableAssetsAsCollateral];
-
   function formatMoney(n) {
     return (Math.round(n * 100) / 100).toLocaleString();
   }
@@ -105,16 +104,16 @@ export const ItemShowBorrow = (props: any) => {
           <p>
             <span className="content-title">Available: </span>
             <span className="content-name">
-              32,589.386 {item.acceptableAssetsAsLoan[0].symbol}
+              32,589.386 {item.acceptableAssetsAsLoan[0]?.symbol}
             </span>
           </p>
           <p>
             <span className="content-title">Limit: </span>
             <span className="content-name">
               {formatMoney(item.allowedLoanMin)}{' '}
-              {item.acceptableAssetsAsLoan[0].symbol} -{' '}
+              {item.acceptableAssetsAsLoan[0]?.symbol} -{' '}
               {formatMoney(item.allowedLoanMax)}{' '}
-              {item.acceptableAssetsAsLoan[0].symbol}
+              {item.acceptableAssetsAsLoan[0]?.symbol}
             </span>
           </p>
           <p>
@@ -186,12 +185,12 @@ export const ItemShowBorrow = (props: any) => {
 
 export const ItemShowLend = (props: any) => {
   const { item } = props;
-  const src = listCoin.filter(e => {
-    if (e.value === item.expectedLoanSymbol) {
+
+  const src = listLoan.filter(e => {
+    if (e.value === item?.nftEvaluatedSymbol) {
       return e;
     }
   });
-  console.log(src[0]);
   function formatMoney(n) {
     return (Math.round(n * 100) / 100).toLocaleString();
   }
@@ -241,8 +240,7 @@ export const ItemShowLend = (props: any) => {
               <span className="content-title">Evaluated price: </span>
               <span className="content-name">
                 <img
-                  //src={src[0].url}
-
+                  src={src[0].url}
                   alt="icon"
                   style={{ height: '24px', width: '24px', marginRight: '8px' }}
                 />
