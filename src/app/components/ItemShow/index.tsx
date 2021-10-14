@@ -1,7 +1,7 @@
 import React from 'react';
 import StarIcon from '@mui/icons-material/Star';
 import { Link } from 'react-router-dom';
-import { listCoin } from '../Filter/DataCoin';
+import { listCoin, listLoan } from '../Filter/DataCoin';
 import {
   ButtonCuston,
   CollateralAccepted,
@@ -79,7 +79,7 @@ const IconDiamond = () => {
 export const ItemShowBorrow = (props: any) => {
   const { item } = props;
   const countCoin = [...item.acceptableAssetsAsCollateral];
-
+  console.log('2');
   function formatMoney(n) {
     return (Math.round(n * 100) / 100).toLocaleString();
   }
@@ -186,12 +186,12 @@ export const ItemShowBorrow = (props: any) => {
 
 export const ItemShowLend = (props: any) => {
   const { item } = props;
-  const src = listCoin.filter(e => {
-    if (e.value === item?.expectedLoanSymbol) {
-      return e;
+  const src = listLoan.filter(e => {
+    if (e.value === item?.nftEvaluatedSymbol) {
+      return e.url;
     }
   });
-  console.log(item.expectedLoanSymbol);
+  console.log(src);
   function formatMoney(n) {
     return (Math.round(n * 100) / 100).toLocaleString();
   }
@@ -241,8 +241,7 @@ export const ItemShowLend = (props: any) => {
               <span className="content-title">Evaluated price: </span>
               <span className="content-name">
                 <img
-                  //src={src[0].url}
-
+                  src={src[0].url}
                   alt="icon"
                   style={{ height: '24px', width: '24px', marginRight: '8px' }}
                 />

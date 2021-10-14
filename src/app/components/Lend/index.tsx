@@ -2,7 +2,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { FormControlLabel, Radio, RadioGroup } from '@mui/material';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { listCoin } from '../Filter/DataCoin';
+import { listCoin, listLoan } from '../Filter/DataCoin';
 import { ButtomMaxIcon, ButtomSmall, Flex } from '../rootStyled';
 import { NewSelect } from '../Selecter';
 import { Form, FormCtrol, MyTextField, Wrapper } from './style';
@@ -45,6 +45,8 @@ const Lend = () => {
       loanAmount: Number(data.maxloan),
       size: 10,
     };
+    console.log(newObj);
+
     history.push({
       pathname: '/pawn/lender/nft-result',
       search: queryString.stringify(newObj),
@@ -66,6 +68,10 @@ const Lend = () => {
     { value: 'Weeks', label: 'Weeks' },
     { value: 'Months', label: 'Months' },
   ];
+  const arrLoan = listLoan.map((item, key) => ({
+    value: item.value,
+    label: [<ImageIcon key={key} src={item.url} />, item.value],
+  }));
 
   return (
     <Wrapper>
@@ -124,7 +130,7 @@ const Lend = () => {
                   error={Boolean(errors.currency)}
                   value={value}
                   onChange={onChange}
-                  data={arrCurrency}
+                  data={arrLoan}
                   styleSelect={false}
                 />
               )}

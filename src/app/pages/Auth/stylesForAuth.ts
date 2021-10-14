@@ -113,6 +113,7 @@ export const MyTextField = styled(TextField)`
     border-radius: 22px;
     margin: 6px 0 6px 0;
     border: ${(p: MyError) => (p.error ? '' : '1px solid #74767b')};
+    padding-right: 0;
     &:hover {
       border: ${(p: MyError) => (p.error ? '' : '1px solid #fff')};
     }
