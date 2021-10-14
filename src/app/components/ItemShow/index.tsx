@@ -187,11 +187,11 @@ export const ItemShowBorrow = (props: any) => {
 export const ItemShowLend = (props: any) => {
   const { item } = props;
   const src = listCoin.filter(e => {
-    if (e.value === item?.expectedLoanSymbol) {
+    if (e.value === item.expectedLoanSymbol) {
       return e;
     }
   });
-  console.log(item.expectedLoanSymbol);
+  console.log(src[0]);
   function formatMoney(n) {
     return (Math.round(n * 100) / 100).toLocaleString();
   }

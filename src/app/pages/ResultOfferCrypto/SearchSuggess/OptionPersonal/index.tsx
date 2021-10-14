@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SuggesItems from '../Suggestions/SuggesItems';
 import {
   ViewOption,
@@ -11,12 +11,16 @@ import coin2 from '../../../../../images/imagecoin/coin2.png';
 import { Link } from 'react-router-dom';
 import Items from './items';
 import { Flex } from 'app/components/rootStyled';
+import { useHistory } from 'react-router';
+import queryString from 'query-string';
+import { searchApi } from 'api/searchApiHome';
 export default function ListSugges() {
   const suggestData = {
     img: coin2,
     title: 'Want an instant loan? ',
     content: 'Submit your collateral to get a loan in seconds',
   };
+  /*
   const listPersonal = [
     {
       id: 1,
@@ -43,7 +47,22 @@ export default function ListSugges() {
         request={item.request}
       />
     );
-  });
+  });*/
+  //call API Borrow
+  const history = useHistory();
+  const [listApiData, setListApiData] = useState<any>([]);
+  const param = queryString.parse(history.location.search);
+  useEffect(() => {
+    searchApi
+      .getPersonalLending(param)
+      .then((res: any) => {
+        setListApiData(res.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
+  //console.log(listApiData);
 
   return (
     <ViewOption>
@@ -57,7 +76,9 @@ export default function ListSugges() {
       </ViewAllLending>
 
       <Flex gap={20} justifyContent="center" flexColumn={768}>
-        {renderPersonal}
+        {listApiData.content?.map((item, index) => (
+          <Items key={index} pages="borrow" item={item} />
+        ))}
       </Flex>
 
       <SuggesItems
