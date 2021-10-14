@@ -1,15 +1,9 @@
 import styled from 'styled-components/macro';
-
+import { Link } from 'react-router-dom';
 export const WrapperSearchResult = styled.div`
   background: #171a23;
 `;
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  max-width: 988px;
-  margin: 0 auto;
-  padding-top: 30px;
-`;
+export const Container = styled.div``;
 
 export const Paragraph = styled.p`
   height: 24px;
@@ -23,200 +17,159 @@ export const Paragraph = styled.p`
   color: #d1d1d3;
 `;
 export const Table = styled.table`
+  width: 100%;
+  color: #fff;
+  margin-bottom: 25px;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 10px 10px 0px 0px !important;
+`;
+export const Tr = styled.tr`
   height: 50px;
-  line-height: 50px;
-  position: relative;
   background: #282c37;
   opacity: 0.5;
-  border-radius: 10px 10px 0px 0px;
+  font-weight: lighter;
 `;
-export const Thang = styled.th`
-  position: absolute;
-  left: 30px;
-  width: 11px;
-  height: 17px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #ffffff;
-`;
-export const Borrower = styled.th`
-  position: absolute;
-  width: 68px;
-  height: 17px;
-  left: 90px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #ffffff;
-`;
-export const Collateral = styled.th`
-  position: absolute;
-  width: 69px;
-  height: 17px;
-  left: 320px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #ffffff;
-`;
-export const Loancurrency = styled.th`
-  position: absolute;
-  width: 105px;
-  height: 17px;
-  left: 550px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #ffffff;
-`;
-export const Duration = styled.th`
-  position: absolute;
-  width: 65px;
-  height: 17px;
-  left: 730px;
-  font-weight: 600;
-  font-size: 14px;
 
-  color: #ffffff;
-`;
-export const TableContent = styled.tr`
-  max-width: 1011px;
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 4px;
-  position: relative;
-  line-height: 80px;
-  height: 80px;
-  background: #282c37;
-  border-radius: 4px 4px 0px 0px;
-`;
-export const Quantity = styled.td`
-  position: absolute;
-  left: 3.2%;
-  top: 40%;
-  bottom: 38.75%;
+export const THeaderT = styled.th`
+  width: 5%;
+  font-style: normal;
+  font-weight: 600;
   font-size: 14px;
-  line-height: 17px;
-  color: #ffffff;
 `;
-export const BorrowerFlex = styled.td`
-  display: flex;
-  flex-direction: column;
+export const THeaderBorrow = styled.th`
+  width: 30%;
+  text-align: left;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
 `;
-export const BorrowerLink = styled.td`
-  position: absolute;
-  left: 9%;
-  top: 18%;
-  bottom: 50%;
-  font-weight: 500;
+export const THeaderColla = styled.th`
+  width: 20%;
+  text-align: left;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+`;
+export const THeaderCurrency = styled.th`
+  width: 15%;
+  text-align: left;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+`;
+export const THeaderDuration = styled.th`
+  width: 12%;
+  text-align: left;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+`;
+export const THeaderButton = styled.th`
+  width: 18%;
+  text-align: left;
+`;
+
+export const Trow = styled.tr`
+  height: 80px;
+  line-height: 35px;
   font-size: 16px;
-  line-height: 20px;
+  background: #282c37;
+`;
+export const Td = styled.td`
+  font-size: 14px;
+  text-align: center;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 4px 0px 0px 0px !important;
+`;
+export const TdButton = styled.td`
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 0px 4px 0px 0px !important;
+`;
+export const Tdborrow = styled.td``;
+export const Banner = styled.tr`
+  cursor: pointer;
+`;
+
+export const TdBanner = styled.td.attrs({
+  colSpan: 6,
+})``;
+export const DivLender = styled.div`
+  display: flex;
+  max-width: 100%;
+  align-items: center;
+  color: #fff;
+  margin: 12px 0;
+  background: #475674;
+  line-height: 35px;
+  border-radius: 10px;
+  padding: 12px 16px;
+`;
+
+export const DivTitle = styled.div`
+  width: 80%;
+`;
+export const DivHero = styled.div`
+  color: #f8b017;
+  font-size: 24px;
+  font-weight: 600;
+`;
+export const DivMini = styled.div`
+  font-size: 16px;
+  font-weight: 500;
+`;
+export const SpanMini = styled.span`
+  color: #f8b017;
+`;
+export const DivImg = styled.div`
+  width: 20%;
+`;
+export const Address = styled.div``;
+export const LenderInfo = styled.div`
   display: flex;
   align-items: center;
-  text-decoration-line: underline;
+  font-size: 14px;
+  width: 55%;
+  font-weight: 400;
+  justify-content: space-between;
+`;
+export const A = styled(Link)<{ to: any }>`
   color: #2596ff;
 `;
-export const Contracts = styled.td`
-  position: absolute;
-  left: 2%;
-  width: 100%;
-  right: 73.69%;
-  top: 58.75%;
-  bottom: 20%;
-  font-size: 14px;
-  line-height: 17px;
-  color: #ffffff;
+export const LenderMount = styled.div``;
+export const LenderArr = styled.div``;
+export const LenderConstract = styled.div``;
+export const Img = styled.div`
+  margin-bottom: 5px;
 `;
-export const ContractsStar = styled.h3`
-  position: absolute;
-  left: 6.73%;
-  right: 91.59%;
-`;
-export const ContractsNghin = styled.h3`
-  position: absolute;
-  left: 9.4%;
-  right: 86.45%;
-  top: 58.75%;
-  bottom: 20%;
-  font-size: 14px;
-  line-height: 17px;
-
+export const Icon = styled.div``;
+export const TdCol = styled.td``;
+export const Token = styled.div`
   display: flex;
   align-items: center;
-
-  color: #ffffff;
 `;
-export const ContractsTram = styled.h3`
-  position: absolute;
-  left: 13.75%;
-  right: 73.69%;
-  top: 58.75%;
-  bottom: 20%;
-  font-size: 14px;
-  line-height: 17px;
-
-  display: flex;
-  align-items: center;
-
-  color: #ffffff;
-`;
-export const Collaterale = styled.td``;
-export const CollateraleImg = styled.h3`
-  position: absolute;
-  left: 31.85%;
-  right: 65.78%;
-`;
-export const CollateraleText = styled.h3`
-  position: absolute;
-  left: 35.41%;
-  right: 58.95%;
-  top: 38.5%;
-  bottom: 38.5%;
-  font-weight: 500;
+export const Text = styled.div`
   font-size: 16px;
-  line-height: 20px;
-
-  color: #ffffff;
-`;
-export const CurrencyIn = styled.td``;
-export const CurrencyImg = styled.h3`
-  position: absolute;
-  left: 56%;
-`;
-export const CurrencyText = styled.h3`
-  position: absolute;
-  left: 59.41%;
-  top: 4%;
-  bottom: 4%;
+  margin-left: 15px;
   font-weight: 500;
-  font-size: 16px;
-
-  color: #ffffff;
 `;
-export const DurationIn = styled.td`
-  position: absolute;
-  left: 74.3%;
-  top: 39%;
-  bottom: 39%;
-  display: flex;
-  flex-direction: row;
+export const TextMonth = styled.div`
+  font-size: 16px;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  color: #ffffff;
 `;
-export const SendOffcer = styled.td``;
-export const SendOffcerButton = styled.button`
+export const Button = styled.button`
   display: flex;
-  align-items: center;
-  width: 116px;
-  padding: 10px 20px;
+  color: #282c37;
   font-weight: 500;
   font-size: 14px;
-  line-height: 17px;
-  position: absolute;
-  left: 85.46%;
-  right: 3.07%;
-  top: 25.5%;
-  bottom: 25.5%;
   border: none;
+  cursor: pointer;
+  margin-left: 30px;
+  align-items: center;
+  padding: 9px 20px;
+  height: 36px;
   background: linear-gradient(
     221.15deg,
     #bd8727 0%,
@@ -225,79 +178,4 @@ export const SendOffcerButton = styled.button`
     #bd8727 101.47%
   );
   border-radius: 25px;
-  cursor: pointer;
-`;
-export const Bank = styled.div`
-  max-width: 1011px;
-  height: 90px;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  margin-bottom: 14px;
-  padding-left: 32px;
-  padding-right: 32px;
-  align-items: center;
-  background: #475674;
-  border-radius: 10px;
-`;
-export const BankLeft = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-export const BankBefore = styled.p`
-  font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
-  color: #f8b017;
-`;
-export const BankUnder = styled.p`
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  color: #ffffff;
-`;
-export const BankRight = styled.div``;
-export const BankYellow = styled.span`
-  color: #f8b017;
-`;
-export const Pagination = styled.div`
-  display: flex;
-  margin: 40px auto;
-  width: 208px;
-  justify-content: space-between;
-  height: 32px;
-`;
-export const Arrow = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid #74767b;
-  box-sizing: border-box;
-  border-radius: 4px;
-  &:hover {
-    cursor: pointer;
-    background: #dba83d;
-  }
-`;
-
-export const Page = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid #d1d1d3;
-  box-sizing: border-box;
-  border-radius: 4px;
-  cursor: pointer;
-  color: #ffffff;
-
-  &:hover {
-    background: #dba83d;
-    color: black;
-  }
 `;
