@@ -6,19 +6,45 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import FormGroup from '@mui/material/FormGroup';
 import Typography from '@mui/material/Typography';
 import { MyValue } from 'models/Myvalue';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import { ContainerInterest } from './rootStylesFilter';
-
+import queryString from 'query-string';
 export const Duration = (props: MyValue) => {
   const [expanded, setExpanded] = React.useState<string | false>('on');
-
+  const [duration, setDuration] = useState<any>({
+    data: [],
+  });
+  const history = useHistory();
+  const url = queryString.parse(history.location.search);
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
       setExpanded(newExpanded ? panel : false);
     };
   const getDuration = e => {
-    props.data(e.target.name, 'Duration');
+    if (duration.data.includes(e.target.name)) {
+      const newList = duration.data.filter(item => item !== e.target.name);
+      setDuration({ ...duration, data: newList });
+    } else {
+      setDuration({
+        ...duration,
+        data: [...duration.data, e.target.name],
+      });
+    }
   };
+  useEffect(() => {
+    const param = new URL(window.location.href);
+    const search_param = param.searchParams;
+    param.search = search_param.toString();
+
+    if (duration.data.length > 0) {
+      search_param.set('durationTypes', duration.data.join(','));
+    }
+
+    const new_url = param.search.toString();
+
+    history.push({ pathname: '', search: new_url });
+  }, [duration]);
   return (
     <ContainerInterest>
       <Accordion expanded={expanded === 'on'} onChange={handleChange('on')}>
@@ -35,6 +61,10 @@ export const Duration = (props: MyValue) => {
               control={
                 <Checkbox
                   name="0"
+                  checked={
+                    duration.data.includes('0') ||
+                    url.durationTypes?.includes('0')
+                  }
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {
@@ -50,6 +80,10 @@ export const Duration = (props: MyValue) => {
               control={
                 <Checkbox
                   name="1"
+                  checked={
+                    duration.data.includes('1') ||
+                    url.durationTypes?.includes('1')
+                  }
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {

@@ -84,6 +84,7 @@ export const ResultOfferCrypto = (props: Props) => {
       }
     }
   };
+  const url = queryString.stringify(listData);
 
   const [status, setStatus] = useState(false);
   const handleShowFilter = () => {

@@ -8,30 +8,41 @@ import FormGroup from '@mui/material/FormGroup';
 import Typography from '@mui/material/Typography';
 import { MyValue } from 'models/Myvalue';
 import queryString from 'query-string';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { listCoin } from './DataCoin';
 import { ContainerInterest, SetSizeCoin } from './rootStylesFilter';
 export const CollateralAccepted = (props: MyValue) => {
   const history = useHistory();
-
+  const url = queryString.parse(history.location.search);
+  const [colateral, setColateral] = useState<any>({
+    data: [],
+  });
   const handleCheckBoxChange = e => {
-    props.data(e.target.name, 'Collateral accepted');
+    if (colateral.data.includes(e.target.name)) {
+      const newList = colateral.data.filter(item => item !== e.target.name);
+      setColateral({ ...colateral, data: newList });
+    } else {
+      setColateral({
+        ...colateral,
+        data: [...colateral.data, e.target.name],
+      });
+    }
   };
 
-  const a = queryString.parse(history.location.search);
   useEffect(() => {
-    props.data(a.collateralSymbols, 'Collateral accepted');
-  }, [history.location.search]);
+    const param = new URL(window.location.href);
+    const search_param = param.searchParams;
+    param.search = search_param.toString();
+    if (colateral.data.length > 0) {
+      search_param.set('collateralSymbols', colateral.data.join(','));
+    }
 
-  useEffect(() => {
-    const paramxxxx = new URL(window.location.href);
-    const search_param = paramxxxx.searchParams;
-    search_param.set('collateralSymbols', props.collateralAccepted.join(','));
-    paramxxxx.search = search_param.toString();
-    const new_url = paramxxxx.search.toString();
-    console.log(new_url);
-  }, [props.collateralAccepted]);
+    const new_url = param.search.toString();
+
+    history.push({ pathname: '', search: new_url });
+  }, [colateral]);
+
   const renderListCoin = listCoin.map((item, index) => {
     return (
       <FormControlLabel
@@ -39,7 +50,10 @@ export const CollateralAccepted = (props: MyValue) => {
         control={
           <Checkbox
             name={item.value}
-            checked={props.value.collateralAccepted.includes(item.value)}
+            checked={
+              colateral.data.includes(item.value) ||
+              url.collateralSymbols?.includes(item.value)
+            }
             sx={{
               color: '#fff',
               '&.Mui-checked': {

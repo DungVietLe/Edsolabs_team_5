@@ -105,16 +105,16 @@ export const ItemShowBorrow = (props: any) => {
           <p>
             <span className="content-title">Available: </span>
             <span className="content-name">
-              32,589.386 {item.acceptableAssetsAsLoan[0].symbol}
+              32,589.386 {item.acceptableAssetsAsLoan[0]?.symbol}
             </span>
           </p>
           <p>
             <span className="content-title">Limit: </span>
             <span className="content-name">
               {formatMoney(item.allowedLoanMin)}{' '}
-              {item.acceptableAssetsAsLoan[0].symbol} -{' '}
+              {item.acceptableAssetsAsLoan[0]?.symbol} -{' '}
               {formatMoney(item.allowedLoanMax)}{' '}
-              {item.acceptableAssetsAsLoan[0].symbol}
+              {item.acceptableAssetsAsLoan[0]?.symbol}
             </span>
           </p>
           <p>

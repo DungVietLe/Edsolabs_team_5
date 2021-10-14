@@ -6,19 +6,42 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import FormGroup from '@mui/material/FormGroup';
 import Typography from '@mui/material/Typography';
 import { MyValue } from 'models/Myvalue';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import { ContainerInterest } from './rootStylesFilter';
 
 export const LoanType = (props: MyValue) => {
   const [expanded, setExpanded] = React.useState<string | false>('on');
-
+  const [LoanType, setLoanType] = useState<any>({
+    data: [],
+  });
+  const history = useHistory();
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
       setExpanded(newExpanded ? panel : false);
     };
   const getLoanType = e => {
-    props.data(e.target.name, 'Loan type');
+    if (LoanType.data.includes(e.target.name)) {
+      const newList = LoanType.data.filter(item => item !== e.target.name);
+      setLoanType({ ...LoanType, data: newList });
+    } else {
+      setLoanType({
+        ...LoanType,
+        data: [...LoanType.data, e.target.name],
+      });
+    }
   };
+  useEffect(() => {
+    const param = new URL(window.location.href);
+    const search_param = param.searchParams;
+    param.search = search_param.toString();
+
+    search_param.set('loanTypes', LoanType.data.join(','));
+
+    const new_url = param.search.toString();
+
+    history.push({ pathname: '', search: new_url });
+  }, [LoanType]);
   return (
     <ContainerInterest>
       <Accordion onChange={handleChange('on')} expanded={expanded === 'on'}>
