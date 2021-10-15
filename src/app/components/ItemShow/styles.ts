@@ -390,6 +390,10 @@ export const ButtonCuston = styled.button`
       : p.color === 'red'
       ? 'color: #ff4848;border-color:#ff4848;background-color: rgba(255, 72, 72, 0.2);'
       : ''};
+  svg {
+    width: 12px;
+    height: 12px;
+  }
 `;
 
 export const MyLinkButton = styled(LinkButtom)`
