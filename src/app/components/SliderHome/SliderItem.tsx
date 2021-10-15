@@ -178,7 +178,7 @@ export const Rate = styled(Button)`
 `;
 export default function SliderItem(props: IProps) {
   const { image, title, content } = props;
-  //console.log(props);
+
   return (
     <Infor>
       <div style={{ position: 'relative' }}>

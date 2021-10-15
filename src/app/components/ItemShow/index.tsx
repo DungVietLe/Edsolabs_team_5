@@ -1,7 +1,7 @@
 import React from 'react';
 import StarIcon from '@mui/icons-material/Star';
 import { Link } from 'react-router-dom';
-import { listCoin, listLoan } from '../Filter/DataCoin';
+import { listLoan } from '../Filter/DataCoin';
 import {
   ButtonCuston,
   CollateralAccepted,

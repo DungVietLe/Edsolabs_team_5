@@ -38,20 +38,17 @@ const Lend = () => {
   const [valueDuration, setValueDuration] = useState('');
   const history = useHistory();
   const onSubmit = (data: any) => {
-    console.log(data);
     const newObj = {
       loanSymbols: data.currency.value,
       durationTypes: Number(data.timer.value),
       loanAmount: Number(data.maxLoan),
       size: 10,
     };
-    console.log(newObj);
 
     history.push({
       pathname: '/pawn/lender/nft-result',
       search: queryString.stringify(newObj),
     });
-    console.log(newObj);
   };
   const handleChangeMaxLoan = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValueMaxLoan(e.target.value);

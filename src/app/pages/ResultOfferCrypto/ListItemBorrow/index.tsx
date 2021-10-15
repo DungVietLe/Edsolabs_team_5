@@ -2,6 +2,7 @@ import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { ItemShowBorrow } from 'app/components/ItemShow';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import { FlexColumn } from '../../ResultStyles';
 import {
   ButtonSort,
@@ -13,13 +14,89 @@ import {
 
 const ListItemBorrow = (props: any) => {
   const data = props.listApiData.content;
-
+  const history = useHistory();
+  const [param, setParam] = useState<any>({
+    cusSort: '',
+  });
   const [isActiveSort, setIsActiveSort] = useState('');
+  const [checked, setChecked] = useState(false);
+  const [checked2, setChecked2] = useState(false);
+  const [checked3, setChecked3] = useState(false);
+  const [checked4, setChecked4] = useState(false);
+  const [checked5, setChecked5] = useState(false);
 
-  const handleClickActiveSort = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const paramxxxx = new URL(window.location.href);
+  const search_param = paramxxxx.searchParams;
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const name = e.currentTarget.name as string;
-    setIsActiveSort(name);
+    if (name === 'interest') {
+      setIsActiveSort('interest');
+      setChecked(!checked);
+      setParam({
+        ...param,
+        cusSort: `${name},${checked ? 'desc' : 'asc'}`,
+      });
+      search_param.set('cusSort', param.cusSort);
+      paramxxxx.search = search_param.toString();
+      const new_url = paramxxxx.search.toString();
+
+      history.push({ pathname: '', search: new_url });
+    }
+    if (name === 'loanToValue') {
+      setIsActiveSort('loanToValue');
+      setChecked2(!checked2);
+      setParam({
+        ...param,
+        cusSort: `${name},${checked2 ? 'desc' : 'asc'}`,
+      });
+      search_param.set('cusSort', param.cusSort);
+      paramxxxx.search = search_param.toString();
+      const new_url = paramxxxx.search.toString();
+
+      history.push({ pathname: '', search: new_url });
+    }
+    if (name === 'durationQty') {
+      setIsActiveSort('durationQty');
+      setChecked3(!checked3);
+      setParam({
+        ...param,
+        cusSort: `${name},${checked3 ? 'desc' : 'asc'}`,
+      });
+      search_param.set('cusSort', param.cusSort);
+      paramxxxx.search = search_param.toString();
+      const new_url = paramxxxx.search.toString();
+
+      history.push({ pathname: '', search: new_url });
+    }
+    if (name === 'limitation') {
+      setIsActiveSort('limitation');
+      setChecked4(!checked4);
+      setParam({
+        ...param,
+        cusSort: `${name},${checked4 ? 'desc' : 'asc'}`,
+      });
+      search_param.set('cusSort', param.cusSort);
+      paramxxxx.search = search_param.toString();
+      const new_url = paramxxxx.search.toString();
+
+      history.push({ pathname: '', search: new_url });
+    }
+    if (name === 'reputation') {
+      search_param.delete('cusSort');
+      setIsActiveSort('reputation');
+      setChecked5(!checked5);
+      setParam({
+        ...param,
+        cusSort: `${name},${checked5 ? 'desc' : 'asc'}`,
+      });
+      search_param.set('cusSort', param.cusSort);
+      paramxxxx.search = search_param.toString();
+      const new_url = paramxxxx.search.toString();
+
+      history.push({ pathname: '', search: new_url });
+    }
   };
+  console.log(param);
   const ListItem = data?.map((item, index) => (
     <ItemShowBorrow key={index} item={item} />
   ));
@@ -29,64 +106,44 @@ const ListItemBorrow = (props: any) => {
       <HeaderContent>
         <GropButtonSort>
           <ButtonSort
-            name="interestRateBtn"
-            onClick={handleClickActiveSort}
-            className={isActiveSort === 'interestRateBtn' ? 'active' : ''}
+            name="interest"
+            onClick={handleClick}
+            className={isActiveSort === 'interest' ? 'active' : ''}
           >
             <span>Interest rate</span>
-            {isActiveSort === 'interestRateBtn' ? (
-              <TrendingUpIcon />
-            ) : (
-              <TrendingDownIcon />
-            )}
+            {checked ? <TrendingUpIcon /> : <TrendingDownIcon />}
           </ButtonSort>
           <ButtonSort
-            name="loanValueBtn"
-            onClick={handleClickActiveSort}
-            className={isActiveSort === 'loanValueBtn' ? 'active' : ''}
+            name="loanToValue"
+            onClick={handleClick}
+            className={isActiveSort === 'loanToValue' ? 'active' : ''}
           >
             <span>Loan to Value</span>
-            {isActiveSort === 'loanValueBtn' ? (
-              <TrendingUpIcon />
-            ) : (
-              <TrendingDownIcon />
-            )}
+            {checked2 ? <TrendingUpIcon /> : <TrendingDownIcon />}
           </ButtonSort>
           <ButtonSort
-            name="durationBtn"
-            onClick={handleClickActiveSort}
-            className={isActiveSort === 'durationBtn' ? 'active' : ''}
+            name="durationQty"
+            onClick={handleClick}
+            className={isActiveSort === 'durationQty' ? 'active' : ''}
           >
             <span>Duration</span>
-            {isActiveSort === 'durationBtn' ? (
-              <TrendingUpIcon />
-            ) : (
-              <TrendingDownIcon />
-            )}
+            {checked3 ? <TrendingUpIcon /> : <TrendingDownIcon />}
           </ButtonSort>
           <ButtonSort
             name="limitation"
-            onClick={handleClickActiveSort}
+            onClick={handleClick}
             className={isActiveSort === 'limitation' ? 'active' : ''}
           >
             <span>Limitation</span>
-            {isActiveSort === 'limitation' ? (
-              <TrendingUpIcon />
-            ) : (
-              <TrendingDownIcon />
-            )}
+            {checked4 ? <TrendingUpIcon /> : <TrendingDownIcon />}
           </ButtonSort>
           <ButtonSort
-            name="pawnshowBtn"
-            onClick={handleClickActiveSort}
-            className={isActiveSort === 'pawnshowBtn' ? 'active' : ''}
+            name="reputation"
+            onClick={handleClick}
+            className={isActiveSort === 'reputation' ? 'active' : ''}
           >
             <span>Pawnshop rating</span>
-            {isActiveSort === 'pawnshowBtn' ? (
-              <TrendingUpIcon />
-            ) : (
-              <TrendingDownIcon />
-            )}
+            {checked5 ? <TrendingUpIcon /> : <TrendingDownIcon />}
           </ButtonSort>
         </GropButtonSort>
       </HeaderContent>

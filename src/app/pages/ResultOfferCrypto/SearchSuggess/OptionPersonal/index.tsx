@@ -25,18 +25,10 @@ export default function ListSugges() {
   const [listApiData, setListApiData] = useState<any>([]);
   const param = queryString.parse(history.location.search);
   useEffect(() => {
-    searchApi
-      .getPersonalLending(param)
-      .then((res: any) => {
-        setListApiData(res.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    searchApi.getPersonalLending(param).then((res: any) => {
+      setListApiData(res.data);
+    });
   }, []);
-
-  console.log(listApiData);
-
   return (
     <ViewOption>
       <TextResults> 10 pawnshop package match your search </TextResults>
