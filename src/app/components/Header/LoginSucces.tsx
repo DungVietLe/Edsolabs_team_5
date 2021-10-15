@@ -1,14 +1,13 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Grow from '@mui/material/Grow';
-import Paper from '@mui/material/Paper';
-import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
+import Paper from '@mui/material/Paper';
+import Popper from '@mui/material/Popper';
 import Stack from '@mui/material/Stack';
-import { useDispatch } from 'react-redux';
 import { loginAction } from 'app/pages/Auth/loginSlice';
+import * as React from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { Info, NewButton } from './styles';
 interface MyUser {

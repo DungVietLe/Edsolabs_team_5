@@ -221,7 +221,7 @@ export default function Items(props: any) {
   const test2 = test.slice(0, 5).map(el => {
     return icon.filter(e => el === e.value);
   });
-  console.log(test2);
+
   return (
     <InforPersonal>
       <Data>
@@ -233,10 +233,7 @@ export default function Items(props: any) {
           <img src={staryellow} alt="star" className="starYellow" />
           {item.reputation}
           <p className="separation">|</p>
-          <p className="signed">
-            {item.completedContracts}
-            signed contracts
-          </p>
+          <p className="signed">{item.completedContracts} signed contracts</p>
         </Rate>
         <Percent>
           {item.minInterestRate} - {item.maxInterestRate}%

@@ -42,7 +42,7 @@ export const CollateralAccepted = (props: MyValue) => {
     const new_url = param.search.toString();
 
     history.push({ pathname: '', search: new_url });
-  }, [colateral]);
+  }, [colateral, history]);
   // reset
   useEffect(() => {
     setColateral({ data: [] });

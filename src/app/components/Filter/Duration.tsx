@@ -16,7 +16,7 @@ export const Duration = (props: MyValue) => {
     data: [],
   });
   const history = useHistory();
-  const url = queryString.parse(history.location.search);
+  const url: any = queryString.parse(history.location.search);
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
       setExpanded(newExpanded ? panel : false);
@@ -36,7 +36,6 @@ export const Duration = (props: MyValue) => {
     const param = new URL(window.location.href);
     const search_param = param.searchParams;
     param.search = search_param.toString();
-
     if (duration.data.length > 0) {
       search_param.set('durationTypes', duration.data.join(','));
     }
@@ -44,7 +43,8 @@ export const Duration = (props: MyValue) => {
     const new_url = param.search.toString();
 
     history.push({ pathname: '', search: new_url });
-  }, [duration]);
+  }, [duration, history]);
+
   useEffect(() => {
     setDuration({ data: [] });
   }, [props.checker]);
@@ -64,7 +64,7 @@ export const Duration = (props: MyValue) => {
               control={
                 <Checkbox
                   name="0"
-                  checked={url.durationTypes?.includes('0') || false}
+                  checked={url.durationTypes?.includes('0')}
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {
@@ -80,7 +80,7 @@ export const Duration = (props: MyValue) => {
               control={
                 <Checkbox
                   name="1"
-                  checked={url.durationTypes?.includes('1') || false}
+                  checked={url.durationTypes?.includes('1')}
                   sx={{
                     color: '#fff',
                     '&.Mui-checked': {
