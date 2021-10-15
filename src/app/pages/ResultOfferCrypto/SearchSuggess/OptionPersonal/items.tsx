@@ -5,7 +5,6 @@ import tick from '../../../../../images/imagetick/tick.png';
 import warning from '../../../../../images/imagetick/warning.png';
 import tag from '../../../../../images/imagetag/tag.png';
 import { iconCoin } from './iconsCoins';
-import { Item } from 'app/components/ItemShow/styles';
 
 const InforPersonal = styled.div`
   background: #282c37;
@@ -37,6 +36,21 @@ const View = styled.div`
   .tick {
     padding-left: 12px;
     font-size: 20px;
+    @media (max-width: 1920px) {
+      margin-top: -20px;
+    }
+    @media (max-width: 990px) {
+      margin-top: -40px;
+    }
+    @media (max-width: 845px) {
+      margin-top: -60px;
+    }
+    @media (max-width: 768px) {
+      margin-top: 2px;
+    }
+    @media (max-width: 608px) {
+      margin-top: -20px;
+    }
   }
   @media (max-width: 425px) {
     font-size: 16px;
@@ -199,9 +213,15 @@ const Request = styled(Button)`
 
 export default function Items(props: any) {
   const { item } = props;
-  const newarray = [...item.acceptableAssetsAsCollateral];
-  const array = newarray.slice(0, 4);
-
+  const newarray = [
+    ...item?.p2PLenderPackages[0]?.acceptableAssetsAsCollateral,
+  ];
+  const icon = [...iconCoin];
+  const test = newarray.map(el => el.symbol);
+  const test2 = test.slice(0, 5).map(el => {
+    return icon.filter(e => el === e.value);
+  });
+  console.log(test2);
   return (
     <InforPersonal>
       <Data>
@@ -213,7 +233,10 @@ export default function Items(props: any) {
           <img src={staryellow} alt="star" className="starYellow" />
           {item.reputation}
           <p className="separation">|</p>
-          <p className="signed">{item.completedContracts}signed contracts</p>
+          <p className="signed">
+            {item.completedContracts}
+            signed contracts
+          </p>
         </Rate>
         <Percent>
           {item.minInterestRate} - {item.maxInterestRate}%
@@ -235,19 +258,21 @@ export default function Items(props: any) {
 
         <Collateral>
           <div>Collateral accepted: </div>
-          <div className="renderIcon">
-            {array.map((e, index) => (
-              <img
-                key={index}
-                src={e.url}
-                alt=""
-                style={{ height: '30px', padding: '5px' }}
-              />
-            ))}
-            <p className="allIcon">
-              & {newarray.length} {''}more
-            </p>
-          </div>
+          {
+            <div className="renderIcon">
+              {test2?.map((e, index) => (
+                <img
+                  key={index}
+                  src={e[0]?.url}
+                  alt=""
+                  style={{ height: '30px', padding: '5px' }}
+                />
+              ))}
+              <p className="allIcon">
+                & {newarray?.length - 5} {''}more
+              </p>
+            </div>
+          }
         </Collateral>
       </Data>
       <Request className="request">Request loan</Request>
