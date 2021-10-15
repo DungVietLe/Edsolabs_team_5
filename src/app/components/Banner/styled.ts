@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import styled from 'styled-components/macro';
-import banner from '../../../images/imagebanner/banner.png';
+import bannerhihi from '../../../images/imagebanner/banner.png';
 export const Pawn = styled.div`
   width: 100%;
   height: auto;
@@ -12,7 +12,7 @@ export const Pawn = styled.div`
 `;
 export const ViewBanner = styled.div`
   max-width: 1324px;
-  background-image: url(${banner});
+  background-image: url(${bannerhihi});
   background-size: cover;
   background-position: right center;
   border-radius: 20px;
