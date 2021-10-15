@@ -36,9 +36,8 @@ export const Duration = (props: MyValue) => {
     const param = new URL(window.location.href);
     const search_param = param.searchParams;
     param.search = search_param.toString();
-    if (duration.data.length > 0) {
-      search_param.set('durationTypes', duration.data.join(','));
-    }
+
+    search_param.set('durationTypes', duration.data.join(','));
 
     const new_url = param.search.toString();
 
