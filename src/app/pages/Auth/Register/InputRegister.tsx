@@ -20,6 +20,8 @@ import {
   MyTextField,
   NtfTitle,
 } from '../stylesForAuth';
+import { messages } from '../messages';
+import { useTranslation } from 'react-i18next';
 
 interface IFormInputs {
   name: string;
@@ -59,6 +61,7 @@ const schema = yup
   .required();
 
 export const InputRegister = props => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const loading = useSelector(selectLoading);
   const [captchaResponse, setCaptchaResponse] = useState(null);
@@ -123,7 +126,7 @@ export const InputRegister = props => {
             control={form.control}
             render={({ field }) => (
               <>
-                <MyLabel>Name</MyLabel>
+                <MyLabel>{t(messages.name())}</MyLabel>
                 <MyTextField
                   {...field}
                   variant="outlined"
@@ -159,7 +162,7 @@ export const InputRegister = props => {
             control={form.control}
             render={({ field }) => (
               <>
-                <MyLabel>Password</MyLabel>
+                <MyLabel>{t(messages.password())}</MyLabel>
                 <MyTextField
                   {...field}
                   className="mySetup"
@@ -196,7 +199,7 @@ export const InputRegister = props => {
             control={form.control}
             render={({ field }) => (
               <>
-                <MyLabel>Confirm password</MyLabel>
+                <MyLabel>{t(messages.cfp())}</MyLabel>
                 <MyTextField
                   {...field}
                   className="mySetup"
@@ -230,10 +233,10 @@ export const InputRegister = props => {
           />
         </Mybox>
         <NtfTitle sz="14px" fw={400}>
-          We will not share or sell your information to 3rd parties.
+          {t(messages.ntf1())}
           <br />
-          By clicking on <span>Create Account</span>, you agree to DeFi For
-          You’s Terms and Conditions of Use.
+          {t(messages.ntf2())} <span>{t(messages.ntf3())}</span>,{' '}
+          {t(messages.ntf4())}
         </NtfTitle>
 
         <div id={containerId} className="g-recaptcha" />
@@ -249,7 +252,7 @@ export const InputRegister = props => {
             {loading ? (
               <CircularProgress size={20} color="secondary" />
             ) : (
-              'Create Account'
+              `${t(messages.btnCreate())}`
             )}
           </MyButtonAuthLogin>
         </BoxLogin>

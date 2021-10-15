@@ -16,6 +16,9 @@ import {
   MyLabel,
   MyTextField,
 } from '../stylesForAuth';
+import { messages } from '../messages';
+import { useTranslation } from 'react-i18next';
+
 interface IFormInputs {
   username: string;
   password: any;
@@ -33,6 +36,7 @@ const schema = yup
   .required();
 
 export default function Input() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const loading = useSelector(selectLoading);
   const [state, setState] = useState({
@@ -65,7 +69,7 @@ export default function Input() {
     if (isLoggin) {
       history.push('/');
     }
-  }, [isLoggin]);
+  }, [isLoggin, history]);
   return (
     <MyComponent>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -93,7 +97,7 @@ export default function Input() {
             control={form.control}
             render={({ field }) => (
               <>
-                <MyLabel>Password</MyLabel>
+                <MyLabel>{t(messages.password())}</MyLabel>
                 <MyTextField
                   {...field}
                   className="mySetup"
@@ -132,7 +136,7 @@ export default function Input() {
             {loading ? (
               <CircularProgress size={20} color="secondary" />
             ) : (
-              'Log in'
+              `${t(messages.login())}`
             )}
           </MyButtonAuthLogin>
         </BoxLogin>

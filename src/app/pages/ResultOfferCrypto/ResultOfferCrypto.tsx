@@ -26,9 +26,8 @@ import {
 import { useHistory } from 'react-router';
 import { searchApi } from 'api/searchApiHome';
 import queryString from 'query-string';
-interface Props {}
 
-export const ResultOfferCrypto = (props: Props) => {
+export const ResultOfferCrypto = () => {
   const history = useHistory();
   const [status, setStatus] = useState(false);
   const handleShowFilter = () => {

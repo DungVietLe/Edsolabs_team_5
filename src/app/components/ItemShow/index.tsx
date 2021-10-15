@@ -2,6 +2,8 @@ import React from 'react';
 import StarIcon from '@mui/icons-material/Star';
 import { Link } from 'react-router-dom';
 import { listLoan } from '../Filter/DataCoin';
+import { messages } from '../../pages/ResultOfferCrypto/messages';
+import { useTranslation } from 'react-i18next';
 import {
   ButtonCuston,
   CollateralAccepted,
@@ -45,6 +47,7 @@ const IconCheck = () => {
 };
 
 export const ItemShowBorrow = (props: any) => {
+  const { t } = useTranslation();
   const { item } = props;
   const countCoin = [...item.acceptableAssetsAsCollateral];
   function formatMoney(n) {
@@ -70,13 +73,13 @@ export const ItemShowBorrow = (props: any) => {
         </Heading>
         <Content>
           <p>
-            <span className="content-title">Available: </span>
+            <span className="content-title">{t(messages.available())}: </span>
             <span className="content-name">
               32,589.386 {item.acceptableAssetsAsLoan[0]?.symbol}
             </span>
           </p>
           <p>
-            <span className="content-title">Limit: </span>
+            <span className="content-title">{t(messages.limit())}: </span>
             <span className="content-name">
               {formatMoney(item.allowedLoanMin)}{' '}
               {item.acceptableAssetsAsLoan[0]?.symbol} -{' '}
@@ -85,7 +88,7 @@ export const ItemShowBorrow = (props: any) => {
             </span>
           </p>
           <p>
-            <span className="content-title">Duration: </span>
+            <span className="content-title">{t(messages.duration())}: </span>
 
             <span className="content-name">
               {item.durationQtyMin} - {item.durationQtyMax}{' '}
@@ -104,7 +107,7 @@ export const ItemShowBorrow = (props: any) => {
 
         <FooterItem>
           <InterestRate>
-            <span className="title">Interest rate</span>
+            <span className="title">{t(messages.interestRate())}</span>
             <span className="interest">
               {Boolean(item.interest)
                 ? item.interest + '% APR'
@@ -112,13 +115,13 @@ export const ItemShowBorrow = (props: any) => {
             </span>
           </InterestRate>
           <CollateralAccepted>
-            <span className="title">Collateral accepted</span>
+            <span className="title">{t(messages.collateralPer())}</span>
             <span className="coin">
               {countCoin
                 .map(item => item.symbol)
                 .slice(0, 3)
                 .toString()}{' '}
-              & {countCoin.length - 3}+ more
+              & {countCoin.length - 3}+ {t(messages.more())}
             </span>
           </CollateralAccepted>
           <FlexColunm>
@@ -134,15 +137,15 @@ export const ItemShowBorrow = (props: any) => {
               }
             >
               {item.type === 0
-                ? `Auto`
+                ? `${t(messages.auto())}`
                 : item.type === 1
-                ? 'Semi-Auto'
+                ? `${t(messages.semiAuto())}`
                 : item.type === 2
-                ? 'Negotiation'
+                ? `${t(messages.negotion())}`
                 : ''}
             </ButtonCuston>
             <MyLinkButton className="btn" bg="dba83d">
-              <Link to="#">View Detail</Link>
+              <Link to="#">{t(messages.viewDetail())}</Link>
             </MyLinkButton>
           </FlexColunm>
         </FooterItem>

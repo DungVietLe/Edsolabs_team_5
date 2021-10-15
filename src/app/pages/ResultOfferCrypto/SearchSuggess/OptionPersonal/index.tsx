@@ -14,11 +14,14 @@ import { Flex } from 'app/components/rootStyled';
 import { useHistory } from 'react-router';
 import queryString from 'query-string';
 import { searchApi } from 'api/searchApiHome';
+import { messages } from '../../messages';
+import { useTranslation } from 'react-i18next';
 export default function ListSugges() {
+  const { t } = useTranslation();
   const suggestData = {
     img: coin2,
-    title: 'Want an instant loan? ',
-    content: 'Submit your collateral to get a loan in seconds',
+    title: `${t(messages.instantloan())}`,
+    content: `${t(messages.instantloanDes())}`,
   };
   //call API Borrow
   const history = useHistory();
@@ -31,10 +34,10 @@ export default function ListSugges() {
   }, []);
   return (
     <ViewOption>
-      <TextResults> 10 pawnshop package match your search </TextResults>
+      <TextResults>{t(messages.findPakege())}</TextResults>
       <SuggesItems img="" title="" content="" />
       <ViewAllLending>
-        <Lending>Personal Lending</Lending>
+        <Lending>{t(messages.personalLending())}</Lending>
         <AllLending>
           <Link to="#">View all</Link>
         </AllLending>

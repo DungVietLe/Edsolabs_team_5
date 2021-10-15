@@ -22,7 +22,10 @@ import {
   Wrapper,
 } from './styles';
 import queryString from 'query-string';
+import { messages } from './messages';
+import { useTranslation } from 'react-i18next';
 const Borrow = function (props) {
+  const { t } = useTranslation();
   const [value, setValue] = useState(1);
   const handleChange = (newValue: number) => {
     setValue(newValue);
@@ -84,7 +87,7 @@ const Borrow = function (props) {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Flex gap={10} alignItem="stretch">
           <FormCtrol className="left">
-            <label htmlFor="collateral">Collateral</label>
+            <label htmlFor="collateral">{t(messages.heroBorrow())}</label>
             <div style={{ position: 'relative' }}>
               <MyTextField
                 value={valueCollateral}
@@ -147,7 +150,7 @@ const Borrow = function (props) {
           </FormCtrol>
         </Flex>
         <FormCtrol>
-          <label htmlFor="collateral">Or</label>
+          <label htmlFor="collateral">{t(messages.heroOr())}</label>
           <ButtomBase className="btn" outlinebutton="dba83d" type="button">
             Choose Existing collateral
           </ButtomBase>
@@ -155,7 +158,7 @@ const Borrow = function (props) {
 
         <Flex justifyContent="space-between" gap={10} alignItem="stretch">
           <FormCtrol className="left">
-            <label htmlFor="collateral">Duration</label>
+            <label htmlFor="collateral">{t(messages.heroDuration())}</label>
             <div style={{ position: 'relative' }}>
               <MyTextField
                 value={valueDuration}
@@ -204,7 +207,7 @@ const Borrow = function (props) {
         </Flex>
         <Flex justifyContent="space-between" gap={10} alignItem="stretch">
           <FormCtrol className="left">
-            <label htmlFor="collateral">Loan amount</label>
+            <label htmlFor="collateral">{t(messages.heroLoanAmount())}</label>
             <div style={{ position: 'relative' }}>
               <MyTextField
                 value={valueLoan}
@@ -222,7 +225,7 @@ const Borrow = function (props) {
             </div>
             {errors.loan && <span className="error">Invalid amount</span>}
             <span className="tip">
-              Recommended amount
+              {t(messages.heroRecomment())}
               <InfoIcon />
             </span>
           </FormCtrol>
@@ -265,7 +268,7 @@ const Borrow = function (props) {
             className="btn"
             type="submit"
           >
-            <SearchIcon /> Search
+            <SearchIcon /> {t(messages.heroSearch())}
           </ButtomMaxIcon>
         </div>
       </Form>

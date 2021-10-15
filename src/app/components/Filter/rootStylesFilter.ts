@@ -53,7 +53,7 @@ export const ContainerInterest = styled.div`
         & > div.MuiCollapse-wrapperInner {
           & > div.MuiAccordion-region {
             & > div.MuiAccordionDetails-root {
-              padding: 0 0 0 18px;
+              padding: 0 0 0 18px !important;
               max-height: 178px;
               overflow-y: auto;
               margin-right: 25px;

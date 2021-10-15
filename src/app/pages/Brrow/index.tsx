@@ -13,23 +13,22 @@ import {
   Heading,
   Paragraph,
 } from './style';
+import { messages } from './messages';
+import { useTranslation } from 'react-i18next';
 export function Brrow() {
+  const { t } = useTranslation();
   return (
     <>
       <Wrap>
         <Container>
-          <Title>Why borrow with us?</Title>
+          <Title>{t(messages.title())}</Title>
           <Row>
             <Col className="col-12">
               <Center>
                 <Bank />
                 <Short>
-                  <Heading>Quicker than the bank</Heading>
-                  <Paragraph>
-                    {' '}
-                    Banks are yesterdays news. Get the money you need without
-                    having to wait.
-                  </Paragraph>
+                  <Heading>{t(messages.content1())}</Heading>
+                  <Paragraph>{t(messages.des1())}</Paragraph>
                 </Short>
               </Center>
             </Col>
@@ -37,12 +36,8 @@ export function Brrow() {
               <Center>
                 <Rate />
                 <Short>
-                  <Heading>Better interest rates</Heading>
-                  <Paragraph>
-                    {' '}
-                    P2P lending lets you negotiate with the lender to arrange
-                    the best possible interest rates.
-                  </Paragraph>
+                  <Heading>{t(messages.content2())}</Heading>
+                  <Paragraph>{t(messages.des2())}</Paragraph>
                 </Short>
               </Center>
             </Col>
@@ -50,12 +45,8 @@ export function Brrow() {
               <Center>
                 <Finance />
                 <Short>
-                  <Heading>Finance assets without selling</Heading>
-                  <Paragraph>
-                    {' '}
-                    Put your assets to work so you can continue to meet your
-                    financial obligations.
-                  </Paragraph>
+                  <Heading>{t(messages.content3())}</Heading>
+                  <Paragraph>{t(messages.des3())}</Paragraph>
                 </Short>
               </Center>
             </Col>
@@ -63,12 +54,8 @@ export function Brrow() {
               <Center>
                 <Credit />
                 <Short>
-                  <Heading>No credit checks</Heading>
-                  <Paragraph>
-                    {' '}
-                    Borrow without the background checks. Anyone can get the
-                    financing they need.
-                  </Paragraph>
+                  <Heading>{t(messages.content4())}</Heading>
+                  <Paragraph>{t(messages.des4())}</Paragraph>
                 </Short>
               </Center>
             </Col>

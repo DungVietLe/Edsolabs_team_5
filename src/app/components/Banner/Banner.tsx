@@ -1,17 +1,18 @@
 import React from 'react';
 import { ButtomBase } from '../rootStyled';
 import { Content, Pawn, Title, ViewBanner } from './styled';
+import { messages } from './messages';
+import { useTranslation } from 'react-i18next';
+
 interface Props {}
 const Banner = (props: Props) => {
+  const { t } = useTranslation();
   return (
     <div>
       <Pawn>
         <ViewBanner>
-          <Title>Become a Pawnshop</Title>
-          <Content className="contentPc">
-            Open your own pawn shop and discover a new business opportunity with
-            an unmatched ROI. Be a part of the world's financial revolution.
-          </Content>
+          <Title>{t(messages.title())}</Title>
+          <Content className="contentPc">{t(messages.content())}</Content>
           <Content className="contentMobi">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </Content>
@@ -20,7 +21,7 @@ const Banner = (props: Props) => {
             className="btn banner"
             bg="dba83d"
           >
-            Learn more
+            {t(messages.learnMore())}
           </ButtomBase>
         </ViewBanner>
       </Pawn>

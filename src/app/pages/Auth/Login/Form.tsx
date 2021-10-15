@@ -7,8 +7,10 @@ import { useHistory } from 'react-router';
 import { InputRegister } from '../Register/InputRegister';
 import { MyTab, MyTabPanel } from '../stylesForAuth';
 import Input from './Input';
-
+import { messages } from '../messages';
+import { useTranslation } from 'react-i18next';
 export default function Form(props) {
+  const { t } = useTranslation();
   const history = useHistory();
   const [value, setValue] = React.useState('2');
   const [UpName, setUpName] = React.useState('');
@@ -58,7 +60,7 @@ export default function Form(props) {
           >
             <MyTab
               value={'1'}
-              label="Sign Up"
+              label={t(messages.signup())}
               style={{
                 fontFamily: 'Montserrat',
                 textTransform: 'capitalize',
@@ -68,7 +70,7 @@ export default function Form(props) {
               onClick={handleClickUp}
             />
             <MyTab
-              label="Log In"
+              label={t(messages.login())}
               value={'2'}
               style={{
                 fontFamily: 'Montserrat',

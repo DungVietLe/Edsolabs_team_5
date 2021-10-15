@@ -4,6 +4,8 @@ import { ItemShowBorrow } from 'app/components/ItemShow';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { FlexColumn } from '../../ResultStyles';
+import { messages } from '../messages';
+import { useTranslation } from 'react-i18next';
 import {
   ButtonSort,
   Content,
@@ -13,6 +15,7 @@ import {
 } from './styles';
 
 const ListItemBorrow = (props: any) => {
+  const { t } = useTranslation();
   const data = props.listApiData.content;
   const history = useHistory();
   const [param, setParam] = useState<any>({
@@ -96,7 +99,6 @@ const ListItemBorrow = (props: any) => {
       history.push({ pathname: '', search: new_url });
     }
   };
-  console.log(param);
   const ListItem = data?.map((item, index) => (
     <ItemShowBorrow key={index} item={item} />
   ));
@@ -110,7 +112,7 @@ const ListItemBorrow = (props: any) => {
             onClick={handleClick}
             className={isActiveSort === 'interest' ? 'active' : ''}
           >
-            <span>Interest rate</span>
+            <span>{t(messages.interestRate())}</span>
             {checked ? <TrendingUpIcon /> : <TrendingDownIcon />}
           </ButtonSort>
           <ButtonSort
@@ -118,7 +120,7 @@ const ListItemBorrow = (props: any) => {
             onClick={handleClick}
             className={isActiveSort === 'loanToValue' ? 'active' : ''}
           >
-            <span>Loan to Value</span>
+            <span>{t(messages.loantoValue())}</span>
             {checked2 ? <TrendingUpIcon /> : <TrendingDownIcon />}
           </ButtonSort>
           <ButtonSort
@@ -126,7 +128,7 @@ const ListItemBorrow = (props: any) => {
             onClick={handleClick}
             className={isActiveSort === 'durationQty' ? 'active' : ''}
           >
-            <span>Duration</span>
+            <span>{t(messages.duration())}</span>
             {checked3 ? <TrendingUpIcon /> : <TrendingDownIcon />}
           </ButtonSort>
           <ButtonSort
@@ -134,7 +136,7 @@ const ListItemBorrow = (props: any) => {
             onClick={handleClick}
             className={isActiveSort === 'limitation' ? 'active' : ''}
           >
-            <span>Limitation</span>
+            <span>{t(messages.limitation())}</span>
             {checked4 ? <TrendingUpIcon /> : <TrendingDownIcon />}
           </ButtonSort>
           <ButtonSort
@@ -142,7 +144,7 @@ const ListItemBorrow = (props: any) => {
             onClick={handleClick}
             className={isActiveSort === 'reputation' ? 'active' : ''}
           >
-            <span>Pawnshop rating</span>
+            <span>{t(messages.pawnshop())}</span>
             {checked5 ? <TrendingUpIcon /> : <TrendingDownIcon />}
           </ButtonSort>
         </GropButtonSort>

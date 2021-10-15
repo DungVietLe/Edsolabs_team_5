@@ -4,7 +4,8 @@ import Modal from '@mui/material/Modal';
 
 import Typography from '@mui/material/Typography';
 import { MyBoxForgot, MytagA } from './styles';
-
+import { messages } from '../messages';
+import { useTranslation } from 'react-i18next';
 const style = {
   position: 'absolute' as 'absolute',
   top: '50%',
@@ -18,13 +19,14 @@ const style = {
 };
 
 export default function ForgotPassword() {
+  const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <MyBoxForgot>
-      <MytagA onClick={handleOpen}>Forgot Your Password?</MytagA>
+      <MytagA onClick={handleOpen}>{t(messages.forgotps())}</MytagA>
       <Modal
         keepMounted
         open={open}

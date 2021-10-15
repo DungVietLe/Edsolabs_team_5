@@ -5,7 +5,8 @@ import tick from '../../../../../images/imagetick/tick.png';
 import warning from '../../../../../images/imagetick/warning.png';
 import tag from '../../../../../images/imagetag/tag.png';
 import { iconCoin } from './iconsCoins';
-
+import { messages } from '../../messages';
+import { useTranslation } from 'react-i18next';
 const InforPersonal = styled.div`
   background: #282c37;
   width: 100%;
@@ -212,6 +213,7 @@ const Request = styled(Button)`
 `;
 
 export default function Items(props: any) {
+  const { t } = useTranslation();
   const { item } = props;
   const newarray = [
     ...item?.p2PLenderPackages[0]?.acceptableAssetsAsCollateral,
@@ -233,7 +235,9 @@ export default function Items(props: any) {
           <img src={staryellow} alt="star" className="starYellow" />
           {item.reputation}
           <p className="separation">|</p>
-          <p className="signed">{item.completedContracts} signed contracts</p>
+          <p className="signed">
+            {item.completedContracts} {t(messages.signedContracts())}
+          </p>
         </Rate>
         <Percent>
           {item.minInterestRate} - {item.maxInterestRate}%
@@ -254,7 +258,7 @@ export default function Items(props: any) {
         </Tag>
 
         <Collateral>
-          <div>Collateral accepted: </div>
+          <div>{t(messages.collateralPer())}: </div>
           {
             <div className="renderIcon">
               {test2?.map((e, index) => (
@@ -266,13 +270,14 @@ export default function Items(props: any) {
                 />
               ))}
               <p className="allIcon">
-                & {newarray?.length - 5} {''}more
+                & {newarray?.length - 5} {''}
+                {t(messages.more())}
               </p>
             </div>
           }
         </Collateral>
       </Data>
-      <Request className="request">Request loan</Request>
+      <Request className="request">{t(messages.requestButton())}</Request>
     </InforPersonal>
   );
 }
