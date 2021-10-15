@@ -29,7 +29,7 @@ export const CollateralAccepted = (props: MyValue) => {
       });
     }
   };
-  console.log(colateral);
+
   useEffect(() => {
     const param = new URL(window.location.href);
     const search_param = param.searchParams;
