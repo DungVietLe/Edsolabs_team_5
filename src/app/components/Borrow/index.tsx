@@ -51,7 +51,6 @@ const Borrow = function (props) {
       control,
     } = useForm();
     const onSubmit = (data: any) => {
-      console.log(data);
       const newObj = {
         collateralAmount: Number(data.collateral),
         collateralSymbols: data.currency.value,

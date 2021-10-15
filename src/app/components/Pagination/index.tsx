@@ -10,7 +10,6 @@ interface props {
 
 const Paginations = (props: props) => {
   const { length, page } = props;
-  console.log(page);
   const history = useHistory();
   const handlePagination = (e: string) => {
     const param = new URL(window.location.href);
