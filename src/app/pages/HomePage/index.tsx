@@ -3,7 +3,7 @@ import Footer from 'app/components/Footer/Footer';
 import Header from 'app/components/Header';
 import SearchBorrow from 'app/components/SearchBorrow';
 import SliderHome from 'app/components/SliderHome/SliderHome';
-
+import Terms from 'app/components/Terms';
 import { Brrow } from '../Brrow';
 
 export function HomePage() {
@@ -15,6 +15,7 @@ export function HomePage() {
       <SliderHome />
       <Banner />
       <Footer />
+      <Terms />
     </>
   );
 }
