@@ -35,9 +35,7 @@ export const CollateralAccepted = (props: MyValue) => {
     const search_param = param.searchParams;
     param.search = search_param.toString();
 
-    if (colateral.data.length > 0) {
-      search_param.set('collateralSymbols', colateral.data.join(','));
-    }
+    search_param.set('collateralSymbols', colateral.data.join(','));
 
     const new_url = param.search.toString();
 

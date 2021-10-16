@@ -35,9 +35,12 @@ import {
   SubLink,
   Subtitle,
 } from './styled';
+import { messages } from './messages';
+import { useTranslation } from 'react-i18next';
 interface Props {}
 
 const Footer = (props: Props) => {
+  const { t } = useTranslation();
   return (
     <div>
       <MyFooter>
@@ -77,7 +80,7 @@ const Footer = (props: Props) => {
                 </SubLink>
               </MyCompany>
               <MyOfficeHN>
-                <MyTitle>DeFi For You — Hanoi Office</MyTitle>
+                <MyTitle>{t(messages.hanoi())}</MyTitle>
                 <SubLink href="tel:+84 9643 66605">
                   +84 9643 66605
                   <img
@@ -99,7 +102,7 @@ const Footer = (props: Props) => {
                 </Subcontext>
               </MyOfficeHN>
               <MyOfficeUS>
-                <MyTitle>DeFi For You — London Office</MyTitle>
+                <MyTitle>{t(messages.london())}</MyTitle>
                 <SubLink href="tel:+84 9644 41735">
                   +44 7479 739139
                   <img
@@ -115,26 +118,18 @@ const Footer = (props: Props) => {
                 </Subcontext>
                 <Subcontext>Registration Number: 13126050</Subcontext>
                 <SubLink href="https://find-and-update.company-information.service.gov.uk/company/13126050?fbclid=IwAR3Fm3QHdllfP_z1QIZ9e9UX-warFarV1XuwBqsxXyPl0M3k-BLSvkNdXuE">
-                  View on Companies House -{'>'}
+                  {t(messages.view())} -{'>'}
                 </SubLink>
               </MyOfficeUS>
               <MyAbouts>
-                <MyTitle>About DeFi For You.</MyTitle>
+                <MyTitle>{t(messages.titleAbout())}</MyTitle>
                 <SubcontextAbouts>
-                  <Subtitle>DeFi For You</Subtitle> is a trading style of Miles
-                  Mann Limited registered office at 5 Southgate Street,
-                  Gloucester, Gloucestershire, GL1 1TG1 Licensed authorised and
-                  regulated by the Financial Conduct Authority to exercise
-                  lender's rights and duties under a regulated credit agreement
-                  (excluding high-cost short-term credit, bill of sale
-                  agreement, and home collected credit agreement), and has the
-                  right to exercise lender's rights and duties under a regulated
-                  credit agreement (excluding high-cost short-term credit, bill
-                  of sale agreement, and home collected credit agreement)
+                  <Subtitle>DeFi For You</Subtitle>
+                  {t(messages.detailAbout())}
                 </SubcontextAbouts>
               </MyAbouts>
               <MySocical>
-                <MyTitle>Find us on</MyTitle>
+                <MyTitle>{t(messages.find())}</MyTitle>
                 <ListSocical>
                   <a
                     href="https://github.com/defi-vn/"
@@ -186,9 +181,13 @@ const Footer = (props: Props) => {
                 </ListSocical>
               </MySocical>
               <MyQuicklink>
-                <MyTitle>Quick Navigation</MyTitle>
-                <Subcontext>Whitepaper -{'>'}</Subcontext>
-                <Subcontext>Get the mobile app -{'>'}</Subcontext>
+                <MyTitle>{t(messages.quick())}</MyTitle>
+                <Subcontext>
+                  {t(messages.white())} -{'>'}
+                </Subcontext>
+                <Subcontext>
+                  {t(messages.getApp())} -{'>'}
+                </Subcontext>
               </MyQuicklink>
             </MyGrid>
           </MyContainer>
@@ -208,7 +207,7 @@ const Footer = (props: Props) => {
                 marginLeft: '14px',
               }}
             >
-              Terms of Service
+              {t(messages.term())}
             </LinkTo>
 
             <LinkTo
@@ -216,7 +215,7 @@ const Footer = (props: Props) => {
               target="_blank"
               rel="noreferrer"
             >
-              Privacy Policy
+              {t(messages.privacy())}
             </LinkTo>
           </Links>
         </MyContainerCoppyright>

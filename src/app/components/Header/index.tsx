@@ -17,8 +17,11 @@ import {
   NavMobile,
   Toggle,
 } from './styles';
-
+import { LanguageSwitch } from '../LanguageSwitch';
+import { messages } from './messages';
+import { useTranslation } from 'react-i18next';
 const Header = props => {
+  const { t } = useTranslation();
   const [user, setUser] = useState<any>();
   const token = localStorage.getItem('access_token');
   useEffect(() => {
@@ -89,25 +92,26 @@ const Header = props => {
         >
           <MenuDesktop>
             <li className={'active'}>
-              <Link to="/pawn">Pawn</Link>
+              <Link to="/pawn">{t(messages.navPawn())}</Link>
             </li>
             <li>
-              <Link to="/">Borrow</Link>
+              <Link to="/">{t(messages.navBorrow())}</Link>
             </li>
             <li>
-              <Link to="/">Lend</Link>
+              <Link to="/">{t(messages.navLend())}</Link>
             </li>
             <li>
-              <Link to="/">NFT</Link>
+              <Link to="/">{t(messages.navNTF())}</Link>
             </li>
             <li>
-              <Link to="/">My account</Link>
+              <Link to="/">{t(messages.navMyaccount())}</Link>
             </li>
             <li>
-              <Link to="/">FAQ</Link>
+              <Link to="/">{t(messages.navFAQ())}</Link>
             </li>
           </MenuDesktop>
           <GropButtom>
+            <LanguageSwitch />
             <LinkButtom className="btn" bg="dba83d">
               <Link to="/">Become a Pawnshop</Link>
             </LinkButtom>

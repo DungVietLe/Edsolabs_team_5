@@ -106,6 +106,6 @@ export const Modal = styled.div<any>`
   position: fixed;
   inset: 0;
   background-color: #333;
-  display: ${props => (props.check ? 'block' : 'none')};
   opacity: 0.6;
+  display: ${props => (props.check ? 'block' : 'none')};
 `;

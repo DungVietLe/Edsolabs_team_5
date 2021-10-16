@@ -6,8 +6,10 @@ import slider2 from '../../../images/imageslider/slider2.png';
 import slider3 from '../../../images/imageslider/slider3.png';
 import { SliderHome, ListSliderPC, Text, ClickAll } from './styled';
 import arrow from '../../../images/imagebutton/arrow.png';
-
+import { messages } from './messages';
+import { useTranslation } from 'react-i18next';
 export default function ListSilder() {
+  const { t } = useTranslation();
   const listImg = [
     {
       id: 1,
@@ -80,7 +82,7 @@ export default function ListSilder() {
   });
   return (
     <SliderHome>
-      <Text>Explore Featured Pawnshops</Text>
+      <Text>{t(messages.title())}</Text>
 
       <ListSliderPC className="viewPc">
         <ClickAll>

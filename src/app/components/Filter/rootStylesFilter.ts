@@ -35,7 +35,9 @@ export const ContainerInterest = styled.div`
     border-bottom: 1px solid #45484f;
     border-radius: 0px;
     box-shadow: none;
-
+    & .MuiFormControlLabel-root {
+      column-gap: 30px;
+    }
     & > div.MuiButtonBase-root {
       & > div.css-o4b71y-MuiAccordionSummary-content {
         & > p.css-ahj2mt-MuiTypography-root {
@@ -54,7 +56,7 @@ export const ContainerInterest = styled.div`
         & > div.MuiCollapse-wrapperInner {
           & > div.MuiAccordion-region {
             & > div.MuiAccordionDetails-root {
-              padding: 0 0 0 18px;
+              padding: 0 0 0 18px !important;
               max-height: 178px;
               overflow-y: auto;
               margin-right: 25px;

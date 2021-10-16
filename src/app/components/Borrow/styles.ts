@@ -91,7 +91,7 @@ export const MyTextField = styled(TextField)`
     }
     box-sizing: border-box;
     height: 44px;
-    @media (max-width: 475px) {
+    @media (max-width: 768px) {
       height: 40px;
     }
     input {
@@ -104,7 +104,7 @@ export const MyTextField = styled(TextField)`
 
       color: #fff;
       @media (max-width: 768px) {
-        padding: 8px 15px;
+        padding: 7.5px 15px;
       }
       &::hover {
         outline: none;

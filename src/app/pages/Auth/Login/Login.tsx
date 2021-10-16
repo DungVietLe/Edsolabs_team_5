@@ -13,18 +13,22 @@ import {
   TitleAuth,
 } from '../stylesForAuth';
 import Form from './Form';
+import { messages } from '../messages';
+import { useTranslation } from 'react-i18next';
 export const Login = props => {
+  const { t } = useTranslation();
   return (
     <div>
       <Header />
       <ContainerAuth>
         <Container>
           <TitleAuth>
-            Exclusive on <span>DeFi For You!</span>
+            {t(messages.title1())}
+            <span>{t(messages.title2())}</span>
           </TitleAuth>
           <NtfTitle sz="20px">
-            Register new DeFi For You account from <span>01/08/2021</span> to{' '}
-            <span>31/12/2021</span> to have 100% chance of receiving DFY tokens
+            {t(messages.des1())} <span>01/08/2021</span> {t(messages.des3())}{' '}
+            <span>31/12/2021</span> {t(messages.des5())}
           </NtfTitle>
           <Grid container spacing={1}>
             <MyGridLog1 item xs={12} md={6} od={2}>

@@ -33,14 +33,13 @@ export const LoanToken = (props: MyValue) => {
     const param = new URL(window.location.href);
     const search_param = param.searchParams;
     param.search = search_param.toString();
-    if (loanToken.data.length > 0) {
-      search_param.set('loanSymbols', loanToken.data.join(','));
-    }
+
+    search_param.set('loanSymbols', loanToken.data.join(','));
 
     const new_url = param.search.toString();
 
     history.push({ pathname: '', search: new_url });
-  }, [loanToken]);
+  }, [loanToken, history]);
 
   useEffect(() => {
     setLoanToken({ data: [] });

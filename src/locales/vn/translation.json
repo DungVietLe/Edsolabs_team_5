@@ -1,0 +1,107 @@
+{
+  "authlogin": {
+    "title1": "Độc quyền tại ",
+    "title2": "DeFi For You!",
+    "des1": "Đăng ký tài khoản DeFi For You mới từ",
+    "des2": " 01/08/2021",
+    "des3": "đến",
+    "des4": "31/12/2021",
+    "des5": "để có 100% cơ hội nhận được DFY token",
+    "login": "Đăng nhập",
+    "signup": "Đăng ký",
+    "name": "Tên",
+    "password": "Mật khẩu",
+    "cfps": "Xác nhận mật khẩu",
+    "ntf1": "Chúng tôi sẽ không chia sẻ hoặc bán thông tin của bạn cho bên thứ ba.",
+    "ntf2": "Bằng cách nhấp vào",
+    "ntf3": "Tạo tài khoản,",
+    "ntf4": "bạn đồng ý với Điều khoản và Điều kiện sử dụng của DeFi For You.",
+    "btnCreact": "Tạo tài khoản",
+    "forgotPs": "Quên mật khẩu?"
+  },
+  "header": {
+    "pawn": "Cầm Đồ",
+    "Borrow": "Khoản Vay",
+    "Lend": "Cho Vay",
+    "NTF": "NFT",
+    "Myaccount": "Tài Khoản",
+    "FAQ": "FAQ"
+  },
+  "i18nFeature": {
+    "selectLanguage": "Chọn ngôn ngữ"
+  },
+  "heroBanner": {
+    "des": "Nhận các khoản cho vay tiền điện tử ngay lập tức, bất kể xếp hạng tín dụng của bạn",
+    "borrow": "Khoản Vay",
+    "lend": "Cho Vay",
+    "cryptocurrency": "Tiền điện tử",
+    "ntf": "NTF",
+    "collateral": "Tài sản thế chấp",
+    "or": "Hoặc",
+    "Duration": "Khoảng thời gian",
+    "loanAmount": "Số tiền vay",
+    "recomment": "Số tiền đề xuất",
+    "search": "Tìm kiếm"
+  },
+  "midBanner": {
+    "title": "Vì sao bạn lại lựa chọn chúng tôi?",
+    "content1": "Nhanh hơn ngân hàng",
+    "content2": "Lãi suất tốt hơn",
+    "content3": "Tài sản tài chính mà không cần bán",
+    "content4": "Không cần kiểm tra thẻ tín dụng",
+    "des1": "Các ngân hàng là tin tức của ngày hôm nay. Nhận số tiền bạn cần mà không cần phải chờ đợi.",
+    "des2": "Cho vay P2P cho phép bạn thương lượng với người cho vay để thu xếp mức lãi suất tốt nhất có thể.",
+    "des3": "Đưa tài sản của bạn vào hoạt động để bạn có thể tiếp tục đáp ứng các nghĩa vụ tài chính của mình.",
+    "des4": "Vay mà không cần kiểm tra lý lịch. Bất kỳ ai cũng có thể nhận được tài chính mà họ cần."
+  },
+  "sliderBanner": {
+    "title": "Khám phá các hiệu cầm đồ nổi bật",
+    "content": "Hiệu cầm đồ America"
+  },
+  "mainBanner": {
+    "title": "Trở thành một tiệm cầm đồ",
+    "content": "Mở cửa hàng cầm đồ của riêng bạn và khám phá cơ hội kinh doanh mới với ROI chưa từng có. Trở thành một phần của cuộc cách mạng tài chính thế giới.",
+    "learnmore": "Tìm hiểu thêm"
+  },
+  "footer": {
+    "titleHanoi": "DeFi For You — Văn phòng Hà Nội",
+    "titleLondon": "DeFi For You — Văn phòng London",
+    "viewHouse": "Xem trên Nhà công ty",
+    "finduson": "Tìm chúng tôi trên",
+    "quickNav": "Điều hướng nhanh",
+    "whitepaper": "Giấy trắng",
+    "getapp": "Tải ứng dụng di động",
+    "about": "Giới thiệu về DeFi cho bạn",
+    "detalAbout": "DeFi For You là một phong cách giao dịch của văn phòng đăng ký Miles Mann Limited tại số 5 Southgate Street, Gloucester, Gloucestershire, GL1 1TG1 Được cấp phép và quản lý bởi Cơ quan quản lý tài chính để thực hiện các quyền và nghĩa vụ của người cho vay theo thỏa thuận tín dụng quy định (không bao gồm các khoản khống chi phí cao - tín dụng có kỳ hạn, hợp đồng mua bán hóa đơn và hợp đồng tín dụng thu tiền tận nhà), và có quyền thực hiện các quyền và nghĩa vụ của người cho vay theo hợp đồng tín dụng được quy định (không bao gồm tín dụng ngắn hạn chi phí cao, hợp đồng mua bán hóa đơn và tín dụng thu tiền tận nhà hợp đồng)"
+  },
+  "subFooter": {
+    "term": "Hạn của dịch vụ",
+    "Privacy": "Chính sách bảo mật"
+  },
+  "pageOfferHero": {
+    "findPackage": "10 gói hiệu cầm đồ phù hợp với tìm kiếm của bạn",
+    "titleHero": "Bạn không vội và có thể chờ đợi?",
+    "desHero": "Yêu cầu một khoản vay từ người cho vay P2P đáng tin cậy để nhận được lãi suất và LTV tốt hơn",
+    "personalLending": "Cho vay cá nhân",
+    "signedContracts": "hợp đồng đã ký",
+    "collateralPer": "Tài sản thế chấp được chấp nhận",
+    "more": "còn nữa",
+    "requestButton": "Yêu cầu khoản vay",
+    "instantloan": "Muốn có một khoản vay tức thì?",
+    "instantloanDes": "Gửi tài sản thế chấp của bạn để được vay trong vài giây"
+  },
+  "pageOfferBody": {
+    "interestRate": "Lãi suất",
+    "loantovalue": "Khoản vay đối với giá trị",
+    "duration": "Khoảng thời gian",
+    "limitation": "Giới hạn",
+    "pawnshopRating": "Xếp hạng hiệu cầm đồ",
+    "available": "Có sẵn",
+    "limit": "Giới hạn",
+    "durationtag": "Khoảng thời gian",
+    "auto": "Tự động",
+    "viewDetailButton": "Xem chi tiết",
+    "negotiation": "Đàm phán",
+    "semiAuto": "Bán tự động"
+  }
+}

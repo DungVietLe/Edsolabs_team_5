@@ -1,3 +1,112 @@
 {
-  "title": "welcome"
+  "authlogin": {
+    "title1": "Exclusive on ",
+    "title2": "DeFi For You!",
+    "des1": "Register new DeFi For You account from",
+    "des2": " 01/08/2021",
+    "des3": "to",
+    "des4": "31/12/2021",
+    "des5": "to have 100% chance of receiving DFY tokens",
+    "login": "Log In",
+    "signup": "Sign Up",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "cfps": "Confirm password",
+    "ntf1": "We will not share or sell your information to 3rd parties.",
+    "ntf2": "By clicking on",
+    "ntf3": "Create Account,",
+    "ntf4": "you agree to DeFi For You’s Terms and Conditions of Use.",
+    "btnCreact": "Create Account",
+    "forgotPs": "Forgot Your Password?"
+  },
+  "header": {
+    "pawn": "Pawn",
+    "Borrow": "Borrow",
+    "Lend": "Lend",
+    "NTF": "NFT",
+    "Myaccount": "My account",
+    "FAQ": "FAQ",
+    "pawnShop": "Become a Pawnshop",
+    "buyDFY": "Buy DFY",
+    "connect": "Connect",
+    "login": "Login"
+  },
+  "i18nFeature": {
+    "selectLanguage": "Select Language"
+  },
+  "heroBanner": {
+    "des": "Get Crypto Loans Instantly, Regardless of Your Credit Rating",
+    "borrow": "Borrow",
+    "lend": "Lend",
+    "cryptocurrency": "Cryptocurrency",
+    "ntf": "NTF",
+    "collateral": "Collateral",
+    "or": "Or",
+    "Duration": "Duration",
+    "loanAmount": "Loan amount",
+    "recomment": "Recommended amount",
+    "search": "Search"
+  },
+  "midBanner": {
+    "title": "Why borrow with us?",
+    "content1": "Quicker than the bank",
+    "content2": "Better interest rates",
+    "content3": "Finance assets without selling",
+    "content4": "No credit checks",
+    "des1": "Banks are yesterdays news. Get the money you need without having to wait.",
+    "des2": "P2P lending lets you negotiate with the lender to arrange the best possible interest rates.",
+    "des3": "Put your assets to work so you can continue to meet your financial obligations.",
+    "des4": "Borrow without the background checks. Anyone can get the financing they need."
+  },
+  "sliderBanner": {
+    "title": "Explore Featured Pawnshops",
+    "content": "Pawnshop America"
+  },
+  "mainBanner": {
+    "title": "Become a Pawnshop",
+    "content": "Open your own pawn shop and discover a new business opportunity with an unmatched ROI. Be a part of the world's financial revolution.",
+    "learnmore": "Learn more"
+  },
+  "footer": {
+    "titleHanoi": "DeFi For You — Hanoi Office",
+    "titleLondon": "DeFi For You — London Office",
+    "viewHouse": "View on Companies House",
+    "finduson": "Find us on",
+    "quickNav": "Quick Navigation",
+    "whitepaper": "Whitepaper",
+    "getapp": "Get the mobile app",
+    "about": "About DeFi For You",
+    "detalAbout": "DeFi For You is a trading style of Miles Mann Limited registered office at 5 Southgate Street, Gloucester, Gloucestershire, GL1 1TG1 Licensed authorised and regulated by the Financial Conduct Authority to exercise lender's rights and duties under a regulated credit agreement (excluding high-cost short-term credit, bill of sale agreement, and home collected credit agreement), and has the right to exercise lender's rights and duties under a regulated credit agreement (excluding high-cost short-term credit, bill of sale agreement, and home collected credit agreement)"
+  },
+  "subFooter": {
+    "term": "Term of Service",
+    "Privacy": "Privacy Policy"
+  },
+  "pageOfferHero": {
+    "findPackage": "10 pawnshop package match your search",
+    "titleHero": "You are not in a hurry and can wait?",
+    "desHero": "Request a loan from a trusted P2P lender to get a better interest rate and LTV",
+    "personalLending": "Personal Lending",
+    "signedContracts": "signed contracts",
+    "collateralPer": "Collateral accepted",
+    "more": "more",
+    "requestButton": "Request loan",
+    "instantloan": "Want an instant loan?",
+    "instantloanDes": "Submit your collateral to get a loan in seconds"
+  },
+  "pageOfferBody": {
+    "interestRate": "Interest rate",
+    "loantovalue": "Loan to Value",
+    "duration": "Duration",
+    "limitation": "Limitation",
+    "pawnshopRating": "Pawnshop rating",
+    "available": "Available",
+    "limit": "Limit",
+    "durationtag": "Duration",
+    "auto": "Auto",
+    "viewDetailButton": "View Detail",
+    "negotiation": "Negotiation",
+    "semiAuto": "Semi-Auto"
+  }
 }

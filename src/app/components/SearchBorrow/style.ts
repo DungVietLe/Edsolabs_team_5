@@ -13,6 +13,6 @@ export const WrapperSearch = styled.div`
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 1536px;
+  max-width: 1324px;
   margin: 0 auto;
 `;

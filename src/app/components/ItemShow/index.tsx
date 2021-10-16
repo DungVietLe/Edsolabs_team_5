@@ -2,6 +2,8 @@ import React from 'react';
 import StarIcon from '@mui/icons-material/Star';
 import { Link } from 'react-router-dom';
 import { listLoan } from '../Filter/DataCoin';
+import { messages } from '../../pages/ResultOfferCrypto/messages';
+import { useTranslation } from 'react-i18next';
 import {
   ButtonCuston,
   CollateralAccepted,
@@ -16,7 +18,13 @@ import {
   Item,
   MyLinkButton,
 } from './styles';
-
+import {
+  IconDimond,
+  IconCar,
+  IconHouse,
+  IconWatch,
+  IconArtWork,
+} from 'assets/svg/svg';
 const IconCheck = () => {
   return (
     <svg
@@ -38,45 +46,8 @@ const IconCheck = () => {
   );
 };
 
-const IconDiamond = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-    >
-      {' '}
-      <path
-        d="M8.0741 3.60938L6.8656 1.5H5.17343L4.07471 3.60938H8.0741Z"
-        fill="#DBA83D"
-      />{' '}
-      <path
-        d="M4.0127 4.3125L5.99298 9.71411L8.26697 4.3125H4.0127Z"
-        fill="#DBA83D"
-      />{' '}
-      <path
-        d="M0 4.3125L5.58453 10.6641L5.58856 10.655L3.25644 4.3125H0Z"
-        fill="#DBA83D"
-      />{' '}
-      <path
-        d="M4.38089 1.5H1.59329L0 3.60938H3.28217L4.38089 1.5Z"
-        fill="#DBA83D"
-      />{' '}
-      <path
-        d="M8.88477 3.60938H11.9999L10.407 1.5H7.67627L8.88477 3.60938Z"
-        fill="#DBA83D"
-      />{' '}
-      <path
-        d="M6.35205 10.6223L6.36853 10.6641L11.9998 4.3125H9.03876L6.35205 10.6223Z"
-        fill="#DBA83D"
-      />{' '}
-    </svg>
-  );
-};
-
 export const ItemShowBorrow = (props: any) => {
+  const { t } = useTranslation();
   const { item } = props;
   const countCoin = [...item.acceptableAssetsAsCollateral];
   function formatMoney(n) {
@@ -102,13 +73,13 @@ export const ItemShowBorrow = (props: any) => {
         </Heading>
         <Content>
           <p>
-            <span className="content-title">Available: </span>
+            <span className="content-title">{t(messages.available())}: </span>
             <span className="content-name">
               32,589.386 {item.acceptableAssetsAsLoan[0]?.symbol}
             </span>
           </p>
           <p>
-            <span className="content-title">Limit: </span>
+            <span className="content-title">{t(messages.limit())}: </span>
             <span className="content-name">
               {formatMoney(item.allowedLoanMin)}{' '}
               {item.acceptableAssetsAsLoan[0]?.symbol} -{' '}
@@ -117,7 +88,7 @@ export const ItemShowBorrow = (props: any) => {
             </span>
           </p>
           <p>
-            <span className="content-title">Duration: </span>
+            <span className="content-title">{t(messages.duration())}: </span>
 
             <span className="content-name">
               {item.durationQtyMin} - {item.durationQtyMax}{' '}
@@ -136,7 +107,7 @@ export const ItemShowBorrow = (props: any) => {
 
         <FooterItem>
           <InterestRate>
-            <span className="title">Interest rate</span>
+            <span className="title">{t(messages.interestRate())}</span>
             <span className="interest">
               {Boolean(item.interest)
                 ? item.interest + '% APR'
@@ -144,13 +115,13 @@ export const ItemShowBorrow = (props: any) => {
             </span>
           </InterestRate>
           <CollateralAccepted>
-            <span className="title">Collateral accepted</span>
+            <span className="title">{t(messages.collateralPer())}</span>
             <span className="coin">
               {countCoin
                 .map(item => item.symbol)
                 .slice(0, 3)
                 .toString()}{' '}
-              & {countCoin.length - 3}+ more
+              & {countCoin.length - 3}+ {t(messages.more())}
             </span>
           </CollateralAccepted>
           <FlexColunm>
@@ -166,15 +137,15 @@ export const ItemShowBorrow = (props: any) => {
               }
             >
               {item.type === 0
-                ? `Auto`
+                ? `${t(messages.auto())}`
                 : item.type === 1
-                ? 'Semi-Auto'
+                ? `${t(messages.semiAuto())}`
                 : item.type === 2
-                ? 'Negotiation'
+                ? `${t(messages.negotion())}`
                 : ''}
             </ButtonCuston>
             <MyLinkButton className="btn" bg="dba83d">
-              <Link to="#">View Detail</Link>
+              <Link to="#">{t(messages.viewDetail())}</Link>
             </MyLinkButton>
           </FlexColunm>
         </FooterItem>
@@ -193,6 +164,7 @@ export const ItemShowLend = (props: any) => {
       return e;
     }
   });
+
   function formatMoney(n) {
     return (Math.round(n * 100) / 100).toLocaleString();
   }
@@ -263,7 +235,19 @@ export const ItemShowLend = (props: any) => {
           </InterestRate>
           <FlexColunm>
             <ButtonCuston color={'orange'}>
-              <IconDiamond />
+              {item.nftAssetTypeId === 0 ? (
+                <IconArtWork />
+              ) : item.nftAssetTypeId === 1 ? (
+                <IconDimond />
+              ) : item.nftAssetTypeId === 2 ? (
+                <IconWatch />
+              ) : item.nftAssetTypeId === 3 ? (
+                <IconCar />
+              ) : item.nftAssetTypeId === 4 ? (
+                <IconHouse />
+              ) : (
+                ''
+              )}
               <span>
                 {item.nftAssetTypeId === 0
                   ? `Artwork`

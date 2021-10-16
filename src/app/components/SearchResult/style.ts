@@ -125,6 +125,10 @@ export const WrapperMobie = styled.div`
   column-gap: 15px;
   flex-direction: column;
   width: calc(100%);
+  display: none;
+  @media (max-width: 1024px) {
+    display: flex;
+  }
   /* margin-left: -1.25rem;
   margin-right: -1.25rem; */
   @media (max-width: 768px) {

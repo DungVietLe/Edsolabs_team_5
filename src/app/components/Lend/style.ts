@@ -44,7 +44,7 @@ export const MyTextField = styled(TextField)`
     }
     box-sizing: border-box;
     height: 44px;
-    @media (max-width: 475px) {
+    @media (max-width: 768px) {
       height: 40px;
     }
     input {

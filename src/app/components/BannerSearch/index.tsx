@@ -3,8 +3,10 @@ import Typewriter from 'typewriter-effect';
 import { TitleTypewriter } from '../rootStyled';
 import BANNER_IMG from 'assets/Image/Frame.png';
 import { ItemBanner } from './styles';
-
+import { messages } from './messages';
+import { useTranslation } from 'react-i18next';
 const BannerSearch = props => {
+  const { t } = useTranslation();
   return (
     <ItemBanner>
       <div className="caption-zone">
@@ -22,7 +24,7 @@ const BannerSearch = props => {
           </span>
           DeFi Fou You.
         </TitleTypewriter>
-        <p>Get Crypto Loans Instantly, Regardless of Your Credit Rating</p>
+        <p>{t(messages.herodes())}</p>
       </div>
       <img src={BANNER_IMG} alt="" />
     </ItemBanner>
