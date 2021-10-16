@@ -5,7 +5,7 @@ import {
   COLOR_PRIMARY_FOOTER,
   COLOR_TITLE_WHITE_FOOTER,
 } from 'app/constains/global';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const MyFooter = styled.div`
   width: 100%;
@@ -39,25 +39,32 @@ export const MyCoppyright = styled.div`
   background: ${COLOR_BG_FOOTER};
   padding: 16px 0 24px 0;
   @media (max-width: 600px) {
-    height: 90px;
+    min-height: 90px;
+    height: auto;
     width: 100%;
   }
   @media (min-width: 600px) and (max-width: 700px) {
-    height: 94px;
+    min-height: 94px;
+    height: auto;
     width: 100%;
   }
   @media (min-width: 700px) and (max-width: 1024px) {
-    height: 73px;
+    min-height: 73px;
+    height: auto;
   }
 `;
 export const MyContainer = styled.div`
   max-width: 1180px;
   margin: 0 auto;
   padding: 12px 16px;
-  @media (min-width: 600px) and (max-width: 700px) {
-    max-width: 480px;
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  @media (min-width: 700px) and (max-width: 1020px) {
+  @media (min-width: 768px) and (max-width: 1020px) {
     max-width: 720px;
   }
 `;
@@ -227,6 +234,12 @@ export const CoppyRight = styled.div`
 `;
 export const Links = styled.div`
   display: flex;
+  @media (max-width: 480px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 7px;
+  }
 `;
 export const LinkTo = styled.a`
   color: ${COLOR_GRAY_COPPYRIGHT};

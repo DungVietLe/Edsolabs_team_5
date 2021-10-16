@@ -36,7 +36,7 @@ const Paginations = (props: props) => {
             sx={{
               '.MuiPagination-ul': {
                 justifyContent: 'center',
-                columnGap: '12px',
+                columnGap: '3px',
               },
               '.MuiButtonBase-root': {
                 color: '#fff',

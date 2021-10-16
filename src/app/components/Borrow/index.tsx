@@ -59,12 +59,14 @@ const Borrow = function (props) {
         collateralAmount: Number(data.collateral),
         collateralSymbols: data.currency.value,
         durationQty: Number(data.duration),
-        durationTypes: Number(data.timer.value),
+        durationTypes: Boolean(data.timer) ? data.timer.value : '0',
+
         loanAmount: Number(data.loan),
-        loanSymbols: data.newCurrency.value,
+        loanSymbols: Boolean(data.newCurrency) ? data.newCurrency.value : 'DFY',
         status: 3,
         size: 10,
       };
+
       history.push({
         pathname: '/pawn/offer',
         search: queryString.stringify(newObj),
@@ -189,13 +191,9 @@ const Borrow = function (props) {
             <Controller
               control={control}
               name="timer"
-              rules={{
-                required: true,
-              }}
               render={({ field: { onChange, value, ref } }) => (
                 <NewSelect
                   key={345}
-                  error={Boolean(errors.timer)}
                   value={arrTimes[0]}
                   onChange={onChange}
                   data={arrTimes}
@@ -203,7 +201,6 @@ const Borrow = function (props) {
                 />
               )}
             />
-            {errors.timer && <span className="error">Invalid amount</span>}
           </FormCtrol>
         </Flex>
         <Flex justifyContent="space-between" gap={10} alignItem="stretch">
@@ -251,13 +248,9 @@ const Borrow = function (props) {
             <Controller
               control={control}
               name="newCurrency"
-              rules={{
-                required: true,
-              }}
               render={({ field: { onChange, value, ref } }) => (
                 <NewSelect
                   key={4567}
-                  error={Boolean(errors.newCurrency)}
                   value={arrLoan[0]}
                   onChange={onChange}
                   data={arrLoan}
@@ -265,9 +258,6 @@ const Borrow = function (props) {
                 />
               )}
             />
-            {errors.newCurrency && (
-              <span className="error">Invalid amount</span>
-            )}
           </FormCtrol>
         </Flex>
         <div className="form-control" style={{ marginTop: '60px' }}>

@@ -49,7 +49,7 @@ const Lend = () => {
       const newObj = {
         collateralSymbols: mutiCurrencyStr,
         loanSymbols: data.currency.value,
-        durationTypes: Number(data.timer.value),
+        durationTypes: Boolean(data.timer) ? Number(data.timer.value) : '0',
         size: 10,
       };
 
@@ -60,7 +60,7 @@ const Lend = () => {
     } else {
       const newObj = {
         loanSymbols: data.currency.value,
-        durationTypes: Number(data.timer.value),
+        durationTypes: Boolean(data.timer) ? Number(data.timer.value) : '0',
         loanAmount: Number(data.maxLoan),
         size: 10,
       };
@@ -189,13 +189,9 @@ const Lend = () => {
             <Controller
               control={control}
               name="timer"
-              rules={{
-                required: true,
-              }}
               render={({ field: { onChange, value, ref } }) => (
                 <NewSelect
                   key={123}
-                  error={Boolean(errors.timer)}
                   value={arrTimes[0]}
                   onChange={onChange}
                   data={arrTimes}
@@ -203,7 +199,6 @@ const Lend = () => {
                 />
               )}
             />
-            {errors.timer && <span className="error">Invalid amount</span>}
           </FormCtrol>
         </Flex>
         <FormCtrol style={{ minHeight: '60px' }}>

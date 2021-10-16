@@ -173,9 +173,6 @@ export function SearchResult() {
                       tr: {
                         background: '#282C37',
                         borderRadius: '4px 4px 0px 0px',
-                        '&:last-child': {
-                          // marginBottom: '0',
-                        },
                         td: {
                           fontStyle: 'normal',
                           fontWeight: 'normal',
@@ -202,7 +199,7 @@ export function SearchResult() {
                             <MyFlex style={{ alignItems: 'center' }}>
                               <img src={star} alt="" />
                               <span>
-                                {e.reputation}{' '}
+                                {e.reputation}
                                 <span style={{ padding: '0 10px' }}>|</span>
                                 {e.completedContracts} contacts
                               </span>
@@ -211,21 +208,21 @@ export function SearchResult() {
                         </TableCell>
                         <TableCell align="left">
                           <MyFlex>
-                            <img src={newIconColl(e.collateralSymbol)} alt="" />{' '}
+                            <img src={newIconColl(e.collateralSymbol)} alt="" />
                             {Boolean(e?.collateralAmount)
                               ? e?.collateralAmount
-                              : 0}{' '}
+                              : 0}
                             {e.collateralSymbol}
                           </MyFlex>
                         </TableCell>
                         <TableCell align="left">
                           <MyFlex>
-                            <img src={newIconLoan(e.loanSymbol)} alt="" />{' '}
+                            <img src={newIconLoan(e.loanSymbol)} alt="" />
                             {e.loanSymbol}
                           </MyFlex>
                         </TableCell>
                         <TableCell align="left">
-                          {e.durationQty}{' '}
+                          {e.durationQty}
                           {e.durationType === 0
                             ? 'weeks'
                             : e.durationType === 1
@@ -250,7 +247,7 @@ export function SearchResult() {
                           <div className="heading">
                             <h4>Become your own bank</h4>
                             <p>
-                              Sign up for pawnshop to get great benefits from{' '}
+                              Sign up for pawnshop to get great benefits from
                               <span>DeFi For You.</span>
                             </p>
                           </div>
@@ -275,7 +272,7 @@ export function SearchResult() {
                                 <MyFlex style={{ alignItems: 'center' }}>
                                   <img src={star} alt="" />
                                   <span>
-                                    {e.reputation}{' '}
+                                    {e.reputation}
                                     <span style={{ padding: '0 10px' }}>|</span>
                                     {e.completedContracts} contacts
                                   </span>
@@ -287,21 +284,21 @@ export function SearchResult() {
                                 <img
                                   src={newIconColl(e.collateralSymbol)}
                                   alt=""
-                                />{' '}
+                                />
                                 {Boolean(e?.collateralAmount)
                                   ? e?.collateralAmount
-                                  : 0}{' '}
+                                  : 0}
                                 {e.collateralSymbol}
                               </MyFlex>
                             </TableCell>
                             <TableCell align="left">
                               <MyFlex>
-                                <img src={newIconLoan(e.loanSymbol)} alt="" />{' '}
+                                <img src={newIconLoan(e.loanSymbol)} alt="" />
                                 {e.loanSymbol}
                               </MyFlex>
                             </TableCell>
                             <TableCell align="left">
-                              {e.durationQty}{' '}
+                              {e.durationQty}
                               {e.durationType === 0
                                 ? 'weeks'
                                 : e.durationType === 1
@@ -340,10 +337,10 @@ export function SearchResult() {
                         <Row>
                           <span className="left">Collateral</span>
                           <MyFlex>
-                            <img src={newIconColl(e.collateralSymbol)} alt="" />{' '}
+                            <img src={newIconColl(e.collateralSymbol)} alt="" />
                             {Boolean(e?.collateralAmount)
                               ? e?.collateralAmount
-                              : 0}{' '}
+                              : 0}
                             {e.collateralSymbol}
                           </MyFlex>
                         </Row>
@@ -352,7 +349,7 @@ export function SearchResult() {
                         <Row>
                           <span className="left">Loan currency</span>
                           <MyFlex>
-                            <img src={newIconLoan(e.loanSymbol)} alt="" />{' '}
+                            <img src={newIconLoan(e.loanSymbol)} alt="" />
                             {e.loanSymbol}
                           </MyFlex>
                         </Row>
@@ -360,7 +357,7 @@ export function SearchResult() {
                       <Row>
                         <span className="left">Duration</span>
                         <span>
-                          {e.durationQty}{' '}
+                          {e.durationQty}
                           {e.durationType === 0
                             ? 'weeks'
                             : e.durationType === 1
@@ -385,7 +382,7 @@ export function SearchResult() {
                   <div className="heading">
                     <h4>Become your own bank</h4>
                     <p>
-                      Sign up for pawnshop to get great benefits from{' '}
+                      Sign up for pawnshop to get great benefits from
                       <span>DeFi For You.</span>
                     </p>
                   </div>
@@ -416,10 +413,10 @@ export function SearchResult() {
                               <img
                                 src={newIconColl(e.collateralSymbol)}
                                 alt=""
-                              />{' '}
+                              />
                               {Boolean(e?.collateralAmount)
                                 ? e?.collateralAmount
-                                : 0}{' '}
+                                : 0}
                               {e.collateralSymbol}
                             </MyFlex>
                           </Row>
@@ -428,7 +425,7 @@ export function SearchResult() {
                           <Row>
                             <span className="left">Loan currency</span>
                             <MyFlex>
-                              <img src={newIconLoan(e.loanSymbol)} alt="" />{' '}
+                              <img src={newIconLoan(e.loanSymbol)} alt="" />
                               {e.loanSymbol}
                             </MyFlex>
                           </Row>
@@ -436,7 +433,7 @@ export function SearchResult() {
                         <Row>
                           <span className="left">Duration</span>
                           <span>
-                            {e.durationQty}{' '}
+                            {e.durationQty}
                             {e.durationType === 0
                               ? 'weeks'
                               : e.durationType === 1
