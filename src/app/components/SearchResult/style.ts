@@ -119,7 +119,7 @@ export const MyFlex = styled.div`
   }
 `;
 
-export const wrappermb = styled.div`
+export const Wrappermb = styled.div`
   display: none;
   @media (max-width: 1024px) {
     display: block;

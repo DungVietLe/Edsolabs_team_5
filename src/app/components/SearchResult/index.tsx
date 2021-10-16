@@ -40,6 +40,7 @@ import {
   WrapperMobie,
   Item,
   Row,
+  Wrappermb,
 } from './style';
 export function SearchResult() {
   const [listData, setListData] = useState<any>({
@@ -339,70 +340,10 @@ export function SearchResult() {
                   ''
                 )}
               </TableContainer>
-              {/* <Wrappermb>  */}
-              <WrapperMobie>
-                {firstData.map(e => (
-                  <Item>
-                    <Row>
-                      <span className="left">Borrower</span>
-                      <FlexColumn>
-                        <MyLink to="#">
-                          {convertStr('12345678901234567890')}
-                        </MyLink>
-                        <span>
-                          <img src={star} alt="" /> 1000
-                          <span style={{ padding: '0 10px' }}>|</span>100
-                          contacts
-                        </span>
-                      </FlexColumn>
-                    </Row>
-                    <Row>
-                      <Row>
-                        <span className="left">Collateral</span>
-                        <MyFlex>
-                          <img src={newArr.url} alt="" /> 10 {newArr.value}
-                        </MyFlex>
-                      </Row>
-                    </Row>
-                    <Row>
-                      <Row>
-                        <span className="left">Loan currency</span>
-                        <MyFlex>
-                          <img src={newArr.url} alt="" /> 10 {newArr.value}
-                        </MyFlex>
-                      </Row>
-                    </Row>
-                    <Row>
-                      <span className="left">Duration</span>
-                      <span>12 months</span>
-                    </Row>
-                    <Row
-                      style={{
-                        justifyContent: 'center',
-                        marginTop: '9px',
-                      }}
-                    >
-                      <ButtomBase bg="DBA83D" className="btn">
-                        Send Offer
-                      </ButtomBase>
-                    </Row>
-                  </Item>
-                ))}
-              </WrapperMobie>
-              <Banner>
-                <div className="heading">
-                  <h4>Become your own bank</h4>
-                  <p>
-                    Sign up for pawnshop to get great benefits from{' '}
-                    <span>DeFi For You.</span>
-                  </p>
-                </div>
-                <img src={BG_Banner} alt="" />
-              </Banner>
-              {lastData.length ? (
+              <Wrappermb>
                 <WrapperMobie>
-                  {lastData.map(e => (
-                    <Item>
+                  {firstData.map((e, index) => (
+                    <Item key={index}>
                       <Row>
                         <span className="left">Borrower</span>
                         <FlexColumn>
@@ -449,9 +390,70 @@ export function SearchResult() {
                     </Item>
                   ))}
                 </WrapperMobie>
-              ) : (
-                ''
-              )}
+                <Banner>
+                  <div className="heading">
+                    <h4>Become your own bank</h4>
+                    <p>
+                      Sign up for pawnshop to get great benefits from{' '}
+                      <span>DeFi For You.</span>
+                    </p>
+                  </div>
+                  <img src={BG_Banner} alt="" />
+                </Banner>
+                {lastData.length ? (
+                  <WrapperMobie>
+                    {lastData.map((e, index) => (
+                      <Item key={index + 5}>
+                        <Row>
+                          <span className="left">Borrower</span>
+                          <FlexColumn>
+                            <MyLink to="#">
+                              {convertStr('12345678901234567890')}
+                            </MyLink>
+                            <span>
+                              <img src={star} alt="" /> 1000
+                              <span style={{ padding: '0 10px' }}>|</span>100
+                              contacts
+                            </span>
+                          </FlexColumn>
+                        </Row>
+                        <Row>
+                          <Row>
+                            <span className="left">Collateral</span>
+                            <MyFlex>
+                              <img src={newArr.url} alt="" /> 10 {newArr.value}
+                            </MyFlex>
+                          </Row>
+                        </Row>
+                        <Row>
+                          <Row>
+                            <span className="left">Loan currency</span>
+                            <MyFlex>
+                              <img src={newArr.url} alt="" /> 10 {newArr.value}
+                            </MyFlex>
+                          </Row>
+                        </Row>
+                        <Row>
+                          <span className="left">Duration</span>
+                          <span>12 months</span>
+                        </Row>
+                        <Row
+                          style={{
+                            justifyContent: 'center',
+                            marginTop: '9px',
+                          }}
+                        >
+                          <ButtomBase bg="DBA83D" className="btn">
+                            Send Offer
+                          </ButtomBase>
+                        </Row>
+                      </Item>
+                    ))}
+                  </WrapperMobie>
+                ) : (
+                  ''
+                )}
+              </Wrappermb>
               <Paginations length={5} />
             </BoxLeft>
 
