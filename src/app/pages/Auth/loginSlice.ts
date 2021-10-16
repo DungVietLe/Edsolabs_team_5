@@ -3,15 +3,13 @@ import { createSlice } from '@reduxjs/toolkit';
 export interface loginState {
   loading: Boolean;
   isLoggin: Boolean;
-  registerSuccess: Boolean;
-  registerFaild: Boolean;
+  checkRegister: Boolean;
 }
 
 const initialState: loginState = {
   loading: false,
   isLoggin: false,
-  registerSuccess: false,
-  registerFaild: false,
+  checkRegister: false,
 };
 
 const loginSlice = createSlice({
@@ -39,11 +37,11 @@ const loginSlice = createSlice({
     },
     registerSuccess(state, action) {
       state.loading = false;
-      state.registerSuccess = action.payload;
+      state.checkRegister = action.payload;
     },
     registerError(state, action) {
       state.loading = false;
-      state.registerFaild = action.payload;
+      state.checkRegister = action.payload;
     },
   },
 });
@@ -53,9 +51,7 @@ export const loginAction = loginSlice.actions;
 //selectors
 export const selectLoading = (state: any) => state.login.loading;
 export const selectIsLogin = (state: any) => state.login.isLoggin;
-export const selectRegisterSuccess = (state: any) =>
-  state.login.registerSuccess;
-export const selectRegisterFaild = (state: any) => state.login.registerFaild;
+export const selectRegister = (state: any) => state.login.checkRegister;
 
 export const loginReducer = loginSlice.reducer;
 export default loginReducer;
