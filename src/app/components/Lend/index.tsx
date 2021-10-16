@@ -69,6 +69,7 @@ const Lend = () => {
     value: item.value,
     label: [<ImageIcon key={key} src={item.url} />, item.value],
   }));
+  const newArrLoan = [];
   return (
     <Wrapper>
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -123,6 +124,7 @@ const Lend = () => {
               }}
               render={({ field: { onChange, value, ref } }) => (
                 <NewSelect
+                  key={1234}
                   error={Boolean(errors.currency)}
                   value={value}
                   onChange={onChange}
@@ -171,6 +173,7 @@ const Lend = () => {
               }}
               render={({ field: { onChange, value, ref } }) => (
                 <NewSelect
+                  key={123}
                   error={Boolean(errors.timer)}
                   value={arrTimes[0]}
                   onChange={onChange}

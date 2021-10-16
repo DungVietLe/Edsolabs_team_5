@@ -5,7 +5,7 @@ interface Mycheck {
 }
 export const WrapperResult = styled.div`
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
   padding: 119px 1.25rem 1.25rem 1.25rem;
   background-color: #171a23;
   min-height: 100vh;

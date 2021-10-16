@@ -26,6 +26,7 @@ export const Headers = styled.div`
 export const Logo = styled(Link)<{ to: any }>`
   display: block;
   img {
+    height: unset;
     max-width: 100%;
     max-height: 60px;
     min-width: 126px;
@@ -231,6 +232,10 @@ export const Info = styled.div`
       display: inline-block;
       text-transform: none;
       color: #fff;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 90px;
     }
   }
   &.mobile {

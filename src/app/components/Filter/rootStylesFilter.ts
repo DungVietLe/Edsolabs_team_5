@@ -44,6 +44,7 @@ export const ContainerInterest = styled.div`
     border-bottom: 1px solid #45484f;
     border-radius: 0px;
     box-shadow: none;
+
     & > div.MuiButtonBase-root {
       width: 92.7%;
       margin-left: 5px;

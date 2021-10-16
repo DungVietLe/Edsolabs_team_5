@@ -1,7 +1,10 @@
 import { SwipeableDrawer } from '@mui/material';
 import styled from 'styled-components/macro';
-
+interface Mycheck {
+  check: Boolean;
+}
 export const WrapperResult = styled.div`
+  overflow: hidden;
   width: 100%;
   padding: 119px 1.25rem 1.25rem 1.25rem;
   background-color: #171a23;
@@ -17,12 +20,39 @@ export const ContainerResult = styled.div`
 export const BoxLeft = styled.div`
   flex-grow: 1;
   margin-bottom: 64px;
+  .filter_result {
+    display: none;
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
 `;
 export const Boxright = styled.div`
   width: 293px;
+  background-color: #282c37;
+  border-radius: 19px;
   @media (max-width: 768px) {
-    display: none;
+    display: ${(props: Mycheck) => (props.check ? 'block' : 'none')};
+    position: absolute;
+    right: 0;
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.2;
+
+    &.none {
+      display: block;
+      right: 20%;
+      visibility: hidden;
+      opacity: 0;
+      /* width: 0px; */
+    }
+    &.active {
+      display: block;
+      visibility: visible;
+      opacity: 1;
+      right: 0;
+    }
   }
+  z-index: 99;
 `;
 export const BoxrightMobile = styled.div`
   width: 280px;
@@ -45,16 +75,39 @@ export const Reset = styled.div`
   font-weight: 400;
   font-size: 14px;
   color: #fff;
-  border-bottom: 1px solid #45484f;
+
   cursor: pointer;
   padding: 12px 0 4px 16px;
 `;
+
 export const MySwipeableDrawer = styled(SwipeableDrawer)`
   & > div.MuiPaper-root {
     background-color: transparent;
     box-shadow: none;
     padding-top: 70px;
   }
+`;
+export const Close = styled.img`
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+`;
+export const BoxFlex = styled.div`
+  display: flex;
+  padding: 10px 5px;
+  justify-content: space-between;
+  border-bottom: 1px solid #45484f;
+`;
+export const Modal = styled.div<any>`
+  position: fixed;
+  inset: 0;
+  background-color: #333;
+  display: ${props => (props.check ? 'block' : 'none')};
+  opacity: 0.6;
 `;
 
 export const FlexColumn = styled.div`
@@ -63,10 +116,11 @@ export const FlexColumn = styled.div`
   gap: 20px;
 `;
 export const Paragrap = styled.p`
+  font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 20px;
+  line-height: 24px;
   color: #d1d1d3;
   margin-bottom: 20px;
 `;

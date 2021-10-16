@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
 export const ItemSearch = styled.div`
-  width: 39%;
+  width: 600px;
 
   @media screen and (max-width: 1200px) {
     width: 50%;

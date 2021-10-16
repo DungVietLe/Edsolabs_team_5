@@ -20,11 +20,10 @@ export const ViewBanner = styled.div`
   padding: 48px 98px;
   margin: 0 auto;
   @media (max-width: 1400px) {
-    padding: 12px;
     max-width: 1185px;
   }
   @media (max-width: 600px) {
-    padding: 12px;
+    padding: 15px;
   }
 `;
 export const Title = styled.div`
