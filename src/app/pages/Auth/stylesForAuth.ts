@@ -255,6 +255,7 @@ export const BoxNtf = styled.div`
   border-radius: 20px;
 `;
 export const MybuttonNtf = styled.div`
+  font-family: 'Montserrat';
   width: 80px;
   height: 40px;
   border-radius: 20px;
@@ -264,11 +265,25 @@ export const MybuttonNtf = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px 0 0 120px;
+  margin: 20px 0 0 130px;
 `;
 export const TitleNtf = styled.div`
   text-align: center;
   font-size: 20px;
   color: #fff;
   font-weight: 600;
+`;
+export const MybuttonCheckmail = styled.a`
+  font-family: 'Montserrat';
+  width: 120px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #efbb46;
+  color: #333;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 0 106px;
+  text-decoration: none;
 `;
