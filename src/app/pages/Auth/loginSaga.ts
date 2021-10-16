@@ -22,7 +22,7 @@ function* registerUser(payload: any) {
     yield authApi.postRegister(data);
     yield put(loginAction.registerSuccess(true));
   } catch (error) {
-    yield put(loginAction.registerError(true));
+    yield put(loginAction.registerError(false));
   }
 }
 

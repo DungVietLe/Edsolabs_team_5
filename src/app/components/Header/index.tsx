@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ButtomBase, Flex, GropButtom, LinkButtom } from '../rootStyled';
 import LoginSuccess from './LoginSucces';
+import { useHistory } from 'react-router';
 import {
   Arrow,
   HeaderNav,
@@ -20,6 +21,8 @@ import {
 import { LanguageSwitch } from '../LanguageSwitch';
 import { messages } from './messages';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { loginAction } from 'app/pages/Auth/loginSlice';
 const Header = props => {
   const { t } = useTranslation();
   const [user, setUser] = useState<any>();
@@ -73,7 +76,13 @@ const Header = props => {
         break;
     }
   };
-
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const handleLogoutMB = () => {
+    dispatch(loginAction.logout());
+    history.push('/pawn');
+    alert('logout success');
+  };
   return (
     <Headers>
       <Flex
@@ -291,7 +300,9 @@ const Header = props => {
               <Link to="/">Change password</Link>
             </li>
             <li>
-              <Link to="/">Log out</Link>
+              <Link to="/" onClick={handleLogoutMB}>
+                Log out
+              </Link>
             </li>
           </MenuMobile>
         </div>

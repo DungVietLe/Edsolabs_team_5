@@ -5,7 +5,6 @@ import {
   IconButton,
   InputAdornment,
   Modal,
-  Typography,
 } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
@@ -13,25 +12,23 @@ import { Controller, useForm } from 'react-hook-form';
 import { useRecaptcha } from 'react-hook-recaptcha';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 import * as yup from 'yup';
-import {
-  loginAction,
-  selectLoading,
-  selectRegisterFaild,
-  selectRegisterSuccess,
-} from '../loginSlice';
+import { loginAction, selectLoading, selectRegister } from '../loginSlice';
 import { messages } from '../messages';
 import {
   BoxLogin,
   Mybox,
   MyButtonAuthLogin,
+  MybuttonCheckmail,
+  MybuttonNtf,
   MyComponent,
   MyLabel,
   MyTextField,
   NtfTitle,
   TitleNtf,
 } from '../stylesForAuth';
-import { MybuttonNtf } from '../stylesForAuth';
+import Success from './icons8-ok.gif';
 
 interface IFormInputs {
   name: string;
@@ -131,16 +128,23 @@ export const InputRegister = props => {
       showConfirmpassword: !state.showConfirmpassword,
     }));
   };
-  const checkFaild = useSelector(selectRegisterFaild);
-  const checkSuccess = useSelector(selectRegisterSuccess);
+  const checkRegister = useSelector(selectRegister);
+
   const [open, setOpen] = React.useState(false);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    history.push('/login?tab=1');
+  };
   const onSubmit = (data: any) => {
     const newData = { ...data, recaptcha_response: captchaResponse };
     dispatch(loginAction.register(newData));
     setOpen(true);
   };
-
+  const history = useHistory();
+  const handleCloseCheckMail = () => {
+    history.push('/login?tab=2');
+    setOpen(false);
+  };
   return (
     <MyComponent>
       <Modal
@@ -150,15 +154,40 @@ export const InputRegister = props => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          {checkFaild && (
-            <TitleNtf>'This email address is already registered!'</TitleNtf>
+          <TitleNtf>
+            {checkRegister
+              ? 'Create Account Success! Go to Email Active Your Account! '
+              : 'This email address is already registered!'}
+          </TitleNtf>
+          {checkRegister ? (
+            <img
+              src={Success}
+              alt="checked"
+              style={{
+                marginLeft: '145px',
+                margin: ' 12px 0px 0px 134px',
+                width: '60px',
+                borderRadius: '50px',
+              }}
+            />
+          ) : (
+            <img
+              src="https://img.icons8.com/color/48/000000/cancel--v1.png"
+              alt="checkeddd"
+              style={{ marginLeft: '145px' }}
+            />
           )}
-          {checkSuccess && (
-            <TitleNtf>
-              'Create Account Success ! Go to Email Active Your Account!
-            </TitleNtf>
+          {checkRegister ? (
+            <MybuttonCheckmail
+              href="https://mail.google.com/mail/u/0/#inbox"
+              target="_blank"
+              onClick={handleCloseCheckMail}
+            >
+              Check Email
+            </MybuttonCheckmail>
+          ) : (
+            <MybuttonNtf onClick={handleClose}>OK</MybuttonNtf>
           )}
-          <MybuttonNtf onClick={handleClose}>OK</MybuttonNtf>
         </Box>
       </Modal>
       <form onSubmit={handleSubmit(onSubmit)}>
