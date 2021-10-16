@@ -4,9 +4,10 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { listCoin } from 'app/components/Filter/DataCoin';
+import { iconCollateral, listLoan } from 'app/components/Filter/DataCoin';
 import Paginations from 'app/components/Pagination';
 import {
+  BoxFlex,
   BoxLeft,
   Boxright,
   Paragrap,
@@ -15,17 +16,17 @@ import {
 } from 'app/pages/ResultStyles';
 import BG_Banner from 'assets/Image/bannerlend.png';
 import star from 'images/imagesearch/Star 1.png';
-import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { searchApi } from 'api/searchApiHome';
+import { useHistory } from 'react-router';
 import { Close } from '../../pages/ResultOfferCrypto/styles';
-import { InterestRange } from '../Filter/InterestRange';
-import { LoanToken } from '../Filter/LoanToken';
-import { LoanType } from '../Filter/LoanType';
-import { LoanValue } from '../Filter/LoanValue';
-import { SearchPawnshops } from '../Filter/SearchPawnshops';
+import { Duration } from '../Filter/Duration';
+import filter from 'assets/Image/filter.png';
 import Footer from '../Footer/Footer';
+import { Collateral } from '../Filter/Collateral';
+import { LoanCurrency } from '../Filter/LoanCurrency';
 import Header from '../Header';
-import { CollateralAccepted } from '../ItemShow/styles';
+import queryString from 'query-string';
 import { ButtomBase, Flex } from '../rootStyled';
 import {
   Banner,
@@ -35,70 +36,38 @@ import {
   MyFlex,
   MyLink,
   Row,
+  Wrappermb,
   WrapperMobie,
 } from './style';
-export function SearchResult() {
-  // const [listData, setListData] = useState<any>({
-  //   collateralAccepted: [],
-  //   loanToken: [],
-  //   LoanType: [],
-  //   duration: [],
-  // });
+import { BackgroundColor } from 'chalk';
 
-  // const handleValueFilter = (data: any, tags: any) => {
-  //   if (tags === 'Collateral accepted') {
-  //     if (listData.collateralAccepted.includes(data as never)) {
-  //       const newList = listData.collateralAccepted.filter(
-  //         item => item !== data,
-  //       );
-  //       setListData({ ...listData, collateralAccepted: newList });
-  //     } else {
-  //       setListData({
-  //         ...listData,
-  //         collateralAccepted: [...listData.collateralAccepted, data],
-  //       });
-  //     }
-  //   }
-  //   if (tags === 'Duration') {
-  //     if (listData.duration.includes(data as never)) {
-  //       const newList = listData.duration.filter(item => item !== data);
-  //       setListData({ ...listData, duration: newList });
-  //     } else {
-  //       setListData({
-  //         ...listData,
-  //         duration: [...listData.duration, data],
-  //       });
-  //     }
-  //   }
-  //   if (tags === 'Loan Token') {
-  //     if (listData.loanToken.includes(data as never)) {
-  //       const newList = listData.loanToken.filter(item => item !== data);
-  //       setListData({ ...listData, loanToken: newList });
-  //     } else {
-  //       setListData({
-  //         ...listData,
-  //         loanToken: [...listData.loanToken, data],
-  //       });
-  //     }
-  //   }
-  //   if (tags === 'Loan type') {
-  //     if (listData.LoanType.includes(data as never)) {
-  //       const newList = listData.LoanType.filter(item => item !== data);
-  //       setListData({ ...listData, LoanType: newList });
-  //     } else {
-  //       setListData({
-  //         ...listData,
-  //         LoanType: [...listData.LoanType, data],
-  //       });
-  //     }
-  //   }
-  // };
+export function SearchResult() {
+  const history = useHistory();
   const [status, setStatus] = useState(false);
   const handleShowFilter = () => {
     setStatus(!status);
   };
 
-  const newArr = listCoin.map(e => e)[0];
+  const [listApiData, setListApiData] = useState<any>([]);
+  const param = queryString.parse(history.location.search);
+  const newUrl = history.location.search;
+  useEffect(() => {
+    searchApi
+      .getDataLendCrypto(param)
+      .then((res: any) => {
+        setListApiData(res.data);
+      })
+      .catch(error => {});
+  }, [newUrl]);
+
+  const newIconColl = icon => {
+    const a = iconCollateral.filter(e => e?.value === icon);
+    return a[0].url;
+  };
+  const newIconLoan = icon => {
+    const a = listLoan.filter(e => e?.value === icon);
+    return a[0].url;
+  };
   const convertStr = str => {
     if (str?.length > 16) {
       const firstArr = str.substr(0, 5);
@@ -108,16 +77,21 @@ export function SearchResult() {
       return str;
     }
   };
-  const arr = ['1', '2', '3', '4', '5', '6', '7', '8'];
+  const data = listApiData?.content;
   let firstData: any;
   let lastData: any = [];
-  if (arr?.length > 5) {
-    firstData = arr.slice(0, 5);
-    lastData = arr.slice(5, arr?.length);
+  if (data?.length > 5) {
+    firstData = data.slice(0, 5);
+    lastData = data.slice(5, data?.length);
+    console.log(lastData);
   } else {
-    firstData = [...arr];
+    firstData = data;
   }
-
+  const [clear, setClear] = useState(false);
+  const handleReserFilter = () => {
+    history.push('/pawn/lender?size=10&status=3&durationTypes=');
+    setClear(true);
+  };
   return (
     <>
       <Header />
@@ -125,12 +99,19 @@ export function SearchResult() {
         <ContainerResult>
           <Flex gap={20} justifyContent="center" alignItem="flex-start">
             <BoxLeft>
+              <div
+                className="filter_result"
+                style={{ textAlign: 'right', cursor: 'pointer' }}
+              >
+                <img src={filter} alt="acoin" onClick={handleShowFilter} />
+              </div>
               <Paragrap>10 collateral offers match your search</Paragrap>
               <TableContainer
                 sx={{
                   '@media (max-width:1024px)': {
                     display: 'none  ',
                   },
+                  marginBottom: '50px',
                 }}
               >
                 <Table
@@ -192,9 +173,6 @@ export function SearchResult() {
                       tr: {
                         background: '#282C37',
                         borderRadius: '4px 4px 0px 0px',
-                        '&:last-child': {
-                          // marginBottom: '0',
-                        },
                         td: {
                           fontStyle: 'normal',
                           fontWeight: 'normal',
@@ -205,7 +183,7 @@ export function SearchResult() {
                       },
                     }}
                   >
-                    {firstData.map((e, index) => (
+                    {firstData?.map((e, index) => (
                       <TableRow
                         key={index}
                         sx={{
@@ -216,29 +194,41 @@ export function SearchResult() {
                         <TableCell align="left">
                           <FlexColumn>
                             <MyLink to="#">
-                              {convertStr('12345678901234567890')}
+                              {convertStr(`${e.walletAddress}`)}
                             </MyLink>
                             <MyFlex style={{ alignItems: 'center' }}>
                               <img src={star} alt="" />
                               <span>
-                                1000{' '}
+                                {e.reputation}
                                 <span style={{ padding: '0 10px' }}>|</span>
-                                100 contacts
+                                {e.completedContracts} contacts
                               </span>
                             </MyFlex>
                           </FlexColumn>
                         </TableCell>
                         <TableCell align="left">
                           <MyFlex>
-                            <img src={newArr.url} alt="" /> 10 {newArr.value}
+                            <img src={newIconColl(e.collateralSymbol)} alt="" />
+                            {Boolean(e?.collateralAmount)
+                              ? e?.collateralAmount
+                              : 0}
+                            {e.collateralSymbol}
                           </MyFlex>
                         </TableCell>
                         <TableCell align="left">
                           <MyFlex>
-                            <img src={newArr.url} alt="" /> 10 {newArr.value}
+                            <img src={newIconLoan(e.loanSymbol)} alt="" />
+                            {e.loanSymbol}
                           </MyFlex>
                         </TableCell>
-                        <TableCell align="left">12 months</TableCell>
+                        <TableCell align="left">
+                          {e.durationQty}
+                          {e.durationType === 0
+                            ? 'weeks'
+                            : e.durationType === 1
+                            ? 'months'
+                            : ''}
+                        </TableCell>
                         <TableCell align="center">
                           <ButtomBase bg="DBA83D" className="btn">
                             Send Offer
@@ -246,164 +236,95 @@ export function SearchResult() {
                         </TableCell>
                       </TableRow>
                     ))}
+                    <TableRow
+                      sx={{
+                        backgroundColor: 'transparent !important',
+                        td: { padding: '0 !important' },
+                      }}
+                    >
+                      <TableCell align="center" colSpan={6}>
+                        <Banner>
+                          <div className="heading">
+                            <h4>Become your own bank</h4>
+                            <p>
+                              Sign up for pawnshop to get great benefits from
+                              <span>DeFi For You.</span>
+                            </p>
+                          </div>
+                          <img src={BG_Banner} alt="" />
+                        </Banner>
+                      </TableCell>
+                    </TableRow>
+                    {lastData?.length > 0
+                      ? lastData?.map((e, index) => (
+                          <TableRow
+                            key={index + 5}
+                            sx={{
+                              '&:last-child td, &:last-child th': { border: 0 },
+                            }}
+                          >
+                            <TableCell align="center">{index + 6}</TableCell>
+                            <TableCell align="left">
+                              <FlexColumn>
+                                <MyLink to="#">
+                                  {convertStr(`${e.walletAddress}`)}
+                                </MyLink>
+                                <MyFlex style={{ alignItems: 'center' }}>
+                                  <img src={star} alt="" />
+                                  <span>
+                                    {e.reputation}
+                                    <span style={{ padding: '0 10px' }}>|</span>
+                                    {e.completedContracts} contacts
+                                  </span>
+                                </MyFlex>
+                              </FlexColumn>
+                            </TableCell>
+                            <TableCell align="left">
+                              <MyFlex>
+                                <img
+                                  src={newIconColl(e.collateralSymbol)}
+                                  alt=""
+                                />
+                                {Boolean(e?.collateralAmount)
+                                  ? e?.collateralAmount
+                                  : 0}
+                                {e.collateralSymbol}
+                              </MyFlex>
+                            </TableCell>
+                            <TableCell align="left">
+                              <MyFlex>
+                                <img src={newIconLoan(e.loanSymbol)} alt="" />
+                                {e.loanSymbol}
+                              </MyFlex>
+                            </TableCell>
+                            <TableCell align="left">
+                              {e.durationQty}
+                              {e.durationType === 0
+                                ? 'weeks'
+                                : e.durationType === 1
+                                ? 'months'
+                                : ''}
+                            </TableCell>
+                            <TableCell align="center">
+                              <ButtomBase bg="DBA83D" className="btn">
+                                Send Offer
+                              </ButtomBase>
+                            </TableCell>
+                          </TableRow>
+                        ))
+                      : ''}
                   </TableBody>
                 </Table>
-                <Banner>
-                  <div className="heading">
-                    <h4>Become your own bank</h4>
-                    <p>
-                      Sign up for pawnshop to get great benefits from{' '}
-                      <span>DeFi For You.</span>
-                    </p>
-                  </div>
-                  <img src={BG_Banner} alt="" />
-                </Banner>
-                {lastData.length > 0 ? (
-                  <Table
-                    sx={{
-                      borderCollapse: 'separate',
-                      borderSpacing: '0 4px',
-                      minWidth: 650,
-                      backgroundColor: 'transparent',
-                      'th,td': {
-                        borderBottom: 'none',
-                        '@media (max-width:1200px)': {
-                          padding: '10px',
-                        },
-                      },
-                    }}
-                  >
-                    <TableBody
-                      sx={{
-                        tr: {
-                          background: '#282C37',
-                          borderRadius: '4px 4px 0px 0px',
-                          '&:last-child': {
-                            // marginBottom: '0',
-                          },
-                          td: {
-                            fontStyle: 'normal',
-                            fontWeight: 'normal',
-                            fontSize: '14px',
-                            lineHeight: '17px',
-                            color: '#FFFFFF',
-                          },
-                        },
-                      }}
-                    >
-                      {lastData.map((e, index) => (
-                        <TableRow
-                          key={index + 5}
-                          sx={{
-                            '&:last-child td, &:last-child th': { border: 0 },
-                          }}
-                        >
-                          <TableCell align="center">{index + 6}</TableCell>
-                          <TableCell align="left">
-                            <FlexColumn>
-                              <MyLink to="#">
-                                {convertStr('12345678901234567890')}
-                              </MyLink>
-                              <span>
-                                <img src={star} alt="" /> 1000
-                                <span style={{ padding: '0 10px' }}>|</span>100
-                                contacts
-                              </span>
-                            </FlexColumn>
-                          </TableCell>
-                          <TableCell align="left">
-                            <MyFlex>
-                              <img src={newArr.url} alt="" /> 10 {newArr.value}
-                            </MyFlex>
-                          </TableCell>
-                          <TableCell align="left">
-                            <MyFlex>
-                              <img src={newArr.url} alt="" /> 10 {newArr.value}
-                            </MyFlex>
-                          </TableCell>
-                          <TableCell align="left">12 months</TableCell>
-                          <TableCell align="center">
-                            <ButtomBase bg="DBA83D" className="btn">
-                              Send Offer
-                            </ButtomBase>
-                          </TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                ) : (
-                  ''
-                )}
               </TableContainer>
-              {/* <Wrappermb>  */}
-              <WrapperMobie>
-                {firstData.map(e => (
-                  <Item>
-                    <Row>
-                      <span className="left">Borrower</span>
-                      <FlexColumn>
-                        <MyLink to="#">
-                          {convertStr('12345678901234567890')}
-                        </MyLink>
-                        <span>
-                          <img src={star} alt="" /> 1000
-                          <span style={{ padding: '0 10px' }}>|</span>100
-                          contacts
-                        </span>
-                      </FlexColumn>
-                    </Row>
-                    <Row>
-                      <Row>
-                        <span className="left">Collateral</span>
-                        <MyFlex>
-                          <img src={newArr.url} alt="" /> 10 {newArr.value}
-                        </MyFlex>
-                      </Row>
-                    </Row>
-                    <Row>
-                      <Row>
-                        <span className="left">Loan currency</span>
-                        <MyFlex>
-                          <img src={newArr.url} alt="" /> 10 {newArr.value}
-                        </MyFlex>
-                      </Row>
-                    </Row>
-                    <Row>
-                      <span className="left">Duration</span>
-                      <span>12 months</span>
-                    </Row>
-                    <Row
-                      style={{
-                        justifyContent: 'center',
-                        marginTop: '9px',
-                      }}
-                    >
-                      <ButtomBase bg="DBA83D" className="btn">
-                        Send Offer
-                      </ButtomBase>
-                    </Row>
-                  </Item>
-                ))}
-              </WrapperMobie>
-              <Banner>
-                <div className="heading">
-                  <h4>Become your own bank</h4>
-                  <p>
-                    Sign up for pawnshop to get great benefits from{' '}
-                    <span>DeFi For You.</span>
-                  </p>
-                </div>
-                <img src={BG_Banner} alt="" />
-              </Banner>
-              {lastData.length ? (
+              <Wrappermb style={{ marginBottom: '50px' }}>
                 <WrapperMobie>
-                  {lastData.map(e => (
-                    <Item>
+                  {firstData?.map((e, index) => (
+                    <Item key={index}>
                       <Row>
                         <span className="left">Borrower</span>
                         <FlexColumn>
                           <MyLink to="#">
-                            {convertStr('12345678901234567890')}
+                            {convertStr(`${e.walletAddress}`)}
                           </MyLink>
                           <span>
                             <img src={star} alt="" /> 1000
@@ -416,7 +337,11 @@ export function SearchResult() {
                         <Row>
                           <span className="left">Collateral</span>
                           <MyFlex>
-                            <img src={newArr.url} alt="" /> 10 {newArr.value}
+                            <img src={newIconColl(e.collateralSymbol)} alt="" />
+                            {Boolean(e?.collateralAmount)
+                              ? e?.collateralAmount
+                              : 0}
+                            {e.collateralSymbol}
                           </MyFlex>
                         </Row>
                       </Row>
@@ -424,13 +349,21 @@ export function SearchResult() {
                         <Row>
                           <span className="left">Loan currency</span>
                           <MyFlex>
-                            <img src={newArr.url} alt="" /> 10 {newArr.value}
+                            <img src={newIconLoan(e.loanSymbol)} alt="" />
+                            {e.loanSymbol}
                           </MyFlex>
                         </Row>
                       </Row>
                       <Row>
                         <span className="left">Duration</span>
-                        <span>12 months</span>
+                        <span>
+                          {e.durationQty}
+                          {e.durationType === 0
+                            ? 'weeks'
+                            : e.durationType === 1
+                            ? 'months'
+                            : ''}
+                        </span>
                       </Row>
                       <Row
                         style={{
@@ -445,24 +378,102 @@ export function SearchResult() {
                     </Item>
                   ))}
                 </WrapperMobie>
-              ) : (
-                ''
-              )}
-              <Paginations length={5} />
-            </BoxLeft>
-
-            <Boxright check={status} className={status ? 'active' : 'none'}>
-              <Reset>Reset filter</Reset>
-              <Close
-                onClick={handleShowFilter}
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAI4SURBVHgBvVexbsIwED1nYAGpdGJMED9AZ5Z0gZV+AeJLWr6k8AVlhQX+oHRHIsDEVCrBwgC95zoomCR2U9InBQd8+N27nM8XQZZYLBZlHup8+Y7juKfTCd/LQojgeDwu+X7K16xarW5t1hMmAyYEUYeJ2iAyLihEnx3psQNBql0KIdS88m2bMsDkgEgg9RWpR39DwJF6YvKZPuHoPyyXyw6TTm5ACni81jvW1CcuFLPSOgwpB7DyR1Y+vSJmUu+GSuOAsD+EWX8ONWfuc46kgKfyRkIqVmoX9A8IQy4VK7WpmM/ntNvtEucPhwOtVisyATUBo1D79TPNeL1e02QyoVKpRM1mU45RwKHxeCzHRqNBtVotbbktq65CcZ0MqFQqVCwWLwjiSGEDWwNk6QWxb7IsFArUarWuyHVS2OjRSICPUPc51B0baxCMRiPa7/dnggykspw6/OGSJbBwVHkWUoBr+D1CbXWMaR7H3v/i/3cOZ9iX7R/0Z5qUcBbEARTPspAivHEJZwM0DlbESdmrP3PYoJBYYBoSpz7nzWaTmEg6OWwtMAtrtXFLoXqhOGBPxyEkNVQtuZVc1+2GxL46EnMHyiXaIXlIqAN6SDkDasMezIl40uUhoPyANrh3diI6k2fIVfdx3kEXzR5CrpTfmrSrd5pJ7S2avje6TXvbjTZ5IZw4a3iHFoWvAWXHUIV3Gjdp8wrj8fBieXRu2W7ISTRIIrQmjjigv7R5imjLRB/0UwGtX9q+AXoFYjqElBA4AAAAAElFTkSuQmCC"
+                <Banner>
+                  <div className="heading">
+                    <h4>Become your own bank</h4>
+                    <p>
+                      Sign up for pawnshop to get great benefits from
+                      <span>DeFi For You.</span>
+                    </p>
+                  </div>
+                  <img src={BG_Banner} alt="" />
+                </Banner>
+                {lastData.length ? (
+                  <WrapperMobie>
+                    {lastData?.map((e, index) => (
+                      <Item key={index + 5}>
+                        <Row>
+                          <span className="left">Borrower</span>
+                          <FlexColumn>
+                            <MyLink to="#">
+                              {convertStr(`${e.walletAddress}`)}
+                            </MyLink>
+                            <span>
+                              <img src={star} alt="" /> {e?.reputation}
+                              <span style={{ padding: '0 10px' }}>|</span>
+                              {e?.completedContracts}
+                              contacts
+                            </span>
+                          </FlexColumn>
+                        </Row>
+                        <Row>
+                          <Row>
+                            <span className="left">Collateral</span>
+                            <MyFlex>
+                              <img
+                                src={newIconColl(e.collateralSymbol)}
+                                alt=""
+                              />
+                              {Boolean(e?.collateralAmount)
+                                ? e?.collateralAmount
+                                : 0}
+                              {e.collateralSymbol}
+                            </MyFlex>
+                          </Row>
+                        </Row>
+                        <Row>
+                          <Row>
+                            <span className="left">Loan currency</span>
+                            <MyFlex>
+                              <img src={newIconLoan(e.loanSymbol)} alt="" />
+                              {e.loanSymbol}
+                            </MyFlex>
+                          </Row>
+                        </Row>
+                        <Row>
+                          <span className="left">Duration</span>
+                          <span>
+                            {e.durationQty}
+                            {e.durationType === 0
+                              ? 'weeks'
+                              : e.durationType === 1
+                              ? 'months'
+                              : ''}
+                          </span>
+                        </Row>
+                        <Row
+                          style={{
+                            justifyContent: 'center',
+                            marginTop: '9px',
+                          }}
+                        >
+                          <ButtomBase bg="DBA83D" className="btn">
+                            Send Offer
+                          </ButtomBase>
+                        </Row>
+                      </Item>
+                    ))}
+                  </WrapperMobie>
+                ) : (
+                  ''
+                )}
+              </Wrappermb>
+              <Paginations
+                length={listApiData.total_pages}
+                page={listApiData.page}
               />
-              <SearchPawnshops />
-              <InterestRange />
-              <LoanValue />
-              <CollateralAccepted />
-              <LoanToken />
-              <LoanType />
+            </BoxLeft>
+            <Boxright check={status} className={status ? 'active' : 'none'}>
+              <BoxFlex>
+                <Reset onClick={handleReserFilter}>Reset filter</Reset>
+                <Close
+                  onClick={handleShowFilter}
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAI4SURBVHgBvVexbsIwED1nYAGpdGJMED9AZ5Z0gZV+AeJLWr6k8AVlhQX+oHRHIsDEVCrBwgC95zoomCR2U9InBQd8+N27nM8XQZZYLBZlHup8+Y7juKfTCd/LQojgeDwu+X7K16xarW5t1hMmAyYEUYeJ2iAyLihEnx3psQNBql0KIdS88m2bMsDkgEgg9RWpR39DwJF6YvKZPuHoPyyXyw6TTm5ACni81jvW1CcuFLPSOgwpB7DyR1Y+vSJmUu+GSuOAsD+EWX8ONWfuc46kgKfyRkIqVmoX9A8IQy4VK7WpmM/ntNvtEucPhwOtVisyATUBo1D79TPNeL1e02QyoVKpRM1mU45RwKHxeCzHRqNBtVotbbktq65CcZ0MqFQqVCwWLwjiSGEDWwNk6QWxb7IsFArUarWuyHVS2OjRSICPUPc51B0baxCMRiPa7/dnggykspw6/OGSJbBwVHkWUoBr+D1CbXWMaR7H3v/i/3cOZ9iX7R/0Z5qUcBbEARTPspAivHEJZwM0DlbESdmrP3PYoJBYYBoSpz7nzWaTmEg6OWwtMAtrtXFLoXqhOGBPxyEkNVQtuZVc1+2GxL46EnMHyiXaIXlIqAN6SDkDasMezIl40uUhoPyANrh3diI6k2fIVfdx3kEXzR5CrpTfmrSrd5pJ7S2avje6TXvbjTZ5IZw4a3iHFoWvAWXHUIV3Gjdp8wrj8fBieXRu2W7ISTRIIrQmjjigv7R5imjLRB/0UwGtX9q+AXoFYjqElBA4AAAAAElFTkSuQmCC"
+                />
+              </BoxFlex>
+              <Collateral checker={clear} />
+              <LoanCurrency checker={clear} />
+              <Duration checker={clear} />
             </Boxright>
           </Flex>
         </ContainerResult>

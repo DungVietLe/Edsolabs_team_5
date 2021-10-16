@@ -37,7 +37,7 @@ export const listCoin = [
   },
   {
     url: 'https://app.defiforyou.uk/_nuxt/img/DFY.a0b985b.png',
-    value: 'DEY',
+    value: 'DFY',
   },
   {
     url: 'https://app.defiforyou.uk/_nuxt/img/USDT.b7a5381.png',
@@ -52,7 +52,7 @@ export const listCoin = [
     value: 'IOTX',
   },
   {
-    url: 'https://app.defiforyou.uk/_nuxt/img/PAX.354f53d.png',
+    url: '  https://app.defiforyou.uk/_nuxt/img/PAX.354f53d.png',
     value: 'PAX',
   },
   {
@@ -136,6 +136,68 @@ export const listCoin = [
     value: 'DOGE',
   },
 ];
+export const LoanAmount = [
+  {
+    url: 'https://app.defiforyou.uk/_nuxt/img/DFY.a0b985b.png',
+    value: 'DFY',
+  },
+  {
+    url: 'https://app.defiforyou.uk/_nuxt/img/USDT.b7a5381.png',
+    value: 'USDT',
+  },
+  {
+    url: '  https://app.defiforyou.uk/_nuxt/img/USDC.10ea0ad.png',
+    value: 'USDC',
+  },
+  {
+    url: 'https://app.defiforyou.uk/_nuxt/img/DAI.71410d0.png',
+    value: 'DAI',
+  },
+  {
+    url: 'https://app.defiforyou.uk/_nuxt/img/BUSD.3aa6751.png',
+    value: 'BUSD',
+  },
+];
+
+export const iconCollateral = [
+  {
+    url: 'https://app.defiforyou.uk/_nuxt/img/XRP.7ff389b.png',
+    value: 'XRP',
+  },
+  {
+    url: 'https://app.defiforyou.uk/_nuxt/img/ETH.d810d23.png',
+    value: 'ETH',
+  },
+  {
+    url: 'https://app.defiforyou.uk/_nuxt/img/LTC.4b4595e.png',
+    value: 'LTC',
+  },
+  {
+    url: 'https://app.defiforyou.uk/_nuxt/img/BTC.fba89d5.png',
+    value: 'BTC',
+  },
+  {
+    url: 'https://app.defiforyou.uk/_nuxt/img/DFY.a0b985b.png',
+    value: 'DFY',
+  },
+  {
+    url: 'https://app.defiforyou.uk/_nuxt/img/BNB.978ee2b.png',
+    value: 'BNB',
+  },
+  {
+    url: 'https://app.defiforyou.uk/_nuxt/img/DOT.69cb9b6.png',
+    value: 'DOT',
+  },
+  {
+    url: 'https://app.defiforyou.uk/_nuxt/img/ADA.4647c52.png',
+    value: 'ADA',
+  },
+  {
+    url: 'https://app.defiforyou.uk/_nuxt/img/WBNB.978ee2b.png',
+    value: 'WBNB',
+  },
+];
+
 export const listLoan = [
   {
     url: 'https://app.defiforyou.uk/_nuxt/img/DFY.a0b985b.png',

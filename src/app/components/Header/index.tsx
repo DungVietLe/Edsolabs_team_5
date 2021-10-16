@@ -120,7 +120,6 @@ const Header = props => {
             </li>
           </MenuDesktop>
           <GropButtom>
-            <LanguageSwitch />
             <LinkButtom className="btn" bg="dba83d">
               <Link to="/">Become a Pawnshop</Link>
             </LinkButtom>

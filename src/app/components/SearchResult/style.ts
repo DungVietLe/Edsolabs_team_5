@@ -8,7 +8,7 @@ export const ContainerResult = styled.div`
 
 export const Banner = styled.div`
   margin: 16px 0;
-
+  text-align: left;
   background-color: #475674;
   background-image: url(BG_Banner);
   background-repeat: no-repeat;
@@ -25,6 +25,11 @@ export const Banner = styled.div`
     padding: 16px 36px;
     @media (max-width: 600px) {
       width: 350px;
+      flex-grow: 0;
+      padding: 16px 16px;
+    }
+    @media (max-width: 600px) {
+      width: auto;
       flex-grow: 0;
       padding: 16px 16px;
     }
@@ -117,7 +122,7 @@ export const MyFlex = styled.div`
   }
 `;
 
-export const wrappermb = styled.div`
+export const Wrappermb = styled.div`
   display: none;
   @media (max-width: 1024px) {
     display: block;
