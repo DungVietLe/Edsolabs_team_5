@@ -78,8 +78,11 @@ const Terms = () => {
                   <li className="information">
                     Assurance knowing that certain elements within the
                     peer-to-peer transaction process is authorised and regulated
-                    by The Financial Conduct Authority. • Clients and users are
-                    assured that we are a company that treats customers fairly.
+                    by The Financial Conduct Authority.
+                  </li>
+                  <li className="information">
+                    Clients and users are assured that we are a company that
+                    treats customers fairly.
                   </li>
                   <li className="information">
                     The operational platform maintains improved security

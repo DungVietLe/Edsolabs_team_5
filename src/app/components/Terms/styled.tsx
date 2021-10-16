@@ -11,15 +11,15 @@ export const ViewTerm = styled.div`
 `;
 export const Term = styled.div`
   max-width: 1324px;
-  height: 73vh;
+  height: 77vh;
   background: #282c37;
   border-radius: 20px;
   margin: 98px auto;
   @media (max-width: 1600px) {
-    height: 78vh;
+    height: 82vh;
   }
   @media (max-width: 425px) {
-    height: 75vh;
+    height: 86vh;
   }
 `;
 export const ViewText = styled.div``;
@@ -92,7 +92,7 @@ export const Text = styled.div`
   @media (max-width: 425px) {
     margin: 12px 0px 8px 17px;
     font-size: 14px;
-    height: 40vh;
+    height: 57vh;
   }
   @media (max-width: 375px) {
     margin: 12px 0px 8px 17px;
