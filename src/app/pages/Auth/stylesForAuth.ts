@@ -241,3 +241,34 @@ export const MyCapcha = styled(ReCAPTCHA)`
     display: none;
   } ;
 `;
+
+export const ContainerNtf = styled.div`
+  position: fixed;
+  offset: 1;
+  background-color: #333;
+  opacity: 0.4;
+`;
+export const BoxNtf = styled.div`
+  max-width: 300px;
+  height: 250px;
+  background-color: #282c38;
+  border-radius: 20px;
+`;
+export const MybuttonNtf = styled.div`
+  width: 80px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #efbb46;
+  color: #333;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 0 120px;
+`;
+export const TitleNtf = styled.div`
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+`;

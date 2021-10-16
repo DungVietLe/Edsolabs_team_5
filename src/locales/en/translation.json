@@ -15,7 +15,7 @@
     "cfps": "Confirm password",
     "ntf1": "We will not share or sell your information to 3rd parties.",
     "ntf2": "By clicking on",
-    "ntf3": "Create Account,",
+    "ntf3": "Create Account",
     "ntf4": "you agree to DeFi For You’s Terms and Conditions of Use.",
     "btnCreact": "Create Account",
     "forgotPs": "Forgot Your Password?"
@@ -84,7 +84,7 @@
     "Privacy": "Privacy Policy"
   },
   "pageOfferHero": {
-    "findPackage": "10 pawnshop package match your search",
+    "findPackage": "pawnshop package match your search",
     "titleHero": "You are not in a hurry and can wait?",
     "desHero": "Request a loan from a trusted P2P lender to get a better interest rate and LTV",
     "personalLending": "Personal Lending",

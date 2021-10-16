@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
-  Term,
-  Title,
-  Content,
-  Text,
-  ViewText,
-  Wrapper,
-  Decline,
   Accept,
   ButtonClick,
+  Content,
+  Decline,
+  Term,
+  Text,
+  Title,
   ViewTerm,
+  ViewText,
+  Wrapper,
 } from './styled';
 const Terms = () => {
   const [check, setCheck] = useState(false);

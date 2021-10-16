@@ -1,8 +1,6 @@
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import BG_Banner from 'assets/Image/bannerlend.png';
-console.log(BG_Banner);
-
 export const ContainerResult = styled.div`
   max-width: 1324px;
   margin: 0 auto;

@@ -1,17 +1,22 @@
-import { BoxFlex, Boxright, BoxrightMobile } from 'app/pages/ResultStyles';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import { listCoin } from 'app/components/Filter/DataCoin';
+import Paginations from 'app/components/Pagination';
 import {
   BoxLeft,
+  Boxright,
+  Paragrap,
   Reset,
   WrapperResult,
-  Paragrap,
 } from 'app/pages/ResultStyles';
 import BG_Banner from 'assets/Image/bannerlend.png';
+import star from 'images/imagesearch/Star 1.png';
 import * as React from 'react';
 import { useState } from 'react';
-import elipse from '../../../images/imagesearch/Ellipse 45.png';
-import currency from '../../../images/imagesearch/Ellipse 46.png';
-import bank from '../../../images/imagesearch/Frame.png';
-import star from 'images/imagesearch/Star 1.png';
 import { Close } from '../../pages/ResultOfferCrypto/styles';
 import { InterestRange } from '../Filter/InterestRange';
 import { LoanToken } from '../Filter/LoanToken';
@@ -22,81 +27,72 @@ import Footer from '../Footer/Footer';
 import Header from '../Header';
 import { CollateralAccepted } from '../ItemShow/styles';
 import { ButtomBase, Flex } from '../rootStyled';
-import Paginations from 'app/components/Pagination';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import { listCoin } from 'app/components/Filter/DataCoin';
-import Paper from '@mui/material/Paper';
 import {
+  Banner,
+  ContainerResult,
   FlexColumn,
+  Item,
   MyFlex,
   MyLink,
-  ContainerResult,
-  Banner,
-  WrapperMobie,
-  Item,
   Row,
+  WrapperMobie,
 } from './style';
 export function SearchResult() {
-  const [listData, setListData] = useState<any>({
-    collateralAccepted: [],
-    loanToken: [],
-    LoanType: [],
-    duration: [],
-  });
+  // const [listData, setListData] = useState<any>({
+  //   collateralAccepted: [],
+  //   loanToken: [],
+  //   LoanType: [],
+  //   duration: [],
+  // });
 
-  const handleValueFilter = (data: any, tags: any) => {
-    if (tags === 'Collateral accepted') {
-      if (listData.collateralAccepted.includes(data as never)) {
-        const newList = listData.collateralAccepted.filter(
-          item => item !== data,
-        );
-        setListData({ ...listData, collateralAccepted: newList });
-      } else {
-        setListData({
-          ...listData,
-          collateralAccepted: [...listData.collateralAccepted, data],
-        });
-      }
-    }
-    if (tags === 'Duration') {
-      if (listData.duration.includes(data as never)) {
-        const newList = listData.duration.filter(item => item !== data);
-        setListData({ ...listData, duration: newList });
-      } else {
-        setListData({
-          ...listData,
-          duration: [...listData.duration, data],
-        });
-      }
-    }
-    if (tags === 'Loan Token') {
-      if (listData.loanToken.includes(data as never)) {
-        const newList = listData.loanToken.filter(item => item !== data);
-        setListData({ ...listData, loanToken: newList });
-      } else {
-        setListData({
-          ...listData,
-          loanToken: [...listData.loanToken, data],
-        });
-      }
-    }
-    if (tags === 'Loan type') {
-      if (listData.LoanType.includes(data as never)) {
-        const newList = listData.LoanType.filter(item => item !== data);
-        setListData({ ...listData, LoanType: newList });
-      } else {
-        setListData({
-          ...listData,
-          LoanType: [...listData.LoanType, data],
-        });
-      }
-    }
-  };
+  // const handleValueFilter = (data: any, tags: any) => {
+  //   if (tags === 'Collateral accepted') {
+  //     if (listData.collateralAccepted.includes(data as never)) {
+  //       const newList = listData.collateralAccepted.filter(
+  //         item => item !== data,
+  //       );
+  //       setListData({ ...listData, collateralAccepted: newList });
+  //     } else {
+  //       setListData({
+  //         ...listData,
+  //         collateralAccepted: [...listData.collateralAccepted, data],
+  //       });
+  //     }
+  //   }
+  //   if (tags === 'Duration') {
+  //     if (listData.duration.includes(data as never)) {
+  //       const newList = listData.duration.filter(item => item !== data);
+  //       setListData({ ...listData, duration: newList });
+  //     } else {
+  //       setListData({
+  //         ...listData,
+  //         duration: [...listData.duration, data],
+  //       });
+  //     }
+  //   }
+  //   if (tags === 'Loan Token') {
+  //     if (listData.loanToken.includes(data as never)) {
+  //       const newList = listData.loanToken.filter(item => item !== data);
+  //       setListData({ ...listData, loanToken: newList });
+  //     } else {
+  //       setListData({
+  //         ...listData,
+  //         loanToken: [...listData.loanToken, data],
+  //       });
+  //     }
+  //   }
+  //   if (tags === 'Loan type') {
+  //     if (listData.LoanType.includes(data as never)) {
+  //       const newList = listData.LoanType.filter(item => item !== data);
+  //       setListData({ ...listData, LoanType: newList });
+  //     } else {
+  //       setListData({
+  //         ...listData,
+  //         LoanType: [...listData.LoanType, data],
+  //       });
+  //     }
+  //   }
+  // };
   const [status, setStatus] = useState(false);
   const handleShowFilter = () => {
     setStatus(!status);

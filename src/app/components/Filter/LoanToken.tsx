@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -38,7 +39,7 @@ export const LoanToken = (props: MyValue) => {
     const search_param = param.searchParams;
     param.search = search_param.toString();
 
-    search_param.set('loanSymbols', loanToken.data.join(','));
+    search_param.set('loanSymbols', loanToken.data.toString());
 
     const new_url = param.search.toString();
 
