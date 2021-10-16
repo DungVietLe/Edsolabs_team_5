@@ -26,7 +26,7 @@ export function LanguageSwitch() {
       >
         <FormControlLabel
           value="en"
-          control={<Radio sx={{ display: 'none' }} />}
+          control={<Radio sx={{ display: 'none !important' }} />}
           sx={{
             '&.MuiFormControlLabel-root': {
               margin: 0,
@@ -50,7 +50,7 @@ export function LanguageSwitch() {
         />
         <FormControlLabel
           value="vn"
-          control={<Radio sx={{ display: 'none' }} />}
+          control={<Radio sx={{ display: 'none !important' }} />}
           sx={{
             '&.MuiFormControlLabel-root': {
               margin: 0,
