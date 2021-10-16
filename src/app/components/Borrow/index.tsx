@@ -22,6 +22,7 @@ import {
   Wrapper,
 } from './styles';
 import queryString from 'query-string';
+import { Tooltip } from '@mui/material';
 const Borrow = function (props) {
   const [value, setValue] = useState(1);
   const handleChange = (newValue: number) => {
@@ -221,9 +222,17 @@ const Borrow = function (props) {
               />
             </div>
             {errors.loan && <span className="error">Invalid amount</span>}
-            <span className="tip">
+
+            <span className="tip" style={{ display: 'inline-block' }}>
               Recommended amount
-              <InfoIcon />
+              <Tooltip
+                style={{ display: 'inline' }}
+                className="tip"
+                title="To get a quickly, you should set the desired loan amount between 50 - 70% of the collateral value"
+                arrow
+              >
+                <InfoIcon />
+              </Tooltip>
             </span>
           </FormCtrol>
           <FormCtrol

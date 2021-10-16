@@ -35,6 +35,7 @@ export const ContainerInterest = styled.div`
     border-bottom: 1px solid #45484f;
     border-radius: 0px;
     box-shadow: none;
+
     & > div.MuiButtonBase-root {
       & > div.css-o4b71y-MuiAccordionSummary-content {
         & > p.css-ahj2mt-MuiTypography-root {
@@ -43,7 +44,7 @@ export const ContainerInterest = styled.div`
         }
       }
       & > div.css-yw020d-MuiAccordionSummary-expandIconWrapper {
-        & > svg.MuiSvgIcon-root {
+        svg {
           color: #fff;
         }
       }

@@ -5,7 +5,7 @@ interface Mycheck {
 }
 export const WrapperResult = styled.div`
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
   padding: 119px 1.25rem 1.25rem 1.25rem;
   background-color: #171a23;
   min-height: 100vh;
@@ -116,10 +116,11 @@ export const FlexColumn = styled.div`
   gap: 20px;
 `;
 export const Paragrap = styled.p`
+  font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 20px;
+  line-height: 24px;
   color: #d1d1d3;
   margin-bottom: 20px;
 `;
