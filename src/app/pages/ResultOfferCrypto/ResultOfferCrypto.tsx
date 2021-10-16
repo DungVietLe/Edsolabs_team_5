@@ -4,14 +4,13 @@ import { InterestRange } from 'app/components/Filter/InterestRange';
 import { LoanToken } from 'app/components/Filter/LoanToken';
 import { LoanType } from 'app/components/Filter/LoanType';
 import { LoanValue } from 'app/components/Filter/LoanValue';
-import { SearchPawnshops } from 'app/components/Filter/SearchPawnshops';
+import filter from '../../../assets/Image/filter.png';
 import Footer from 'app/components/Footer/Footer';
 import Header from 'app/components/Header';
 import Paginations from 'app/components/Pagination';
 import { Flex } from 'app/components/rootStyled';
 import React, { useEffect, useState } from 'react';
 import ListSugges from '../../../app/pages/ResultOfferCrypto/SearchSuggess/OptionPersonal/index';
-import filter from './filter.png';
 import ListItemBorrow from './ListItemBorrow';
 import {
   BoxFlex,
@@ -26,8 +25,10 @@ import {
 import { useHistory } from 'react-router';
 import { searchApi } from 'api/searchApiHome';
 import queryString from 'query-string';
+import { SearchPawnshops } from 'app/components/Filter/SearchPawnshops';
+interface Props {}
 
-export const ResultOfferCrypto = () => {
+export const ResultOfferCrypto = (props: Props) => {
   const history = useHistory();
   const [status, setStatus] = useState(false);
   const handleShowFilter = () => {

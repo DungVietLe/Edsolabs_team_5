@@ -2,7 +2,6 @@ import styled from 'styled-components/macro';
 
 export const ItemBanner = styled.div`
   width: 49%;
-  padding-right: 100px;
   display: flex;
   align-items: flex-end;
   flex-direction: column;

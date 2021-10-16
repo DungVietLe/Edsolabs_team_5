@@ -170,7 +170,7 @@ export const ButtomMaxIcon = styled(ButtomBase)`
     display: block;
     width: 100%;
     padding: 15px 20px;
-    height: auto;
+    max-height: 54px;
     min-width: 64px;
     font-size: 16px;
     span {
@@ -184,6 +184,10 @@ export const ButtomMaxIcon = styled(ButtomBase)`
       top: 50%;
       left: calc(50% - 52px);
       transform: translate(-50%, -50%);
+    }
+    @media (max-width: 768px) {
+      max-height: 44px;
+      padding: 9px 20px;
     }
   }
 `;

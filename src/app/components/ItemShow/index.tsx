@@ -155,6 +155,8 @@ export const ItemShowBorrow = (props: any) => {
 };
 
 export const ItemShowLend = (props: any) => {
+  // const listIconLend =
+
   const { item } = props;
 
   const src = listLoan.filter(e => {

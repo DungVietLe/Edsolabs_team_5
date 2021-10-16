@@ -38,7 +38,7 @@ export function NewSelect(props: props) {
       marginRight: '2px',
       backgroundColor: 'rgba(255, 255, 255, 0.1)',
       color: '#fff !important',
-      '@media(max-width:600px)': {
+      '@media(max-width:768px)': {
         marginTop: '0px',
         padding: '2px 2px 2px 4px',
       },
@@ -50,7 +50,7 @@ export function NewSelect(props: props) {
       borderRadius: '10px',
       padding: '0px 7px',
       color: '#fff !important',
-      '@media(max-width:600px)': {
+      '@media(max-width:768px)': {
         padding: '0px 3px',
         fontSize: 14,
       },
@@ -102,7 +102,7 @@ export function NewSelect(props: props) {
       ...provided,
       fontSize: 14,
       padding: '6.5px 0',
-      '@media(max-width:600px)': {
+      '@media(max-width:768px)': {
         padding: '5px 0',
       },
     }),
@@ -114,14 +114,14 @@ export function NewSelect(props: props) {
       overflow: 'hidden',
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap',
-      '@media(max-width:600px)': {
+      '@media(max-width:768px)': {
         marginBottom: '0px',
       },
     }),
     valueContainer: provided => ({
       ...provided,
-      '@media(max-width:600px)': {
-        padding: '2px 3px',
+      '@media(max-width:768px)': {
+        padding: '1.5px 3px',
       },
     }),
 

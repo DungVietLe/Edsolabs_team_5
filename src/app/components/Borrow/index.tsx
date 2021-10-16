@@ -22,6 +22,7 @@ import {
   Wrapper,
 } from './styles';
 import queryString from 'query-string';
+import { Tooltip } from '@mui/material';
 import { messages } from './messages';
 import { useTranslation } from 'react-i18next';
 const Borrow = function (props) {
@@ -224,9 +225,17 @@ const Borrow = function (props) {
               />
             </div>
             {errors.loan && <span className="error">Invalid amount</span>}
-            <span className="tip">
-              {t(messages.heroRecomment())}
-              <InfoIcon />
+
+            <span className="tip" style={{ display: 'inline-block' }}>
+              Recommended amount
+              <Tooltip
+                style={{ display: 'inline' }}
+                className="tip"
+                title="To get a quickly, you should set the desired loan amount between 50 - 70% of the collateral value"
+                arrow
+              >
+                <InfoIcon />
+              </Tooltip>
             </span>
           </FormCtrol>
           <FormCtrol

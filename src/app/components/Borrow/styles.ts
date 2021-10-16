@@ -41,7 +41,7 @@ export const LabelTab = styled.span`
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  padding: 12.5px 24px;
+  padding: 13px 24px;
   color: #fff;
   border-radius: 172px;
   transition: all 0.5s ease-in-out;
@@ -56,7 +56,7 @@ export const LabelTab = styled.span`
     );
   }
   @media (max-width: 768px) {
-    padding: 8px 12px;
+    padding: 8.5px 12px;
   }
 `;
 
@@ -90,13 +90,13 @@ export const MyTextField = styled(TextField)`
           : 'box-shadow: 0px 0px 0px 1px rgb(248, 176, 23);'}
     }
     box-sizing: border-box;
-    max-height: 44px;
-    @media (max-width: 475px) {
-      max-height: 40px;
+    height: 44px;
+    @media (max-width: 768px) {
+      height: 40px;
     }
     input {
       display: inline-block;
-      padding: 10.5px 20px;
+      padding: 9.5px 20px;
       border-radius: 22px;
       font-weight: 500;
       font-size: 16px;
@@ -104,7 +104,7 @@ export const MyTextField = styled(TextField)`
 
       color: #fff;
       @media (max-width: 768px) {
-        padding: 8.5px 15px;
+        padding: 7.5px 15px;
       }
       &::hover {
         outline: none;
