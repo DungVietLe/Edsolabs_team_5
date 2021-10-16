@@ -1,11 +1,34 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from 'react';
+
+import { useHistory } from 'react-router';
 import { FormSearch, IconSearch, MyInput } from './rootStylesFilter';
 interface Props {}
 
 export const SearchPawnshops = (props: Props) => {
+  const history = useHistory();
+  const [value, setValue] = useState<any>();
+  const handleValueInput = e => {
+    setTimeout(() => {
+      setValue(e.target.value);
+    }, 500);
+  };
+  useEffect(() => {
+    const param = new URL(window.location.href);
+    const search_param = param.searchParams;
+    param.search = search_param.toString();
+    if (value !== undefined) {
+      search_param.set('name', value);
+    }
+    const new_url = param.search.toString();
+    history.push({
+      pathname: history.location.pathname,
+      search: new_url,
+    });
+  }, [value]);
   return (
     <FormSearch>
-      <MyInput placeholder="Search pawnshops" />
+      <MyInput placeholder="Search pawnshops" onChange={handleValueInput} />
       <IconSearch>
         <svg
           xmlns="http://www.w3.org/2000/svg"

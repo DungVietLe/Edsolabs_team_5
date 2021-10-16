@@ -36,13 +36,10 @@ export const HardNFT = (props: MyValue) => {
     const param = new URL(window.location.href);
     const search_param = param.searchParams;
     param.search = search_param.toString();
-
     search_param.set('nftType', hardNFT.data.join(','));
-
     const new_url = param.search.toString();
-
     history.push({ pathname: '', search: new_url });
-  }, [hardNFT]);
+  }, [hardNFT, history]);
 
   useEffect(() => {
     setHardNFT({ data: [] });
