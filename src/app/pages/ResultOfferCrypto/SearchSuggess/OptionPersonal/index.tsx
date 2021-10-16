@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import SuggesItems from '../Suggestions/SuggesItems';
 import {
@@ -16,7 +17,8 @@ import queryString from 'query-string';
 import { searchApi } from 'api/searchApiHome';
 import { messages } from '../../messages';
 import { useTranslation } from 'react-i18next';
-export default function ListSugges() {
+export default function ListSugges(props: any) {
+  const { total } = props;
   const { t } = useTranslation();
   const suggestData = {
     img: coin2,
@@ -34,7 +36,9 @@ export default function ListSugges() {
   }, []);
   return (
     <ViewOption>
-      <TextResults>{t(messages.findPakege())}</TextResults>
+      <TextResults>
+        {total} {t(messages.findPakege())}
+      </TextResults>
       <SuggesItems img="" title="" content="" />
       <ViewAllLending>
         <Lending>{t(messages.personalLending())}</Lending>

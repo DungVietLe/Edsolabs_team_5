@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -37,7 +38,7 @@ export const CollateralAccepted = (props: MyValue) => {
     const param = new URL(window.location.href);
     const search_param = param.searchParams;
     param.search = search_param.toString();
-    search_param.set('collateralSymbols', colateral.data.join(','));
+    search_param.set('collateralSymbols', colateral.data.toString());
     const new_url = param.search.toString();
     history.push({
       pathname: history.location.pathname,

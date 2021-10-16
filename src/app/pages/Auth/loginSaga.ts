@@ -20,9 +20,9 @@ function* registerUser(payload: any) {
   const data = payload.payload;
   try {
     yield authApi.postRegister(data);
-    yield put(loginAction.registerSuccess(''));
+    yield put(loginAction.registerSuccess(true));
   } catch (error) {
-    yield put(loginAction.registerError('user.register.email-already-existed'));
+    yield put(loginAction.registerError(true));
   }
 }
 

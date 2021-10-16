@@ -30,8 +30,20 @@ const schema = yup
     password: yup
       .string()
       .required('Invalid password')
+      .matches(
+        /(?=.*?[0-9])/,
+        'Password should contain at least one digit(0-9)',
+      )
       .min(8, 'Password length should be between 8 to 255 characters.')
-      .max(255, 'Password length should be between 8 to 255 characters.'),
+      .max(255, 'Password length should be between 8 to 255 characters.')
+      .matches(
+        /(?=.*?[A-Z])/,
+        'Password should contain at least one uppercase letter(A-Z).',
+      )
+      .matches(
+        /(?=.*?[#?!@$%^&*-])/,
+        'Password should contain at least one special character ( @, #, %, &, !, $, etc….).',
+      ),
   })
   .required();
 

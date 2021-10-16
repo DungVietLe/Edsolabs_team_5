@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Footer from 'app/components/Footer/Footer';
 import Header from 'app/components/Header';
 import Paginations from 'app/components/Pagination';
@@ -42,9 +43,7 @@ const ResultLend = () => {
       .then((res: any) => {
         setListApiData(res.data);
       })
-      .catch(error => {
-        console.log(error);
-      });
+      .catch(error => {});
   }, [newUrl]);
 
   const [clear, setClear] = useState(false);

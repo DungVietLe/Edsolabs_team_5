@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Checkbox, FormControlLabel } from '@mui/material';
 import Accordion from '@mui/material/Accordion';
@@ -40,7 +41,7 @@ export const Duration = (props: MyValue) => {
     const param = new URL(window.location.href);
     const search_param = param.searchParams;
     param.search = search_param.toString();
-    search_param.set('durationTypes', duration.data.join(','));
+    search_param.set('durationTypes', duration.data.toString());
     const new_url = param.search.toString();
     history.push({ pathname: history.location.pathname, search: new_url });
   }, [duration, history]);

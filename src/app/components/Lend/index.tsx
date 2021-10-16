@@ -1,13 +1,13 @@
 import SearchIcon from '@mui/icons-material/Search';
 import { FormControlLabel, Radio, RadioGroup } from '@mui/material';
+import queryString from 'query-string';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { useHistory } from 'react-router';
 import { listCoin, listLoan } from '../Filter/DataCoin';
 import { ButtomMaxIcon, ButtomSmall, Flex } from '../rootStyled';
 import { NewSelect } from '../Selecter';
 import { Form, FormCtrol, MyTextField, Wrapper } from './style';
-import queryString from 'query-string';
-import { useHistory } from 'react-router';
 interface propsImg {
   src?: any;
 }
@@ -69,7 +69,7 @@ const Lend = () => {
     value: item.value,
     label: [<ImageIcon key={key} src={item.url} />, item.value],
   }));
-  const newArrLoan = [];
+
   return (
     <Wrapper>
       <Form onSubmit={handleSubmit(onSubmit)}>

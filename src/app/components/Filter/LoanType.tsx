@@ -32,15 +32,11 @@ export const LoanType = (props: MyValue) => {
       });
     }
   };
-  // useEffect(() => {
-  //   const url = queryString.parse(history.location.search);
-  //   setLoanType({ data: [url.loanTypes] });
-  // }, []);
   useEffect(() => {
     const param = new URL(window.location.href);
     const search_param = param.searchParams;
     param.search = search_param.toString();
-    search_param.set('loanTypes', LoanType.data.join(','));
+    search_param.set('loanTypes', LoanType.data.toString());
     const new_url = param.search.toString();
     history.push({ pathname: history.location.pathname, search: new_url });
   }, [LoanType, history]);

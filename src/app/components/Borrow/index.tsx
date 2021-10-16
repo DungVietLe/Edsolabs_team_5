@@ -286,7 +286,7 @@ const Borrow = function (props) {
 
   const NFT = function (props) {
     const { handleSubmit } = useForm();
-    const onSubmit = (data: object) => console.log(data);
+    const onSubmit = (data: object) => data;
     return (
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FlexColumn style={{ marginBottom: '52px' }}>

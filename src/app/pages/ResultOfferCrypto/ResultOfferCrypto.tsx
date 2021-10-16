@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { CollateralAccepted } from 'app/components/Filter/CollateralAccepted';
 import { Duration } from 'app/components/Filter/Duration';
 import { InterestRange } from 'app/components/Filter/InterestRange';
@@ -44,9 +45,7 @@ export const ResultOfferCrypto = (props: Props) => {
       .then((res: any) => {
         setListApiData(res.data);
       })
-      .catch(error => {
-        console.log(error);
-      });
+      .catch(error => {});
   }, [newUrl]);
   // hàm reset filter
   const [clear, setClear] = useState(false);
@@ -67,7 +66,7 @@ export const ResultOfferCrypto = (props: Props) => {
               >
                 <img src={filter} alt="acoin" onClick={handleShowFilter} />
               </div>
-              <ListSugges />
+              <ListSugges total={listApiData.total_elements} />
               <ListItemBorrow listApiData={listApiData}></ListItemBorrow>
               <Paginations
                 length={listApiData.total_pages}

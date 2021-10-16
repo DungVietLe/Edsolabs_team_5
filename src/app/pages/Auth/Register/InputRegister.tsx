@@ -1,16 +1,26 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { CircularProgress, IconButton, InputAdornment } from '@mui/material';
+import {
+  CircularProgress,
+  IconButton,
+  InputAdornment,
+  Modal,
+  Typography,
+} from '@mui/material';
+import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useRecaptcha } from 'react-hook-recaptcha';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import {
   loginAction,
   selectLoading,
+  selectRegisterFaild,
   selectRegisterSuccess,
 } from '../loginSlice';
+import { messages } from '../messages';
 import {
   BoxLogin,
   Mybox,
@@ -19,9 +29,9 @@ import {
   MyLabel,
   MyTextField,
   NtfTitle,
+  TitleNtf,
 } from '../stylesForAuth';
-import { messages } from '../messages';
-import { useTranslation } from 'react-i18next';
+import { MybuttonNtf } from '../stylesForAuth';
 
 interface IFormInputs {
   name: string;
@@ -29,6 +39,17 @@ interface IFormInputs {
   password: any;
   confirmPassword: any;
 }
+const style = {
+  position: 'absolute' as 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  boxShadow: 24,
+  p: 4,
+  backgroundColor: '#282c38',
+  borderRadius: '20px',
+};
 
 const containerId = 'test-recaptcha';
 const sitekey = '6LcSG9EaAAAAABvbpHkdugGmjEWeYPp6NoPPDEvt';
@@ -110,15 +131,36 @@ export const InputRegister = props => {
       showConfirmpassword: !state.showConfirmpassword,
     }));
   };
-
+  const checkFaild = useSelector(selectRegisterFaild);
+  const checkSuccess = useSelector(selectRegisterSuccess);
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => setOpen(false);
   const onSubmit = (data: any) => {
     const newData = { ...data, recaptcha_response: captchaResponse };
     dispatch(loginAction.register(newData));
+    setOpen(true);
   };
 
-  const ntfSuccess = useSelector(selectRegisterSuccess);
   return (
     <MyComponent>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          {checkFaild && (
+            <TitleNtf>'This email address is already registered!'</TitleNtf>
+          )}
+          {checkSuccess && (
+            <TitleNtf>
+              'Create Account Success ! Go to Email Active Your Account!
+            </TitleNtf>
+          )}
+          <MybuttonNtf onClick={handleClose}>OK</MybuttonNtf>
+        </Box>
+      </Modal>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Mybox h="388px">
           <Controller

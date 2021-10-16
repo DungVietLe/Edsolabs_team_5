@@ -3,15 +3,15 @@ import { createSlice } from '@reduxjs/toolkit';
 export interface loginState {
   loading: Boolean;
   isLoggin: Boolean;
-  registerError: string | null;
-  registerSuccess: string | null;
+  registerSuccess: Boolean;
+  registerFaild: Boolean;
 }
 
 const initialState: loginState = {
   loading: false,
   isLoggin: false,
-  registerError: null,
-  registerSuccess: null,
+  registerSuccess: false,
+  registerFaild: false,
 };
 
 const loginSlice = createSlice({
@@ -39,11 +39,11 @@ const loginSlice = createSlice({
     },
     registerSuccess(state, action) {
       state.loading = false;
-      alert('Create Account Success ! Go to Email Active Account -___-');
+      state.registerSuccess = action.payload;
     },
     registerError(state, action) {
       state.loading = false;
-      alert('This email address is already registered');
+      state.registerFaild = action.payload;
     },
   },
 });
@@ -55,7 +55,7 @@ export const selectLoading = (state: any) => state.login.loading;
 export const selectIsLogin = (state: any) => state.login.isLoggin;
 export const selectRegisterSuccess = (state: any) =>
   state.login.registerSuccess;
-export const selectRegisterError = (state: any) => state.login.registerError;
-export //reducer
-const loginReducer = loginSlice.reducer;
+export const selectRegisterFaild = (state: any) => state.login.registerFaild;
+
+export const loginReducer = loginSlice.reducer;
 export default loginReducer;
