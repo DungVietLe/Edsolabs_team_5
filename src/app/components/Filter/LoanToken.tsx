@@ -30,6 +30,10 @@ export const LoanToken = (props: MyValue) => {
     }
   };
   useEffect(() => {
+    const url = queryString.parse(history.location.search);
+    setLoanToken({ data: [url.loanSymbols] });
+  }, []);
+  useEffect(() => {
     const param = new URL(window.location.href);
     const search_param = param.searchParams;
     param.search = search_param.toString();
@@ -38,11 +42,13 @@ export const LoanToken = (props: MyValue) => {
 
     const new_url = param.search.toString();
 
-    history.push({ pathname: '', search: new_url });
+    history.push({ pathname: history.location.pathname, search: new_url });
   }, [loanToken, history]);
 
   useEffect(() => {
-    setLoanToken({ data: [] });
+    if (props.checker) {
+      setLoanToken({ data: [] });
+    }
   }, [props.checker]);
   const renderListCoin = listLoan.map((item, index) => {
     return (

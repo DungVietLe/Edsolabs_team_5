@@ -36,7 +36,7 @@ export const ResultOfferCrypto = () => {
   //gọi data api render list item
   const [listApiData, setListApiData] = useState<any>([]);
   const param = queryString.parse(history.location.search);
-  const newUrl = window.location.search;
+  const newUrl = history.location.search;
   useEffect(() => {
     searchApi
       .getDataSearchHome(param)
@@ -51,7 +51,7 @@ export const ResultOfferCrypto = () => {
   const [clear, setClear] = useState(false);
   const handleReserFilter = () => {
     history.push('/pawn/offer?size=10&status=3&durationTypes=');
-    setClear(!clear);
+    setClear(true);
   };
   return (
     <div>

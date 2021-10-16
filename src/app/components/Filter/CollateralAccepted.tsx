@@ -29,21 +29,26 @@ export const CollateralAccepted = (props: MyValue) => {
       });
     }
   };
-
+  useEffect(() => {
+    const url = queryString.parse(history.location.search);
+    setColateral({ data: [url.collateralSymbols] });
+  }, []);
   useEffect(() => {
     const param = new URL(window.location.href);
     const search_param = param.searchParams;
     param.search = search_param.toString();
-
     search_param.set('collateralSymbols', colateral.data.join(','));
-
     const new_url = param.search.toString();
-
-    history.push({ pathname: '', search: new_url });
+    history.push({
+      pathname: history.location.pathname,
+      search: new_url,
+    });
   }, [colateral, history]);
   // reset
   useEffect(() => {
-    setColateral({ data: [] });
+    if (props.checker) {
+      setColateral({ data: [] });
+    }
   }, [props.checker]);
   const renderListCoin = listCoin.map((item, index) => {
     return (
