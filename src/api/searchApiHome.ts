@@ -14,4 +14,8 @@ export const searchApi = {
     const url = '/pawn-shop/search-p2p-lenders';
     return axiosSearch.get(url, { params: param });
   },
+  getDataLendCrypto(param: any) {
+    const url = '/collaterals/search';
+    return axiosSearch.get(url, { params: param });
+  },
 };

@@ -36,6 +36,19 @@ const Paginations = (props: props) => {
             sx={{
               '.MuiPagination-ul': {
                 justifyContent: 'center',
+                columnGap: '12px',
+              },
+              '.MuiButtonBase-root': {
+                color: '#fff',
+                border: '1px solid #fff',
+                borderRadius: '4px',
+              },
+              '.Mui-selected': {
+                border: '1px solid transparent',
+              },
+              'button.MuiButtonBase-root.Mui-disabled': {
+                border: '1px solid #74767B',
+                color: '#74767B',
               },
             }}
             page={newPage}
