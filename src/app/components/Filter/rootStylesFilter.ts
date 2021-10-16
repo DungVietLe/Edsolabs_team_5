@@ -35,9 +35,7 @@ export const ContainerInterest = styled.div`
     border-bottom: 1px solid #45484f;
     border-radius: 0px;
     box-shadow: none;
-    & .MuiFormControlLabel-root {
-      column-gap: 30px;
-    }
+
     & > div.MuiButtonBase-root {
       & > div.css-o4b71y-MuiAccordionSummary-content {
         & > p.css-ahj2mt-MuiTypography-root {

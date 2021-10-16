@@ -339,6 +339,7 @@ export function SearchResult() {
                   ''
                 )}
               </TableContainer>
+              {/* <Wrappermb>  */}
               <WrapperMobie>
                 {firstData.map(e => (
                   <Item>

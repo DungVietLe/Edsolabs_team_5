@@ -119,16 +119,20 @@ export const MyFlex = styled.div`
   }
 `;
 
+export const wrappermb = styled.div`
+  display: none;
+  @media (max-width: 1024px) {
+    display: block;
+  }
+`;
+
 export const WrapperMobie = styled.div`
   display: flex;
   row-gap: 16px;
   column-gap: 15px;
   flex-direction: column;
   width: calc(100%);
-  display: none;
-  @media (max-width: 1024px) {
-    display: flex;
-  }
+
   /* margin-left: -1.25rem;
   margin-right: -1.25rem; */
   @media (max-width: 768px) {
