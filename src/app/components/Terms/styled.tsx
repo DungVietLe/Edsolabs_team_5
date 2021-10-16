@@ -11,12 +11,15 @@ export const ViewTerm = styled.div`
 `;
 export const Term = styled.div`
   max-width: 1324px;
-  height: 70vh;
+  height: 73vh;
   background: #282c37;
   border-radius: 20px;
   margin: 98px auto;
-  @media (max-width: 1526px) {
-    height: 521px;
+  @media (max-width: 1600px) {
+    height: 78vh;
+  }
+  @media (max-width: 425px) {
+    height: 75vh;
   }
 `;
 export const ViewText = styled.div``;
@@ -80,8 +83,8 @@ export const Text = styled.div`
   .information {
     margin-bottom: 15px;
   }
-  @media (max-width: 1526px) {
-    height: 23vh;
+  @media (max-width: 1600px) {
+    height: 40vh;
   }
   @media (max-width: 600px) {
     height: 20vh;
@@ -89,7 +92,12 @@ export const Text = styled.div`
   @media (max-width: 425px) {
     margin: 12px 0px 8px 17px;
     font-size: 14px;
-    height: 26vh;
+    height: 40vh;
+  }
+  @media (max-width: 375px) {
+    margin: 12px 0px 8px 17px;
+    font-size: 14px;
+    height: 35vh;
   }
 `;
 export const ButtonClick = styled.div`
