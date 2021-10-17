@@ -208,7 +208,7 @@ export const MyContainerCoppyright = styled.div`
     align-items: center;
     justify-contents: center;
   }
-  @media (min-width: 600px) and (max-width: 700px) {
+  @media (min-width: 600px) and (max-width: 768px) {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -216,7 +216,7 @@ export const MyContainerCoppyright = styled.div`
     justify-contents: center;
   }
   @media (min-width: 700px) and (max-width: 1024px) {
-    max-width: 720px;
+    max-width: 820px;
     padding: 8px;
     margin: 0 auto;
     display: flex;
@@ -234,7 +234,7 @@ export const CoppyRight = styled.div`
 `;
 export const Links = styled.div`
   display: flex;
-  @media (max-width: 480px) {
+  @media (max-width: 490px) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
