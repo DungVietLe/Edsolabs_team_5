@@ -1,7 +1,9 @@
 import { COLOR_GRAY_COPPYRIGHT } from 'app/constains/global';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import vietnam from '../../../images/country/download.png';
 import ameri from '../../../images/country/flag.gb.74ff57f.png';
+import { LanguageSwitch } from '../LanguageSwitch';
 import email from '../Logo/email.svg';
 import fb from '../Logo/fb.svg';
 import github from '../Logo/github.svg';
@@ -11,9 +13,9 @@ import logo from '../Logo/logo.svg';
 import telegram from '../Logo/telegram.svg';
 import twitter from '../Logo/twitter.svg';
 import youtube from '../Logo/youtube.svg';
+import { messages } from './messages';
 import {
   CoppyRight,
-  DfyDecorator,
   Links,
   LinkTo,
   ListSocical,
@@ -35,9 +37,6 @@ import {
   SubLink,
   Subtitle,
 } from './styled';
-import { messages } from './messages';
-import { useTranslation } from 'react-i18next';
-import { LanguageSwitch } from '../LanguageSwitch';
 interface Props {}
 
 const Footer = (props: Props) => {
@@ -46,7 +45,6 @@ const Footer = (props: Props) => {
     <div>
       <MyFooter>
         <MyNavigation>
-          <DfyDecorator>DEFI FOR YOU</DfyDecorator>
           <MyContainer>
             <MyGrid>
               <MyCompany>

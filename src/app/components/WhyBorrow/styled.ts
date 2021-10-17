@@ -35,7 +35,7 @@ export const ListBorrow = styled.div`
   @media (max-width: 768px) {
     justify-content: center;
     flex-wrap: wrap;
-    row-gap: 30px;
+    row-gap: 40px;
     padding-bottom: 50px;
   }
 `;

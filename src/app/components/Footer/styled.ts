@@ -6,25 +6,39 @@ import {
   COLOR_TITLE_WHITE_FOOTER,
 } from 'app/constains/global';
 import styled from 'styled-components/macro';
-
+import footer from './decorator.png';
 export const MyFooter = styled.div`
   width: 100%;
   height: 808px;
-  padding: 80px 0;
-
-  background: #171a23;
+  padding: 130px 0;
+  background-image: url(${footer});
+  background-repeat: no-repeat;
+  background-size: 1486px;
+  background-position: 0 64px;
+  background-color: #171a23;
   border-top: 1px solid rgba(125, 111, 125, 0.8);
   @media (max-width: 600px) {
     height: auto;
-    padding: 30px 0 29px;
+    padding: 50px 0 29px;
+    background-size: 100%;
+    background-position: 0 30px;
   }
   @media (min-width: 600px) and (max-width: 768px) {
+    background-size: 100%;
+    background-position: 0 30px;
+    padding: 60px 0 20px 0;
     height: auto;
   }
   @media (min-width: 760px) and (max-width: 1020px) {
+    background-size: 100%;
+    background-position: 0 30px;
+    padding: 60px 0 20px 0;
     height: auto;
   }
   @media (min-width: 1020px) and (max-width: 1366px) {
+    background-size: 100%;
+    background-position: 0 30px;
+    padding: 90px 0 20px 0;
     height: auto;
     width: auto;
   }
@@ -36,7 +50,8 @@ export const MyCoppyright = styled.div`
   height: 61px;
   color: ${COLOR_GRAY_COPPYRIGHT};
   font-size: 14px;
-  background: ${COLOR_BG_FOOTER};
+  background-color: ${COLOR_BG_FOOTER};
+
   padding: 16px 0 24px 0;
   @media (max-width: 600px) {
     min-height: 90px;
@@ -54,7 +69,7 @@ export const MyCoppyright = styled.div`
   }
 `;
 export const MyContainer = styled.div`
-  max-width: 1180px;
+  max-width: 1324px;
   margin: 0 auto;
   padding: 12px 16px;
   display: flex;
@@ -100,6 +115,7 @@ export const SubLink = styled.a`
 export const Subtitle = styled.span`
   color: ${COLOR_PRIMARY_FOOTER};
   font-size: 14px;
+  font-weight: 600;
 `;
 
 export const MyGrid = styled.div`
@@ -167,35 +183,11 @@ export const MyQuicklink = styled.div`
   flex-direction: column;
   grid-area: quick;
 `;
-export const DfyDecorator = styled.div`
-  font-family: 'Druk Wide Bold';
-  font-size: 8.6em;
-  color: transparent;
-  max-width: 100%;
-  line-height: 1em;
-  margin-bottom: -62px;
-
-  -webkit-text-stroke: 1px #2e3b4f;
-  overflow: hidden;
-  white-space: nowrap;
-  user-select: none;
-  pointer-events: none;
-  @media (max-width: 600px) {
-    font-size: 2em;
-    margin-left: -2px;
-    margin-bottom: -21px;
-  }
-  @media (min-width: 600px) and (max-width: 768px) {
-    font-size: 4em;
-
-    margin-bottom: -21px;
-  }
-`;
 export const ListSocical = styled.div`
   display: flex;
 `;
 export const MyContainerCoppyright = styled.div`
-  max-width: 1180px;
+  max-width: 1324px;
   width: 100%;
   display: flex;
   justify-content: space-between;
