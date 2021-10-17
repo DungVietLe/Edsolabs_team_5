@@ -72,8 +72,7 @@ export const Text = styled.div`
   line-height: 44px;
   display: flex;
   margin: 0 auto;
-  padding-top: 60px;
-  padding-bottom: 100px;
+  padding-bottom: 64px;
   text-transform: capitalize;
   color: #dba83d;
   text-align: center;
