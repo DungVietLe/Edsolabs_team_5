@@ -40,6 +40,7 @@ import {
   Subtitle,
 } from './styled';
 import arrow from './Arrow2.png';
+import arrow1 from './Arrow1.png';
 
 const Footer = props => {
   const { t } = useTranslation();
@@ -119,7 +120,7 @@ const Footer = props => {
                 </Subcontext>
                 <Subcontext>Registration Number: 13126050</Subcontext>
                 <SubLink href="https://find-and-update.company-information.service.gov.uk/company/13126050?fbclid=IwAR3Fm3QHdllfP_z1QIZ9e9UX-warFarV1XuwBqsxXyPl0M3k-BLSvkNdXuE">
-                  {t(messages.view())} <img src={arrow} alt="arrow" />
+                  {t(messages.view())} <img src={arrow1} alt="arrow" />
                 </SubLink>
               </MyOfficeUS>
               <MyAbouts>

@@ -13,7 +13,10 @@ import { listLoan } from './DataCoin';
 import { MyValue } from 'models/Myvalue';
 import { useHistory } from 'react-router';
 import queryString from 'query-string';
+import { messages } from './messages';
+import { useTranslation } from 'react-i18next';
 export const LoanCurrency = (props: MyValue) => {
+  const { t } = useTranslation();
   const [loanToken, setLoanToken] = useState<any>({
     data: [],
   });
@@ -90,7 +93,7 @@ export const LoanCurrency = (props: MyValue) => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Loan Currency</Typography>
+          <Typography>{t(messages.currency())}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <FormGroup>{renderListCoin}</FormGroup>

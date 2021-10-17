@@ -9,12 +9,12 @@ import styled from 'styled-components/macro';
 import footer from './decorator.png';
 export const MyFooter = styled.div`
   width: 100%;
-  height: 808px;
-  padding: 130px 0;
+  height: 796px;
+  padding: 154px 0;
   background-image: url(${footer});
   background-repeat: no-repeat;
   background-size: 1486px;
-  background-position: 0 64px;
+  background-position: 0 83px;
   background-color: #171a23;
   border-top: 1px solid rgba(125, 111, 125, 0.8);
   @media (max-width: 600px) {
@@ -122,7 +122,7 @@ export const SubLink = styled.a`
 `;
 export const SubLinkInter = styled.a`
   font-family: 'Inter', sans-serif !important;
-  color: ${COLOR_PRIMARY_FOOTER};
+  color: ${COLOR_GRAY_FOOTER};
   font-size: 14px;
   text-decoration: none;
   margin-top: 0.6em;

@@ -128,5 +128,21 @@
     "sub12": "People are generally seeking to grow the value of their assets and or perceived investments. The general intention and hopes are that the value of these items increases over time.This does not always happen and the intrinsic value of the tangible or intangible object can go up, down, stay the same or drop to a minus value.",
     "accept": "Accept",
     "decline": "Decline"
+  },
+  "filter": {
+    "resetAll": "Reset filter",
+    "interRange": "Interest range",
+    "loantovalue": "Loan to Value",
+    "collateral": "Collateral accepted",
+    "loanToken": "Loan Token",
+    "loanType": "Loan Type",
+    "auto": "Auto",
+    "semi": "Semi-auto",
+    "nego": "Negotiation",
+    "duration": "Duration",
+    "week": "Week",
+    "month": "Month",
+    "col": "Collateral",
+    "currency": "Loan Currency"
   }
 }

@@ -6,7 +6,7 @@ import {
   COLOR_PRIMARY_FOOTER,
   COLOR_TITLE_WHITE_FOOTER,
 } from 'app/constains/global';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 interface MyProps {
   sz?: string;
   fw?: any;
@@ -59,7 +59,7 @@ export const TitleAuth = styled.h2`
 `;
 export const NtfTitle = styled.div`
   font-family: 'Montserrat', sans-serif;
-  width: 715px;
+  max-width: 715px;
   font-size: ${(p: MyProps) => (p.sz !== '' ? p.sz : '16px')};
   font-weight: ${(p: MyProps) => (p.fw !== '' ? p.fw : 500)};
   line-height: 24.38px;

@@ -10,9 +10,12 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import { ContainerInterest } from './rootStylesFilter';
 import queryString from 'query-string';
+import { messages } from './messages';
+import { useTranslation } from 'react-i18next';
 interface Props {}
 
 export const LoanValue = (props: Props) => {
+  const { t } = useTranslation();
   const [expanded, setExpanded] = React.useState<string | false>('on');
   const history = useHistory();
 
@@ -40,7 +43,7 @@ export const LoanValue = (props: Props) => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Loan to value</Typography>
+          <Typography>{t(messages.loantovalue())}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <RadioGroup name="radio-buttons-group">

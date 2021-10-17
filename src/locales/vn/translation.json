@@ -90,7 +90,7 @@
     "desHero": "Yêu cầu một khoản vay từ người cho vay P2P đáng tin cậy để nhận được lãi suất và LTV tốt hơn",
     "personalLending": "Cho vay cá nhân",
     "signedContracts": "hợp đồng đã ký",
-    "collateralPer": "Tài sản thế chấp được chấp nhận",
+    "collateralPer": "Tài sản được chấp nhận",
     "more": "còn nữa",
     "requestButton": "Yêu cầu vay",
     "instantloan": "Muốn có một khoản vay tức thì?",
@@ -127,5 +127,21 @@
     "sub12": "Mọi người nói chung đang tìm cách tăng giá trị tài sản và hoặc các khoản đầu tư được nhận thức của họ. Mục đích và hy vọng chung là giá trị của những món đồ này tăng lên theo thời gian.",
     "accept": "Chấp nhận",
     "decline": "Từ chối"
+  },
+  "filter": {
+    "resetAll": "Đặt lại",
+    "interRange": "Phạm vi quan tâm",
+    "loantovalue": "Giá trị khoản vay",
+    "collateral": "Tài sản được chấp nhận",
+    "loanToken": "Đơn vị Vay",
+    "loanType": "Kiểu vay",
+    "auto": "Tự động",
+    "semi": "Bán tự động",
+    "nego": "Đàm phán",
+    "duration": "Thời hạn",
+    "week": "Tuần",
+    "month": "Tháng",
+    "col": "Tài sản thế chấp",
+    "currency": "Tiền cho vay"
   }
 }
