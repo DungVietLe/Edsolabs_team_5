@@ -40,8 +40,8 @@ export const SliderHome = styled.div`
       @media (max-width: 600px) {
         left: -20px;
       }
-      @media (max-width: 480px) {
-        left: -2px;
+      @media (max-width: 320px) {
+        left: 1px;
       }
     }
     .slick-next {
@@ -54,6 +54,9 @@ export const SliderHome = styled.div`
       }
       @media (max-width: 480px) {
         right: -2px;
+      }
+      @media (max-width: 320px) {
+        right: 1px;
       }
     }
     .slick-slide img {
