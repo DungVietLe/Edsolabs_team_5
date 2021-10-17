@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
 export const SliderHome = styled.div`
   background: rgba(35, 39, 50, 1);
+
   width: 100%;
   @media (min-width: 1440px) {
     padding: 60px 174px 80px 174px;
@@ -9,10 +10,12 @@ export const SliderHome = styled.div`
     .slick-arrow {
       path {
         color: #fff;
+
         @media (max-width: 480px) {
           font-size: 18px;
         }
       }
+      margin-top: 16px;
       background: rgba(219, 168, 61, 0.5);
       width: 74px;
       height: 74px;
