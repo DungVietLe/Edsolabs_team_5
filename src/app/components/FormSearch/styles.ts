@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 export const ItemSearch = styled.div`
   width: 600px;
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1300px) {
     width: 50%;
   }
   @media screen and (max-width: 991px) {
@@ -64,8 +64,11 @@ export const TabContent = styled.div`
   background-color: #171a23;
   border-radius: 30px;
   box-shadow: 0 0px 30px 20px rgba(23, 26, 35, 0.3);
-  min-height: 681px;
-  max-width: 600px;
+  height: auto;
+  width: 600px;
+  @media (max-width: 1300px) {
+    width: 100%;
+  }
   @media (max-width: 1200px) {
     max-width: 1200px;
     min-height: auto;

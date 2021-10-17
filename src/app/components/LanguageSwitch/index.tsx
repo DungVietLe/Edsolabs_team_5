@@ -22,6 +22,9 @@ export function LanguageSwitch() {
           '&.MuiFormGroup-root': {
             flexDirection: 'row',
           },
+          '@media (max-width:320px)': {
+            display: 'none',
+          },
         }}
       >
         <FormControlLabel
@@ -29,8 +32,7 @@ export function LanguageSwitch() {
           control={<Radio sx={{ display: 'none !important' }} />}
           sx={{
             '&.MuiFormControlLabel-root': {
-              margin: 0,
-              marginRight: '10px',
+              margin: '0 5px',
             },
           }}
           label={
@@ -38,13 +40,12 @@ export function LanguageSwitch() {
               <img
                 style={{
                   display: 'inline-block',
-                  width: 'auto',
+                  width: '30px',
                   height: '15px',
                 }}
                 src={EN}
                 alt=""
               />
-              {' EN'}
             </div>
           }
         />
@@ -53,8 +54,7 @@ export function LanguageSwitch() {
           control={<Radio sx={{ display: 'none !important' }} />}
           sx={{
             '&.MuiFormControlLabel-root': {
-              margin: 0,
-              marginRight: '10px',
+              margin: '0 5px',
             },
           }}
           label={
@@ -62,13 +62,12 @@ export function LanguageSwitch() {
               <img
                 style={{
                   display: 'inline-block',
-                  width: 'auto',
-                  height: '15px',
+                  width: '30px',
+                  height: '20px',
                 }}
                 src={VN}
                 alt=""
               />
-              {' VI'}
             </div>
           }
         />

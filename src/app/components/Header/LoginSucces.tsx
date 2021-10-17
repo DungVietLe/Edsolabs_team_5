@@ -64,6 +64,9 @@ export default function LoginSuccess(props: MyUser) {
     <Stack
       sx={{
         zIndex: '2',
+        '@media (max-width:1200px)': {
+          display: 'none',
+        },
       }}
       direction="row"
       spacing={2}

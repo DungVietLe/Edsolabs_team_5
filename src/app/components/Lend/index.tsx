@@ -119,7 +119,7 @@ const Lend = () => {
                 Max
               </ButtomSmall>
             </div>
-            {errors.maxLoan && <span className="error">Invalid amount</span>}
+            {errors.maxLoan && <div className="error">Invalid amount</div>}
           </FormCtrol>
           <FormCtrol
             style={{
@@ -147,7 +147,7 @@ const Lend = () => {
                 />
               )}
             />
-            {errors.currency && <span className="error">Invalid amount</span>}
+            {errors.currency && <div className="error">Invalid amount</div>}
           </FormCtrol>
         </Flex>
         <Flex justifyContent="space-between" gap={10} alignItem="center">
@@ -164,11 +164,12 @@ const Lend = () => {
                 placeholder="Duration"
                 {...register('duration', {
                   required: true,
+                  pattern: /[0-9]/,
                   onChange: handleChangeDuration,
                 })}
               />
             </div>
-            {errors.duration && <span className="error">Invalid amount</span>}
+            {errors.duration && <div className="error">Invalid amount</div>}
           </FormCtrol>
           <FormCtrol
             style={{
@@ -243,10 +244,8 @@ const Lend = () => {
         {isRadio === 'true' ? (
           <FormCtrol
             style={{
-              justifyContent: 'flex-start',
-              flexDirection: 'column',
-              paddingTop: '24px',
               zIndex: 1,
+              height: '50px',
             }}
           >
             <Controller
@@ -258,16 +257,14 @@ const Lend = () => {
               render={({ field: { onChange, value, ref } }) => (
                 <NewSelect
                   error={Boolean(errors.mutiCurrency)}
-                  // mutiValue={value}
+                  mutiValue={value}
                   onChange={onChange}
                   data={arrCurrency}
                   styleSelect={true}
                 />
               )}
             />
-            {errors.mutiCurrency && (
-              <span className="error">Invalid amount</span>
-            )}
+            {errors.mutiCurrency && <div className="error">Invalid amount</div>}
           </FormCtrol>
         ) : (
           ''

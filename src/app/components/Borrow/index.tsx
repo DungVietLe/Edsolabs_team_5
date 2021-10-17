@@ -121,7 +121,7 @@ const Borrow = function (props) {
                 Max
               </ButtomSmall>
             </div>
-            {errors.collateral && <span className="error">Invalid amount</span>}
+            {errors.collateral && <div className="error">Invalid amount</div>}
           </FormCtrol>
           <FormCtrol
             style={{
@@ -149,7 +149,7 @@ const Borrow = function (props) {
                 />
               )}
             />
-            {errors.currency && <span className="error">Invalid amount</span>}
+            {errors.currency && <div className="error">Invalid amount</div>}
           </FormCtrol>
         </Flex>
         <FormCtrol>
@@ -160,7 +160,7 @@ const Borrow = function (props) {
         </FormCtrol>
 
         <Flex justifyContent="space-between" gap={10} alignItem="stretch">
-          <FormCtrol className="left">
+          <FormCtrol className="left" style={{ marginBottom: '4px' }}>
             <label htmlFor="collateral">{t(messages.heroDuration())}</label>
             <div style={{ position: 'relative' }}>
               <MyTextField
@@ -177,7 +177,7 @@ const Borrow = function (props) {
                 })}
               />
             </div>
-            {errors.duration && <span className="error">Invalid amount</span>}
+            {errors.duration && <div className="error">Invalid amount</div>}
           </FormCtrol>
           <FormCtrol
             style={{
@@ -214,16 +214,16 @@ const Borrow = function (props) {
                 id="loan"
                 variant="outlined"
                 type="text"
-                placeholder="Loan"
+                placeholder="Enter amount"
                 {...register('loan', {
                   required: true,
                   onChange: handleChangeLoan,
                 })}
               />
             </div>
-            {errors.loan && <span className="error">Invalid amount</span>}
+            {errors.loan && <div className="error">Invalid amount</div>}
 
-            <span className="tip" style={{ display: 'inline-block' }}>
+            <div className="box-tip" style={{ display: 'inline-block' }}>
               {t(messages.heroRecomment())}
               <Tooltip
                 style={{ display: 'inline' }}
@@ -233,7 +233,7 @@ const Borrow = function (props) {
               >
                 <InfoIcon />
               </Tooltip>
-            </span>
+            </div>
           </FormCtrol>
           <FormCtrol
             style={{
@@ -260,7 +260,10 @@ const Borrow = function (props) {
             />
           </FormCtrol>
         </Flex>
-        <div className="form-control" style={{ marginTop: '60px' }}>
+        <div
+          className="form-control"
+          style={{ marginTop: '60px', marginBottom: '30px' }}
+        >
           <ButtomMaxIcon
             bg="dba83d"
             style={{ fontSize: '20px' }}

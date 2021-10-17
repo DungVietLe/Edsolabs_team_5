@@ -168,6 +168,15 @@ export const ItemShowLend = (props: any) => {
       return e;
     }
   });
+  const convertStr = str => {
+    if (str?.length > 16) {
+      const firstArr = str.substr(0, 5);
+      const lastArr = str.substr(str.lenght - 5, 5);
+      return `${firstArr}...${lastArr}`;
+    } else {
+      return str;
+    }
+  };
 
   function formatMoney(n) {
     return (Math.round(n * 100) / 100).toLocaleString();

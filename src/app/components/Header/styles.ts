@@ -94,11 +94,8 @@ export const MenuDesktop = styled.ul`
     font-size: 16px;
     line-height: 20px;
   }
-  @media (max-width: 1200px) {
-    display: none;
-  }
   @media (max-width: 1300px) {
-    gap: 7px;
+    display: none;
   }
 `;
 
@@ -110,8 +107,11 @@ export const Toggle = styled.button`
   display: inline-block;
   color: #fff;
   display: none;
-  @media (max-width: 1200px) {
+  @media (max-width: 1300px) {
     display: block;
+  }
+  @media (max-width: 768px) {
+    margin-left: 0px;
   }
 `;
 
