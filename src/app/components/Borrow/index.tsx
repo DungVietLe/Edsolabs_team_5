@@ -173,6 +173,7 @@ const Borrow = function (props) {
                 placeholder="Duration"
                 {...register('duration', {
                   required: true,
+                  pattern: /[0-9]/,
                   onChange: handleChangeDuration,
                 })}
               />
@@ -217,6 +218,7 @@ const Borrow = function (props) {
                 placeholder="Enter amount"
                 {...register('loan', {
                   required: true,
+                  pattern: /[0-9]/,
                   onChange: handleChangeLoan,
                 })}
               />

@@ -6,6 +6,7 @@ import tag from '../../../../../images/imagetag/tag.png';
 import tick from '../../../../../images/imagetick/tick.png';
 import warning from '../../../../../images/imagetick/warning.png';
 import { messages } from '../../messages';
+// import Skeleton from 'react-loading-skeleton';
 import { iconCoin } from './iconsCoins';
 const InforPersonal = styled.div`
   background: #282c37;

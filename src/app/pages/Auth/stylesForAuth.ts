@@ -30,13 +30,16 @@ export const ContainerAuth = styled.div`
   width: 100%;
   height: auto;
   background-color: ${COLOR_BG_AUTH};
-  padding: 119px 0px 64px 0px;
+  padding: 64px 0px 64px 0px;
 
-  @media (max-width: 1024px) {
-    padding: 90px 16px 28px 16px;
+  @media (max-width: 1200px) {
+    padding: 40px 16px 28px 16px;
   }
-  @media (max-width: 991px) {
-    padding: 70px 16px 28px 16px;
+  @media (max-width: 769px) {
+    padding: 30px 16px 28px 16px;
+  }
+  @media (max-width: 480px) {
+    padding: 20px 16px 20px 16px;
   }
 `;
 export const Container = styled.div`

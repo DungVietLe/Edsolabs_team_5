@@ -6,11 +6,17 @@ interface Mycheck {
 export const WrapperResult = styled.div`
   overflow: hidden;
   width: 100%;
-  padding: 119px 1.25rem 1.25rem 1.25rem;
+  padding: 30px 1.25rem 1.25rem 1.25rem;
   background-color: #171a23;
   min-height: 100vh;
   @media (max-width: 768px) {
-    padding: 72px 16px 0 16px;
+    padding: 57 16px 0 16px;
+  }
+  @media (max-width: 768px) {
+    padding: 57px 16px 0 16px;
+  }
+  @media (max-width: 375px) {
+    padding: 17px 16px 0 16px;
   }
 `;
 export const ContainerResult = styled.div`
