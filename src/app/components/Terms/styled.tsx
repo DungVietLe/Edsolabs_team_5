@@ -31,7 +31,7 @@ export const Term = styled.div`
     height: 65vh;
   }
   @media (max-height: 991px) {
-    height: 75vh;
+    height: 78vh;
     margin: 30px auto 0 auto;
   }
   @media (max-height: 800px) {
@@ -44,7 +44,8 @@ export const Term = styled.div`
   @media (max-height: 414px) {
     height: 80vh;
   }
-  @media (max-height: 375px) {
+  @media (max-height: 376px) {
+    padding-top: 0px;
     height: 80vh;
   }
   @media (max-height: 320px) {
@@ -125,7 +126,7 @@ export const Wrapper = styled.div`
   @media (max-height: 850px) {
     @media (max-width: 414px) {
       height: 60vh;
-      margin: 10px auto 0 auto;
+      margin: 0;
     }
     height: 37vh;
   }
