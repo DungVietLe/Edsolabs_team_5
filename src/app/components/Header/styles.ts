@@ -48,6 +48,9 @@ export const MenuDesktop = styled.ul`
   align-items: center;
   padding-inline-start: 0;
   gap: 25px;
+  @media (max-width: 1400px) {
+    gap: 18px;
+  }
   li {
     font-family: 'Montserrat';
     font-style: normal;

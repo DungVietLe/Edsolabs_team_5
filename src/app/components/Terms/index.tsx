@@ -14,9 +14,12 @@ import {
 import { messages } from './messages';
 import { useTranslation } from 'react-i18next';
 const Terms = () => {
+  const valueTerm = localStorage.getItem('term');
+  console.log(valueTerm);
+
   const { t } = useTranslation();
   const [check, setCheck] = useState(false);
-  const [click, setClick] = useState(true);
+  const [click, setClick] = useState(Boolean(valueTerm) ? false : true);
   const onScrollPublic = e => {
     if (e.target.scrollTop >= 164) {
       setCheck(true);
@@ -26,6 +29,7 @@ const Terms = () => {
   const handChange = e => {
     if (check) {
       setClick(false);
+      localStorage.setItem('term', '1');
     }
   };
   const handClose = e => {
