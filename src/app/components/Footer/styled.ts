@@ -117,9 +117,21 @@ export const SubcontextAbouts = styled.span`
 `;
 export const SubLink = styled.a`
   color: ${COLOR_PRIMARY_FOOTER};
+
   font-size: 14px;
   text-decoration: none;
   margin-top: 0.6em;
+`;
+export const SubLinkxxx = styled.a`
+  font-family: 'Inter', sans-serif !important;
+  color: ${COLOR_GRAY_FOOTER};
+  font-size: 14px;
+  text-decoration: none;
+  margin-top: 0.6em;
+  @media (max-width: 768px) {
+    display: none;
+    color: ${COLOR_PRIMARY_FOOTER};
+  }
 `;
 export const SubLinkInter = styled.a`
   font-family: 'Inter', sans-serif !important;
@@ -127,6 +139,9 @@ export const SubLinkInter = styled.a`
   font-size: 14px;
   text-decoration: none;
   margin-top: 0.6em;
+  @media (max-width: 768px) {
+    color: ${COLOR_PRIMARY_FOOTER};
+  }
 `;
 export const Subtitle = styled.span`
   color: ${COLOR_PRIMARY_FOOTER};
@@ -167,14 +182,17 @@ export const MyTitle = styled.div`
   color: ${COLOR_TITLE_WHITE_FOOTER};
   font-weight: 700;
   font-size: 14px;
-  margin-bottom: 2em;
+  margin-bottom: 24px;
+  @media (max-width: 768px) {
+    margin-bottom: 16px;
+  }
 `;
 export const MytitleFont = styled.div`
   font-family: 'Inter', sans-serif;
   color: ${COLOR_TITLE_WHITE_FOOTER};
   font-weight: 700;
   font-size: 14px;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 `;
 export const MyCompany = styled.div`
   display: flex;

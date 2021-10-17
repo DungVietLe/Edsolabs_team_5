@@ -37,6 +37,7 @@ import {
   SubcontextInter,
   SubLink,
   SubLinkInter,
+  SubLinkxxx,
   Subtitle,
 } from './styled';
 import arrow from './Arrow2.png';
@@ -68,18 +69,20 @@ const Footer = props => {
                   <img
                     src={email}
                     alt="email"
-                    style={{ marginRight: '12.6px' }}
+                    style={{
+                      marginRight: '12.6px',
+                    }}
                   />
                   ask@defiforyou.uk
                 </SubLinkInter>
-                <SubLinkInter href="mailto: support@defiforyou.uk">
+                <SubLinkxxx href="mailto: support@defiforyou.uk">
                   <img
                     src={email}
                     alt="email"
                     style={{ marginRight: '12.6px' }}
                   />
                   support@defiforyou.uk
-                </SubLinkInter>
+                </SubLinkxxx>
               </MyCompany>
               <MyOfficeHN>
                 <MyTitle>{t(messages.hanoi())}</MyTitle>
@@ -106,13 +109,13 @@ const Footer = props => {
               <MyOfficeUS>
                 <MyTitle>{t(messages.london())}</MyTitle>
                 <SubLink href="tel:+84 9644 41735">
-                  +44 7479 739139
+                  +84 9643 66605
                   <img
                     src={ameri}
                     alt="ame"
                     style={{ margin: '0px 12.6px', width: '24px' }}
                   />
-                  Sean Mason - Business CFO
+                  Sean Mason - CTO
                 </SubLink>
                 <Subcontext>
                   Office 32 19-21 Crawford Street, London, United Kingdom, W1H

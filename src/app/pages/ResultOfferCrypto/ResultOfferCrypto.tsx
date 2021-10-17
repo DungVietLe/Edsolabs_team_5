@@ -29,14 +29,22 @@ import queryString from 'query-string';
 import { SearchPawnshops } from 'app/components/Filter/SearchPawnshops';
 import { messages } from '../../components/Filter/messages';
 import { useTranslation } from 'react-i18next';
+import { GlobalStyle } from 'styles/global-styles';
 interface Props {}
 
 export const ResultOfferCrypto = (props: Props) => {
   const { t } = useTranslation();
   const history = useHistory();
+
   const [status, setStatus] = useState(false);
   const handleShowFilter = () => {
+    const check = document.querySelector('body');
     setStatus(!status);
+    if (!status) {
+      check?.classList.add('active');
+    } else {
+      check?.classList.remove('active');
+    }
   };
   //gọi data api render list item
   const [listApiData, setListApiData] = useState<any>([]);
@@ -96,7 +104,7 @@ export const ResultOfferCrypto = (props: Props) => {
         </ContainerResult>
       </WrapperResult>
       <Footer />
-      <Modal check={status} onClick={handleShowFilter} />{' '}
+      <Modal check={status} onClick={handleShowFilter} />
     </div>
   );
 };

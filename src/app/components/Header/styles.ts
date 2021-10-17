@@ -33,7 +33,6 @@ export const Headers = styled.div`
     border-bottom: 1px solid #4f4f4f;
   }
   width: 100vw;
-
   z-index: 100000;
 `;
 
@@ -133,7 +132,7 @@ export const MenuMobile = styled.ul`
   display: none;
   width: 100%;
   padding-inline-start: 0;
-  @media (max-width: 1200px) {
+  @media (max-width: 1300px) {
     display: flex;
     justify-content: start;
     align-items: flex-start;
@@ -199,15 +198,17 @@ export const NavMobile = styled.div`
   display: none;
   overflow-y: scroll;
   width: 100vw;
-  height: calc(100vh - 78px);
+  height: calc(100vh - 95px);
   /* left: 0;
   top: 80px; */
   background-color: #171a23;
-  @media (max-width: 1200px) {
+  @media (max-width: 1300px) {
     display: ${(p: PropMenu) => (p.isToggle ? 'block' : 'none')};
   }
+  @media (max-width: 1200px) {
+    height: calc(100vh - 78px);
+  }
   @media (max-width: 768px) {
-    left: 0;
     height: calc(100vh - 57px);
   }
 `;
@@ -228,7 +229,7 @@ export const HeaderNav = styled.div`
     line-height: 24px;
     color: #fff;
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1300px) {
     display: block;
   }
 `;
@@ -260,7 +261,7 @@ export const Info = styled.div`
   &.mobile {
     display: none;
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1300px) {
     &.desktop {
       span {
         display: none;

@@ -1,13 +1,13 @@
 import { Button } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 import staryellow from '../../../../../images/imagestar/staryellow.png';
+import tag from '../../../../../images/imagetag/tag.png';
 import tick from '../../../../../images/imagetick/tick.png';
 import warning from '../../../../../images/imagetick/warning.png';
-import tag from '../../../../../images/imagetag/tag.png';
-import { iconCoin } from './iconsCoins';
 import { messages } from '../../messages';
-import { useTranslation } from 'react-i18next';
 // import Skeleton from 'react-loading-skeleton';
+import { iconCoin } from './iconsCoins';
 const InforPersonal = styled.div`
   background: #282c37;
   width: 100%;

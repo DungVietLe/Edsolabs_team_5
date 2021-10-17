@@ -1,15 +1,13 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Slider from 'react-slick';
-import SliderItem from './SliderItem';
+import arrow from '../../../images/imagebutton/arrow.png';
 import slider1 from '../../../images/imageslider/slider1.png';
 import slider2 from '../../../images/imageslider/slider2.png';
 import slider3 from '../../../images/imageslider/slider3.png';
-import { SliderHome, ListSliderPC, Text, ClickAll } from './styled';
-import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import arrow from '../../../images/imagebutton/arrow.png';
 import { messages } from './messages';
-import { useTranslation } from 'react-i18next';
+import SliderItem from './SliderItem';
+import { ClickAll, ListSliderPC, SliderHome, Text } from './styled';
 export default function ListSilder() {
   const { t } = useTranslation();
   const listImg = [
@@ -44,8 +42,7 @@ export default function ListSilder() {
     slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,
-    nextArrow: <KeyboardArrowRightIcon />,
-    prevArrow: <KeyboardArrowLeftIcon />,
+
     responsive: [
       {
         breakpoint: 1600,

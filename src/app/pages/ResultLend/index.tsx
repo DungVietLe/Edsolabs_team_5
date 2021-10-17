@@ -28,11 +28,18 @@ import { searchApi } from 'api/searchApiHome';
 import { HardNFT } from 'app/components/Filter/HardNFT';
 import { messages } from '../../components/Filter/messages';
 import { useTranslation } from 'react-i18next';
+import { Modal } from '../ResultOfferCrypto/styles';
 const ResultLend = () => {
   const { t } = useTranslation();
   const [status, setStatus] = useState(false);
   const handleShowFilter = () => {
+    const check = document.querySelector('body');
     setStatus(!status);
+    if (!status) {
+      check?.classList.add('active');
+    } else {
+      check?.classList.remove('active');
+    }
   };
   //call API LentNFT
   const history = useHistory();
@@ -98,6 +105,7 @@ const ResultLend = () => {
           </Flex>
         </ContainerResult>
       </WrapperResult>
+      <Modal check={status} onClick={handleShowFilter} />
       <Footer />
     </div>
   );

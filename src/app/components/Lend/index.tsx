@@ -11,9 +11,6 @@ import { NewSelect } from '../Selecter';
 import { Form, FormCtrol, MyTextField, Wrapper } from './style';
 import { messages } from '../Borrow/messages';
 import { useTranslation } from 'react-i18next';
-interface propsImg {
-  src?: any;
-}
 
 const Lend = () => {
   const { t } = useTranslation();
@@ -203,7 +200,7 @@ const Lend = () => {
               style={{ display: 'flex', gap: '30px', flexDirection: 'row' }}
             >
               <FormControlLabel
-                label={t(messages.heroCryptocurrency())}
+                label={t(messages.heroCollateral())}
                 control={
                   <Radio
                     name="radio-buttons-group"
