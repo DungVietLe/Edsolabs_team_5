@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
-import BG_Banner from 'assets/Image/bannerlend.png';
+
 export const ContainerResult = styled.div`
   max-width: 1324px;
   margin: 0 auto;
@@ -10,9 +10,6 @@ export const Banner = styled.div`
   margin: 16px 0;
   text-align: left;
   background-color: #475674;
-  background-image: url(BG_Banner);
-  background-repeat: no-repeat;
-  background-position: center right;
   border-radius: 10px;
   display: flex;
   align-items: center;
