@@ -5,6 +5,61 @@ export const SliderHome = styled.div`
   @media (min-width: 1440px) {
     padding: 60px 174px 80px 174px;
   }
+  & .slick-slider {
+    .slick-arrow {
+      path {
+        color: #fff;
+        @media (max-width: 480px) {
+          font-size: 18px;
+        }
+      }
+      background: rgba(219, 168, 61, 0.5);
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      @media (max-width: 1400px) {
+        width: 45px;
+        height: 45px;
+      }
+      @media (max-width: 480px) {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .slick-disabled {
+      background-color: rgba(201, 202, 205, 0.1);
+      path {
+        color: rgba(219, 168, 61, 1);
+      }
+    }
+    .slick-prev {
+      left: -100px;
+      @media (max-width: 1400px) {
+        left: -50px;
+      }
+      @media (max-width: 600px) {
+        left: -20px;
+      }
+      @media (max-width: 480px) {
+        left: -2px;
+      }
+    }
+    .slick-next {
+      right: -100px;
+      @media (max-width: 1400px) {
+        right: -50px;
+      }
+      @media (max-width: 600px) {
+        right: -20px;
+      }
+      @media (max-width: 480px) {
+        right: -2px;
+      }
+    }
+    .slick-slide img {
+      max-width: 100%;
+    }
+  }
 `;
 export const Text = styled.div`
   max-width: 543px;

@@ -5,23 +5,13 @@ import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import { iconCollateral, listLoan } from '../Filter/DataCoin';
+import ImageIcon from '../ImageIcon';
 import { ButtomMaxIcon, ButtomSmall, Flex } from '../rootStyled';
 import { NewSelect } from '../Selecter';
 import { Form, FormCtrol, MyTextField, Wrapper } from './style';
 interface propsImg {
   src?: any;
 }
-
-export const ImageIcon = (props: propsImg) => {
-  const { src } = props;
-  return (
-    <img
-      style={{ display: 'inline-block', width: '15px', height: '15px' }}
-      src={src}
-      alt=".."
-    />
-  );
-};
 
 const Lend = () => {
   const {
