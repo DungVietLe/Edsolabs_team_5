@@ -38,6 +38,12 @@ const Header = props => {
 
   const handleClickToggle = () => {
     setIsToggle(!isToggle);
+    const check = document.querySelector('body');
+    if (!isToggle) {
+      check?.classList.add('active');
+    } else {
+      check?.classList.remove('active');
+    }
   };
 
   const [statusMenuMobile, setstatusMenuMobile] = useState({
@@ -85,81 +91,83 @@ const Header = props => {
     alert('logout success');
   };
   return (
-    <Headers>
-      <Flex
-        style={{ height: '100%' }}
-        justifyContent="space-between"
-        alignItem="center"
-      >
-        <Logo to="/pawn">
-          <img src={LOGO} alt="Defi for you" />
-        </Logo>
+    <Headers toggle={isToggle}>
+      <div className="wrapper_flex">
         <Flex
+          className="flex"
           justifyContent="space-between"
           alignItem="center"
-          flexXl="flex-end"
-          flexgrow={1}
         >
-          <MenuDesktop>
-            <li className={'active'}>
-              <Link to="/pawn">{t(messages.navPawn())}</Link>
-            </li>
-            <li>
-              <Link to="/zxc">{t(messages.navBorrow())}</Link>
-            </li>
-            <li>
-              <Link to="/zxc">{t(messages.navLend())}</Link>
-            </li>
-            <li>
-              <Link to="/zxc">{t(messages.navNTF())}</Link>
-            </li>
-            <li>
-              <Link to="/zxc">{t(messages.navMyaccount())}</Link>
-            </li>
-            <li>
-              <Link to="/zxc">{t(messages.navFAQ())}</Link>
-            </li>
-          </MenuDesktop>
-          <GropButtom>
-            <LinkButtom className="btn" bg="dba83d">
-              <Link to="/zxc">{t(messages.become())}</Link>
-            </LinkButtom>
-            <LinkButtom className="btn" outlinebutton="dba83d">
-              <Link to="/zxc">{t(messages.buy())}</Link>
-            </LinkButtom>
-            <LinkButtom className="show-btn btn" outlinebutton="dba83d">
-              <Link to="/zxc">{t(messages.connect())}</Link>
-            </LinkButtom>
-            <LanguageSwitch />
-            {localStorage.getItem('access_token') ? (
-              <div
-                style={{
-                  display: 'inline-block',
-                  position: 'relative',
-                  zIndex: 3,
-                }}
-              >
-                <LoginSuccess screen="desktop" name={user?.name} />
-              </div>
-            ) : (
-              <LinkButtom className="btn" outlinebutton="dba83d">
-                <Link to="/login?tab=2">{t(messages.login())}</Link>
-              </LinkButtom>
-            )}
-          </GropButtom>
-          <Toggle
-            onClick={() => {
-              handleClickToggle();
-            }}
+          <Logo to="/pawn">
+            <img src={LOGO} alt="Defi for you" />
+          </Logo>
+          <Flex
+            justifyContent="space-between"
+            alignItem="center"
+            flexXl="flex-end"
+            flexgrow={1}
           >
-            {isToggle ? (
-              <CloseIcon style={{ cursor: 'pointer' }} />
-            ) : (
-              <MenuIcon style={{ cursor: 'pointer' }} />
-            )}
-          </Toggle>
+            <MenuDesktop>
+              <li className={'active'}>
+                <Link to="/pawn">{t(messages.navPawn())}</Link>
+              </li>
+              <li>
+                <Link to="/zxc">{t(messages.navBorrow())}</Link>
+              </li>
+              <li>
+                <Link to="/zxc">{t(messages.navLend())}</Link>
+              </li>
+              <li>
+                <Link to="/zxc">{t(messages.navNTF())}</Link>
+              </li>
+              <li>
+                <Link to="/zxc">{t(messages.navMyaccount())}</Link>
+              </li>
+              <li>
+                <Link to="/zxc">{t(messages.navFAQ())}</Link>
+              </li>
+            </MenuDesktop>
+            <GropButtom>
+              <LinkButtom className="btn" bg="dba83d">
+                <Link to="/zxc">{t(messages.become())}</Link>
+              </LinkButtom>
+              <LinkButtom className="btn" outlinebutton="dba83d">
+                <Link to="/zxc">{t(messages.buy())}</Link>
+              </LinkButtom>
+              <LinkButtom className="show-btn btn" outlinebutton="dba83d">
+                <Link to="/zxc">{t(messages.connect())}</Link>
+              </LinkButtom>
+              <LanguageSwitch />
+              {localStorage.getItem('access_token') ? (
+                <div
+                  style={{
+                    display: 'inline-block',
+                    position: 'relative',
+                    zIndex: 3,
+                  }}
+                >
+                  <LoginSuccess screen="desktop" name={user?.name} />
+                </div>
+              ) : (
+                <LinkButtom className="btn" outlinebutton="dba83d">
+                  <Link to="/login?tab=2">{t(messages.login())}</Link>
+                </LinkButtom>
+              )}
+            </GropButtom>
+            <Toggle
+              onClick={() => {
+                handleClickToggle();
+              }}
+            >
+              {isToggle ? (
+                <CloseIcon style={{ cursor: 'pointer' }} />
+              ) : (
+                <MenuIcon style={{ cursor: 'pointer' }} />
+              )}
+            </Toggle>
+          </Flex>
         </Flex>
-      </Flex>
+      </div>
       <NavMobile isToggle={isToggle}>
         <div>
           <MenuMobile>

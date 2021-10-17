@@ -7,20 +7,34 @@ export interface PropMenu {
   isToggle?: boolean;
 }
 
+export interface Menu {
+  toggle?: boolean;
+}
+
 export const Headers = styled.div`
+  ${(p: Menu) =>
+    p.toggle
+      ? `
   position: fixed;
-  padding: 20px 30px;
-  min-height: 35px;
-  max-height: 100px;
-  background-color: #282c37;
-  width: 100vw;
   left: 0;
   top: 0;
-  @media (max-width: 768px) {
-    padding: 12px 16px 14px 16px;
+  height:calc(100vh);
+  `
+      : 'position: static;'}
+  .wrapper_flex {
+    padding: 20px 30px;
+    min-height: 35px;
+    max-height: 100px;
+    background-color: #282c37;
+    width: 100%;
+    @media (max-width: 768px) {
+      padding: 12px 16px 14px 16px;
+    }
+    border-bottom: 1px solid #4f4f4f;
   }
+  width: 100vw;
+
   z-index: 100000;
-  border-bottom: 1px solid #4f4f4f;
 `;
 
 export const Logo = styled(Link)<{ to: any }>`
@@ -35,7 +49,7 @@ export const Logo = styled(Link)<{ to: any }>`
       max-height: 30px;
     }
   }
-  width: 17%;
+  max-width: 245px;
   @media (max-width: 1200px) {
     max-height: 60px;
     max-width: 126px;
@@ -183,20 +197,18 @@ export const NewButton = styled(Button)`
 export const NavMobile = styled.div`
   z-index: 1;
   display: none;
-  position: fixed;
-  overflow: scroll;
+  overflow-y: scroll;
   width: 100vw;
-  height: calc(100vh - 60px);
-  left: 0;
-  top: 80px;
+  height: calc(100vh - 78px);
+  /* left: 0;
+  top: 80px; */
   background-color: #171a23;
   @media (max-width: 1200px) {
     display: ${(p: PropMenu) => (p.isToggle ? 'block' : 'none')};
   }
   @media (max-width: 768px) {
-    height: calc(100vh - 40px);
     left: 0;
-    top: 56px;
+    height: calc(100vh - 57px);
   }
 `;
 
