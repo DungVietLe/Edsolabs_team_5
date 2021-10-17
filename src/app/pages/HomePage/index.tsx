@@ -4,14 +4,14 @@ import Header from 'app/components/Header';
 import SearchBorrow from 'app/components/SearchBorrow';
 import SliderHome from 'app/components/SliderHome/SliderHome';
 import Terms from 'app/components/Terms';
-import { Brrow } from '../Brrow';
+import ViewBorrow from 'app/components/WhyBorrow/ViewBrrow';
 
 export function HomePage() {
   return (
     <>
       <Header />
       <SearchBorrow />
-      <Brrow />
+      <ViewBorrow />
       <SliderHome />
       <Banner />
       <Footer />

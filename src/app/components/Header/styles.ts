@@ -68,7 +68,11 @@ export const MenuDesktop = styled.ul`
       transform-origin: right;
       transition: transform 0.3s ease-in-out;
     }
-    &:hover,
+    &.hover {
+      a {
+        color: #dba83d;
+      }
+    }
     &.active {
       a {
         color: #dba83d;

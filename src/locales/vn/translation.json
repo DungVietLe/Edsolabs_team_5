@@ -103,5 +103,23 @@
     "viewDetailButton": "Xem chi tiết",
     "negotiation": "Đàm phán",
     "semiAuto": "Bán tự động"
+  },
+  "term": {
+    "title": "Điều khoản dịch vụ",
+    "subTitle": "DeFi For You Quy định & Đạo đức về tiền điện tử Vương quốc Anh",
+    "sub1": "Hệ sinh thái tiền điện tử là một thách thức đối với hệ thống tài chính hiện tại đã quản lý nền kinh tế kể từ khi hành động dịch vụ tài chính được giới thiệu để bảo vệ người tiêu dùng vào cuối những năm 1990.",
+    "sub2": "Chúng tôi cam kết tuân theo các nguyên tắc dịch vụ tài chính của Vương quốc Anh, cung cấp một môi trường an toàn và bảo mật cho người dùng tận hưởng công nghệ DeFi trong một hệ sinh thái được duy trì và bảo mật.",
+    "sub3": "Thời gian và kinh nghiệm của chúng tôi trong lĩnh vực này đã cho phép chúng tôi thử nghiệm và thử nghiệm các công nghệ khác nhau của hộp cát. Các kết quả nghiên cứu và phát triển của chúng tôi có sẵn cho FCA để hỗ trợ tạo ra một công cụ tài chính tiền điện tử an toàn có tính linh hoạt và phạm vi cung cấp các dịch vụ tuân thủ AML và các nguyên tắc cho kinh doanh.",
+    "sub4": "Cách tiếp cận hợp tác của chúng tôi cung cấp cho FCA sự hỗ trợ cần thiết để thu hẹp khoảng cách kiến ​​thức giữa người điều hành và cơ quan quản lý, do đó cung cấp các con đường an toàn và được quy định cho người dùng.",
+    "sub5": "Thái độ cam kết của chúng tôi đối với quy định là để người dùng của chúng tôi cảm thấy tự tin với công nghệ và tin tưởng rằng thông tin cá nhân và tài sản mã hóa của họ được an toàn khi giao dịch trong các nền tảng kỹ thuật số của chúng tôi.",
+    "sub6": "Làm việc hướng tới các tiêu chuẩn của Prudential với tư cách là nhà cung cấp công cụ.",
+    "sub7": "Đảm bảo khi biết rằng một số yếu tố trong quy trình giao dịch ngang hàng được Cơ quan quản lý tài chính cho phép và quy định.",
+    "sub8": "Khách hàng và người dùng yên tâm rằng chúng tôi là một công ty đối xử công bằng với khách hàng.",
+    "sub9": "Nền tảng hoạt động duy trì các tiêu chuẩn bảo mật được cải thiện an toàn hơn so với các khuôn khổ lịch sử đang được sử dụng bởi các nhà cung cấp trước đó.",
+    "sub10": "Cơ quan quản lý tài chính đang chuẩn bị các khuôn khổ quy định cho các doanh nghiệp tài sản tiền điện tử và các trung gian tiền điện tử để họ là nơi an toàn cho người tiêu dùng giao dịch.",
+    "sub11": "Chúng tôi làm việc hài hòa với các cơ quan quản lý để đảm bảo một lộ trình tích cực để điều chỉnh công nghệ này một cách an toàn. Cung cấp một nơi cạnh tranh, an toàn và công bằng cho người dùng.",
+    "sub12": "Mọi người nói chung đang tìm cách tăng giá trị tài sản và hoặc các khoản đầu tư được nhận thức của họ. Mục đích và hy vọng chung là giá trị của những món đồ này tăng lên theo thời gian.",
+    "accept": "Chấp nhận",
+    "decline": "Từ chối"
   }
 }

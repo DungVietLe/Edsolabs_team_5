@@ -37,6 +37,7 @@ import {
 } from './styled';
 import { messages } from './messages';
 import { useTranslation } from 'react-i18next';
+import { LanguageSwitch } from '../LanguageSwitch';
 interface Props {}
 
 const Footer = (props: Props) => {
@@ -197,26 +198,29 @@ const Footer = (props: Props) => {
         <MyContainerCoppyright>
           <CoppyRight>© 2021 DeFi For You. All rights reserved.</CoppyRight>
           <Links>
-            <LinkTo
-              href="https://defi-for-you.gitbook.io/faq/p2p-lending/terms-of-service"
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                borderRight: `1px solid ${COLOR_GRAY_COPPYRIGHT}`,
-                paddingRight: '14px',
-                marginLeft: '14px',
-              }}
-            >
-              {t(messages.term())}
-            </LinkTo>
+            <LanguageSwitch />
+            <div>
+              <LinkTo
+                href="https://defi-for-you.gitbook.io/faq/p2p-lending/terms-of-service"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  borderRight: `1px solid ${COLOR_GRAY_COPPYRIGHT}`,
+                  paddingRight: '14px',
+                  marginLeft: '14px',
+                }}
+              >
+                {t(messages.term())}
+              </LinkTo>
 
-            <LinkTo
-              href="https://defi-for-you.gitbook.io/faq/p2p-lending/privacy-policy"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {t(messages.privacy())}
-            </LinkTo>
+              <LinkTo
+                href="https://defi-for-you.gitbook.io/faq/p2p-lending/privacy-policy"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {t(messages.privacy())}
+              </LinkTo>
+            </div>
           </Links>
         </MyContainerCoppyright>
       </MyCoppyright>
