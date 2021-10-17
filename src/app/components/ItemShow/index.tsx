@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { listLoan } from '../Filter/DataCoin';
 import { messages } from '../../pages/ResultOfferCrypto/messages';
 import { useTranslation } from 'react-i18next';
+import NULL from 'assets/Image/nullAvata.png';
 import {
   ButtonCuston,
   CollateralAccepted,
@@ -57,7 +58,10 @@ export const ItemShowBorrow = (props: any) => {
     <Item className="borrow">
       <Grid>
         <Image>
-          <img src={item.pawnShop.avatar} alt="" />
+          <img
+            src={Boolean(item.pawnShop.avatar) ? item.pawnShop.avatar : NULL}
+            alt=""
+          />
         </Image>
         <Heading>
           <div>
@@ -173,7 +177,11 @@ export const ItemShowLend = (props: any) => {
       <Grid className="grid-lend">
         <ImageLend>
           <img
-            src={`https://defiforyou.mypinata.cloud/ipfs/${item.nftMediaCid}`}
+            src={
+              Boolean(item.nftMediaCid)
+                ? `https://defiforyou.mypinata.cloud/ipfs/${item.nftMediaCid}`
+                : NULL
+            }
             alt=""
           />
         </ImageLend>

@@ -12,6 +12,7 @@ export const ViewTerm = styled.div`
 export const Term = styled.div`
   max-width: 1324px;
   height: 77vh;
+  padding-top: 15px;
   background: #282c37;
   border-radius: 20px;
   margin: 98px auto;
@@ -31,18 +32,17 @@ export const Term = styled.div`
   }
   @media (max-height: 991px) {
     height: 75vh;
-    margin: 60px auto 0 auto;
+    margin: 30px auto 0 auto;
   }
   @media (max-height: 800px) {
     height: 85vh;
   }
   @media (max-height: 700px) {
     height: 81vh;
-    margin: 50px auto 0 auto;
+    margin: 20px auto 0 auto;
   }
   @media (max-height: 414px) {
     height: 80vh;
-    margin: 30px auto 0 auto;
   }
   @media (max-height: 375px) {
     height: 80vh;
@@ -78,6 +78,14 @@ export const Content = styled.div`
   align-items: center;
   color: #dba83d;
   margin-left: 40px;
+  @media (max-width: 600px) {
+    padding-top: 24px;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 150%;
+    text-align: center;
+    margin: 0 10px;
+  }
   @media (max-width: 425px) {
     padding-top: 24px;
     font-weight: bold;
@@ -115,15 +123,21 @@ export const Wrapper = styled.div`
     height: 41vh;
   }
   @media (max-height: 850px) {
-    @media (max-width: 480px) {
+    @media (max-width: 414px) {
       height: 60vh;
+      margin: 10px auto 0 auto;
     }
     height: 37vh;
   }
   @media (max-height: 800px) {
     height: 45vh;
+    @media (max-width: 540px) {
+      height: 59vh;
+      margin: 10px auto 0 auto;
+    }
     @media (max-width: 414px) {
       height: 68vh;
+      margin: 10px auto 0 auto;
     }
   }
 
@@ -132,11 +146,18 @@ export const Wrapper = styled.div`
     margin: 50px auto 0 auto;
     @media (max-width: 667px) {
       height: 60vh;
+      margin: 10px auto 0 auto;
+    }
+    @media (max-width: 375px) {
+      height: 60vh;
     }
   }
   @media (max-height: 650px) {
     @media (max-width: 800px) {
       height: 40vh;
+    }
+    @media (max-width: 360px) {
+      height: 60vh;
     }
     @media (max-width: 320px) {
       height: 60vh;
@@ -199,7 +220,10 @@ export const ButtonClick = styled.div`
   max-width: 255px;
   margin: 40px auto;
   display: flex;
-  @media (max-height: 376px) {
+  @media (max-height: 768px) {
+    margin: 30px auto;
+  }
+  @media (max-height: 650px) {
     margin: 20px auto;
   }
 `;

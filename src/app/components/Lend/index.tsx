@@ -4,7 +4,7 @@ import queryString from 'query-string';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
-import { iconCollateral, listLoan } from '../Filter/DataCoin';
+import { listCoin, listLoan } from '../Filter/DataCoin';
 import ImageIcon from '../ImageIcon';
 import { ButtomMaxIcon, ButtomSmall, Flex } from '../rootStyled';
 import { NewSelect } from '../Selecter';
@@ -71,7 +71,7 @@ const Lend = () => {
   const handleChangeDuration = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValueDuration(e.target.value as string);
   };
-  const arrCurrency = iconCollateral.map((item, key) => ({
+  const arrCurrency = listCoin.map((item, key) => ({
     value: item.value,
     label: [<ImageIcon key={key} src={item.url} />, item.value],
   }));

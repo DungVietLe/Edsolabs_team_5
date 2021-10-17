@@ -47,6 +47,12 @@ export const GropButtom = styled.div`
   justify-content: flex-end;
   align-items: center;
   gap: 20px;
+  @media (max-width: 1400px) {
+    gap: 15px;
+  }
+  @media (max-width: 1400px) {
+    gap: 15px;
+  }
   @media (max-width: 480px) {
     gap: 5px;
   }
@@ -84,6 +90,9 @@ export const ButtomBase = styled(Button)`
     cursor: pointer;
     border: none;
     padding: 9px 20px;
+    @media (max-width: 1400px) {
+      padding: 9px 15px;
+    }
     span {
       font-family: 'Montserrat', sans-serif;
       ${(p: PropLinkButton) =>

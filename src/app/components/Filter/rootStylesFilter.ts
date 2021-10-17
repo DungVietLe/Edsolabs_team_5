@@ -46,8 +46,8 @@ export const ContainerInterest = styled.div`
     box-shadow: none;
 
     & > div.MuiButtonBase-root {
-      width: 92.7%;
-      margin-left: 5px;
+      width: 94.5%;
+      margin-left: 0px;
       padding-right: 0;
       & > div.css-o4b71y-MuiAccordionSummary-content {
         & > p.css-ahj2mt-MuiTypography-root {
@@ -66,8 +66,8 @@ export const ContainerInterest = styled.div`
         & > div.MuiCollapse-wrapperInner {
           & > div.MuiAccordion-region {
             & > div.MuiAccordionDetails-root {
-              padding: 0px 0px 0px 5px !important;
-              max-height: 130px;
+              padding: 0px 0px 0px 1px !important;
+              max-height: 135px;
               overflow-y: auto;
               margin-right: 25px;
               &::-webkit-scrollbar {
@@ -81,7 +81,8 @@ export const ContainerInterest = styled.div`
               }
               & > div.MuiFormGroup-root {
                 & > label {
-                  margin: 4px 0 4px 0;
+                  height: 34px;
+                  margin: 0px 0 0px 0;
                   & > span {
                     margin-right: 10px;
                   }

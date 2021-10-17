@@ -11,7 +11,7 @@ import { MyValue } from 'models/Myvalue';
 import queryString from 'query-string';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-import { iconCollateral } from './DataCoin';
+import { listCoin } from './DataCoin';
 import { ContainerInterest, SetSizeCoin } from './rootStylesFilter';
 export const Collateral = (props: MyValue) => {
   const history = useHistory();
@@ -52,7 +52,7 @@ export const Collateral = (props: MyValue) => {
       setColateral({ data: [] });
     }
   }, [props.checker]);
-  const renderListCoin = iconCollateral.map((item, index) => {
+  const renderListCoin = listCoin.map((item, index) => {
     return (
       <FormControlLabel
         key={index}

@@ -25,9 +25,13 @@ export function NewSelect(props: props) {
       '&:hover': {
         backgroundColor: 'rgba(219,168,61,0.3)',
       },
+
       display: 'flex',
       alignItems: 'center',
       gap: '5px',
+      '@media (max-width:600px)': {
+        padding: '7px 8px',
+      },
     }),
     multiValue: (provided, state) => ({
       ...provided,
@@ -50,6 +54,9 @@ export function NewSelect(props: props) {
       borderRadius: '10px',
       padding: '0px 7px',
       color: '#fff !important',
+      display: 'flex',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
       '@media(max-width:768px)': {
         padding: '0px 3px',
         fontSize: 14,

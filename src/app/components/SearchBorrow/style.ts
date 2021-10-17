@@ -7,7 +7,7 @@ export const WrapperSearch = styled.div`
   padding-top: calc(100px + 1.25rem);
   @media (max-width: 768px) {
     margin-top: 20px;
-    padding-top: calc(70px + 1.25rem);
+    padding-top: calc(42px + 1.25rem);
   }
 `;
 
