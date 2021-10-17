@@ -69,6 +69,9 @@ const Infor = styled.div`
       }
     }
   }
+  @media (max-width: 320px) {
+    margin: 10px auto;
+  }
   @media (max-width: 620px) {
     max-width: 300px;
     margin: 0 auto;

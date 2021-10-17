@@ -71,6 +71,15 @@ export default function ListSilder() {
           initialSlide: 1,
         },
       },
+      {
+        breakpoint: 330,
+        settings: {
+          arrow: false,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
     ],
   };
 
