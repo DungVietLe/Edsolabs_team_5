@@ -65,7 +65,7 @@ const ResultLend = () => {
                 <img src={filter} alt="acoin" onClick={handleShowFilter} />
               </div>
               <Paragrap>
-                {listApiData?.content?.length} collateral offers match your
+                {listApiData?.total_elements} collateral offers match your
                 search
               </Paragrap>
               <FlexColumn style={{ marginBottom: '50px' }}>

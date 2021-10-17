@@ -105,7 +105,10 @@ export function SearchResult() {
               >
                 <img src={filter} alt="acoin" onClick={handleShowFilter} />
               </div>
-              <Paragrap>10 collateral offers match your search</Paragrap>
+              <Paragrap>
+                {listApiData?.total_elements} collateral offers match your
+                search
+              </Paragrap>
               <TableContainer
                 sx={{
                   '@media (max-width:1024px)': {

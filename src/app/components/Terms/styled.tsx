@@ -15,11 +15,40 @@ export const Term = styled.div`
   background: #282c37;
   border-radius: 20px;
   margin: 98px auto;
-  @media (max-width: 1600px) {
-    height: 82vh;
+  @media (max-height: 1920px) {
+    height: 50vh;
   }
-  @media (max-width: 425px) {
-    height: 86vh;
+  @media (max-height: 1599px) {
+    height: 55vh;
+    margin: 70px auto 0 auto;
+  }
+  @media (max-height: 1400px) {
+    height: 60vh;
+    margin: 70px auto 0 auto;
+  }
+  @media (max-height: 1100px) {
+    height: 65vh;
+  }
+  @media (max-height: 991px) {
+    height: 75vh;
+    margin: 60px auto 0 auto;
+  }
+  @media (max-height: 800px) {
+    height: 85vh;
+  }
+  @media (max-height: 700px) {
+    height: 81vh;
+    margin: 50px auto 0 auto;
+  }
+  @media (max-height: 414px) {
+    height: 80vh;
+    margin: 30px auto 0 auto;
+  }
+  @media (max-height: 375px) {
+    height: 80vh;
+  }
+  @media (max-height: 320px) {
+    height: 80vh;
   }
 `;
 export const ViewText = styled.div``;
@@ -31,6 +60,11 @@ export const Title = styled.div`
   text-align: center;
   padding-bottom: 28px;
   padding-top: 30px;
+  @media (max-width: 600px) {
+    font-size: 25px;
+    padding-bottom: 15px;
+    padding-top: 10px;
+  }
   @media (max-width: 425px) {
     display: none;
   }
@@ -51,11 +85,77 @@ export const Content = styled.div`
     line-height: 150%;
     text-align: center;
   }
+  @media (max-width: 320px) {
+    padding-top: 24px;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 150%;
+    text-align: center;
+    margin-left: 0;
+  }
 `;
 export const Wrapper = styled.div`
   overflow-y: auto;
   min-height: 100px;
   margin-right: 22px;
+  @media (max-height: 1920px) {
+    height: 35vh;
+  }
+  @media (max-height: 1599px) {
+    height: 37vh;
+  }
+  @media (max-height: 1100px) {
+    height: 40vh;
+  }
+  @media (max-height: 991px) {
+    height: 43vh;
+    margin: 60px auto 0 auto;
+  }
+  @media (max-height: 900px) {
+    height: 41vh;
+  }
+  @media (max-height: 850px) {
+    @media (max-width: 480px) {
+      height: 60vh;
+    }
+    height: 37vh;
+  }
+  @media (max-height: 800px) {
+    height: 45vh;
+    @media (max-width: 414px) {
+      height: 68vh;
+    }
+  }
+
+  @media (max-height: 700px) {
+    height: 38vh;
+    margin: 50px auto 0 auto;
+    @media (max-width: 667px) {
+      height: 60vh;
+    }
+  }
+  @media (max-height: 650px) {
+    @media (max-width: 800px) {
+      height: 40vh;
+    }
+    @media (max-width: 320px) {
+      height: 60vh;
+    }
+    height: 35vh;
+    margin: 20px auto 0 auto;
+  }
+  @media (max-height: 415px) {
+    height: 20vh;
+    margin: 10px auto 0 auto;
+  }
+  @media (max-height: 376px) {
+    height: 15vh;
+    margin: 5px auto 0 auto;
+  }
+  @media (max-height: 320px) {
+    height: 20vh;
+    margin: 5px auto 0 auto;
+  }
   ::-webkit-scrollbar {
     width: 11px;
     background: #45484f;
@@ -84,26 +184,24 @@ export const Text = styled.div`
     margin-bottom: 15px;
   }
   @media (max-width: 1600px) {
-    height: 40vh;
   }
   @media (max-width: 600px) {
-    height: 20vh;
   }
   @media (max-width: 425px) {
-    margin: 12px 0px 8px 17px;
+    margin: 12px 17px 8px 17px;
     font-size: 14px;
-    height: 57vh;
   }
   @media (max-width: 375px) {
-    margin: 12px 0px 8px 17px;
     font-size: 14px;
-    height: 35vh;
   }
 `;
 export const ButtonClick = styled.div`
   max-width: 255px;
   margin: 40px auto;
   display: flex;
+  @media (max-height: 376px) {
+    margin: 20px auto;
+  }
 `;
 export const Decline = styled(Button)`
   &.btn {
