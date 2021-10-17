@@ -26,7 +26,7 @@ export const Flex = styled.div`
   gap: ${(p: PropFlex) => (p.gap !== 0 ? `${p.gap}` : `0`)}px;
   ${(p: PropFlex) => (p.flexgrow ? `flex-grow:${p.flexgrow} ;` : ``)}
 
-  @media (max-width:1200px) {
+  @media (max-width:1300px) {
     ${(p: PropFlex) => (p.flexXl ? `justify-content:${p.flexXl} ;` : ``)}
   }
   ${(p: PropFlex) =>
@@ -38,7 +38,11 @@ export const Flex = styled.div`
   @media (max-width: 1200px) and (min-width: 991px) {
     &.layout {
       gap: 30px;
+      align-items: flex-start;
     }
+  }
+  &.layout {
+    align-items: flex-start;
   }
 `;
 
@@ -168,7 +172,8 @@ export const ButtomSmall = styled(ButtomBase)`
     min-width: 64px;
     font-size: 16px;
     @media (max-width: 450px) {
-      padding: 6px 20px;
+      min-width: 52px;
+      padding: 6.5px 0px;
     }
   }
 `;
@@ -205,7 +210,8 @@ export const TitleTypewriter = styled.h2`
   font-style: normal;
   font-weight: bold;
   font-size: 60px;
-  line-height: 73px;
+  line-height: 74px;
+  letter-spacing: 2px;
   @media (max-width: 576px) {
     margin-bottom: 10px;
     font-size: 35px;
@@ -216,7 +222,7 @@ export const TitleTypewriter = styled.h2`
   color: #dba83d;
   .Typewriter {
     display: inline-block;
-    margin-right: 5px;
+    margin-right: 12px;
     @media (max-width: 576px) {
       font-size: 35px;
     }
@@ -224,7 +230,7 @@ export const TitleTypewriter = styled.h2`
   & > span {
     display: inline-block;
     color: #fff;
-    margin-right: 5px;
+    margin-right: 12px;
   }
   @media (max-width: 1400px) {
     max-width: 1280px;

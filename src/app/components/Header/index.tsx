@@ -23,6 +23,7 @@ import { messages } from './messages';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { loginAction } from 'app/pages/Auth/loginSlice';
+import { LanguageSwitch } from '../LanguageSwitch';
 const Header = props => {
   const { t } = useTranslation();
   const [user, setUser] = useState<any>();
@@ -129,6 +130,7 @@ const Header = props => {
             <LinkButtom className="show-btn btn" outlinebutton="dba83d">
               <Link to="/zxc">{t(messages.connect())}</Link>
             </LinkButtom>
+            <LanguageSwitch />
             {localStorage.getItem('access_token') ? (
               <div
                 style={{

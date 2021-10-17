@@ -4,6 +4,7 @@ import styled from 'styled-components/macro';
 export const Wrapper = styled.div`
   padding: 25px 30px;
   width: 100%;
+  min-height: 521px;
   flex-grow: 1;
   display: flex;
   justify-content: flex-start;
@@ -13,7 +14,7 @@ export const Wrapper = styled.div`
     width: 100%;
   }
   @media (max-width: 768px) {
-    padding: 12px 16px;
+    padding: 25px 16px 12px 16px;
   }
 `;
 
@@ -27,15 +28,15 @@ export const MyTextField = styled(TextField)`
     border-radius: 22px;
     transition: border 0.3s ease-in-out;
     ${(p: PropTextField) =>
-      p.error ? `border: 1px solid red;` : 'border: 1px solid #74767B;'}
+      p.error ? `border: 1px solid #ff5252;` : 'border: 1px solid #74767B;'}
     &:hover {
       ${(p: PropTextField) =>
-        p.error ? `border: 1px solid red;` : 'border: 1px solid #fff;'}
+        p.error ? `border: 1px solid #ff5252;` : 'border: 1px solid #fff;'}
     }
     &:focus-within {
       ${(p: PropTextField) =>
         p.error
-          ? `border: 1px solid red;`
+          ? `border: 1px solid #ff5252;`
           : 'border: 1px solid rgb(248, 176, 23);'}
       ${(p: PropTextField) =>
         p.error
@@ -74,25 +75,28 @@ export const MyTextField = styled(TextField)`
 
 export const Form = styled.form`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  @media (max-width: 375px) {
+    row-gap: 5px;
+  }
 `;
 
 export const FormCtrol = styled.div`
   position: relative;
   width: 100%;
-  min-height: 96px;
-  &.left {
-    @media (max-width: 340px) {
-      max-width: 150px;
-      label {
-        width: 200px;
-      }
-    }
+  height: 77px;
+  @media (max-width: 375px) {
+    height: 72px;
+  }
 
+  &.left {
     width: auto;
     flex-grow: 1;
   }
   &.right {
-    width: 130px;
+    width: 110px;
     display: flex;
     align-items: center;
     @media (max-width: 600px) {
@@ -123,7 +127,7 @@ export const FormCtrol = styled.div`
     border-radius: 22px;
     color: #fff;
     ${(p: PropTextField) =>
-      p.error ? `border: 1px solid red;` : 'border: 1px solid #74767B;'}
+      p.error ? `border: 1px solid #ff5252;` : 'border: 1px solid #74767B;'}
     &:hover {
       fieldset {
         border: none;
@@ -142,10 +146,16 @@ export const FormCtrol = styled.div`
     color: #fff;
     margin-bottom: 6px;
   }
-  span.error {
-    color: #ff5252;
+  .error {
+    margin-top: 3px;
     font-size: 12px;
-    min-height: 14px;
-    min-width: 1px;
+    color: #ff5252;
+    line-height: 12px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
   }
 `;

@@ -10,10 +10,10 @@ interface props {
 }
 
 export function NewSelect(props: props) {
-  const { data, styleSelect, value, onChange, error } = props;
-  const border = error ? 'red' : '#74767B';
-  const hover = error ? 'red' : '#fff';
-  const focusError = error ? 'red' : 'rgb(248, 176, 23)';
+  const { data, styleSelect, value, onChange, mutiValue, error } = props;
+  const border = error ? '#ff5252' : '#74767B';
+  const hover = error ? '#ff5252' : '#fff';
+  const focusError = error ? '#ff5252' : 'rgb(248, 176, 23)';
   const focusBox = error ? 'none' : 'rgb(248, 176, 23)';
   const styles = {
     option: (provided, state) => ({
@@ -65,6 +65,7 @@ export function NewSelect(props: props) {
     indicatorsContainer: provided => ({
       ...provided,
       '& > div': {
+        color: hover,
         padding: '8px 5px 8px 0',
       },
     }),
