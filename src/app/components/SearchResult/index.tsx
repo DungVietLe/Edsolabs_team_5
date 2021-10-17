@@ -4,6 +4,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { searchApi } from 'api/searchApiHome';
 import { iconCollateral, listLoan } from 'app/components/Filter/DataCoin';
 import Paginations from 'app/components/Pagination';
 import {
@@ -15,18 +16,17 @@ import {
   WrapperResult,
 } from 'app/pages/ResultStyles';
 import BG_Banner from 'assets/Image/bannerlend.png';
+import filter from 'assets/Image/filter.png';
 import star from 'images/imagesearch/Star 1.png';
-import { useState, useEffect } from 'react';
-import { searchApi } from 'api/searchApiHome';
+import queryString from 'query-string';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { Close } from '../../pages/ResultOfferCrypto/styles';
-import { Duration } from '../Filter/Duration';
-import filter from 'assets/Image/filter.png';
-import Footer from '../Footer/Footer';
 import { Collateral } from '../Filter/Collateral';
+import { Duration } from '../Filter/Duration';
 import { LoanCurrency } from '../Filter/LoanCurrency';
+import Footer from '../Footer/Footer';
 import Header from '../Header';
-import queryString from 'query-string';
 import { ButtomBase, Flex } from '../rootStyled';
 import {
   Banner,
@@ -39,7 +39,6 @@ import {
   Wrappermb,
   WrapperMobie,
 } from './style';
-import { BackgroundColor } from 'chalk';
 
 export function SearchResult() {
   const history = useHistory();

@@ -11,4 +11,8 @@ export const messages = {
   navNTF: () => _t(translations.header.NTF),
   navMyaccount: () => _t(translations.header.Myaccount),
   navFAQ: () => _t(translations.header.FAQ),
+  become: () => _t(translations.header.pawnShop),
+  buy: () => _t(translations.header.buyDFY),
+  connect: () => _t(translations.header.connect),
+  login: () => _t(translations.header.login),
 };

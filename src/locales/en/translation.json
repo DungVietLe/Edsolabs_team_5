@@ -46,7 +46,9 @@
     "Duration": "Duration",
     "loanAmount": "Loan amount",
     "recomment": "Recommended amount",
-    "search": "Search"
+    "search": "Search",
+    "choose": "Choose Existing collateral",
+    "maximum": "Maximum loan amount"
   },
   "midBanner": {
     "title": "Why borrow with us?",

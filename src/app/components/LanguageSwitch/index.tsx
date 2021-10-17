@@ -6,7 +6,7 @@ import VN from 'assets/gif/vn.gif';
 import EN from 'assets/gif/uk.gif';
 
 export function LanguageSwitch() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const handleLanguageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const language = event.target.value;
     i18n.changeLanguage(language);

@@ -9,7 +9,7 @@ import {
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { useRecaptcha } from 'react-hook-recaptcha';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
@@ -48,7 +48,6 @@ const style = {
   borderRadius: '20px',
 };
 
-const containerId = 'test-recaptcha';
 const sitekey = '6LcSG9EaAAAAABvbpHkdugGmjEWeYPp6NoPPDEvt';
 const schema = yup
   .object({
@@ -86,15 +85,7 @@ export const InputRegister = props => {
   const successCallback = response => {
     setCaptchaResponse(response);
   };
-  const expiredCallback = () => setCaptchaResponse(null);
 
-  useRecaptcha({
-    containerId,
-    successCallback,
-    expiredCallback,
-    size: 'normal',
-    sitekey,
-  });
   const form = useForm<IFormInputs>({
     defaultValues: {
       name: '',
@@ -309,9 +300,7 @@ export const InputRegister = props => {
           {t(messages.ntf2())} <span>{t(messages.ntf3())}</span>,{' '}
           {t(messages.ntf4())}
         </NtfTitle>
-
-        <div id={containerId} className="g-recaptcha" />
-
+        <ReCAPTCHA sitekey={sitekey} onChange={successCallback} />,
         <BoxLogin>
           <MyButtonAuthLogin
             disabled={!captchaResponse}

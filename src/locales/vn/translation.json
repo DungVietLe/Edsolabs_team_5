@@ -20,12 +20,16 @@
     "forgotPs": "Quên mật khẩu?"
   },
   "header": {
-    "pawn": "Cầm Đồ",
+    "pawn": "Thế Chấp",
     "Borrow": "Khoản Vay",
     "Lend": "Cho Vay",
     "NTF": "NFT",
     "Myaccount": "Tài Khoản",
-    "FAQ": "FAQ"
+    "FAQ": "FAQ",
+    "pawnShop": "Trở thành hiệu cầm đồ",
+    "buyDFY": "Mua DFY",
+    "connect": "Kết nối",
+    "login": "Đăng nhập"
   },
   "i18nFeature": {
     "selectLanguage": "Chọn ngôn ngữ"
@@ -41,14 +45,16 @@
     "Duration": "Khoảng thời gian",
     "loanAmount": "Số tiền vay",
     "recomment": "Số tiền đề xuất",
-    "search": "Tìm kiếm"
+    "search": "Tìm kiếm",
+    "choose": "Chọn tài sản hiện có",
+    "maximum": "Số tiền cho vay tối đa"
   },
   "midBanner": {
-    "title": "Vì sao bạn lại lựa chọn chúng tôi?",
+    "title": "Vì sao nên gọi vốn từ chúng tôi?",
     "content1": "Nhanh hơn ngân hàng",
     "content2": "Lãi suất tốt hơn",
-    "content3": "Tài sản tài chính mà không cần bán",
-    "content4": "Không cần kiểm tra thẻ tín dụng",
+    "content3": "Không bán tài sản",
+    "content4": "Không kiểm tra thẻ tín dụng",
     "des1": "Các ngân hàng là tin tức của ngày hôm nay. Nhận số tiền bạn cần mà không cần phải chờ đợi.",
     "des2": "Cho vay P2P cho phép bạn thương lượng với người cho vay để thu xếp mức lãi suất tốt nhất có thể.",
     "des3": "Đưa tài sản của bạn vào hoạt động để bạn có thể tiếp tục đáp ứng các nghĩa vụ tài chính của mình.",
@@ -59,23 +65,23 @@
     "content": "Hiệu cầm đồ America"
   },
   "mainBanner": {
-    "title": "Trở thành một tiệm cầm đồ",
-    "content": "Mở cửa hàng cầm đồ của riêng bạn và khám phá cơ hội kinh doanh mới với ROI chưa từng có. Trở thành một phần của cuộc cách mạng tài chính thế giới.",
-    "learnmore": "Tìm hiểu thêm"
+    "title": "Trở thành hiệu cầm đồ",
+    "content": "Mở tiệm cầm đồ của riêng bạn và khám phá cơ hội kinh doanh mới với ROI. Trở thành một phần của sự biến đổi tài chính thế giới.",
+    "learnmore": "Xem thêm"
   },
   "footer": {
     "titleHanoi": "DeFi For You — Văn phòng Hà Nội",
     "titleLondon": "DeFi For You — Văn phòng London",
-    "viewHouse": "Xem trên Nhà công ty",
+    "viewHouse": "Xem thông tin Công ty",
     "finduson": "Tìm chúng tôi trên",
     "quickNav": "Điều hướng nhanh",
-    "whitepaper": "Giấy trắng",
+    "whitepaper": "Trang trắng",
     "getapp": "Tải ứng dụng di động",
-    "about": "Giới thiệu về DeFi cho bạn",
+    "about": "Giới thiệu về DeFi",
     "detalAbout": "DeFi For You là một phong cách giao dịch của văn phòng đăng ký Miles Mann Limited tại số 5 Southgate Street, Gloucester, Gloucestershire, GL1 1TG1 Được cấp phép và quản lý bởi Cơ quan quản lý tài chính để thực hiện các quyền và nghĩa vụ của người cho vay theo thỏa thuận tín dụng quy định (không bao gồm các khoản khống chi phí cao - tín dụng có kỳ hạn, hợp đồng mua bán hóa đơn và hợp đồng tín dụng thu tiền tận nhà), và có quyền thực hiện các quyền và nghĩa vụ của người cho vay theo hợp đồng tín dụng được quy định (không bao gồm tín dụng ngắn hạn chi phí cao, hợp đồng mua bán hóa đơn và tín dụng thu tiền tận nhà hợp đồng)"
   },
   "subFooter": {
-    "term": "Hạn của dịch vụ",
+    "term": "Điều khoản hợp đồng",
     "Privacy": "Chính sách bảo mật"
   },
   "pageOfferHero": {
@@ -86,7 +92,7 @@
     "signedContracts": "hợp đồng đã ký",
     "collateralPer": "Tài sản thế chấp được chấp nhận",
     "more": "còn nữa",
-    "requestButton": "Yêu cầu khoản vay",
+    "requestButton": "Yêu cầu vay",
     "instantloan": "Muốn có một khoản vay tức thì?",
     "instantloanDes": "Gửi tài sản thế chấp của bạn để được vay trong vài giây"
   },

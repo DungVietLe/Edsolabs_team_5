@@ -11,7 +11,9 @@ export const SearchPawnshops = (props: Props) => {
   const handleValueInput = e => {
     setTimeout(() => {
       setValue(e.target.value);
+      console.log(e.target.value, 'bên trong');
     }, 500);
+    console.log(e.target.value, 'bên ngoài');
   };
   useEffect(() => {
     const param = new URL(window.location.href);
