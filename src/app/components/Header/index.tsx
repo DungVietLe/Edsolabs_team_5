@@ -18,7 +18,7 @@ import {
   NavMobile,
   Toggle,
 } from './styles';
-import { LanguageSwitch } from '../LanguageSwitch';
+
 import { messages } from './messages';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
@@ -121,13 +121,13 @@ const Header = props => {
           </MenuDesktop>
           <GropButtom>
             <LinkButtom className="btn" bg="dba83d">
-              <Link to="/">Become a Pawnshop</Link>
+              <Link to="/">{t(messages.become())}</Link>
             </LinkButtom>
             <LinkButtom className="btn" outlinebutton="dba83d">
-              <Link to="/">Buy DFY</Link>
+              <Link to="/">{t(messages.buy())}</Link>
             </LinkButtom>
             <LinkButtom className="show-btn btn" outlinebutton="dba83d">
-              <Link to="/">Connect</Link>
+              <Link to="/">{t(messages.connect())}</Link>
             </LinkButtom>
             {localStorage.getItem('access_token') ? (
               <div
@@ -141,7 +141,7 @@ const Header = props => {
               </div>
             ) : (
               <LinkButtom className="btn" outlinebutton="dba83d">
-                <Link to="/login?tab=2">Login</Link>
+                <Link to="/login?tab=2">{t(messages.login())}</Link>
               </LinkButtom>
             )}
           </GropButtom>

@@ -8,6 +8,8 @@ import { iconCollateral, listLoan } from '../Filter/DataCoin';
 import { ButtomMaxIcon, ButtomSmall, Flex } from '../rootStyled';
 import { NewSelect } from '../Selecter';
 import { Form, FormCtrol, MyTextField, Wrapper } from './style';
+import { messages } from '../Borrow/messages';
+import { useTranslation } from 'react-i18next';
 interface propsImg {
   src?: any;
 }
@@ -24,6 +26,7 @@ export const ImageIcon = (props: propsImg) => {
 };
 
 const Lend = () => {
+  const { t } = useTranslation();
   const {
     handleSubmit,
     register,
@@ -96,7 +99,7 @@ const Lend = () => {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Flex gap={10} alignItem="center">
           <FormCtrol className="left">
-            <label htmlFor="maxLoan">Maximum loan amount</label>
+            <label htmlFor="maxLoan">{t(messages.heroMax())}</label>
             <div style={{ position: 'relative' }}>
               <MyTextField
                 value={valueMaxLoan}
@@ -159,7 +162,7 @@ const Lend = () => {
         </Flex>
         <Flex justifyContent="space-between" gap={10} alignItem="center">
           <FormCtrol className="left">
-            <label htmlFor="collateral">Duration</label>
+            <label htmlFor="collateral">{t(messages.heroDuration())}</label>
             <div style={{ position: 'relative' }}>
               <MyTextField
                 value={valueDuration}
@@ -202,7 +205,7 @@ const Lend = () => {
           </FormCtrol>
         </Flex>
         <FormCtrol style={{ minHeight: '60px' }}>
-          <label htmlFor="show">Collateral</label>
+          <label htmlFor="show">{t(messages.heroCollateral())}</label>
           <Flex>
             <RadioGroup
               aria-label="Collateral"
@@ -211,7 +214,7 @@ const Lend = () => {
               style={{ display: 'flex', gap: '30px', flexDirection: 'row' }}
             >
               <FormControlLabel
-                label="Crypto"
+                label={t(messages.heroCryptocurrency())}
                 control={
                   <Radio
                     name="radio-buttons-group"
@@ -282,7 +285,7 @@ const Lend = () => {
 
         <div className="form-control" style={{ marginTop: '30px' }}>
           <ButtomMaxIcon bg="dba83d" className="btn" type="submit">
-            <SearchIcon /> Search
+            <SearchIcon /> {t(messages.heroSearch())}
           </ButtomMaxIcon>
         </div>
       </Form>

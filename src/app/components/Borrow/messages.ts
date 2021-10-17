@@ -12,4 +12,6 @@ export const messages = {
   heroOr: () => _t(translations.heroBanner.or),
   heroRecomment: () => _t(translations.heroBanner.recomment),
   heroSearch: () => _t(translations.heroBanner.search),
+  heroChose: () => _t(translations.heroBanner.choose),
+  heroMax: () => _t(translations.heroBanner.maximum),
 };

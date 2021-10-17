@@ -4,35 +4,34 @@ import img3 from '../../../images/imageicon/img3.png';
 import img4 from '../../../images/imageicon/img4.png';
 import BorrowItems from './BorrowItems';
 import { ViewInfor, ListBorrow, Text, BorrowCard } from './styled';
+import { messages } from './messages';
+import { useTranslation } from 'react-i18next';
 export default function ViewBorrow() {
+  const { t } = useTranslation();
   const list = [
     {
       id: 1,
       image: img1,
-      title: 'Quicker than the bank',
-      content:
-        'Banks are yesterdays news. Get the money you need without having to wait.',
+      title: `${t(messages.content1())}`,
+      content: `${t(messages.des1())}`,
     },
     {
       id: 2,
       image: img2,
-      title: 'Better interest rates',
-      content:
-        'P2P lending lets you negotiate with the lender to arrange the best possible interest rates.',
+      title: `${t(messages.content2())}`,
+      content: `${t(messages.des2())}`,
     },
     {
       id: 3,
       image: img3,
-      title: 'Finance assets without selling',
-      content:
-        'Put your assets to work so you can continue to meet your financial obligations. ',
+      title: `${t(messages.content3())}`,
+      content: `${t(messages.des3())}`,
     },
     {
       id: 4,
       image: img4,
-      title: 'No credit checks',
-      content:
-        'Borrow without the background checks. Anyone can get the financing they need.',
+      title: `${t(messages.content4())}`,
+      content: `${t(messages.des4())}`,
     },
   ];
 
@@ -49,7 +48,7 @@ export default function ViewBorrow() {
   return (
     <ViewInfor>
       <BorrowCard>
-        <Text>Why borrow with us?</Text>
+        <Text>{t(messages.title())}</Text>
         <ListBorrow>{render}</ListBorrow>
       </BorrowCard>
     </ViewInfor>

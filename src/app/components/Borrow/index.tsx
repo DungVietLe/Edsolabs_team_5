@@ -155,7 +155,7 @@ const Borrow = function (props) {
         <FormCtrol>
           <label htmlFor="collateral">{t(messages.heroOr())}</label>
           <ButtomBase className="btn" outlinebutton="dba83d" type="button">
-            Choose Existing collateral
+            {t(messages.heroChose())}
           </ButtomBase>
         </FormCtrol>
 
@@ -224,7 +224,7 @@ const Borrow = function (props) {
             {errors.loan && <span className="error">Invalid amount</span>}
 
             <span className="tip" style={{ display: 'inline-block' }}>
-              Recommended amount
+              {t(messages.heroRecomment())}
               <Tooltip
                 style={{ display: 'inline' }}
                 className="tip"
@@ -321,7 +321,7 @@ const Borrow = function (props) {
             onClick={() => handleChange(1)}
             className={value === 1 ? 'active' : ''}
           >
-            Cryptocurrency
+            {t(messages.heroCryptocurrency())}
           </LabelTab>
           <LabelTab
             onClick={() => handleChange(2)}
