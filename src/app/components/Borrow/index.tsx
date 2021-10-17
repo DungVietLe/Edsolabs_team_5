@@ -1,5 +1,5 @@
 import InfoIcon from '@mui/icons-material/Info';
-import SearchIcon from '@mui/icons-material/Search';
+
 import IMAGE_NFT_DIAMOND from 'assets/Image/Diamond.png';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -261,8 +261,11 @@ const Borrow = function (props) {
           </FormCtrol>
         </Flex>
         <div
-          className="form-control"
-          style={{ marginTop: '60px', marginBottom: '30px' }}
+          className="form-control button"
+          style={{
+            marginTop: '60px',
+            marginBottom: '30px',
+          }}
         >
           <ButtomMaxIcon
             bg="dba83d"
@@ -270,7 +273,29 @@ const Borrow = function (props) {
             className="btn"
             type="submit"
           >
-            <SearchIcon /> {t(messages.heroSearch())}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+            >
+              <path
+                d="M9.16667 15.612C12.8486 15.612 15.8333 12.5806 15.8333 8.84115C15.8333 5.10172 12.8486 2.07031 9.16667 2.07031C5.48477 2.07031 2.5 5.10172 2.5 8.84115C2.5 12.5806 5.48477 15.612 9.16667 15.612Z"
+                stroke="#282C37"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M17.4998 17.3047L13.8748 13.623"
+                stroke="#282C37"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            {t(messages.heroSearch())}
           </ButtomMaxIcon>
         </div>
       </Form>

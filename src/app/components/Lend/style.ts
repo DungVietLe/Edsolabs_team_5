@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
   }
   @media (max-width: 768px) {
     padding: 25px 16px 12px 16px;
+    min-height: 496px;
   }
 `;
 

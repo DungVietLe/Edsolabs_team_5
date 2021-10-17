@@ -10,7 +10,7 @@ interface props {
 }
 
 export function NewSelect(props: props) {
-  const { data, styleSelect, value, onChange, mutiValue, error } = props;
+  const { data, styleSelect, value, onChange, error } = props;
   const border = error ? '#ff5252' : '#74767B';
   const hover = error ? '#ff5252' : '#fff';
   const focusError = error ? '#ff5252' : 'rgb(248, 176, 23)';
@@ -39,7 +39,7 @@ export function NewSelect(props: props) {
       borderRadius: '16.5px',
       padding: '2px 2px 2px 4px',
       margin: '0px',
-      marginRight: '2px',
+      marginRight: '16px',
       backgroundColor: 'rgba(255, 255, 255, 0.1)',
       color: '#fff !important',
       '@media(max-width:768px)': {
@@ -52,11 +52,12 @@ export function NewSelect(props: props) {
       fontSize: state.selectProps.myFontSize,
       backgroundColor: 'transparent',
       borderRadius: '10px',
-      padding: '0px 7px',
+      padding: '0px 0px',
       color: '#fff !important',
       display: 'flex',
       justifyContent: 'flex-start',
       alignItems: 'center',
+      marginLeft: '11px',
       '@media(max-width:768px)': {
         padding: '0px 3px',
         fontSize: 14,
@@ -128,8 +129,9 @@ export function NewSelect(props: props) {
     }),
     valueContainer: provided => ({
       ...provided,
+      padding: '1.5px 1px',
       '@media(max-width:768px)': {
-        padding: '1.5px 3px',
+        padding: '1.5px 1px',
       },
     }),
 
@@ -152,7 +154,6 @@ export function NewSelect(props: props) {
       },
     }),
   };
-
   return styleSelect ? (
     <Select
       isMulti

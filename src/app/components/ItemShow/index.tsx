@@ -160,10 +160,7 @@ export const ItemShowBorrow = (props: any) => {
 };
 
 export const ItemShowLend = (props: any) => {
-  // const listIconLend =
-
   const { item } = props;
-
   const src = listLoan.filter(e => {
     if (e.value === item?.nftEvaluatedSymbol) {
       return e;
@@ -178,7 +175,6 @@ export const ItemShowLend = (props: any) => {
       return str;
     }
   };
-
   function formatMoney(n) {
     return (Math.round(n * 100) / 100).toLocaleString();
   }
@@ -206,7 +202,7 @@ export const ItemShowLend = (props: any) => {
           <p>
             <span className="content-title">Borrower: </span>
             <Link to="/" className="content-link">
-              {item.borrowerWalletAddress}
+              {convertStr(item.borrowerWalletAddress)}
             </Link>
           </p>
           {Boolean(item.durationTime) ? (

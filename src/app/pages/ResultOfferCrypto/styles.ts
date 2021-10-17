@@ -33,17 +33,20 @@ export const Boxright = styled.div`
   border-radius: 19px;
   @media (max-width: 768px) {
     display: ${(props: Mycheck) => (props.check ? 'block' : 'none')};
+    top: -7px;
+    height: 99.6vh;
+    overflow-y: auto;
     position: absolute;
+    z-index: 999999999999999999999999999;
     right: 0;
     transition: all 0.3s ease-in-out;
     transition-delay: 0.2;
-
+    border-radius: 0px;
     &.none {
       display: block;
       right: 20%;
       visibility: hidden;
       opacity: 0;
-      /* width: 0px; */
     }
     &.active {
       display: block;
@@ -54,12 +57,7 @@ export const Boxright = styled.div`
   }
   z-index: 99;
 `;
-export const BoxrightMobile = styled.div`
-  width: 280px;
-  height: auto;
-  background: #282c37;
-  border-radius: 20px;
-`;
+
 export const ContainerBox = styled.div``;
 export const Filter = styled.div`
   display: none;
@@ -77,6 +75,9 @@ export const Reset = styled.div`
   color: #fff;
   cursor: pointer;
   padding: 2px 0 0px 8px;
+  @media (max-width: 768px) {
+    padding: 12px 0 0px 8px;
+  }
 `;
 
 export const MySwipeableDrawer = styled(SwipeableDrawer)`
@@ -94,6 +95,7 @@ export const Close = styled.img`
   width: 30px;
   height: 30px;
   margin-right: 8px;
+  margin-top: 7px;
 `;
 export const BoxFlex = styled.div`
   display: flex;

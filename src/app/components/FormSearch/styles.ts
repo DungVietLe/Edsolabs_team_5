@@ -50,6 +50,13 @@ export const LabelTab = styled.span`
     font-size: 24px;
     line-height: 29px;
     color: #dba83d;
+    @media (max-width: 480px) {
+      font-size: 20px;
+      padding: 2px 16px;
+    }
+  }
+  @media (max-width: 480px) {
+    font-size: 14px;
   }
 `;
 

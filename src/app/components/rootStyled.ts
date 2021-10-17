@@ -186,7 +186,7 @@ export const ButtomMaxIcon = styled(ButtomBase)`
     padding: 15px 20px;
     max-height: 54px;
     min-width: 64px;
-    font-size: 16px;
+    font-size: 20px !important;
     span {
       line-height: 24px;
     }
@@ -200,6 +200,7 @@ export const ButtomMaxIcon = styled(ButtomBase)`
       transform: translate(-50%, -50%);
     }
     @media (max-width: 768px) {
+      font-size: 16px !important;
       max-height: 44px;
       padding: 9px 20px;
     }
@@ -214,7 +215,7 @@ export const TitleTypewriter = styled.h2`
   letter-spacing: 2px;
   @media (max-width: 576px) {
     margin-bottom: 10px;
-    font-size: 35px;
+    font-size: 36px;
     line-height: 50px;
   }
   text-transform: capitalize;

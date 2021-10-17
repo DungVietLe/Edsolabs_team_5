@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -21,7 +22,7 @@ import star from 'images/imagesearch/Star 1.png';
 import queryString from 'query-string';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-import { Close } from '../../pages/ResultOfferCrypto/styles';
+import { Close, Modal } from '../../pages/ResultOfferCrypto/styles';
 import { Collateral } from '../Filter/Collateral';
 import { Duration } from '../Filter/Duration';
 import { LoanCurrency } from '../Filter/LoanCurrency';
@@ -46,7 +47,13 @@ export function SearchResult() {
   const history = useHistory();
   const [status, setStatus] = useState(false);
   const handleShowFilter = () => {
+    const check = document.querySelector('body');
     setStatus(!status);
+    if (!status) {
+      check?.classList.add('active');
+    } else {
+      check?.classList.remove('active');
+    }
   };
 
   const [listApiData, setListApiData] = useState<any>([]);
@@ -258,64 +265,68 @@ export function SearchResult() {
                         </Banner>
                       </TableCell>
                     </TableRow>
-                    {lastData?.length > 0
-                      ? lastData?.map((e, index) => (
-                          <TableRow
-                            key={index + 5}
-                            sx={{
-                              '&:last-child td, &:last-child th': { border: 0 },
-                            }}
-                          >
-                            <TableCell align="center">{index + 6}</TableCell>
-                            <TableCell align="left">
-                              <FlexColumn>
-                                <MyLink to="#">
-                                  {convertStr(`${e.walletAddress}`)}
-                                </MyLink>
-                                <MyFlex style={{ alignItems: 'center' }}>
-                                  <img src={star} alt="" />
-                                  <span>
-                                    {e.reputation}
-                                    <span style={{ padding: '0 10px' }}>|</span>
-                                    {e.completedContracts} contacts
-                                  </span>
-                                </MyFlex>
-                              </FlexColumn>
-                            </TableCell>
-                            <TableCell align="left">
-                              <MyFlex>
-                                <img
-                                  src={newIconColl(e.collateralSymbol)}
-                                  alt=""
-                                />
-                                {Boolean(e?.collateralAmount)
-                                  ? e?.collateralAmount
-                                  : 0}
-                                {e.collateralSymbol}
+                    {lastData?.length > 0 ? (
+                      lastData?.map((e, index) => (
+                        <TableRow
+                          key={index + 5}
+                          sx={{
+                            '&:last-child td, &:last-child th': { border: 0 },
+                          }}
+                        >
+                          <TableCell align="center">{index + 6}</TableCell>
+                          <TableCell align="left">
+                            <FlexColumn>
+                              <MyLink to="#">
+                                {convertStr(`${e.walletAddress}`)}
+                              </MyLink>
+                              <MyFlex style={{ alignItems: 'center' }}>
+                                <img src={star} alt="" />
+                                <span>
+                                  {e.reputation}
+                                  <span style={{ padding: '0 10px' }}>|</span>
+                                  {e.completedContracts} contacts
+                                </span>
                               </MyFlex>
-                            </TableCell>
-                            <TableCell align="left">
-                              <MyFlex>
-                                <img src={newIconLoan(e.loanSymbol)} alt="" />
-                                {e.loanSymbol}
-                              </MyFlex>
-                            </TableCell>
-                            <TableCell align="left">
-                              {e.durationQty}
-                              {e.durationType === 0
-                                ? 'weeks'
-                                : e.durationType === 1
-                                ? 'months'
-                                : ''}
-                            </TableCell>
-                            <TableCell align="center">
-                              <ButtomBase bg="DBA83D" className="btn">
-                                Send Offer
-                              </ButtomBase>
-                            </TableCell>
-                          </TableRow>
-                        ))
-                      : ''}
+                            </FlexColumn>
+                          </TableCell>
+                          <TableCell align="left">
+                            <MyFlex>
+                              <img
+                                src={newIconColl(e.collateralSymbol)}
+                                alt=""
+                              />
+                              {Boolean(e?.collateralAmount)
+                                ? e?.collateralAmount
+                                : 0}
+                              {e.collateralSymbol}
+                            </MyFlex>
+                          </TableCell>
+                          <TableCell align="left">
+                            <MyFlex>
+                              <img src={newIconLoan(e.loanSymbol)} alt="" />
+                              {e.loanSymbol}
+                            </MyFlex>
+                          </TableCell>
+                          <TableCell align="left">
+                            {e.durationQty}
+                            {e.durationType === 0 ? (
+                              'weeks'
+                            ) : e.durationType === 1 ? (
+                              'months'
+                            ) : (
+                              <></>
+                            )}
+                          </TableCell>
+                          <TableCell align="center">
+                            <ButtomBase bg="DBA83D" className="btn">
+                              Send Offer
+                            </ButtomBase>
+                          </TableCell>
+                        </TableRow>
+                      ))
+                    ) : (
+                      <></>
+                    )}
                   </TableBody>
                 </Table>
               </TableContainer>
@@ -481,6 +492,7 @@ export function SearchResult() {
           </Flex>
         </ContainerResult>
       </WrapperResult>
+      <Modal check={status} onClick={handleShowFilter} />
       <Footer />
     </>
   );

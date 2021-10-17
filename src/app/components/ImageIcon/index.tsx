@@ -6,11 +6,14 @@ interface propsImg {
 
 const Img = styled.img`
   display: inline-block;
-  width: 20px;
-  height: 17px;
-  padding-right: 5px;
+  width: 24px;
+  height: 24px;
+  margin-right: 2px;
+
   @media (max-width: 600px) {
-    padding-right: 3px;
+    margin-right: 2px;
+    width: 20px;
+    height: 20px;
   }
 `;
 

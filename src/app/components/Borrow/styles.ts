@@ -3,6 +3,11 @@ import styled from 'styled-components/macro';
 import { Flex } from '../rootStyled';
 
 export const Wrapper = styled.div`
+  .button {
+    @media (max-width: 480px) {
+      margin-top: 40px !important;
+    }
+  }
   padding: 25px 30px;
   width: 100%;
   min-height: 681px;
@@ -16,6 +21,7 @@ export const Wrapper = styled.div`
   }
   @media (max-width: 768px) {
     padding: 12px 16px;
+    min-height: 553px;
   }
 `;
 
@@ -219,6 +225,9 @@ export const FormCtrol = styled.div`
     line-height: 17px;
     color: #fff;
     margin-bottom: 6px;
+    @media (max-width: 480px) {
+      font-size: 12px;
+    }
   }
   .error {
     margin-top: 3px;

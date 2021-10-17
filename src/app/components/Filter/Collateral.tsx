@@ -42,7 +42,7 @@ export const Collateral = (props: MyValue) => {
     const param = new URL(window.location.href);
     const search_param = param.searchParams;
     param.search = search_param.toString();
-    search_param.set('collateralSymbols', colateral.data.toString());
+    search_param.set('collateralSymbols', colateral?.data?.toString());
     const new_url = param.search.toString();
     history.push({
       pathname: history.location.pathname,

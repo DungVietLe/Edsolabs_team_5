@@ -37,7 +37,11 @@ export const Boxright = styled.div`
     right: 0;
     transition: all 0.3s ease-in-out;
     transition-delay: 0.2;
-
+    top: -7px;
+    height: 101vh;
+    overflow-y: auto;
+    z-index: 999999999999999999999999999;
+    border-radius: 0px;
     &.none {
       display: block;
       right: 20%;
@@ -54,12 +58,7 @@ export const Boxright = styled.div`
   }
   z-index: 99;
 `;
-export const BoxrightMobile = styled.div`
-  width: 280px;
-  height: auto;
-  background: #282c37;
-  border-radius: 20px;
-`;
+
 export const ContainerBox = styled.div``;
 export const Filter = styled.div`
   display: none;
@@ -77,7 +76,10 @@ export const Reset = styled.div`
   color: #fff;
 
   cursor: pointer;
-  padding: 12px 0 4px 16px;
+  padding: 2px 0 4px 16px;
+  @media (max-width: 768px) {
+    padding: 12px 0 0px 8px;
+  }
 `;
 
 export const MySwipeableDrawer = styled(SwipeableDrawer)`
@@ -91,6 +93,7 @@ export const Close = styled.img`
   display: none;
   @media (max-width: 768px) {
     display: block;
+    margin-top: 10px;
   }
   width: 30px;
   height: 30px;

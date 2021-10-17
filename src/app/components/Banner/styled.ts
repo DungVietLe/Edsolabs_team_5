@@ -9,6 +9,9 @@ export const Pawn = styled.div`
   @media (min-width: 200px) {
     width: 100%;
   }
+  @media (max-width: 425px) {
+    padding: 30px 16px 40px 16px;
+  }
 `;
 export const ViewBanner = styled.div`
   max-width: 1324px;
