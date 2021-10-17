@@ -190,6 +190,11 @@ const Footer = props => {
                 <Subcontext>
                   {t(messages.getApp())} <img src={arrow} alt="arrow" />
                 </Subcontext>
+                <Subcontext>
+                  {t(messages.buy())}{' '}
+                  <span style={{ fontWeight: 600 }}>DFY</span>{' '}
+                  {t(messages.dfy())} <img src={arrow} alt="arrow" />
+                </Subcontext>
               </MyQuicklink>
             </MyGrid>
           </MyContainer>

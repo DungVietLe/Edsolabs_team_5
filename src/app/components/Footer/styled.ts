@@ -87,6 +87,7 @@ export const Subcontext = styled.span`
   color: ${COLOR_GRAY_FOOTER};
   font-size: 14px;
   margin-top: 0.6em;
+  cursor: pointer;
 `;
 export const SubcontextInter = styled.span`
   font-family: 'Inter', sans-serif !important;
