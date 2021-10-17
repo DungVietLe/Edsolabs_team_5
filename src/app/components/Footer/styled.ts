@@ -9,12 +9,12 @@ import styled from 'styled-components/macro';
 import footer from './decorator.png';
 export const MyFooter = styled.div`
   width: 100%;
-  height: 808px;
-  padding: 130px 0;
+  height: 796px;
+  padding: 154px 0;
   background-image: url(${footer});
   background-repeat: no-repeat;
   background-size: 1486px;
-  background-position: 0 64px;
+  background-position: 0 83px;
   background-color: #171a23;
   border-top: 1px solid rgba(125, 111, 125, 0.8);
   @media (max-width: 600px) {
@@ -87,12 +87,21 @@ export const Subcontext = styled.span`
   color: ${COLOR_GRAY_FOOTER};
   font-size: 14px;
   margin-top: 0.6em;
+  cursor: pointer;
+`;
+export const SubcontextInter = styled.span`
+  font-family: 'Inter', sans-serif !important;
+  color: ${COLOR_GRAY_FOOTER};
+  font-size: 14px;
+  margin-top: 0.6em;
 `;
 export const SubcontextAbouts = styled.span`
+  font-family: 'Inter', sans-serif !important;
   color: ${COLOR_GRAY_FOOTER};
   font-size: 14px;
   margin-top: 0.6em;
   max-width: 1028px;
+  font-weight: 400;
   @media (max-width: 600px) {
     width: 100%;
   }
@@ -108,6 +117,13 @@ export const SubcontextAbouts = styled.span`
 `;
 export const SubLink = styled.a`
   color: ${COLOR_PRIMARY_FOOTER};
+  font-size: 14px;
+  text-decoration: none;
+  margin-top: 0.6em;
+`;
+export const SubLinkInter = styled.a`
+  font-family: 'Inter', sans-serif !important;
+  color: ${COLOR_GRAY_FOOTER};
   font-size: 14px;
   text-decoration: none;
   margin-top: 0.6em;
@@ -148,6 +164,13 @@ export const MyGrid = styled.div`
   }
 `;
 export const MyTitle = styled.div`
+  color: ${COLOR_TITLE_WHITE_FOOTER};
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 2em;
+`;
+export const MytitleFont = styled.div`
+  font-family: 'Inter', sans-serif;
   color: ${COLOR_TITLE_WHITE_FOOTER};
   font-weight: 700;
   font-size: 14px;

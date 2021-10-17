@@ -4,7 +4,7 @@ export const Banner = styled.div`
 `;
 export const ViewOption = styled.div``;
 export const TextResults = styled.div`
-  max-width: 420px;
+  max-width: 437px;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;

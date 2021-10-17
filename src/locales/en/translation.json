@@ -79,7 +79,9 @@
     "whitepaper": "Whitepaper",
     "getapp": "Get the mobile app",
     "about": "About DeFi For You",
-    "detalAbout": " is a trading style of Miles Mann Limited registered office at 5 Southgate Street, Gloucester, Gloucestershire, GL1 1TG1 Licensed authorised and regulated by the Financial Conduct Authority to exercise lender's rights and duties under a regulated credit agreement (excluding high-cost short-term credit, bill of sale agreement, and home collected credit agreement), and has the right to exercise lender's rights and duties under a regulated credit agreement (excluding high-cost short-term credit, bill of sale agreement, and home collected credit agreement)"
+    "detalAbout": " is a trading style of Miles Mann Limited registered office at 5 Southgate Street, Gloucester, Gloucestershire, GL1 1TG1 Licensed authorised and regulated by the Financial Conduct Authority to exercise lender's rights and duties under a regulated credit agreement (excluding high-cost short-term credit, bill of sale agreement, and home collected credit agreement), and has the right to exercise lender's rights and duties under a regulated credit agreement (excluding high-cost short-term credit, bill of sale agreement, and home collected credit agreement)",
+    "buy": "Buy",
+    "dfy": "on Exchanges"
   },
   "subFooter": {
     "term": "Term of Service",
@@ -128,5 +130,21 @@
     "sub12": "People are generally seeking to grow the value of their assets and or perceived investments. The general intention and hopes are that the value of these items increases over time.This does not always happen and the intrinsic value of the tangible or intangible object can go up, down, stay the same or drop to a minus value.",
     "accept": "Accept",
     "decline": "Decline"
+  },
+  "filter": {
+    "resetAll": "Reset filter",
+    "interRange": "Interest range",
+    "loantovalue": "Loan to Value",
+    "collateral": "Collateral accepted",
+    "loanToken": "Loan Token",
+    "loanType": "Loan Type",
+    "auto": "Auto",
+    "semi": "Semi-auto",
+    "nego": "Negotiation",
+    "duration": "Duration",
+    "week": "Week",
+    "month": "Month",
+    "col": "Collateral",
+    "currency": "Loan Currency"
   }
 }

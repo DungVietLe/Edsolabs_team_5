@@ -13,4 +13,6 @@ export const messages = {
   term: () => _t(translations.subFooter.term),
   privacy: () => _t(translations.subFooter.Privacy),
   view: () => _t(translations.footer.viewHouse),
+  buy: () => _t(translations.footer.buy),
+  dfy: () => _t(translations.footer.dfy),
 };

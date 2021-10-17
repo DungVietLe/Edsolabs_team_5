@@ -11,7 +11,10 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { ContainerInterest } from './rootStylesFilter';
 import queryString from 'query-string';
+import { messages } from './messages';
+import { useTranslation } from 'react-i18next';
 export const Duration = (props: MyValue) => {
+  const { t } = useTranslation();
   const [expanded, setExpanded] = React.useState<string | false>('on');
   const [duration, setDuration] = useState<any>({
     data: [],
@@ -59,7 +62,7 @@ export const Duration = (props: MyValue) => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Duration</Typography>
+          <Typography>{t(messages.duration())}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <FormGroup>
@@ -77,7 +80,7 @@ export const Duration = (props: MyValue) => {
                   onChange={getDuration}
                 />
               }
-              label="Week"
+              label={t(messages.week())}
             />
             <FormControlLabel
               control={
@@ -93,7 +96,7 @@ export const Duration = (props: MyValue) => {
                   onChange={getDuration}
                 />
               }
-              label="Month"
+              label={t(messages.month())}
             />
           </FormGroup>
         </AccordionDetails>

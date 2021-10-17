@@ -1,10 +1,17 @@
-import React from 'react';
 import StarIcon from '@mui/icons-material/Star';
-import { Link } from 'react-router-dom';
-import { listLoan } from '../Filter/DataCoin';
-import { messages } from '../../pages/ResultOfferCrypto/messages';
-import { useTranslation } from 'react-i18next';
 import NULL from 'assets/Image/nullAvata.png';
+import {
+  IconArtWork,
+  IconCar,
+  IconDimond,
+  IconHouse,
+  IconWatch,
+} from 'assets/svg/svg';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { messages } from '../../pages/ResultOfferCrypto/messages';
+import { listLoan } from '../Filter/DataCoin';
 import {
   ButtonCuston,
   CollateralAccepted,
@@ -19,13 +26,7 @@ import {
   Item,
   MyLinkButton,
 } from './styles';
-import {
-  IconDimond,
-  IconCar,
-  IconHouse,
-  IconWatch,
-  IconArtWork,
-} from 'assets/svg/svg';
+
 const IconCheck = () => {
   return (
     <svg

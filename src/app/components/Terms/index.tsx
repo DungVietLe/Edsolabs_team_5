@@ -15,8 +15,6 @@ import { messages } from './messages';
 import { useTranslation } from 'react-i18next';
 const Terms = () => {
   const valueTerm = localStorage.getItem('term');
-  console.log(valueTerm);
-
   const { t } = useTranslation();
   const [check, setCheck] = useState(false);
   const [click, setClick] = useState(Boolean(valueTerm) ? false : true);

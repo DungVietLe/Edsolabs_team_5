@@ -10,9 +10,12 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
 import queryString from 'query-string';
 import { useHistory } from 'react-router';
+import { messages } from './messages';
+import { useTranslation } from 'react-i18next';
 interface Props {}
 
 export const InterestRange = (props: Props) => {
+  const { t } = useTranslation();
   const [expanded, setExpanded] = React.useState<string | false>('on');
   const history = useHistory();
   const handleChange =
@@ -39,7 +42,7 @@ export const InterestRange = (props: Props) => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Interest range</Typography>
+          <Typography>{t(messages.interest())}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <RadioGroup name="radio-buttons-group">

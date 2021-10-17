@@ -10,7 +10,10 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { ContainerInterest } from './rootStylesFilter';
 import queryString from 'query-string';
+import { messages } from './messages';
+import { useTranslation } from 'react-i18next';
 export const LoanType = (props: MyValue) => {
+  const { t } = useTranslation();
   const [expanded, setExpanded] = React.useState<string | false>('on');
   const [LoanType, setLoanType] = useState<any>({
     data: [],
@@ -54,7 +57,7 @@ export const LoanType = (props: MyValue) => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Loan type</Typography>
+          <Typography>{t(messages.loantype())}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <FormGroup>
@@ -72,7 +75,7 @@ export const LoanType = (props: MyValue) => {
                   onChange={getLoanType}
                 />
               }
-              label="Auto"
+              label={t(messages.auto())}
             />
             <FormControlLabel
               control={
@@ -88,7 +91,7 @@ export const LoanType = (props: MyValue) => {
                   onChange={getLoanType}
                 />
               }
-              label="Semi-auto"
+              label={t(messages.semi())}
             />
             <FormControlLabel
               control={
@@ -104,7 +107,7 @@ export const LoanType = (props: MyValue) => {
                   onChange={getLoanType}
                 />
               }
-              label="Negotiation"
+              label={t(messages.nego())}
             />
           </FormGroup>
         </AccordionDetails>

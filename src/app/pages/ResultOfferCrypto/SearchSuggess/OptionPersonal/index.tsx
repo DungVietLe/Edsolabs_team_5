@@ -17,6 +17,7 @@ import queryString from 'query-string';
 import { searchApi } from 'api/searchApiHome';
 import { messages } from '../../messages';
 import { useTranslation } from 'react-i18next';
+
 export default function ListSugges(props: any) {
   const { total } = props;
   const { t } = useTranslation();

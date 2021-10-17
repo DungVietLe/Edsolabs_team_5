@@ -105,30 +105,30 @@ const Header = props => {
               <Link to="/pawn">{t(messages.navPawn())}</Link>
             </li>
             <li>
-              <Link to="/">{t(messages.navBorrow())}</Link>
+              <Link to="/zxc">{t(messages.navBorrow())}</Link>
             </li>
             <li>
-              <Link to="/">{t(messages.navLend())}</Link>
+              <Link to="/zxc">{t(messages.navLend())}</Link>
             </li>
             <li>
-              <Link to="/">{t(messages.navNTF())}</Link>
+              <Link to="/zxc">{t(messages.navNTF())}</Link>
             </li>
             <li>
-              <Link to="/">{t(messages.navMyaccount())}</Link>
+              <Link to="/zxc">{t(messages.navMyaccount())}</Link>
             </li>
             <li>
-              <Link to="/">{t(messages.navFAQ())}</Link>
+              <Link to="/zxc">{t(messages.navFAQ())}</Link>
             </li>
           </MenuDesktop>
           <GropButtom>
             <LinkButtom className="btn" bg="dba83d">
-              <Link to="/">{t(messages.become())}</Link>
+              <Link to="/zxc">{t(messages.become())}</Link>
             </LinkButtom>
             <LinkButtom className="btn" outlinebutton="dba83d">
-              <Link to="/">{t(messages.buy())}</Link>
+              <Link to="/zxc">{t(messages.buy())}</Link>
             </LinkButtom>
             <LinkButtom className="show-btn btn" outlinebutton="dba83d">
-              <Link to="/">{t(messages.connect())}</Link>
+              <Link to="/zxc">{t(messages.connect())}</Link>
             </LinkButtom>
             <LanguageSwitch />
             {localStorage.getItem('access_token') ? (
@@ -196,10 +196,10 @@ const Header = props => {
               <Link to="/pawn">Pawn</Link>
             </li>
             <li>
-              <Link to="/">Staking</Link>
+              <Link to="/zxc">Staking</Link>
             </li>
             <li>
-              <Link to="/">NFT</Link>
+              <Link to="/zxc">NFT</Link>
             </li>
             <li
               className={`parent ${statusMenuMobile.Myaccount ? 'active' : ''}`}
@@ -223,10 +223,10 @@ const Header = props => {
                     {statusMenuMobile.BorrowerProfile ? (
                       <MenuMobile>
                         <li>
-                          <Link to="/">Collateral</Link>
+                          <Link to="/zxc">Collateral</Link>
                         </li>
                         <li>
-                          <Link to="/">Contracts</Link>
+                          <Link to="/zxc">Contracts</Link>
                         </li>
                       </MenuMobile>
                     ) : (

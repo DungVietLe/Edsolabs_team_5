@@ -13,7 +13,10 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { listCoin } from './DataCoin';
 import { ContainerInterest, SetSizeCoin } from './rootStylesFilter';
+import { messages } from './messages';
+import { useTranslation } from 'react-i18next';
 export const Collateral = (props: MyValue) => {
+  const { t } = useTranslation();
   const history = useHistory();
   const url = queryString.parse(history.location.search);
   const [colateral, setColateral] = useState<any>({
@@ -91,7 +94,7 @@ export const Collateral = (props: MyValue) => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Collateral</Typography>
+          <Typography>{t(messages.col())}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <FormGroup>{renderListCoin}</FormGroup>

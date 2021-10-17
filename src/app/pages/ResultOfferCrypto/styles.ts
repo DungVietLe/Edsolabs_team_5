@@ -75,9 +75,8 @@ export const Reset = styled.div`
   font-weight: 400;
   font-size: 14px;
   color: #fff;
-
   cursor: pointer;
-  padding: 12px 0 4px 16px;
+  padding: 2px 0 0px 8px;
 `;
 
 export const MySwipeableDrawer = styled(SwipeableDrawer)`
@@ -98,7 +97,7 @@ export const Close = styled.img`
 `;
 export const BoxFlex = styled.div`
   display: flex;
-  padding: 10px 5px;
+  padding: 6px 5px;
   justify-content: space-between;
   border-bottom: 1px solid #45484f;
 `;

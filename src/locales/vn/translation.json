@@ -78,7 +78,9 @@
     "whitepaper": "Trang trắng",
     "getapp": "Tải ứng dụng di động",
     "about": "Giới thiệu về DeFi",
-    "detalAbout": "DeFi For You là một phong cách giao dịch của văn phòng đăng ký Miles Mann Limited tại số 5 Southgate Street, Gloucester, Gloucestershire, GL1 1TG1 Được cấp phép và quản lý bởi Cơ quan quản lý tài chính để thực hiện các quyền và nghĩa vụ của người cho vay theo thỏa thuận tín dụng quy định (không bao gồm các khoản khống chi phí cao - tín dụng có kỳ hạn, hợp đồng mua bán hóa đơn và hợp đồng tín dụng thu tiền tận nhà), và có quyền thực hiện các quyền và nghĩa vụ của người cho vay theo hợp đồng tín dụng được quy định (không bao gồm tín dụng ngắn hạn chi phí cao, hợp đồng mua bán hóa đơn và tín dụng thu tiền tận nhà hợp đồng)"
+    "detalAbout": "DeFi For You là một phong cách giao dịch của văn phòng đăng ký Miles Mann Limited tại số 5 Southgate Street, Gloucester, Gloucestershire, GL1 1TG1 Được cấp phép và quản lý bởi Cơ quan quản lý tài chính để thực hiện các quyền và nghĩa vụ của người cho vay theo thỏa thuận tín dụng quy định (không bao gồm các khoản khống chi phí cao - tín dụng có kỳ hạn, hợp đồng mua bán hóa đơn và hợp đồng tín dụng thu tiền tận nhà), và có quyền thực hiện các quyền và nghĩa vụ của người cho vay theo hợp đồng tín dụng được quy định (không bao gồm tín dụng ngắn hạn chi phí cao, hợp đồng mua bán hóa đơn và tín dụng thu tiền tận nhà hợp đồng)",
+    "buy": "Mua",
+    "dfy": "để giao dịch"
   },
   "subFooter": {
     "term": "Điều khoản hợp đồng",
@@ -90,7 +92,7 @@
     "desHero": "Yêu cầu một khoản vay từ người cho vay P2P đáng tin cậy để nhận được lãi suất và LTV tốt hơn",
     "personalLending": "Cho vay cá nhân",
     "signedContracts": "hợp đồng đã ký",
-    "collateralPer": "Tài sản thế chấp được chấp nhận",
+    "collateralPer": "Tài sản được chấp nhận",
     "more": "còn nữa",
     "requestButton": "Yêu cầu vay",
     "instantloan": "Muốn có một khoản vay tức thì?",
@@ -127,5 +129,21 @@
     "sub12": "Mọi người nói chung đang tìm cách tăng giá trị tài sản và hoặc các khoản đầu tư được nhận thức của họ. Mục đích và hy vọng chung là giá trị của những món đồ này tăng lên theo thời gian.",
     "accept": "Chấp nhận",
     "decline": "Từ chối"
+  },
+  "filter": {
+    "resetAll": "Đặt lại",
+    "interRange": "Phạm vi quan tâm",
+    "loantovalue": "Giá trị khoản vay",
+    "collateral": "Tài sản được chấp nhận",
+    "loanToken": "Đơn vị Vay",
+    "loanType": "Kiểu vay",
+    "auto": "Tự động",
+    "semi": "Bán tự động",
+    "nego": "Đàm phán",
+    "duration": "Thời hạn",
+    "week": "Tuần",
+    "month": "Tháng",
+    "col": "Tài sản thế chấp",
+    "currency": "Tiền cho vay"
   }
 }
