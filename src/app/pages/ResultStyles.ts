@@ -41,7 +41,7 @@ export const Boxright = styled.div`
     transition: all 0.3s ease-in-out;
     transition-delay: 0.2;
     top: -7px;
-    height: 101vh;
+    height: calc(100vh + 7px);
     overflow-y: auto;
     z-index: 999999999999999999999999999;
     border-radius: 0px;

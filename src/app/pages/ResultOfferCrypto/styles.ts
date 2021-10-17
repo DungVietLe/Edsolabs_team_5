@@ -40,7 +40,7 @@ export const Boxright = styled.div`
   @media (max-width: 768px) {
     display: ${(props: Mycheck) => (props.check ? 'block' : 'none')};
     top: -7px;
-    height: 99.6vh;
+    height: calc(100vh + 7px);
     overflow-y: auto;
     position: absolute;
     z-index: 999999999999999999999999999;

@@ -19,6 +19,7 @@ export const Headers = styled.div`
   left: 0;
   top: 0;
   height:calc(100vh);
+  width: 100vw;
   `
       : 'position: static;'}
   .wrapper_flex {
@@ -32,8 +33,8 @@ export const Headers = styled.div`
     }
     border-bottom: 1px solid #4f4f4f;
   }
-  width: 100vw;
   z-index: 100000;
+  width: 100%;
 `;
 
 export const Logo = styled(Link)<{ to: any }>`

@@ -26,6 +26,7 @@ export default function ListSugges(props: any) {
     title: `${t(messages.instantloan())}`,
     content: `${t(messages.instantloanDes())}`,
   };
+
   //call API Borrow
   const history = useHistory();
   const [listApiData, setListApiData] = useState<any>([]);
