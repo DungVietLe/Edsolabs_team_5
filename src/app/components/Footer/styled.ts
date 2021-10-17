@@ -88,11 +88,19 @@ export const Subcontext = styled.span`
   font-size: 14px;
   margin-top: 0.6em;
 `;
+export const SubcontextInter = styled.span`
+  font-family: 'Inter', sans-serif !important;
+  color: ${COLOR_GRAY_FOOTER};
+  font-size: 14px;
+  margin-top: 0.6em;
+`;
 export const SubcontextAbouts = styled.span`
+  font-family: 'Inter', sans-serif !important;
   color: ${COLOR_GRAY_FOOTER};
   font-size: 14px;
   margin-top: 0.6em;
   max-width: 1028px;
+  font-weight: 400;
   @media (max-width: 600px) {
     width: 100%;
   }
@@ -107,6 +115,13 @@ export const SubcontextAbouts = styled.span`
   }
 `;
 export const SubLink = styled.a`
+  color: ${COLOR_PRIMARY_FOOTER};
+  font-size: 14px;
+  text-decoration: none;
+  margin-top: 0.6em;
+`;
+export const SubLinkInter = styled.a`
+  font-family: 'Inter', sans-serif !important;
   color: ${COLOR_PRIMARY_FOOTER};
   font-size: 14px;
   text-decoration: none;
@@ -148,6 +163,13 @@ export const MyGrid = styled.div`
   }
 `;
 export const MyTitle = styled.div`
+  color: ${COLOR_TITLE_WHITE_FOOTER};
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 2em;
+`;
+export const MytitleFont = styled.div`
+  font-family: 'Inter', sans-serif;
   color: ${COLOR_TITLE_WHITE_FOOTER};
   font-weight: 700;
   font-size: 14px;

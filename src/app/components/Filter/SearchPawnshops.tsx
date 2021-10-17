@@ -11,9 +11,7 @@ export const SearchPawnshops = (props: Props) => {
   const handleValueInput = e => {
     setTimeout(() => {
       setValue(e.target.value);
-      console.log(e.target.value, 'bên trong');
     }, 500);
-    console.log(e.target.value, 'bên ngoài');
   };
   useEffect(() => {
     const param = new URL(window.location.href);
@@ -36,11 +34,21 @@ export const SearchPawnshops = (props: Props) => {
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
-          fill="currentColor"
-          className="bi bi-search"
           viewBox="0 0 16 16"
+          fill="none"
         >
-          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+          <path
+            d="M7.33333 12.6667C10.2789 12.6667 12.6667 10.2789 12.6667 7.33333C12.6667 4.38781 10.2789 2 7.33333 2C4.38781 2 2 4.38781 2 7.33333C2 10.2789 4.38781 12.6667 7.33333 12.6667Z"
+            stroke="#A2A3A7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M13.9996 14.0016L11.0996 11.1016"
+            stroke="#A2A3A7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
         </svg>
       </IconSearch>
     </FormSearch>

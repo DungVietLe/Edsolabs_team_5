@@ -31,8 +31,6 @@ const Lend = () => {
   const [valueDuration, setValueDuration] = useState('');
   const history = useHistory();
   const onSubmit = (data: any) => {
-    console.log(data.mutiCurrency);
-
     if (Boolean(data.mutiCurrency)) {
       const mutiCurrencyStr = data.mutiCurrency
         .map(e => {

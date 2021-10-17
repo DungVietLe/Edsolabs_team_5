@@ -34,12 +34,14 @@ import {
   MyTitle,
   Subcontext,
   SubcontextAbouts,
+  SubcontextInter,
   SubLink,
+  SubLinkInter,
   Subtitle,
 } from './styled';
-interface Props {}
+import arrow from './Arrow2.png';
 
-const Footer = (props: Props) => {
+const Footer = props => {
   const { t } = useTranslation();
   return (
     <div>
@@ -53,30 +55,30 @@ const Footer = (props: Props) => {
                   alt="logo"
                   style={{ width: '14rem', marginBottom: '1.8em' }}
                 />
-                <Subcontext>
+                <SubcontextInter>
                   <img
                     src={language}
                     alt="language"
                     style={{ marginRight: '12.6px' }}
                   />
                   English (United States) -{'>'}
-                </Subcontext>
-                <SubLink href="mailto: ask@defiforyou.uk">
+                </SubcontextInter>
+                <SubLinkInter href="mailto: ask@defiforyou.uk">
                   <img
                     src={email}
                     alt="email"
                     style={{ marginRight: '12.6px' }}
                   />
                   ask@defiforyou.uk
-                </SubLink>
-                <SubLink href="mailto: support@defiforyou.uk">
+                </SubLinkInter>
+                <SubLinkInter href="mailto: support@defiforyou.uk">
                   <img
                     src={email}
                     alt="email"
                     style={{ marginRight: '12.6px' }}
                   />
                   support@defiforyou.uk
-                </SubLink>
+                </SubLinkInter>
               </MyCompany>
               <MyOfficeHN>
                 <MyTitle>{t(messages.hanoi())}</MyTitle>
@@ -117,7 +119,7 @@ const Footer = (props: Props) => {
                 </Subcontext>
                 <Subcontext>Registration Number: 13126050</Subcontext>
                 <SubLink href="https://find-and-update.company-information.service.gov.uk/company/13126050?fbclid=IwAR3Fm3QHdllfP_z1QIZ9e9UX-warFarV1XuwBqsxXyPl0M3k-BLSvkNdXuE">
-                  {t(messages.view())} -{'>'}
+                  {t(messages.view())} <img src={arrow} alt="arrow" />
                 </SubLink>
               </MyOfficeUS>
               <MyAbouts>
@@ -182,10 +184,10 @@ const Footer = (props: Props) => {
               <MyQuicklink>
                 <MyTitle>{t(messages.quick())}</MyTitle>
                 <Subcontext>
-                  {t(messages.white())} -{'>'}
+                  {t(messages.white())} <img src={arrow} alt="arrow" />
                 </Subcontext>
                 <Subcontext>
-                  {t(messages.getApp())} -{'>'}
+                  {t(messages.getApp())} <img src={arrow} alt="arrow" />
                 </Subcontext>
               </MyQuicklink>
             </MyGrid>

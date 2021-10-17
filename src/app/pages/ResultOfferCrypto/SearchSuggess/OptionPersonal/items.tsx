@@ -7,6 +7,7 @@ import tag from '../../../../../images/imagetag/tag.png';
 import { iconCoin } from './iconsCoins';
 import { messages } from '../../messages';
 import { useTranslation } from 'react-i18next';
+import Skeleton from 'react-loading-skeleton';
 const InforPersonal = styled.div`
   background: #282c37;
   width: 100%;

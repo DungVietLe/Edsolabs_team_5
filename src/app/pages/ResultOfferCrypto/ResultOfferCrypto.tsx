@@ -27,9 +27,11 @@ import { useHistory } from 'react-router';
 import { searchApi } from 'api/searchApiHome';
 import queryString from 'query-string';
 import { SearchPawnshops } from 'app/components/Filter/SearchPawnshops';
+import ReactLoading from 'react-loading';
 interface Props {}
 
 export const ResultOfferCrypto = (props: Props) => {
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
   const [status, setStatus] = useState(false);
   const handleShowFilter = () => {
@@ -93,7 +95,7 @@ export const ResultOfferCrypto = (props: Props) => {
         </ContainerResult>
       </WrapperResult>
       <Footer />
-      <Modal check={status} onClick={handleShowFilter} />
+      <Modal check={status} onClick={handleShowFilter} />{' '}
     </div>
   );
 };

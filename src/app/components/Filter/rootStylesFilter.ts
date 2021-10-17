@@ -16,7 +16,7 @@ export const MyInput = styled.input`
 export const IconSearch = styled.div`
   position: absolute;
   top: 25px;
-  left: 30px;
+  left: 28px;
   color: #a2a3a7;
 `;
 export const FormSearch = styled.form`
@@ -25,9 +25,9 @@ export const FormSearch = styled.form`
 `;
 export const ContainerInterest = styled.div`
   & > div.MuiPaper-root {
-    padding: 8px;
+    padding: 2px 0 2px 4px;
     & > div.Mui-expanded {
-      min-height: 48px !important;
+      min-height: 47px !important;
       & > div.css-o4b71y-MuiAccordionSummary-content.Mui-expanded {
         margin: 0 !important;
       }
@@ -46,9 +46,9 @@ export const ContainerInterest = styled.div`
     box-shadow: none;
 
     & > div.MuiButtonBase-root {
-      width: 94.5%;
-      margin-left: 0px;
-      padding-right: 0;
+      width: 101.5%;
+      margin-left: -4px;
+
       & > div.css-o4b71y-MuiAccordionSummary-content {
         & > p.css-ahj2mt-MuiTypography-root {
           font-weight: 600;
@@ -59,6 +59,9 @@ export const ContainerInterest = styled.div`
         & > svg.MuiSvgIcon-root {
           color: #fff !important;
         }
+        & > svg:not([fill]) {
+          color: #fff !important;
+        }
       }
     }
     & > div.MuiCollapse-root {
@@ -66,7 +69,7 @@ export const ContainerInterest = styled.div`
         & > div.MuiCollapse-wrapperInner {
           & > div.MuiAccordion-region {
             & > div.MuiAccordionDetails-root {
-              padding: 0px 0px 0px 1px !important;
+              padding: 0px 0px 6px 0px !important;
               max-height: 135px;
               overflow-y: auto;
               margin-right: 25px;
@@ -81,10 +84,10 @@ export const ContainerInterest = styled.div`
               }
               & > div.MuiFormGroup-root {
                 & > label {
-                  height: 34px;
+                  height: 32px;
                   margin: 0px 0 0px 0;
                   & > span {
-                    margin-right: 10px;
+                    margin-right: 1px;
                   }
                 }
               }

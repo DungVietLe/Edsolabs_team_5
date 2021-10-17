@@ -82,7 +82,6 @@ export function SearchResult() {
   if (data?.length > 5) {
     firstData = data.slice(0, 5);
     lastData = data.slice(5, data?.length);
-    console.log(lastData);
   } else {
     firstData = data;
   }
